@@ -1,0 +1,164 @@
+---
+// src/pages/contact.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact" description="Get in touch with Abdurakhmon Dadaboev. Reach out via email or connect on LinkedIn and GitHub.">
+  <div class="contact-header">
+    <h1 class="page-title">Contact Me</h1>
+    <p class="subtitle">Get in touch for research collaborations, project inquiries, or professional opportunities.</p>
+  </div>
+
+  <div class="contact-container">
+    <div class="card contact-card">
+      <h2 class="section-title">Direct Communication</h2>
+      <div class="contact-methods">
+        <a href="mailto:dadaboev170998@gmail.com" class="contact-item">
+          <div class="icon-wrapper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="details">
+            <span class="label">Primary Email</span>
+            <span class="value">dadaboev170998@gmail.com</span>
+          </div>
+        </a>
+
+        <a href="mailto:dadaboev0429@gmail.com" class="contact-item">
+          <div class="icon-wrapper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div class="details">
+            <span class="label">Secondary Email</span>
+            <span class="value">dadaboev0429@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="card contact-card">
+      <h2 class="section-title">Professional Networks</h2>
+      <div class="contact-methods">
+        <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <div class="icon-wrapper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </div>
+          <div class="details">
+            <span class="label">GitHub</span>
+            <span class="value">github.com/AlexL71</span>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer" class="contact-item">
+          <div class="icon-wrapper">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </div>
+          <div class="details">
+            <span class="label">LinkedIn</span>
+            <span class="value">linkedin.com/in/abdurakhmon-dadaboev</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .contact-header {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+    .page-title {
+      font-size: clamp(2rem, 3.5vw + 0.5rem, 2.5rem);
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-warm);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .contact-card {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: default;
+    }
+    .contact-card:hover {
+      transform: translateY(-2px);
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+      border: 1px solid transparent;
+    }
+    .contact-item:hover {
+      background-color: rgba(90, 96, 72, 0.04);
+      border-color: rgba(90, 96, 72, 0.1);
+      transform: translateX(4px);
+    }
+    .icon-wrapper {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: rgba(90, 96, 72, 0.06);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+    .contact-item:hover .icon-wrapper {
+      background-color: var(--accent);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .value {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-all;
+      transition: var(--transition-smooth);
+    }
+    .contact-item:hover .value {
+      color: var(--accent-warm);
+    }
+  </style>
+</Layout>

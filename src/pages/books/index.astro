@@ -1,0 +1,117 @@
+---
+// src/pages/books/index.astro
+import Layout from '../../layouts/Layout.astro';
+
+const books = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
+// Sort books by date descending
+const sortedBooks = books.sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
+---
+
+<Layout title="Books" description="Browse Abdurakhmon Dadaboev's book summaries, reviews, and reading list.">
+  <div class="books-header">
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">Books & Reading</h1>
+    <p class="subtitle">Summaries, notes, and personal takeaways from my reading list on computer science, logic, and systems.</p>
+  </div>
+
+  <div class="books-grid">
+    {sortedBooks.map((book) => (
+      <a href={book.url} class="book-card-link">
+        <div class="card book-card">
+          <div class="book-card-top">
+            <span class="badge badge-warm">Rating: {book.frontmatter.rating || "N/A"}</span>
+            <span class="book-date">{book.frontmatter.date}</span>
+          </div>
+          <h3 class="book-title">{book.frontmatter.title}</h3>
+          <p class="book-author">By {book.frontmatter.author}</p>
+          <p class="book-desc">{book.frontmatter.description}</p>
+          <div class="read-notes">Read Notes <span class="arrow">→</span></div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .books-header {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 4rem;
+    }
+    .book-card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .book-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.75rem;
+    }
+    .book-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .book-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .book-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0;
+      margin-bottom: 0.25rem;
+      line-height: 1.35;
+    }
+    .book-author {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .book-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .read-notes {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: var(--transition-smooth);
+      margin-top: auto;
+    }
+    .book-card-link:hover .read-notes {
+      color: var(--accent-hover);
+    }
+    .book-card-link:hover .arrow {
+      transform: translateX(3px);
+    }
+    .arrow {
+      transition: var(--transition-smooth);
+    }
+    @media (max-width: 640px) {
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

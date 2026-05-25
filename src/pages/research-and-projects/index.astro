@@ -1,0 +1,100 @@
+---
+// src/pages/research-and-projects/index.astro
+import Layout from '../../layouts/Layout.astro';
+
+const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
+// Sort projects by date descending
+const sortedProjects = projects.sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
+---
+
+<Layout title="Research & Projects" description="Browse Abdurakhmon Dadaboev's research projects, model architectures, and deep learning implementations.">
+  <div class="projects-header">
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">Research & Projects</h1>
+    <p class="subtitle">A showcase of deep learning architectures, computer vision pipelines, and academic research.</p>
+  </div>
+
+  <div class="projects-grid">
+    {sortedProjects.map((project) => (
+      <a href={project.url} class="card project-card">
+        <div class="project-card-header">
+          <span class="badge">{project.frontmatter.category || "Research"}</span>
+          <span class="project-date">{project.frontmatter.date}</span>
+        </div>
+        <h3 class="project-title">{project.frontmatter.title}</h3>
+        <p class="project-desc">{project.frontmatter.description}</p>
+        <div class="project-tags">
+          {project.frontmatter.tags && project.frontmatter.tags.map((tag: string) => (
+            <span class="tag-badge">#{tag}</span>
+          ))}
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .projects-header {
+      margin-bottom: 2.5rem;
+      padding-top: 1rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .project-card {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.5rem;
+    }
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .project-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    @media (max-width: 640px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

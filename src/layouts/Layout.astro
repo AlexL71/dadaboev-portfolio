@@ -1,0 +1,180 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  frontmatter?: {
+    title: string;
+    description?: string;
+    date?: string;
+  };
+}
+
+const { 
+  title: explicitTitle, 
+  description: explicitDescription,
+  frontmatter
+} = Astro.props;
+
+const title = explicitTitle || frontmatter?.title || "Abdurakhmon Dadaboev";
+const description = explicitDescription || frontmatter?.description || "Abdurakhmon Dadaboev - Personal Portfolio, Resume Host, and Blog";
+
+const pathname = Astro.url.pathname;
+const isCurrent = (path: string) => {
+  if (path === '/') {
+    return pathname === '/' || pathname === '';
+  }
+  return pathname.startsWith(path);
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Abdurakhmon Dadaboev</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- KaTeX CSS -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" 
+      integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" 
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container nav-container">
+        <a href="/" class="logo">
+          Abdurakhmon<span>Dadaboev</span>
+        </a>
+        <nav>
+          <ul>
+            <li>
+              <a href="/about" class={isCurrent('/about') ? 'active' : ''}>About</a>
+            </li>
+            <li>
+              <a href="/resume" class={isCurrent('/resume') ? 'active' : ''}>Resume</a>
+            </li>
+            <li>
+              <a href="/research-and-projects" class={isCurrent('/research-and-projects') ? 'active' : ''}>Projects</a>
+            </li>
+            <li>
+              <a href="/essays" class={isCurrent('/essays') ? 'active' : ''}>Essays</a>
+            </li>
+            <li>
+              <a href="/books" class={isCurrent('/books') ? 'active' : ''}>Books</a>
+            </li>
+            <li>
+              <a href="/contact" class={isCurrent('/contact') ? 'active' : ''}>Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      {frontmatter ? (
+        <article class="prose" style="margin-top: 2rem; margin-bottom: 2rem;">
+          <h1 style="margin-bottom: 0.5rem; border-bottom: 2px solid var(--accent-warm); padding-bottom: 0.5rem; display: block;">{frontmatter.title}</h1>
+          {frontmatter.date && <div class="timeline-meta" style="margin-bottom: 2rem;">Published: {frontmatter.date}</div>}
+          <slot />
+        </article>
+      ) : (
+        <slot />
+      )}
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="footer-top">
+          <div class="footer-info">
+            <h3 class="logo" style="margin-top: 0;">Abdurakhmon<span>Dadaboev</span></h3>
+            <p>AI Engineer & Data Scientist specializing in model architecture, computer vision, and knowledge distillation.</p>
+          </div>
+          <div class="footer-links-grid">
+            <div class="footer-links-column">
+              <h4>Professional</h4>
+              <ul>
+                <li>
+                  <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.kaggle.com/alexl98" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Kaggle
+                  </a>
+                </li>
+                <li>
+                  <a href="https://linktr.ee/dadaboev" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    Linktree
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-links-column">
+              <h4>Contact</h4>
+              <ul>
+                <li>
+                  <a href="mailto:dadaboev170998@gmail.com">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    dadaboev170998@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:dadaboev0429@gmail.com">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    dadaboev0429@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <a href="https://t.me/mealex98" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2L2 11.5l6.8 3.1L21.5 2z"></path><path d="M8.8 14.6V22l3.4-4.2"></path></svg>
+                    Telegram
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/abdurakhmon.dadaboev" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="https://instagram.com/mealex98" target="_blank" rel="noopener noreferrer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div>&copy; {new Date().getFullYear()} Abdurakhmon Dadaboev. All rights reserved.</div>
+          <div>Designed for high-performance agentic engineering.</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

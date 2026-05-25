@@ -1,0 +1,116 @@
+---
+// src/pages/essays/index.astro
+import Layout from '../../layouts/Layout.astro';
+
+const essays = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
+// Sort essays by date descending
+const sortedEssays = essays.sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+});
+---
+
+<Layout title="Essays" description="Read Abdurakhmon Dadaboev's technical and mathematical essays on optimization, model architecture, and deep learning.">
+  <div class="essays-header">
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">Essays & Articles</h1>
+    <p class="subtitle">Mathematical explanations, research reviews, and insights into system architecture.</p>
+  </div>
+
+  <div class="essays-list">
+    {sortedEssays.map((essay) => (
+      <a href={essay.url} class="essay-item-link">
+        <article class="essay-item">
+          <div class="essay-meta">
+            <span class="essay-date">{essay.frontmatter.date}</span>
+            <div class="essay-tags">
+              {essay.frontmatter.tags && essay.frontmatter.tags.map((tag: string) => (
+                <span class="badge">#{tag}</span>
+              ))}
+            </div>
+          </div>
+          <h3 class="essay-title">{essay.frontmatter.title}</h3>
+          <p class="essay-desc">{essay.frontmatter.description}</p>
+          <div class="read-more">Read Article <span class="arrow">→</span></div>
+        </article>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .essays-header {
+      margin-bottom: 3rem;
+      padding-top: 1rem;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+    .essays-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .essay-item-link {
+      text-decoration: none;
+      color: inherit;
+    }
+    .essay-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: var(--transition-smooth);
+      box-shadow: var(--shadow-sm);
+    }
+    .essay-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+    .essay-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .essay-date {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+    .essay-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+    .essay-desc {
+      font-size: 0.975rem;
+      color: var(--text-secondary);
+      line-height: 1.625;
+      margin-bottom: 1.25rem;
+    }
+    .read-more {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: var(--transition-smooth);
+    }
+    .essay-item:hover .read-more {
+      color: var(--accent-hover);
+    }
+    .essay-item:hover .arrow {
+      transform: translateX(3px);
+    }
+    .arrow {
+      transition: var(--transition-smooth);
+    }
+  </style>
+</Layout>

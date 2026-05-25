@@ -1,0 +1,326 @@
+---
+// src/pages/about.astro
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me" description="Discover Abdurakhmon Dadaboev's background, core competencies, and detailed educational and professional timeline.">
+  <div class="about-layout-grid">
+    <div class="profile-card-container">
+      <div class="profile-avatar-wrapper">
+        <img src="/images/portrait.png" alt="Abdurakhmon Dadaboev" class="profile-avatar" />
+      </div>
+      <div class="profile-details-list">
+        <h3>Profile Details</h3>
+        <ul class="details-list">
+          <li><strong>Location:</strong> Sejong, South Korea</li>
+          <li><strong>Visa Status:</strong> D-2 Student Visa</li>
+          <li><strong>Contact:</strong> dadaboev170998@gmail.com / dadaboev0429@gmail.com</li>
+          <li><strong>Languages:</strong>
+            <div class="language-badges">
+              <span class="badge badge-warm">Uzbek (Native/L1)</span>
+              <span class="badge badge-warm">Korean (TOPIK 6)</span>
+              <span class="badge badge-warm">English (IELTS 6.5 / TOEIC 825)</span>
+              <span class="badge badge-warm">Russian (Advanced)</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="profile-narrative-container">
+      <h1 class="page-title">About Me</h1>
+      <p class="intro-text">
+        I am <strong>Abdurakhmon Dadaboev</strong> (known professionally as Alex), a graduate researcher pursuing a Master's degree in <strong>Big Data Science</strong> at <strong>Korea University (Sejong Campus)</strong>. My background intersects electronic systems engineering and advanced artificial intelligence, with a deep focus on computer vision, model compression, and disciplined agentic architectures.
+      </p>
+      <p class="intro-text">
+        My technical path started with embedded systems and hardware-software integration, which developed into a passion for optimizing neural networks. In my graduate research, I focus on <strong>Semantic Segmentation</strong>, <strong>Knowledge Distillation</strong> for modality reduction, and <strong>Recall-Optimized Ensemble learning</strong> for anomalous Stuff detection. I aim to construct robust, high-performance systems that address complex real-world data constraints.
+      </p>
+
+      <div class="narrative-section">
+        <h2>Technical Core Capabilities</h2>
+        <div class="capabilities-grid">
+          <div class="capability-column">
+            <h4>AI & Computer Vision</h4>
+            <ul class="bullet-list">
+              <li>Deep Learning (PyTorch, PyTorch Lightning, TensorFlow)</li>
+              <li>Semantic Segmentation & Modality Reduction Workflows</li>
+              <li>Weighted Boxes Fusion (WBF) & Greedy Forward Selection</li>
+              <li>Image Data Preprocessing & Automated EDA Pipelines</li>
+            </ul>
+          </div>
+          <div class="capability-column">
+            <h4>Data & System Engineering</h4>
+            <li>Python (NumPy, Pandas, SciPy, OpenCV, Kiwi NLP)</li>
+            <li>Embedded Programming (C/C++, Linux, Arduino, Raspberry Pi)</li>
+            <li>Database Management (SQLite, PostgreSQL, relational modeling)</li>
+            <li>Bilingual TA Mentorship & Technical Communication</li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="timeline-section">
+    <h2>Detailed Educational & Professional Path</h2>
+    <p class="timeline-intro">An interactive chronology of my academic history, research projects, leadership positions, and awards.</p>
+    
+    <div class="timeline">
+      <!-- Master's Degree -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2024.03 ~ 2026.08 (Expected)</div>
+        <div class="timeline-title">Master's Degree in Big Data Science</div>
+        <div class="timeline-subtitle">Korea University (Sejong), Republic of Korea</div>
+        <div class="timeline-content">
+          <p>Graduate research focusing on data mining, text mining, deep learning, and computer vision architectures.</p>
+          <ul>
+            <li>Current Academic GPA: <strong>4.46 / 4.5</strong></li>
+            <li>Research topics: Cross-modal knowledge distillation, anomaly detection under label noise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Graduate TA Roles -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2024.09 ~ 2025.12</div>
+        <div class="timeline-title">Graduate Teaching Assistant (TA)</div>
+        <div class="timeline-subtitle">Department of Big Data Science, Korea University</div>
+        <div class="timeline-content">
+          <p>Designed curriculum exercises, generated materials, and conducted lectures across multiple disciplines:</p>
+          <ul>
+            <li><strong>Text Mining PBL (BDSC410) (2025.2nd Semester)</strong>: Conducted bilingual lectures (Korean/English), managed Python lab repositories, and guided undergraduate project-based teams.</li>
+            <li><strong>Deep Learning Theory (BDSC401) (2025.2nd Semester)</strong>: Led Python-based practical sessions, managed Q&A, and supported exam grading.</li>
+            <li><strong>Statistics & Multivariate Analysis (2024.2nd ~ 2025.1st Semesters)</strong>: Engineered R coding exercises, administered student evaluations, and conducted lectures in English.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tokai University exchange -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2024.11</div>
+        <div class="timeline-title">Global Academic Exchange & Seminar</div>
+        <div class="timeline-subtitle">Tokai University, Japan (Joint Program with Korea University)</div>
+        <div class="timeline-content">
+          <p>Selected to participate in the global academic seminar. Presented research progress in Data Science and AI, exchanging methodologies with Japanese researchers and establishing collaborative networks.</p>
+        </div>
+      </div>
+
+      <!-- Social Integration Program -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2023.08 ~ 2023.09</div>
+        <div class="timeline-title">Social Integration Program (KIIP) Stage 5 Complete</div>
+        <div class="timeline-subtitle">Ministry of Justice / Daejeon Immigration Office</div>
+        <div class="timeline-content">
+          <p>Completed the highest stage (Stage 5) of the Korea Immigration & Integration Program. Acquired comprehensive understanding of Korean history, constitutional law, and society, qualifying for permanent residency assessment.</p>
+        </div>
+      </div>
+
+      <!-- Bachelor's Degree -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2019.03 ~ 2023.02</div>
+        <div class="timeline-title">Bachelor's Degree in Electronic Engineering</div>
+        <div class="timeline-subtitle">Sun Moon University (Asan), Republic of Korea</div>
+        <div class="timeline-content">
+          <p>Studied microcontrollers, signal processing, embedded systems, and circuit design. Graduated with a cumulative GPA of <strong>4.18 / 4.5</strong>.</p>
+          <ul>
+            <li><strong>Global Supporters Academic Mentor (2022.09 ~ 2022.12)</strong>: Appointed by the university innovation center to coach and tutor international students in electronic engineering.</li>
+            <li><strong>Uzbek Student Association President & VP (2020.09 ~ 2022.12)</strong>: Represented and managed 35~120 Uzbek students. Programmed a KakaoTalk auto-responding FAQ chatbot. Facilitated translation for visiting Uzbek delegations (MOU agreements, Ministry level talks).</li>
+            <li><strong>Hexapod Robot Project (2022 Spring)</strong>: Engineered an Arduino-based 6-legged robot using 16 micro servos. Designed the power distribution (voltage-current regulation) board and physical chassis.</li>
+            <li><strong>Ball Launcher Project (2021 Fall)</strong>: Designed a Raspberry Pi-powered visual object tracking ball launcher. Integrated webcam computer vision tracking with ultrasonic distance-based PWM motor controls.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- International Symposium Speech -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2021.11</div>
+        <div class="timeline-title">Symposium Representative Speaker</div>
+        <div class="timeline-subtitle">International Unification Symposium, Sun Moon University</div>
+        <div class="timeline-content">
+          <p>Selected as the Uzbek student representative. Delivered a keynote speech in the university's main international hall regarding Peace & Unification on the Korean Peninsula. Highlighted global communication and cross-cultural leadership (featured in local news media).</p>
+        </div>
+      </div>
+
+      <!-- NHIS Russian/Uzbek translation -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2021.07</div>
+        <div class="timeline-title">Voluntary Translator & Administrative Support</div>
+        <div class="timeline-subtitle">National Health Insurance Service (NHIS), South Korea</div>
+        <div class="timeline-content">
+          <p>Assisted foreign residents and students by translating official health insurance guideline sheets, registration policies, and notices into Russian and Uzbek.</p>
+        </div>
+      </div>
+
+      <!-- GKS Scholarships -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2020.01 & 2021.01</div>
+        <div class="timeline-title">Outstanding Self-Funded GKS Scholarship Winner (2x)</div>
+        <div class="timeline-subtitle">National Institute for International Education (NIIED), Ministry of Education</div>
+        <div class="timeline-content">
+          <p>Awarded the prestigious Global Korea Scholarship (GKS) for Outstanding Self-Funded Students twice consecutively, in recognition of top academic rank, community volunteering, and bilingual fluency.</p>
+        </div>
+      </div>
+
+      <!-- Korean Language Course -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2017.09 ~ 2018.10</div>
+        <div class="timeline-title">Regular Korean Language Course</div>
+        <div class="timeline-subtitle">Korean Language Education Center, Sun Moon University</div>
+        <div class="timeline-content">
+          <p>Completed intensive training in Korean grammar, conversation, writing, and reading. Achieved TOPIK Level 6 within one year of study.</p>
+        </div>
+      </div>
+
+      <!-- Early Education - Art School -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2008.09 ~ 2013.06</div>
+        <div class="timeline-title">Specialist in Fine Art & General Academics</div>
+        <div class="timeline-subtitle">Andijan Specialized Art Boarding School, Uzbekistan (Affiliated with Academy of Arts)</div>
+        <div class="timeline-content">
+          <p>Completed 5 years of balanced intensive training in Fine Art and general academic subjects, under the regulation of the Academy of Arts of Uzbekistan. Maintained top academic status in a disciplined boarding school system.</p>
+        </div>
+      </div>
+
+      <!-- High School in Uzbekistan -->
+      <div class="timeline-item">
+        <div class="timeline-meta">2013.09 ~ 2016.06</div>
+        <div class="timeline-title">Specialist in Automatic Systems & Electro-gas Welding</div>
+        <div class="timeline-subtitle">Andijan Transport and Service Professional School, Uzbekistan</div>
+        <div class="timeline-content">
+          <p>Graduated with a perfect grade point average of <strong>5 / 5</strong>. Acquired foundational training in automated controls, electrical wiring, and physical systems engineering.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .about-layout-grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+    .profile-card-container {
+      flex: 1 1 18rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .profile-avatar-wrapper {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+    }
+    .profile-avatar {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-details-list h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.25rem;
+    }
+    .details-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .details-list li {
+      margin-bottom: 0.75rem;
+      color: var(--text-secondary);
+    }
+    .details-list strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+    .language-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+    .language-badges .badge {
+      display: inline-block;
+      width: fit-content;
+    }
+    .profile-narrative-container {
+      flex: 2 1 24rem;
+    }
+    .page-title {
+      font-size: clamp(2rem, 3.5vw + 0.5rem, 2.5rem);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-warm);
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    .intro-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+    .narrative-section {
+      margin-top: 2rem;
+    }
+    .narrative-section h2 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      margin-top: 0;
+    }
+    .capabilities-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .capability-column {
+      flex: 1 1 14rem;
+      list-style: none;
+    }
+    .capability-column h4 {
+      color: var(--accent-warm);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+    .capability-column li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.925rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+    .capability-column li::before {
+      content: '▪';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .section-divider {
+      height: 1px;
+      background-color: var(--border-color);
+      margin: clamp(2rem, 5vh, 3.5rem) 0;
+    }
+    .timeline-section h2 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-intro {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+  </style>
+</Layout>
