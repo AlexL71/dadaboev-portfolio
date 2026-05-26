@@ -46,11 +46,7 @@ The system was re-engineered around a **Deterministic Alignment & Projection Pip
 
 ### 1. Corner Marker Perspective Warping
 Instead of detecting local form fields directly, the system locates four solid black square/rectangle corner markers placed in the sheet's margins.
-- **Marker Detection**: Checks local quadrants (`0:cy, 0:cx`, etc.) using contour area constraints ($50 < \text{Area} < 5000$) and strict aspect ratio boundaries:
-
-$$
-0.7 \le \frac{w}{h} \le 1.3
-$$
+- **Marker Detection**: Checks local quadrants (`0:cy, 0:cx`, etc.) using contour area constraints ($50 < \text{Area} < 5000$) and strict aspect ratio boundaries (width-to-height ratio between $0.7$ and $1.3$).
 
 - **Warping**: Maps the four detected coordinates to a deterministic target resolution ($2828 \times 2000$ pixels) using a perspective warp matrix:
 
@@ -72,20 +68,14 @@ ROIS_P1 = {
 ```
 
 ### 3. Timing-Track Projection OMR
-To parse filled cells in the Student ID and DOB grids, `read_omr_smart` computes vertical and horizontal projections of binary pixel densities:
-
-$$
-P_v(x) = \sum_{y=0}^{H} \text{Grid}(x, y)
-$$
-
-The column and row cell boundaries are located by identifying peaks and valleys in the projection distributions, acting as dynamic **timing tracks**.
+To parse filled cells in the Student ID and DOB grids, `read_omr_smart` computes vertical and horizontal projections of binary pixel densities (sum of active pixels along each axis). The column and row cell boundaries are located by identifying peaks and valleys in the projection distributions, acting as dynamic **timing tracks**.
 - **Mark Classification**: The red channel ($I_R$) is thresholded to isolate pencil strokes from the red grid lines. The fill ratio of each cell is calculated:
 
 $$
 \text{Ratio} = \frac{\text{NonZero}(I_R \le 180)}{\text{Cell Area}}
-```
+$$
+
 If a cell's fill ratio is $\ge 12\%$, it is marked as a selection; ratios between $5\%$ and $12\%$ are flagged as "doubtful" (`!`), triggering human review.
-```
 
 ---
 

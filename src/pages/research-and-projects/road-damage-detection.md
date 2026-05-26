@@ -20,10 +20,10 @@ This case study presents the design, implementation, and empirical evaluation of
 The model was subjected to a rigorous evaluation period between December 4 and December 17, 2025. Evaluating against official test sets, the model passed all certified threshold criteria:
 
 | Evaluation Metric | Target Threshold | Certified Result | Status |
-| :--- | :--- | :--- | :--- |
-| **Detection Accuracy (mAP@50)** | $\ge 0.85$ | **0.88** | **PASS** |
-| **Segmentation Quality (mIoU)** | $\ge 0.70$ | **0.79** | **PASS** |
-| **Recall Rate** | $\ge 0.90$ | **0.91** | **PASS** |
+|---|---|---|---|
+| Detection Accuracy (mAP@50) | $\ge 0.85$ | 0.88 | PASS |
+| Segmentation Quality (mIoU) | $\ge 0.70$ | 0.79 | PASS |
+| Recall Rate | $\ge 0.90$ | 0.91 | PASS |
 
 ---
 
@@ -50,11 +50,7 @@ The first stage takes cropped road images resized to $1920 \times 648$ (pre-proc
 To eliminate noisy detections and boundary tendrils common in low-contrast asphalt, the segmentation masks are processed via a two-stage filter:
 
 1. **Morphological Cleanup (`clean_mask`)**: 
-   We apply morphological opening (erosion followed by dilation) with a structured kernel $K$ to suppress small floating blobs and thin, disconnected tendrils. We retain only the largest connected component of the binary mask $M$:
-   
-   $$
-   M_{\text{clean}} = \text{LargestComponent}\left( (M \ominus K) \oplus K \right)
-   $$
+   We apply morphological opening (erosion followed by dilation) with a structured kernel to suppress small floating blobs and thin, disconnected tendrils, retaining only the largest connected component of the binary mask.
 
 2. **Containment & Overlap Suppression (`apply_detection_filter`)**:
    We implement a geometric rule-based filter using Intersection over Union (IoU) to resolve overlapping detections. For instance, if an alligator crack mask ($M_{ac}$) and a longitudinal crack mask ($M_{lc}$) overlap significantly, we suppress the weaker classification, preventing double-counting and boundary dilution.

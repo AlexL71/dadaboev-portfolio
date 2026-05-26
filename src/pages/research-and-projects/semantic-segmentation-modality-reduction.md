@@ -49,28 +49,9 @@ graph TD
 
 ### Loss Function Formulations
 
-The total training objective $L_{\text{total}}$ is defined as:
+The total training objective balances standard cross-entropy on ground-truth labels and a temperature-scaled Kullback-Leibler (KL) divergence over the softened logits. We use a balance factor of $\alpha = 0.5$ to weight ground-truth supervision and teacher guidance equally. 
 
-$$
-L_{\text{total}} = \alpha L_{\text{hard}} + (1 - \alpha) L_{\text{soft}}
-$$
-
-where:
-- $\alpha = 0.5$ balances ground-truth supervision and teacher guidance.
-- $L_{\text{hard}}$ is the standard categorical cross-entropy loss against the one-hot ground truth labels.
-- $L_{\text{soft}}$ is the temperature-scaled KL-divergence:
-
-$$
-L_{\text{soft}} = T^2 \cdot \text{KL}(p_s^T \parallel p_t^T)
-$$
-
-The softened probability distributions for student ($p_s^T$) and teacher ($p_t^T$) are scaled by the distillation temperature $T = 3$ before applying the softmax operator:
-
-$$
-p_i^T = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}
-$$
-
-Setting $T = 3$ softens the probability distributions, preventing information collapse and allowing the student to learn subtle, inter-class spatial boundaries (e.g., the transition between shrubs and grassland).
+The softened probability distributions for student and teacher are scaled by a distillation temperature of $T = 3$ before applying the softmax operator. Setting $T = 3$ softens the distributions, preventing information collapse and allowing the student to learn subtle, inter-class spatial boundaries (e.g., the transition between shrubs and grassland).
 
 ---
 

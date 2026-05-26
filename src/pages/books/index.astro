@@ -37,6 +37,7 @@ const sortedBooks = books.sort((a, b) => {
           </div>
           <h3 class="book-title">{book.frontmatter.title}</h3>
           <p class="book-author">By {book.frontmatter.author}</p>
+          {book.frontmatter.description && <p class="book-description">{book.frontmatter.description}</p>}
         </div>
       </a>
     ))}
@@ -105,6 +106,17 @@ const sortedBooks = books.sort((a, b) => {
       font-size: 0.875rem;
       color: var(--text-secondary);
       margin-bottom: 0;
+    }
+    .book-description {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     @media (max-width: 480px) {
       .books-grid {

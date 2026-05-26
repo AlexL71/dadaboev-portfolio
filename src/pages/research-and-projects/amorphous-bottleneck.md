@@ -18,25 +18,10 @@ This case study presents a data-centric, recall-optimized ensemble pipeline desi
 ## The Core Mathematical Framework
 
 ### 1. Weber Contrast Limitation
-To quantify the visual difficulty of the dataset, we calculate the Weber contrast ($C_w$) of each target anomaly against its immediate background:
-
-$$
-C_w = \frac{|I_{\text{object}} - I_{\text{background}}|}{I_{\text{background}}}
-$$
-
-Across the 9,028 instance annotations, the mean Weber contrast is **0.0824**, and **95.67% of labeled defects sit below the psychophysical detection threshold ($C_w = 0.2$)**. Under this low-contrast regime, human annotation boundaries are highly inconsistent, introducing significant label noise.
+To quantify the visual difficulty of the dataset, we calculate the Weber contrast $C_w = |I_{\text{object}} - I_{\text{background}}| / I_{\text{background}}$ of each target anomaly against its immediate background. Across the 9,028 instance annotations, the mean Weber contrast is **0.0824**, and **95.67% of labeled defects sit below the psychophysical detection threshold ($C_w = 0.2$)**. Under this low-contrast regime, human annotation boundaries are highly inconsistent, introducing significant label noise.
 
 ### 2. Custom Asymmetric Safety Score
-To optimize for recall while keeping false positive accumulation bounded, the GFS algorithm evaluates models on the validation set using an asymmetric Safety Score ($S$):
-
-$$
-S = T_{TP} - \alpha \cdot T_{FP}
-$$
-
-where:
-- $T_{TP}$ is the net true positive count after fusion.
-- $T_{FP}$ is the count of unverified (false positive) predictions.
-- $\alpha = 0.1$ is a scale factor reflecting the operational reality that a missed defect is ten times more expensive than a false alarm.
+To optimize for recall while keeping false positive accumulation bounded, the GFS algorithm evaluates models on the validation set using an asymmetric Safety Score $S = T_{TP} - \alpha \cdot T_{FP}$ (where $T_{TP}$ is the true positive count, $T_{FP}$ is the false positive count, and $\alpha = 0.1$ reflects that a missed defect is ten times more costly than a false alarm).
 
 ---
 

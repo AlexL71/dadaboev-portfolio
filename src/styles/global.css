@@ -507,3 +507,28 @@ footer {
   background-color: rgba(140, 98, 57, 0.06);
   color: var(--accent-warm);
 }
+
+/* Tables styling inside articles */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.prose th, .prose td {
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(90, 96, 72, 0.15);
+}
+
+.prose th {
+  background-color: rgba(90, 96, 72, 0.05);
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(90, 96, 72, 0.25);
+}
+
+.prose tr:nth-child(even) {
+  background-color: rgba(90, 96, 72, 0.02);
+}
