@@ -1,32 +1,42 @@
 ---
 // src/pages/books/index.astro
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 const books = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
-// Sort books by date descending
+
+// Sort books: by date descending if available, else alphabetically by title
 const sortedBooks = books.sort((a, b) => {
-  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime();
+  const dateA = a.frontmatter.date ? new Date(a.frontmatter.date).getTime() : 0;
+  const dateB = b.frontmatter.date ? new Date(b.frontmatter.date).getTime() : 0;
+  if (dateA !== dateB) {
+    return dateB - dateA;
+  }
+  return (a.frontmatter.title || "").localeCompare(b.frontmatter.title || "");
 });
 ---
 
-<Layout title="Books" description="Browse Abdurakhmon Dadaboev's book summaries, reviews, and reading list.">
+<Layout title="Books" description="Browse Abdurakhmon Dadaboev's book list, featuring curated literature, philosophy, and technical volumes.">
   <div class="books-header">
     <h1 class="page-title" style="margin-bottom: 0.5rem;">Books & Reading</h1>
-    <p class="subtitle">Summaries, notes, and personal takeaways from my reading list on computer science, logic, and systems.</p>
+    <p class="subtitle">A visual library of personal books.</p>
   </div>
 
   <div class="books-grid">
     {sortedBooks.map((book) => (
       <a href={book.url} class="book-card-link">
-        <div class="card book-card">
-          <div class="book-card-top">
-            <span class="badge badge-warm">Rating: {book.frontmatter.rating || "N/A"}</span>
-            <span class="book-date">{book.frontmatter.date}</span>
+        <div class="book-card">
+          <div class="book-cover-wrapper">
+            <Image 
+              src={book.frontmatter.cover} 
+              alt={`Cover of ${book.frontmatter.title}`} 
+              width={200}
+              height={290}
+              class="book-cover"
+            />
           </div>
           <h3 class="book-title">{book.frontmatter.title}</h3>
           <p class="book-author">By {book.frontmatter.author}</p>
-          <p class="book-desc">{book.frontmatter.description}</p>
-          <div class="read-notes">Read Notes <span class="arrow">→</span></div>
         </div>
       </a>
     ))}
@@ -34,7 +44,7 @@ const sortedBooks = books.sort((a, b) => {
 
   <style>
     .books-header {
-      margin-bottom: 3rem;
+      margin-bottom: clamp(2rem, 5vh, 3.5rem);
       padding-top: 1rem;
     }
     .subtitle {
@@ -43,8 +53,8 @@ const sortedBooks = books.sort((a, b) => {
     }
     .books-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: clamp(1.5rem, 4vw, 2.5rem);
       margin-bottom: 4rem;
     }
     .book-card-link {
@@ -55,21 +65,36 @@ const sortedBooks = books.sort((a, b) => {
       display: flex;
       flex-direction: column;
       height: 100%;
-      padding: 1.75rem;
+      transition: var(--transition-smooth);
     }
-    .book-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+    .book-cover-wrapper {
+      position: relative;
+      aspect-ratio: 2 / 3;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      background-color: rgba(90, 96, 72, 0.02);
+      margin-bottom: 0.85rem;
+      transition: var(--transition-smooth);
     }
-    .book-date {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .book-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition-smooth);
+    }
+    .book-card-link:hover .book-cover-wrapper {
+      transform: translateY(-0.25rem);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+    .book-card-link:hover .book-cover {
+      transform: scale(1.03);
     }
     .book-title {
-      font-size: 1.25rem;
+      font-size: 1.05rem;
       font-weight: 600;
       color: var(--text-primary);
       margin-top: 0;
@@ -77,40 +102,14 @@ const sortedBooks = books.sort((a, b) => {
       line-height: 1.35;
     }
     .book-author {
-      font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-    .book-desc {
-      font-size: 0.95rem;
+      font-size: 0.875rem;
       color: var(--text-secondary);
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
+      margin-bottom: 0;
     }
-    .read-notes {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      transition: var(--transition-smooth);
-      margin-top: auto;
-    }
-    .book-card-link:hover .read-notes {
-      color: var(--accent-hover);
-    }
-    .book-card-link:hover .arrow {
-      transform: translateX(3px);
-    }
-    .arrow {
-      transition: var(--transition-smooth);
-    }
-    @media (max-width: 640px) {
+    @media (max-width: 480px) {
       .books-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
       }
     }
   </style>
