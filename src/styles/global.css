@@ -532,3 +532,13 @@ footer {
 .prose tr:nth-child(even) {
   background-color: rgba(90, 96, 72, 0.02);
 }
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  margin: 1.5rem auto;
+  display: block;
+}
+

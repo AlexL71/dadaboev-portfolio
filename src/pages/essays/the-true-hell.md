@@ -6,6 +6,8 @@ date: "2026-05-25"
 tags: ["Philosophy", "Literature", "Self-Love", "Thoughts"]
 ---
 
+![The True Hell](/images/The%20True%20Hell.png)
+
 What is hell? Is it a mythical place where bad people are punished forever, or is it a word we use when pain becomes too heavy to carry, whether in the body or in the soul?
 
 Fyodor Dostoevsky described hell as the inability to love. This idea reaches deeper than fire or punishment. It does not mean that no one loves you. It means that you can no longer love anyone, starting with yourself.

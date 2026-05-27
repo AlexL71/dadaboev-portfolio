@@ -6,6 +6,8 @@ date: "2026-05-25"
 tags: ["Philosophy", "Literature", "Faith", "Thoughts"]
 ---
 
+![The Trapped God Poseidon Modern Ego and Trusting God](/images/The%20Trapped%20God%20Poseidon%20Modern%20Ego%20and%20Trusting%20God.jpg)
+
 Kafka’s "Poseidon" is not a mighty sea king, but a stressed office worker buried in paperwork. His ego traps him at his desk because he believes only he can do the math. This matches how modern workers think they cannot be replaced, and it directly opposes the Islamic idea of trusting God.
 
 Today, we build our lives around boring, repetitive tasks. Like Poseidon, we want to feel important. We think our endless work holds our worlds together. The joke is that while people think we are powerful, we are just crunching numbers. This feeling of being "essential" is a lie. We give up our peace of mind for jobs that will eventually be taken by a new worker or new technology.
