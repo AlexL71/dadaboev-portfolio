@@ -32,7 +32,7 @@ The system is constructed with a dual-loop control pipeline:
 ### Circuit Schematic
 Below is the circuit schematic detailing the connections between the Raspberry Pi, standard servo motor, L298N motor driver, and sensors:
 
-![Ball Launcher Circuit Schematic](/images/ball_launcher_circuit.png)
+<img src="/images/ball_launcher_circuit.png" alt="Ball Launcher Circuit Schematic" style="width: 80%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 8px; border: 1px solid var(--border-color);" />
 
 ---
 
