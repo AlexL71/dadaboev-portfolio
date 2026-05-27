@@ -19,12 +19,12 @@ const sortedBooks = books.sort((a, b) => {
 <Layout title="Books" description="Browse Abdurakhmon Dadaboev's book list, featuring curated literature, philosophy, and technical volumes.">
   <div class="books-header">
     <h1 class="page-title" style="margin-bottom: 0.5rem;">Books & Reading</h1>
-    <p class="subtitle">A visual library of personal books.</p>
+    <p class="subtitle">Books I read</p>
   </div>
 
   <div class="books-grid">
     {sortedBooks.map((book) => (
-      <a href={book.url} class="book-card-link">
+      <a href={`https://www.google.com/search?q=${encodeURIComponent(book.frontmatter.title + ' by ' + book.frontmatter.author)}`} target="_blank" rel="noopener noreferrer" class="book-card-link">
         <div class="book-card">
           <div class="book-cover-wrapper">
             <Image 
