@@ -32,6 +32,11 @@ The robot is engineered around a distributed hardware control layout:
 - **Sensory Perception**: Uses an HC-SR04 ultrasonic sensor for autonomous navigation and obstacle avoidance. A companion Raspberry Pi camera module tracks a green color marker to follow the owner.
 - **Human-Robot Interface (HRI)**: An 8x8 LED matrix driven by a MAX7219 controller displays expressive pixel patterns (e.g., happy, sad, scanning) based on the robot's operational state.
 
+### Circuit Schematic
+Below is the circuit schematic showing the power distribution loops, the PCA9685 servo driver connections to the 18 servos, and the interface with the Arduino Uno:
+
+![Hexapod Robot Circuit Schematic](/images/spider_bot_circuit.png)
+
 ---
 
 ## Key Implementation Details
@@ -56,3 +61,20 @@ SG90 micro servos draw low average currents but experience severe current spikes
    - *Solution*: Designed and fitted custom rubberized grip tips to the ends of the tibias, providing the friction necessary for precise movement.
 3. **PCA9685 Pin Burnout**: During wiring modifications, back-EMF from the servos caused reverse voltage spikes, blowing out the driver pins.
    - *Solution*: Added P-channel MOSFET switches to the power inputs, providing over-current and reverse-polarity protection to the PCA9685 board.
+
+---
+
+## Demonstration Video
+
+Below is the hardware test demonstration of the 18-DOF Hexapod robot walking, displaying emotions, and tracking green markers:
+
+<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; margin: 2rem 0; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+  <iframe 
+    src="https://www.youtube.com/embed/ncwSMs6z5Ug" 
+    title="18-DOF Hexapod Spider Robot Test Video" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>

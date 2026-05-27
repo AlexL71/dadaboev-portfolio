@@ -29,6 +29,11 @@ The system is constructed with a dual-loop control pipeline:
 1. **Target Tracking Loop**: The Raspberry Pi Camera tracks the coordinates of a red spherical target. The coordinate offset from the frame center controls a high-torque standard servo motor to rotate the launcher platform horizontally.
 2. **Firing Force Control Loop**: An ultrasonic sensor measures the physical distance to the target. A custom mapping function converts this distance into a specific pulse-width modulation (PWM) duty cycle, controlling the dual DC motor launcher wheels via an L298N H-bridge.
 
+### Circuit Schematic
+Below is the circuit schematic detailing the connections between the Raspberry Pi, standard servo motor, L298N motor driver, and sensors:
+
+![Ball Launcher Circuit Schematic](/images/ball_launcher_circuit.png)
+
 ---
 
 ## Key Implementation Details
@@ -56,3 +61,20 @@ To achieve reliable hits across the active launch range (50 cm to 210 cm), we de
    - *Solution*: Re-machined the structural components out of lightweight acrylic sheets and systematically arranged the weight distribution around the servo's primary rotational axis to minimize torque loads.
 3. **Servo Motor Delay Tuning**: Rapid, unbuffered adjustments to the servo position caused oscillation and blurred camera inputs.
    - *Solution*: Introduced a brief temporal delay (smoothing window) in the control loop, allowing the servo motor to settle before capturing the next camera frame.
+
+---
+
+## Demonstration Video
+
+Below is the hardware test demonstration of the Dodgeball launcher tracking and firing at the target in real time:
+
+<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; margin: 2rem 0; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+  <iframe 
+    src="https://www.youtube.com/embed/RzG0mym6OIU" 
+    title="Dodgeball Autonomous Ball Launcher Test Video" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+  ></iframe>
+</div>
