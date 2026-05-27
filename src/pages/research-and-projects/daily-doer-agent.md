@@ -2,7 +2,7 @@
 layout: ../../layouts/Layout.astro
 title: "DailyDoer Agent: Conversational Telegram Bot"
 description: "A Python-based Telegram bot powered by Google Gemini, automating daily schedules, email dispatching, news scraping, and voice command processing."
-date: "2026-04-10"
+date: "2025-06-15"
 category: "Conversational AI"
 tags: ["Gemini API", "Telegram Bot", "Google APIs", "Python", "Web Scraping", "NLP"]
 ---

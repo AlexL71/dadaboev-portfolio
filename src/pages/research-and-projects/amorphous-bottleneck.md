@@ -2,7 +2,7 @@
 layout: ../../layouts/Layout.astro
 title: "The Amorphous Bottleneck: Recall-Optimized Ensembles"
 description: "A disciplined, agentic engineering approach to anomaly detection in low-contrast, non-rigid structures."
-date: "2025-12-05"
+date: "2026-04-15"
 category: "Model Architecture"
 tags: ["Computer Vision", "Ensemble Learning", "Data-Centric AI", "WBF"]
 ---
