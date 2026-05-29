@@ -55,17 +55,17 @@ const sortedEssays = essays.sort((a, b) => {
       color: inherit;
     }
     .essay-item {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: 12px;
       padding: 2rem;
-      transition: var(--transition-smooth);
-      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
     .essay-item:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-color: #CBD5E1;
     }
     .essay-meta {
       display: flex;
@@ -78,7 +78,7 @@ const sortedEssays = essays.sort((a, b) => {
     .essay-date {
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      color: var(--accent-warm);
+      color: #64748B;
       font-weight: 500;
     }
     .essay-title {

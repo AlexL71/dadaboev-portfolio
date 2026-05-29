@@ -89,7 +89,15 @@ const sortedProjects = projects.sort((a, b) => {
     .tag-badge {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: #2563EB;
+      background-color: #EFF6FF;
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px; /* Pill layout */
+      display: inline-block;
+      transition: var(--transition-smooth);
+    }
+    .tag-badge:hover {
+      background-color: #DBEAFE;
     }
     @media (max-width: 640px) {
       .projects-grid {
