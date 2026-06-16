@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "DailyDoer Agent: Conversational Telegram Bot"
 description: "A Python-based Telegram bot powered by Google Gemini, automating daily schedules, email dispatching, news scraping, and voice command processing."
 date: "2025-06-15"

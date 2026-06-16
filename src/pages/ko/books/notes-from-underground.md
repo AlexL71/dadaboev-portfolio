@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Notes from Underground"
 author: "Fyodor Dostoevsky"
 date: ""

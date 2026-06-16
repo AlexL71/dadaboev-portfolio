@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Semantic Segmentation & Modality Reduction"
 description: "Transferring multi-modal (RGB, NIR, LiDAR) knowledge to a compact RGB-only student model using Response-Based Knowledge Distillation."
 date: "2025-08-22"

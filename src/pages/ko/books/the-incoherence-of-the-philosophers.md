@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Incoherence of the Philosophers"
 author: "Al-Ghazali"
 date: ""

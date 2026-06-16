@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "On Love and Usefulness"
 description: "Reflections on adult relationships, conditional exchanges, responsibility, and the concept of loving for God's sake."
 date: "2026-05-25"

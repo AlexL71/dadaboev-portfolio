@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The True Hell"
 description: "Dostoevsky's view of hell as the inability to love, and the tragedy of isolating self-protection."
 date: "2026-05-25"

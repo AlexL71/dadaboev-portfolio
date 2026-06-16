@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Does being good require honesty?"
 description: "An inquiry into the nature of moral acts, selfless goodness, and the expectations of the ego."
 date: "2026-05-25"

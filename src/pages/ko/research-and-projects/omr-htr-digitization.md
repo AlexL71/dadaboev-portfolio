@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "OMR and HTR Digitization: ExamOCR System"
 description: "Architecting a robust academic exam digitizer using perspective warping, timing-track projections, and Qwen2.5-VL sequence modeling."
 date: "2026-02-15"

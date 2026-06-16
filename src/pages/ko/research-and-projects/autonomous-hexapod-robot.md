@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Coordinated Kinematics: 18-DOF Hexapod Robot"
 description: "An autonomous 18-DOF hexapod spider robot featuring coordinated tripod gait locomotion, ultrasonic obstacle avoidance, and Raspberry Pi target tracking."
 date: "2022-03-20"

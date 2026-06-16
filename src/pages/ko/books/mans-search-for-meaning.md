@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Man's Search for Meaning"
 author: "Viktor E. Frankl"
 date: ""

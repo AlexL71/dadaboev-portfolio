@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Mandate of Privilege"
 description: "Redefining gratitude from passive relief into an active mandate for service."
 date: "2026-05-25"

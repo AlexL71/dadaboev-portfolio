@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Yulduzli tunlar"
 author: "Pirimqul Qodirov"
 date: ""

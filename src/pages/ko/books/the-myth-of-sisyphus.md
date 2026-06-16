@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Myth of Sisyphus"
 author: "Albert Camus"
 date: ""

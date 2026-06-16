@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Amorphous Bottleneck: Recall-Optimized Ensembles"
 description: "A disciplined, agentic engineering approach to anomaly detection in low-contrast, non-rigid structures."
 date: "2026-04-15"

@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Brothers Karamazov"
 author: "Fyodor Dostoevsky"
 date: ""

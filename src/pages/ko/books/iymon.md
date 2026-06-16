@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Iymon"
 author: "Shaykh Muhammad Sodiq Muhammad Yusuf"
 date: ""

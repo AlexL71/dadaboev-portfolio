@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Can't Hurt Me"
 author: "David Goggins"
 date: ""

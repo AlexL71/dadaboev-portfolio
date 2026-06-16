@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Text Mining Fundamentals with Python"
 description: "Designing a comprehensive, task-oriented undergraduate/graduate curriculum covering crawling, lexicons, topic modeling, and LSTM sentiment networks."
 date: "2025-12-15"

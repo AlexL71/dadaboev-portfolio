@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Demian: The Search for the Authentic Self"
 description: "A reflective journey into Emil Sinclair's path of self-realization, personal will, and the synthesis of good and evil."
 date: "2026-05-25"

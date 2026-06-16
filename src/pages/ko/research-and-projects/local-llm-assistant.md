@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Local LLM Assistant: Private Offline Chat"
 description: "A private, offline AI assistant running on a mobile phone, powered by a local DeepSeek-7B model hosted on a PC via FastAPI and Ollama."
 date: "2025-04-15"

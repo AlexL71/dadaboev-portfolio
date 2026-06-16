@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Avlodlar dovoni"
 author: "Pirimqul Qodirov"
 date: ""

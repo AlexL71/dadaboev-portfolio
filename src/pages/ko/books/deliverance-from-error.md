@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Deliverance from Error"
 author: "Al-Ghazali"
 date: ""

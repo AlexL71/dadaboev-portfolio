@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Trapped God: Poseidon, Modern Ego, and Trusting God"
 description: "Analyzing Kafka's Poseidon, modern corporate ego, and the Islamic concept of trusting God (Tawakkul)."
 date: "2026-05-25"

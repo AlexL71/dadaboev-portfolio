@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Poor Folk"
 author: "Fyodor Dostoevsky"
 date: ""

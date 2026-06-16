@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Certified Road Damage Segmentation & Severity Classification"
 description: "A certified multi-stage deep learning pipeline leveraging YOLO11l-seg, YOLO11m-cls, and custom morphological post-processing filters."
 date: "2025-12-17"

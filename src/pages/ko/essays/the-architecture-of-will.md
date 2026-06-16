@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "The Architecture of Will: Between the Transaction of Faith and the Irrationality of Love"
 description: "Examining human suffering, the transaction of religious rewards/punishments, and the self-justifying nature of compassion."
 date: "2026-05-25"

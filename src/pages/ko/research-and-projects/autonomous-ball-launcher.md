@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "Dodgeball: Autonomous Ball Launcher"
 description: "An autonomous target-tracking ball launcher utilizing OpenCV color filtering, servo positioning, and ultrasonic distance-based PWM motor tuning."
 date: "2021-09-15"

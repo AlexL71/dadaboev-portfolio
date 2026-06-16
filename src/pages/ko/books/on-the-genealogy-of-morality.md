@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../../layouts/Layout.astro
 title: "On the Genealogy of Morality"
 author: "Friedrich Nietzsche"
 date: ""
