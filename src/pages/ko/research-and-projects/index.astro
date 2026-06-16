@@ -1,6 +1,6 @@
 ---
 // src/pages/research-and-projects/index.astro
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro';
 
 const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
 // Sort projects by date descending

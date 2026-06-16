@@ -1,6 +1,6 @@
 ---
 // src/pages/books/index.astro
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 const books = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
