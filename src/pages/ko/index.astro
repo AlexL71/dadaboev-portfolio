@@ -1,0 +1,199 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Home" description="Welcome to Abdurakhmon Dadaboev's personal portfolio, resume host, and blog. Explore research, essays, and career roadmap.">
+  <div class="hero-container">
+    <div class="hero-text-content">
+      <div class="hero-badge">AI ENGINEER & DATA SCIENTIST</div>
+      <h1 class="hero-title">Disciplined AI & Agentic Engineering</h1>
+      <div class="hero-lead">
+        <p style="margin-bottom: 1rem;">
+          I am Abdurakhmon (Alex). Originally from Uzbekistan, currently a graduate researcher pursuing my Master's in Big Data Science at Korea University. My foundation in electronic systems engineering sparked a deep interest in how complex systems integrate, leading me to specialize in advanced artificial intelligence, computer vision, and disciplined agentic engineering.
+        </p>
+        <p style="margin-bottom: 0;">
+          My technical journey began with hardware-software integration and evolved into a passion for optimizing deep neural networks. In my current graduate research, I focus on semantic segmentation, knowledge distillation for modality reduction, and building recall-optimized ensembles for anomaly detection. Ultimately, I aim to architect robust, high-performance machine learning systems that efficiently navigate real-world data constraints.
+        </p>
+      </div>
+      
+      <div class="hero-actions">
+        <a href="/about" class="btn">Explore My Journey</a>
+        <a href="/resume" class="btn btn-secondary">View Resume</a>
+      </div>
+    </div>
+    
+    <div class="hero-image-wrapper">
+      <Image 
+        src="/images/me official.jpg" 
+        width={500} 
+        height={500} 
+        alt="Abdurakhmon Dadaboev" 
+        class="hero-image"
+        loading="eager"
+      />
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <h2 style="margin-bottom: 2rem; border-bottom: 2px solid var(--accent-warm); padding-bottom: 0.5rem; display: block;">Explore Sections</h2>
+  <div class="grid-2">
+    <a href="/about" class="card nav-card">
+      <div class="nav-card-icon">🧭</div>
+      <div class="nav-card-title">About Me</div>
+      <p class="nav-card-desc">My background, skills, and an interactive career roadmap.</p>
+    </a>
+    
+    <a href="/resume" class="card nav-card">
+      <div class="nav-card-icon">📄</div>
+      <div class="nav-card-title">Resume</div>
+      <p class="nav-card-desc">My complete professional history, skills, publications, and achievements.</p>
+    </a>
+    
+    <a href="/research-and-projects" class="card nav-card">
+      <div class="nav-card-icon">🧪</div>
+      <div class="nav-card-title">Research & Projects</div>
+      <p class="nav-card-desc">Deep learning research, computer vision systems, autonomous robotics, and generative AI agents.</p>
+    </a>
+
+    <a href="/essays" class="card nav-card">
+      <div class="nav-card-icon">✍️</div>
+      <div class="nav-card-title">Essays</div>
+      <p class="nav-card-desc">Writings on my core values, perspectives, and intellectual journey.</p>
+    </a>
+
+    <a href="/books" class="card nav-card" style="grid-column: span 1;">
+      <div class="nav-card-icon">📚</div>
+      <div class="nav-card-title">Books & Reading</div>
+      <p class="nav-card-desc">Curated notes, summaries, and reviews on science, psychology, and philosophy.</p>
+    </a>
+  </div>
+
+  <style>
+    .hero-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+      padding: 4rem 0 3rem;
+    }
+    .hero-text-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-warm);
+      background-color: rgba(140, 98, 57, 0.06);
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    .hero-title {
+      font-size: clamp(2.25rem, 5vw, 3rem);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary) 60%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 2.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-image-wrapper {
+      width: 100%;
+      max-width: 400px;
+      justify-self: center;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+      background-color: var(--bg-card);
+    }
+    .hero-image-wrapper:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(90, 96, 72, 0.08);
+      border-color: var(--border-hover);
+    }
+    .hero-image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .section-divider {
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 4rem 0 3rem;
+    }
+    .nav-card {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-card::after {
+      content: '→';
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: var(--transition-smooth);
+    }
+    .nav-card:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+      color: var(--accent-warm);
+    }
+    .nav-card-icon {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    .nav-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .nav-card-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+      flex-grow: 1;
+    }
+      @media (max-width: 860px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          padding: 2rem 0;
+        }
+        .hero-image-wrapper {
+          max-width: 340px;
+        }
+      }
+  </style>
+</Layout>
