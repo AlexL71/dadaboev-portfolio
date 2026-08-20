@@ -32,21 +32,17 @@ const siteOrigin = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(pathname, siteOrigin);
 const englishPath = isKorean ? (pathname.replace(/^\/ko(?=\/|$)/, '') || '/') : pathname;
 const koreanPath = isKorean ? pathname : (pathname === '/' ? '/ko/' : `/ko${pathname}`);
-const socialImage = frontmatter ? undefined : new URL('/og.png', siteOrigin);
-
 const navItems = isKorean
   ? [
       { href: '/ko/about', label: '소개' },
       { href: '/ko/research-and-projects', label: '프로젝트' },
       { href: '/ko/resume', label: '이력' },
-      { href: '/ko/essays', label: '에세이' },
       { href: '/ko/books', label: '독서' },
     ]
   : [
       { href: '/about', label: 'About' },
       { href: '/research-and-projects', label: 'Projects' },
       { href: '/resume', label: 'Resume' },
-      { href: '/essays', label: 'Essays' },
       { href: '/books', label: 'Reading' },
     ];
 
@@ -59,7 +55,21 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f6f7f3" />
+    <meta name="theme-color" content="#ffffff" />
+    <script is:inline>
+      (() => {
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+        try {
+          const savedTheme = localStorage.getItem('portfolio-theme');
+          document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
+            ? savedTheme
+            : systemTheme;
+        } catch {
+          document.documentElement.dataset.theme = systemTheme;
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={new URL(englishPath, siteOrigin)} />
@@ -71,17 +81,19 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
-    {socialImage && <meta property="og:image" content={socialImage} />}
-    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={documentTitle} />
     <meta name="twitter:description" content={description} />
-    {socialImage && <meta name="twitter:image" content={socialImage} />}
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
@@ -94,7 +106,6 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <header class="site-header">
       <div class="container nav-container">
         <a href={isKorean ? '/ko/' : '/'} class="brand" aria-label={isKorean ? '홈으로 이동' : 'Go to home'}>
-          <span class="brand-mark">AD</span>
           <span class="brand-name">Abdurakhmon Dadaboev</span>
         </a>
 
@@ -106,14 +117,26 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
           </ul>
         </nav>
 
-        <a
-          class="language-switch"
-          href={isKorean ? englishPath : koreanPath}
-          hreflang={isKorean ? 'en' : 'ko'}
-          aria-label={isKorean ? '영어 페이지로 전환' : 'Switch to Korean'}
-        >
-          {isKorean ? 'EN' : '한국어'}
-        </a>
+        <div class="header-actions">
+          <a
+            class="language-switch"
+            href={isKorean ? englishPath : koreanPath}
+            hreflang={isKorean ? 'en' : 'ko'}
+            aria-label={isKorean ? '영어 페이지로 전환' : 'Switch to Korean'}
+          >
+            {isKorean ? 'EN' : '한국어'}
+          </a>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label={isKorean ? '야간 모드로 전환' : 'Switch to night mode'}
+            aria-pressed="false"
+          >
+            <span class="theme-day">{isKorean ? '낮' : 'Day'}</span>
+            <span aria-hidden="true">/</span>
+            <span class="theme-night">{isKorean ? '밤' : 'Night'}</span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -138,7 +161,7 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
       <div class="container footer-inner">
         <div>
           <a href={isKorean ? '/ko/' : '/'} class="footer-name">Abdurakhmon Dadaboev</a>
-          <p>{isKorean ? '데이터에서 현장 적용까지 이어지는 AI 비전 시스템을 만듭니다.' : 'Building AI vision systems from data to real-world operation.'}</p>
+          <p>{isKorean ? '컴퓨터 비전 연구자 및 엔지니어' : 'Computer vision researcher and engineer'}</p>
         </div>
         <div class="footer-links" aria-label={isKorean ? '외부 링크' : 'External links'}>
           <a href="mailto:dadaboev170998@gmail.com">Email</a>
@@ -147,10 +170,37 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
           <a href="https://www.kaggle.com/alexl98" target="_blank" rel="noopener noreferrer">Kaggle</a>
         </div>
       </div>
-      <div class="container footer-bottom">
-        <span>© {new Date().getFullYear()} Abdurakhmon Dadaboev</span>
-        <span>{isKorean ? '세종, 대한민국' : 'Sejong, South Korea'}</span>
-      </div>
+      <div class="container footer-bottom">© {new Date().getFullYear()} Abdurakhmon Dadaboev · {isKorean ? '대한민국 세종' : 'Sejong, South Korea'}</div>
     </footer>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const toggle = document.querySelector('.theme-toggle');
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        const labels = root.lang === 'ko'
+          ? { light: '야간 모드로 전환', dark: '주간 모드로 전환' }
+          : { light: 'Switch to night mode', dark: 'Switch to day mode' };
+
+        const applyTheme = (theme, remember = false) => {
+          root.dataset.theme = theme;
+          toggle?.setAttribute('aria-pressed', String(theme === 'dark'));
+          toggle?.setAttribute('aria-label', labels[theme]);
+          themeColor?.setAttribute('content', theme === 'dark' ? '#0f141c' : '#ffffff');
+
+          if (remember) {
+            try {
+              localStorage.setItem('portfolio-theme', theme);
+            } catch {
+              // The selected theme still applies when browser storage is unavailable.
+            }
+          }
+        };
+
+        applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
+        toggle?.addEventListener('click', () => {
+          applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
+        });
+      })();
+    </script>
   </body>
 </html>

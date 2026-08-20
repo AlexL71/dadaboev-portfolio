@@ -6,49 +6,42 @@ const sortedProjects = projects.sort((a, b) => new Date(b.frontmatter.date).getT
 ---
 
 <Layout title="Research & Projects" description="Computer vision, data systems, applied machine learning, and embedded engineering projects by Abdurakhmon Dadaboev.">
-  <section class="projects-hero">
-    <div><p class="eyebrow">Research & projects</p><h1>Systems, experiments, and lessons.</h1></div>
-    <p>Selected work across computer vision, data curation, model efficiency, offline AI, natural language processing, and embedded systems.</p>
-  </section>
+  <header class="projects-header">
+    <p class="eyebrow">Research & projects</p>
+    <h1>Projects</h1>
+    <p>Research and software work in computer vision, data systems, offline AI, and embedded engineering.</p>
+  </header>
 
-  <div class="project-count"><span>{String(sortedProjects.length).padStart(2, '0')} projects</span><span>Newest first</span></div>
+  <div class="list-header"><span>{sortedProjects.length} projects</span><span>Newest first</span></div>
 
-  <section class="projects-grid">
-    {sortedProjects.map((project, index) => (
-      <a href={project.url} class:list={['project-card', index === 0 && 'featured']}>
-        <div class="project-meta">
-          <span>{String(index + 1).padStart(2, '0')}</span>
-          <span>{project.frontmatter.date}</span>
-        </div>
+  <section class="project-list" aria-label="Projects">
+    {sortedProjects.map((project) => (
+      <a href={project.url} class="project-row">
+        <time>{project.frontmatter.date}</time>
         <div>
-          <span class="badge">{project.frontmatter.category || 'Research'}</span>
           <h2>{project.frontmatter.title}</h2>
           <p>{project.frontmatter.description}</p>
+          <ul>{project.frontmatter.tags?.slice(0, 4).map((tag: string) => <li>{tag}</li>)}</ul>
         </div>
-        <div class="project-footer">
-          <div>{project.frontmatter.tags?.slice(0, 3).map((tag: string) => <span>{tag}</span>)}</div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </div>
+        <span class="category">{project.frontmatter.category || 'Research'}</span>
       </a>
     ))}
   </section>
 
   <style>
-    .projects-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr); gap: clamp(2rem, 7vw, 7rem); align-items: end; padding-block: 1.5rem clamp(4rem, 8vw, 6.5rem); }
-    .projects-hero h1 { max-width: 11ch; }
-    .projects-hero > p { font-size: 1.05rem; line-height: 1.78; }
-    .project-count { display: flex; justify-content: space-between; padding-block: 0.8rem; border-block: 1px solid var(--line); color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; }
-    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; padding-top: 1rem; }
-    .project-card { min-height: 24rem; display: flex; flex-direction: column; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
-    .project-card:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--shadow-md); }
-    .project-card.featured { background: var(--accent-soft); border-color: #c9e6d6; }
-    .project-meta { display: flex; justify-content: space-between; margin-bottom: 2.7rem; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.7rem; }
-    .project-card h2 { max-width: 18ch; margin: 0.9rem 0 0.9rem; font-size: clamp(1.35rem, 3vw, 1.85rem); }
-    .project-card p { max-width: 34rem; font-size: 0.9rem; }
-    .project-footer { display: flex; justify-content: space-between; align-items: end; gap: 1rem; margin-top: auto; padding-top: 2rem; }
-    .project-footer > div { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .project-footer > div span { color: var(--ink-muted); font-size: 0.68rem; }
-    .arrow { color: var(--ink); font-size: 1.2rem; }
-    @media (max-width: 760px) { .projects-hero, .projects-grid { grid-template-columns: 1fr; } .project-card { min-height: 21rem; } }
+    .projects-header { max-width: 48rem; padding-bottom: 2.2rem; }
+    .projects-header h1 { margin-bottom: 0.5rem; }
+    .projects-header > p:last-child { font-size: 1.05rem; }
+    .list-header { display: flex; justify-content: space-between; margin-bottom: 0.9rem; color: var(--ink-muted); font-size: 0.84rem; }
+    .project-list { display: grid; gap: 0.85rem; }
+    .project-row { display: grid; grid-template-columns: 8rem minmax(0, 1fr) 10rem; gap: 1.5rem; align-items: start; padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+    .project-row:hover h2 { color: var(--accent); }
+    .project-row time, .category { color: var(--ink-muted); font-size: 0.84rem; }
+    .category { text-align: right; }
+    .project-row h2 { margin-bottom: 0.3rem; font-size: 1.18rem; }
+    .project-row p { max-width: 42rem; font-size: 0.96rem; }
+    .project-row ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin-top: 0.45rem; list-style: none; }
+    .project-row li { color: var(--ink-muted); font-size: 0.8rem; }
+    @media (max-width: 680px) { .project-row { grid-template-columns: 1fr; gap: 0.3rem; } .category { grid-row: 1; text-align: left; } .project-row time { grid-row: 1; justify-self: end; } }
   </style>
 </Layout>

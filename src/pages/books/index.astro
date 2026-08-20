@@ -18,8 +18,8 @@ const sortedBooks = books.sort((a, b) => {
 
 <Layout title="Books" description="Browse Abdurakhmon Dadaboev's book list, featuring curated literature, philosophy, and technical volumes.">
   <div class="books-header">
-    <h1 class="page-title" style="margin-bottom: 0.5rem;">Books & Reading</h1>
-    <p class="subtitle">Books I read</p>
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">Books I’ve read</h1>
+    <p class="subtitle">Literature, philosophy, psychology, and religion.</p>
   </div>
 
   <div class="books-grid">
@@ -54,7 +54,7 @@ const sortedBooks = books.sort((a, b) => {
     }
     .books-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
       gap: clamp(1.5rem, 4vw, 2.5rem);
       margin-bottom: 4rem;
     }
@@ -95,7 +95,7 @@ const sortedBooks = books.sort((a, b) => {
       transform: scale(1.03);
     }
     .book-title {
-      font-size: 1.05rem;
+      font-size: 1.12rem;
       font-weight: 600;
       color: var(--text-primary);
       margin-top: 0;
@@ -103,12 +103,12 @@ const sortedBooks = books.sort((a, b) => {
       line-height: 1.35;
     }
     .book-author {
-      font-size: 0.875rem;
+      font-size: 0.95rem;
       color: var(--text-secondary);
       margin-bottom: 0;
     }
     .book-description {
-      font-size: 0.85rem;
+      font-size: 0.94rem;
       color: var(--text-muted);
       margin-top: 0.5rem;
       margin-bottom: 0;
@@ -120,7 +120,7 @@ const sortedBooks = books.sort((a, b) => {
     }
     @media (max-width: 480px) {
       .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
         gap: 1rem;
       }
     }

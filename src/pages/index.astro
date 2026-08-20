@@ -1,207 +1,144 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 ---
 
 <Layout
   title="Abdurakhmon Dadaboev"
-  description="AI vision engineer building reliable computer vision systems for road data, inspection, and offline document intelligence."
+  description="Portfolio of Abdurakhmon Dadaboev, a computer vision researcher working on road image data, segmentation, retrieval, and offline OCR."
 >
-  <section class="hero">
-    <div class="hero-copy">
-      <p class="availability"><span></span> AI vision · data systems · deployment</p>
-      <h1>Computer vision for the real world.</h1>
-      <p class="hero-lead">
-        I am Abdurakhmon Dadaboev, an AI vision engineer and Big Data Science master's candidate at Korea University. I turn imperfect data into practical systems for road inspection, data curation, and offline document intelligence.
+  <section class="intro">
+    <div class="intro-copy">
+      <p class="eyebrow">Hello, I’m</p>
+      <h1>Abdurakhmon Dadaboev</h1>
+      <p class="role">Computer vision researcher and engineer.</p>
+      <p class="summary">
+        I do not see AI as magic or as a solution by itself. A model is only useful when the data is dependable, the evaluation is honest, and the result fits the way people actually work.
       </p>
-      <div class="hero-actions">
-        <a href="#selected-work" class="btn">View selected work <span aria-hidden="true">↘</span></a>
-        <a href="/resume" class="btn btn-secondary">Read my resume</a>
+      <p class="summary">
+        That is why most of my work begins before model training. I first study the data and make sure it fits the problem we want to solve. When the right data does not exist, I collect and label it myself. I have become convinced that, in many projects, better data creates more progress than a larger model or a more complex algorithm.
+      </p>
+      <div class="profile-links" aria-label="Profile links">
+        <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/resume">Resume</a>
       </div>
     </div>
 
-    <div class="portrait-panel">
-      <Image
-        src="/images/profile-2026.jpeg"
-        width={1110}
-        height={1250}
-        alt="Abdurakhmon Dadaboev wearing a white shirt"
-        class="portrait"
-        loading="eager"
-      />
-      <div class="portrait-caption">
-        <div>
-          <strong>Abdurakhmon Dadaboev</strong>
-          <span>Alex</span>
-        </div>
-        <span>Sejong, South Korea</span>
-      </div>
+    <figure class="portrait-block">
+      <img src="/images/portrait.png" width="846" height="987" alt="Abdurakhmon Dadaboev" loading="eager" />
+      <figcaption>
+        <strong>Based in Sejong, South Korea</strong>
+        <span>M.S. expected August 2026</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="home-section" aria-labelledby="current-heading">
+    <div class="section-title">
+      <div><p class="eyebrow">Now</p><h2 id="current-heading">What I’m working on</h2></div>
+      <a href="/resume">Full experience →</a>
+    </div>
+    <div class="current-grid">
+      <article>
+        <span>Since 2026</span>
+        <h3>North American road data</h3>
+        <p>I collect and filter Mapillary images, then use DINOv3 and FAISS to find similar road scenes. A small review tool keeps a person in the loop.</p>
+      </article>
+      <article>
+        <span>Since 2026</span>
+        <h3>Offline exam OCR</h3>
+        <p>I’m connecting page alignment, student matching, answer extraction, OCR, and result storage in one offline application.</p>
+      </article>
+      <article>
+        <span>July 2026</span>
+        <h3>Youngchang Labs internship</h3>
+        <p>I worked on road image data collection and analysis, and supported computer vision model development.</p>
+      </article>
     </div>
   </section>
 
-  <section class="proof-grid" aria-label="Profile highlights">
-    <div><strong>4.46 / 4.5</strong><span>M.S. GPA</span></div>
-    <div><strong>TOPIK 6</strong><span>Korean proficiency</span></div>
-    <div><strong>4 languages</strong><span>Global collaboration</span></div>
-    <div><strong>Aug 2026</strong><span>M.S. expected</span></div>
-  </section>
-
-  <section id="selected-work" class="work-section">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Selected work</p>
-        <h2>Built around real constraints.</h2>
-      </div>
-      <p>Recent systems where data quality, deployment conditions, and human review matter as much as model accuracy.</p>
+  <section class="home-section" aria-labelledby="projects-heading">
+    <div class="section-title">
+      <div><p class="eyebrow">Selected work</p><h2 id="projects-heading">Projects</h2></div>
+      <a href="/research-and-projects">All projects →</a>
     </div>
-
-    <div class="grid-3 work-grid">
-      <a href="/research-and-projects/north-american-road-data" class="card work-card featured">
-        <div class="work-top"><span>01</span><span class="badge">Current</span></div>
-        <h3>North American road-data pipeline</h3>
-        <p>Mapillary collection, DINOv3 embeddings, FAISS similarity search, and a human review tool for scalable road-image curation.</p>
-        <ul><li>Mapillary API</li><li>DINOv3</li><li>FAISS</li></ul>
-        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+    <div class="project-grid">
+      <a href="/research-and-projects/north-american-road-data">
+        <span>Data pipeline · 2026</span>
+        <h3>North American road data pipeline</h3>
+        <p>Mapillary collection, DINOv3 features, FAISS retrieval, and human review.</p>
       </a>
-
-      <a href="/research-and-projects/road-damage-detection" class="card work-card">
-        <div class="work-top"><span>02</span><span class="badge badge-warm">Certified</span></div>
-        <h3>Road-damage segmentation</h3>
-        <p>Reframed irregular crack detection from bounding boxes to polygon masks and delivered a certified multi-stage vision pipeline.</p>
-        <ul><li>YOLO11</li><li>Segmentation</li><li>Data redesign</li></ul>
-        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+      <a href="/research-and-projects/road-damage-detection">
+        <span>Computer vision · 2025</span>
+        <h3>Road damage segmentation</h3>
+        <p>Polygon based crack and pothole segmentation with severity classification.</p>
       </a>
-
-      <a href="/research-and-projects/omr-htr-digitization" class="card work-card">
-        <div class="work-top"><span>03</span><span class="badge badge-warm">Offline</span></div>
-        <h3>Exam OCR system</h3>
-        <p>An offline workflow for PDF alignment, OMR-based student matching, answer extraction, OCR, and structured result storage.</p>
-        <ul><li>OpenCV</li><li>OMR + OCR</li><li>Local inference</li></ul>
-        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+      <a href="/research-and-projects/omr-htr-digitization">
+        <span>Applied AI · 2026</span>
+        <h3>Offline exam OMR and OCR</h3>
+        <p>A local application for matching students, reading answers, and saving results.</p>
+      </a>
+      <a href="/research-and-projects/semantic-segmentation-modality-reduction">
+        <span>Research paper · 2025</span>
+        <h3>Efficient semantic segmentation</h3>
+        <p>Knowledge distillation from RGB, NIR, and LiDAR to an RGB only model.</p>
       </a>
     </div>
   </section>
 
-  <section class="approach-section">
-    <div class="approach-copy">
-      <p class="eyebrow">How I work</p>
-      <h2>A useful model starts before training.</h2>
-      <p>I begin with the operating environment: what data exists, what can fail, what a user must review, and what resources are available. Then I choose the simplest technical path that can produce evidence.</p>
-      <a href="/about" class="text-link">More about my path <span aria-hidden="true">→</span></a>
+  <section class="home-section details-grid" aria-label="Education and technical skills">
+    <div class="details-panel">
+      <p class="eyebrow">Education</p>
+      <h2>Academic background</h2>
+      <div class="detail-item"><strong>M.S. Big Data Science</strong><span>Korea University, Sejong · expected 2026</span><span>GPA 4.46 / 4.5</span></div>
+      <div class="detail-item"><strong>B.S. Electronic Engineering</strong><span>Sun Moon University · 2019 to 2023</span><span>GPA 4.18 / 4.5</span></div>
     </div>
-    <ol class="principles">
-      <li><span>01</span><div><strong>Define the real problem</strong><p>Translate a broad goal into data rules, failure cases, and a measurable decision.</p></div></li>
-      <li><span>02</span><div><strong>Build for the environment</strong><p>Account for memory, latency, offline use, API limits, and the human workflow.</p></div></li>
-      <li><span>03</span><div><strong>Validate with evidence</strong><p>Use small experiments and clear comparisons before scaling the system.</p></div></li>
-    </ol>
-  </section>
-
-  <section class="contact-strip">
-    <div>
-      <p class="eyebrow">Contact</p>
-      <h2>Let’s build something useful.</h2>
+    <div class="details-panel">
+      <p class="eyebrow">Skills</p>
+      <h2>Tools I use</h2>
+      <p><strong>Computer vision</strong><br />Segmentation, classification, retrieval, OCR, and knowledge distillation</p>
+      <p><strong>Development</strong><br />Python, PyTorch, OpenCV, Ultralytics YOLO, DINOv3, FAISS, SQLite, and Git</p>
     </div>
-    <a href="mailto:dadaboev170998@gmail.com" class="btn">dadaboev170998@gmail.com <span aria-hidden="true">↗</span></a>
   </section>
 
   <style>
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
-      gap: clamp(2rem, 6vw, 5.5rem);
-      align-items: center;
-      padding-block: clamp(1.5rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem);
-    }
-    .availability {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 1.45rem;
-      color: var(--ink-soft);
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .availability span {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: #2ba775;
-      box-shadow: 0 0 0 5px rgba(43, 167, 117, 0.1);
-    }
-    .hero h1 { max-width: 10ch; margin-bottom: 1.5rem; }
-    .hero-lead { max-width: 44rem; font-size: clamp(1.04rem, 2vw, 1.23rem); line-height: 1.72; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-    .portrait-panel {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      box-shadow: var(--shadow-md);
-    }
-    .portrait { width: 100%; aspect-ratio: 0.88; display: block; object-fit: cover; object-position: 50% 18%; }
-    .portrait-caption { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.15rem 1.1rem; font-size: 0.74rem; }
-    .portrait-caption div { display: flex; gap: 0.45rem; }
-    .portrait-caption strong { color: var(--ink); }
-    .portrait-caption span { color: var(--ink-muted); }
-    .proof-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      margin-bottom: clamp(5rem, 10vw, 9rem);
-      border-block: 1px solid var(--line);
-    }
-    .proof-grid div { padding: 1.25rem; border-right: 1px solid var(--line); }
-    .proof-grid div:last-child { border-right: 0; }
-    .proof-grid strong, .proof-grid span { display: block; }
-    .proof-grid strong { margin-bottom: 0.2rem; color: var(--ink); font-size: 1rem; }
-    .proof-grid span { color: var(--ink-muted); font-size: 0.75rem; }
-    .work-section { scroll-margin-top: 6rem; margin-bottom: clamp(5rem, 10vw, 9rem); }
-    .work-card { min-height: 23rem; display: flex; flex-direction: column; }
-    .work-card.featured { background: var(--accent-soft); border-color: #c9e6d6; }
-    .work-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.4rem; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.72rem; }
-    .work-card h3 { max-width: 16ch; margin-bottom: 0.85rem; font-size: 1.35rem; }
-    .work-card p { margin-bottom: 1.3rem; font-size: 0.9rem; }
-    .work-card ul { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.7rem; list-style: none; }
-    .work-card li { padding: 0.25rem 0.55rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-soft); font-size: 0.68rem; }
-    .work-link { margin-top: auto; color: var(--ink); font-size: 0.8rem; font-weight: 700; }
-    .approach-section {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: clamp(2.5rem, 7vw, 6.5rem);
-      align-items: start;
-      margin-bottom: clamp(5rem, 10vw, 9rem);
-      padding: clamp(2rem, 5vw, 4.5rem);
-      border-radius: var(--radius-lg);
-      color: white;
-      background: #111a15;
-    }
-    .approach-section .eyebrow { color: #71d7ab; }
-    .approach-section h2 { max-width: 10ch; margin-bottom: 1.2rem; color: white; }
-    .approach-section p { color: #aebbb3; }
-    .text-link { display: inline-flex; gap: 0.5rem; margin-top: 1.4rem; color: white; font-size: 0.86rem; font-weight: 650; }
-    .principles { list-style: none; }
-    .principles li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .principles li:first-child { padding-top: 0; }
-    .principles li:last-child { border-bottom: 0; }
-    .principles > li > span { color: #71d7ab; font-family: var(--font-mono); font-size: 0.7rem; }
-    .principles strong { display: block; margin-bottom: 0.3rem; font-size: 0.96rem; }
-    .principles p { margin: 0; font-size: 0.82rem; }
-    .contact-strip { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-top: 3rem; border-top: 1px solid var(--line); }
-    .contact-strip .eyebrow { margin-bottom: 0.65rem; }
-    .contact-strip h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .portrait-panel { max-width: 27rem; }
-      .approach-section { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 680px) {
-      .proof-grid { grid-template-columns: repeat(2, 1fr); }
-      .proof-grid div:nth-child(2) { border-right: 0; }
-      .proof-grid div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-      .contact-strip { align-items: flex-start; flex-direction: column; }
-      .contact-strip .btn { width: 100%; font-size: 0.76rem; }
-    }
+    .intro { display: grid; grid-template-columns: minmax(0, 48rem) clamp(13rem, 18vw, 16rem); justify-content: center; gap: clamp(1.5rem, 3vw, 3.5rem); align-items: center; padding-block: clamp(1rem, 3vw, 2.5rem) clamp(3.5rem, 8vw, 6.5rem); }
+    .intro h1 { margin-bottom: 0.35rem; }
+    .role { margin-bottom: 1.6rem; color: var(--accent); font-size: 1.28rem; font-weight: 600; }
+    .summary { max-width: 48rem; margin-bottom: 0.85rem; font-size: 1.08rem; line-height: 1.82; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: 0.65rem 1.25rem; margin-top: 1.5rem; }
+    .profile-links a, .section-title > a { color: var(--accent); font-size: 0.94rem; font-weight: 600; }
+    .profile-links a { padding-bottom: 0.12rem; border-bottom: 1px solid transparent; }
+    .profile-links a:hover { border-color: currentColor; }
+    .portrait-block { margin: 0; }
+    .portrait-block img { width: 100%; height: auto; display: block; border-radius: var(--radius-md); object-fit: cover; object-position: center top; box-shadow: var(--shadow-md); }
+    .portrait-block figcaption { margin-top: 0.9rem; }
+    .portrait-block strong, .portrait-block span { display: block; }
+    .portrait-block strong { color: var(--ink); font-size: 0.86rem; }
+    .portrait-block span { margin-top: 0.15rem; color: var(--ink-muted); font-size: 0.82rem; }
+    .home-section { padding-block: clamp(3.5rem, 8vw, 5.5rem); border-top: 1px solid var(--line); }
+    .section-title { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.8rem; }
+    .section-title .eyebrow { margin-bottom: 0.35rem; }
+    .current-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1rem; }
+    .current-grid article, .project-grid a, .details-panel { border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .current-grid article { padding: 1.45rem; }
+    .current-grid span, .project-grid > a > span { color: var(--ink-muted); font-size: 0.82rem; }
+    .current-grid h3, .project-grid h3 { margin: 0.65rem 0 0.45rem; }
+    .current-grid p, .project-grid p { font-size: 0.96rem; line-height: 1.7; }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr)); gap: 1rem; }
+    .project-grid a { padding: 1.5rem; transition: border-color var(--transition), transform var(--transition); }
+    .project-grid a:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project-grid h3 { font-size: 1.18rem; }
+    .details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr)); gap: 1rem; }
+    .details-panel { padding: clamp(1.5rem, 4vw, 2rem); }
+    .details-panel h2 { margin-bottom: 1.2rem; }
+    .detail-item { padding-block: 1rem; border-top: 1px solid var(--line); }
+    .detail-item strong, .detail-item span { display: block; }
+    .detail-item strong { margin-bottom: 0.2rem; font-size: 1rem; }
+    .detail-item span, .details-panel > p:not(.eyebrow) { color: var(--ink-soft); font-size: 0.94rem; }
+    .details-panel > p:not(.eyebrow) + p { margin-top: 1rem; }
+    .details-panel p strong { color: var(--ink); }
+    @media (max-width: 1100px) { .intro { grid-template-columns: minmax(0, 1fr) clamp(10rem, 23vw, 13rem); justify-content: stretch; gap: 2rem; } }
+    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
   </style>
 </Layout>
