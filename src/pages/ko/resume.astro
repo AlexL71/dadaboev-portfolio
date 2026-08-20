@@ -1,383 +1,156 @@
 ---
-// src/pages/resume.astro
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Resume" description="Read Abdurakhmon Dadaboev's professional resume. Bilingual in Korean, English, Russian, and Uzbek.">
-  <div class="resume-header-card">
-    <div class="header-details">
-      <h1 class="resume-fullname">Abdurakhmon Dadaboev</h1>
-      <p class="resume-position-tag">AI Engineer & Data Scientist</p>
-      
-      <div class="resume-contact-grid">
-        <span>📧 dadaboev170998@gmail.com / dadaboev0429@gmail.com</span>
-        <span>📍 Sejong, South Korea</span>
-      </div>
+<Layout
+  title="이력"
+  description="도로 데이터 파이프라인, 세그멘테이션, OCR, 응용 머신러닝 경험을 보유한 AI 비전 엔지니어 다다버예브 압두라흐먼의 이력입니다."
+>
+  <section class="resume-header">
+    <div>
+      <p class="eyebrow">이력 · 2026년 8월 업데이트</p>
+      <h1>다다버예브 압두라흐먼</h1>
+      <p class="role">AI 비전 엔지니어 · 데이터 사이언티스트</p>
     </div>
-  </div>
+    <div class="resume-summary">
+      <p>전자공학 기반과 빅데이터사이언스 석사 연구 경험을 갖춘 컴퓨터 비전 엔지니어입니다. 도로 이미지 데이터 파이프라인, 세그멘테이션, 유사 이미지 검색, 오프라인 OCR, 다국어 기술 협업 경험이 있습니다.</p>
+      <div class="contact-row"><a href="mailto:dadaboev170998@gmail.com">dadaboev170998@gmail.com</a><span>대한민국 세종</span></div>
+    </div>
+  </section>
 
-  <div class="resume-grid-layout">
-    <!-- Main Content Column -->
-    <div class="resume-main-column">
-      <!-- Publications -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Research & Publications</h2>
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>AEECA 2025 International Conference</h3>
-            <span class="block-date">2025.08.22</span>
-          </div>
-          <div class="block-sub">Dalian Jiaotong University, China</div>
-          <div class="block-content">
-            <p><strong>Published Paper:</strong> <em>Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction</em></p>
-            <p>Designed a knowledge distillation pipeline that compresses 7-channel multi-modal features (RGB, NIR, LiDAR) from a U-Net teacher model into a 3-channel RGB-only student model, reducing sensor requirements and compute latency on edge systems.</p>
-          </div>
-        </div>
-      </div>
+  <div class="resume-layout">
+    <div class="resume-main">
+      <section class="resume-section">
+        <h2>경력 및 연구</h2>
 
-      <!-- Research Projects -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Research Projects</h2>
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>AI Vision Lead | Big Data Mining Lab</h3>
-            <span class="block-date">2025.03 ~ 2025.12</span>
-          </div>
-          <div class="block-sub">Cloud-sourcing-based Mobility Support (Project No. R2320973)</div>
-          <div class="block-content">
-            <ul>
-              <li>Headed data modeling for road defect recognition and classification (cracks, potholes, and severities).</li>
-              <li>Conducted comparative evaluations of bounding box constraints, illustrating that traditional bounding boxes underperform for irregular road cracks. Convinced partners to pivot labeling structures to segmentations.</li>
-              <li>Obtained official model certification from <strong>AIWorks Co., Ltd.</strong> (TWR-202512-A-0072).</li>
-            </ul>
-          </div>
-        </div>
+        <article class="entry">
+          <div class="entry-heading"><div><h3>AI Vision 연구 인턴</h3><p>㈜영창랩스</p></div><time>2026.07</time></div>
+          <ul><li>도로 이미지 데이터 구축과 분석, 컴퓨터 비전 모델 개발을 수행했습니다.</li><li>Mapillary 기반 북미 도로 이미지 수집 업무를 진행했습니다.</li></ul>
+        </article>
 
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>Research Project Assistant | Big Data Mining Lab</h3>
-            <span class="block-date">2024.09 ~ 2025.01</span>
-          </div>
-          <div class="block-sub">Eco-Up Innovation Fusion University Project (Project No. R2320813)</div>
-          <div class="block-content">
-            <ul>
-              <li>Analyzed educational dataset specifications for 6 major AI Hub fields.</li>
-              <li>Created a unified Python framework for image data Exploratory Data Analysis (EDA), pre-processing, and modeling.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <article class="entry">
+          <div class="entry-heading"><div><h3>북미 도로 데이터 구축 및 Auto-Labeling</h3><p>현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교</p></div><time>2026.07 — 현재</time></div>
+          <ul>
+            <li>지역, 촬영 시점, 해상도 조건을 반영한 Mapillary API 수집 구조를 설계했습니다.</li>
+            <li>DINOv3 특징 벡터와 FAISS 유사도 검색을 활용해 시각적으로 유사한 도로 이미지를 선별하고 정리했습니다.</li>
+            <li>데이터 구축 과정에서 사람이 직접 결과를 확인할 수 있는 검수 도구를 개발했습니다.</li>
+          </ul>
+        </article>
 
-      <!-- Academic TA Experience -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Academic & Teaching Experience</h2>
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>Graduate Teaching Assistant | Korea University</h3>
-            <span class="block-date">2024.09 ~ 2025.12</span>
-          </div>
-          <div class="block-sub">Department of Big Data Science</div>
-          <div class="block-content">
-            <ul>
-              <li><strong>Text Mining (BDSC410) (2025.2)</strong>: Prepared class repositories, conducted lectures in Korean and English, and mentored project teams.</li>
-              <li><strong>Deep Learning Theory (BDSC401) (2025.2)</strong>: Directed hands-on lab sessions in Python, managed evaluations, and graded midterm/final examinations.</li>
-              <li><strong>Statistics & Multivariate Analysis (2024.2 ~ 2025.1)</strong>: Conducted lectures in English, engineered R practice datasets, and administrated student grading.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        <article class="entry">
+          <div class="entry-heading"><div><h3>오프라인 시험지 OCR 시스템 개발</h3><p>고려대학교 Big Data Mining Lab</p></div><time>2026.02 — 현재</time></div>
+          <ul>
+            <li>오프라인 시험지 디지털화를 위한 시스템 구조와 핵심 기능을 설계했습니다.</li>
+            <li>PDF 정렬, OMR 기반 학생 연결, 답안 영역 추출, OCR, 결과 저장을 하나의 흐름으로 구현했습니다.</li>
+            <li>인식 성능뿐 아니라 로컬 실행, 메모리 사용량, 사용자 작업 흐름을 함께 고려했습니다.</li>
+          </ul>
+        </article>
 
-      <!-- Early Technical Projects -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Embedded Systems & Engineering Projects</h2>
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>Hexapod Robotics Specialist | Sun Moon University</h3>
-            <span class="block-date">2022 Spring Semester</span>
-          </div>
-          <div class="block-sub">Department of Electronic Engineering</div>
-          <div class="block-content">
-            <p>Built an Arduino-based 6-legged robot using 16 micro servos, LIPO 11.1V battery, and ultrasonic sensors. Engineered the power distribution circuit (voltage-current regulation), designed hardware layouts, and integrated 3D printed components.</p>
-          </div>
-        </div>
+        <article class="entry">
+          <div class="entry-heading"><div><h3>AI Vision 연구원</h3><p>클라우드 소싱 기반 모빌리티 지원 · 과제 R2320973</p></div><time>2025.03 — 2025.12</time></div>
+          <ul>
+            <li>도로 균열과 포트홀 탐지, 심각도 분류를 위한 비전 연구를 담당했습니다.</li>
+            <li>가늘고 불규칙한 균열에서 바운딩 박스 방식의 한계를 확인하고 협력사와 폴리곤 라벨링 기준을 만들었습니다.</li>
+            <li>목표 성능을 달성하고 ㈜에이아이웍스 모델 시험성적서(TWR-202512-A-0072)를 취득했습니다.</li>
+          </ul>
+        </article>
 
-        <div class="resume-block">
-          <div class="block-header">
-            <h3>Ball Launcher Developer | Sun Moon University</h3>
-            <span class="block-date">2021 Fall Semester</span>
-          </div>
-          <div class="block-sub">Department of Electronic Engineering</div>
-          <div class="block-content">
-            <p>Developed a Raspberry Pi-powered visual target ball launcher. Programmed webcam object recognition pipelines, and engineered PWM signal controls for DC motors based on ultrasonic distance calculations.</p>
-          </div>
-        </div>
-      </div>
+        <article class="entry">
+          <div class="entry-heading"><div><h3>대학원 조교</h3><p>고려대학교 빅데이터사이언스 학부</p></div><time>2024.09 — 2025.12</time></div>
+          <ul>
+            <li>텍스트마이닝, 딥러닝이론, 통계학, 다변량분석 과목을 지원했습니다.</li>
+            <li>Python과 R 실습, 수업 자료 및 데이터 준비, 프로젝트 멘토링, 평가를 한국어와 영어로 진행했습니다.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="resume-section">
+        <h2>논문 및 주요 프로젝트</h2>
+        <article class="entry compact">
+          <div class="entry-heading"><div><h3>Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction</h3><p>AEECA 2025 · 중국 다롄</p></div><time>2025.08</time></div>
+          <p>RGB, NIR, LiDAR를 사용하는 다중 모달 교사 모델의 지식을 RGB 전용 학생 모델로 전달해 센서 요구사항을 줄이는 방법을 연구했습니다.</p>
+        </article>
+        <article class="entry compact">
+          <div class="entry-heading"><div><h3>AI Hub 이미지 데이터 교육 프레임워크</h3><p>에코업 혁신융합대학 · 과제 R2320813</p></div><time>2024.09 — 2025.01</time></div>
+          <p>AI Hub 6대 분야의 데이터 사양을 분석하고 이미지 데이터 탐색, 전처리, 모델링을 위한 통합 Python 프레임워크를 제작했습니다.</p>
+        </article>
+        <article class="entry compact">
+          <div class="entry-heading"><div><h3>임베디드 시스템 프로젝트</h3><p>선문대학교</p></div><time>2021 — 2022</time></div>
+          <p>센서, 모터 제어, 회로 설계, OpenCV를 결합해 Arduino 헥사포드 로봇과 Raspberry Pi 기반 비전 공 발사기를 제작했습니다.</p>
+        </article>
+      </section>
     </div>
 
-    <!-- Sidebar Column -->
-    <div class="resume-sidebar-column">
-      <!-- Education -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Education</h2>
-        
-        <div class="sidebar-item-block">
-          <h4>M.S. in Big Data Science</h4>
-          <p class="sidebar-inst">Korea University (Sejong)</p>
-          <p class="sidebar-timeline">2024.03 ~ 2026.08 (Expected)</p>
-          <p class="sidebar-grade">GPA: <strong>4.46 / 4.5</strong></p>
-        </div>
+    <aside class="resume-aside">
+      <section>
+        <h2>학력</h2>
+        <div class="aside-item"><h3>빅데이터사이언스 석사</h3><p>고려대학교 세종캠퍼스</p><span>2024 — 2026.08 졸업예정</span><strong>학점 4.46 / 4.5</strong></div>
+        <div class="aside-item"><h3>전자공학 학사</h3><p>선문대학교</p><span>2019 — 2023</span><strong>학점 4.18 / 4.5</strong></div>
+      </section>
 
-        <div class="sidebar-item-block">
-          <h4>B.S. in Electronic Engineering</h4>
-          <p class="sidebar-inst">Sun Moon University (Asan)</p>
-          <p class="sidebar-timeline">2019.03 ~ 2023.02</p>
-          <p class="sidebar-grade">GPA: <strong>4.18 / 4.5</strong></p>
-        </div>
+      <section>
+        <h2>기술 분야</h2>
+        <div class="skill-group"><h3>컴퓨터 비전</h3><p>세그멘테이션, 분류, 검색, 지식 증류, OCR, OMR</p></div>
+        <div class="skill-group"><h3>도구</h3><p>Python, PyTorch, OpenCV, Ultralytics YOLO, DINOv3, FAISS, SQLite, Git, Jupyter</p></div>
+        <div class="skill-group"><h3>시스템</h3><p>데이터 구축, API 파이프라인, 오프라인 추론, 성능 평가, 수동 검수 도구</p></div>
+      </section>
 
-        <div class="sidebar-item-block">
-          <h4>Korean Language Certificate</h4>
-          <p class="sidebar-inst">Sun Moon Language Center</p>
-          <p class="sidebar-timeline">2017.09 ~ 2018.10</p>
-        </div>
-
-        <div class="sidebar-item-block">
-          <h4>Associate in Automatic Systems</h4>
-          <p class="sidebar-inst">Andijan Transport School, UZB</p>
-          <p class="sidebar-timeline">2013.09 ~ 2016.06</p>
-          <p class="sidebar-grade">GPA: <strong>5.0 / 5.0</strong></p>
-        </div>
-
-        <div class="sidebar-item-block">
-          <h4>Specialist in Fine Art</h4>
-          <p class="sidebar-inst">Andijan Specialized Art Boarding School, UZB</p>
-          <p class="sidebar-timeline">2008.09 ~ 2013.06</p>
-        </div>
-      </div>
-
-      <!-- Languages -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Language Fluency</h2>
-        <ul class="resume-sidebar-list">
-          <li><strong>Uzbek:</strong> Native (L1)</li>
-          <li><strong>Korean:</strong> TOPIK Level 6 (2025.10)</li>
-          <li><strong>English:</strong> TOEIC 825 (2023.03) / IELTS 6.5 (Speaking 7.5)</li>
-          <li><strong>Russian:</strong> Advanced (Authentic)</li>
+      <section>
+        <h2>언어</h2>
+        <ul class="plain-list">
+          <li><strong>우즈베크어</strong><span>모국어</span></li>
+          <li><strong>한국어</strong><span>TOPIK 6급 · 2025.10</span></li>
+          <li><strong>영어</strong><span>TOEIC 800 · 2026.07<br />IELTS 6.5 · Speaking 7.5</span></li>
+          <li><strong>러시아어</strong><span>고급</span></li>
         </ul>
-      </div>
+      </section>
 
-      <!-- Volunteering & Leadership -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Activities & Leadership</h2>
-        <ul class="resume-sidebar-list">
-          <li>
-            <strong>Symposium Speaker</strong>
-            <span class="block-date-sub">2021.11</span>
-            <div class="sub-text">Keynote speaker on peninsular unification at international symposium.</div>
-          </li>
-          <li>
-            <strong>NHIS Volunteer</strong>
-            <span class="block-date-sub">2021.07</span>
-            <div class="sub-text">Translated national health insurance guidelines to Russian & Uzbek.</div>
-          </li>
-          <li>
-            <strong>Association President</strong>
-            <span class="block-date-sub">2020.09 ~ 2022.12</span>
-            <div class="sub-text">Led SMU Uzbek Student Union, managed auto-response Kakao chatbot.</div>
-          </li>
+      <section>
+        <h2>자격 및 수상</h2>
+        <ul class="plain-list">
+          <li><strong>사법통역사</strong><span>2024</span></li>
+          <li><strong>사회통합프로그램 5단계</strong><span>2023</span></li>
+          <li><strong>우수 자비 유학생 GKS</strong><span>2020 · 2021</span></li>
         </ul>
-      </div>
+      </section>
 
-      <!-- Scholarships -->
-      <div class="resume-card-section">
-        <h2 class="card-section-title">Scholarships</h2>
-        <ul class="resume-sidebar-list">
-          <li>
-            <strong>GKS Scholarship</strong>
-            <span class="block-date-sub">2021.01</span>
-            <div class="sub-text">Outstanding self-funded student award, NIIED.</div>
-          </li>
-          <li>
-            <strong>GKS Scholarship</strong>
-            <span class="block-date-sub">2020.01</span>
-            <div class="sub-text">Outstanding self-funded student award, NIIED.</div>
-          </li>
-        </ul>
-      </div>
-    </div>
+      <section>
+        <h2>리더십</h2>
+        <p class="aside-copy">선문대학교 우즈베키스탄 학생회를 이끌며 유학생 지원, 카카오톡 FAQ 봇 개발, 대학 방문단 통역을 수행했습니다.</p>
+      </section>
+    </aside>
   </div>
 
   <style>
-    .resume-header-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      border-bottom: 2px solid var(--accent-warm);
-      padding-bottom: 2rem;
-      margin-bottom: 2.5rem;
-      padding-top: 1rem;
-    }
-    .resume-fullname {
-      font-size: clamp(2rem, 4vw + 0.5rem, 2.75rem);
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      color: var(--text-primary);
-      letter-spacing: -0.03em;
-    }
-    .resume-position-tag {
-      font-size: clamp(1rem, 2vw + 0.25rem, 1.25rem);
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-    .resume-contact-grid {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-    .download-resume-btn {
-      font-size: 1rem;
-      padding: 0.85rem 1.75rem;
-      background-color: var(--accent-warm);
-      box-shadow: 0 4px 12px rgba(140, 98, 57, 0.15);
-    }
-    .download-resume-btn:hover {
-      background-color: #704E2E;
-      box-shadow: 0 6px 16px rgba(140, 98, 57, 0.25);
-    }
-    .resume-grid-layout {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: clamp(2rem, 5vw, 3.5rem);
-    }
-    .resume-main-column {
-      flex: 2 1 28rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-    .resume-sidebar-column {
-      flex: 1 1 18rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-    
-    @media (min-width: 860px) {
-      .resume-sidebar-column {
-        border-left: 1px solid var(--border-color);
-        padding-left: 2rem;
-      }
-    }
-
-    .card-section-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1.5px solid var(--border-color);
-      margin-top: 0;
-    }
-    .resume-block {
-      margin-bottom: 1.75rem;
-    }
-    .resume-block:last-child {
-      margin-bottom: 0;
-    }
-    .block-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .block-header h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 0;
-      margin-bottom: 0.15rem;
-    }
-    .block-date {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--accent-warm);
-      white-space: nowrap;
-      font-weight: 500;
-    }
-    .block-sub {
-      font-size: 0.925rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    .block-content {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-    .block-content p {
-      margin-bottom: 0.5rem;
-    }
-    .block-content ul {
-      padding-left: 1.25rem;
-    }
-    .block-content li {
-      margin-bottom: 0.35rem;
-    }
-    
-    .sidebar-item-block {
-      margin-bottom: 1.25rem;
-    }
-    .sidebar-item-block h4 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    .sidebar-inst {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    .sidebar-timeline {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-    .sidebar-grade {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-top: 0.15rem;
-    }
-    .block-date-sub {
-      font-family: var(--font-mono);
-      font-size: 0.775rem;
-      color: var(--accent-warm);
-      font-weight: 500;
-      margin-left: 0.5rem;
-    }
-    .resume-sidebar-list {
-      list-style: none;
-    }
-    .resume-sidebar-list li {
-      font-size: 0.925rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.75rem;
-    }
-    .resume-sidebar-list li strong {
-      color: var(--text-primary);
-    }
-    .sub-text {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.05rem;
-      line-height: 1.4;
-    }
+    .resume-header { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.9fr); gap: clamp(2rem, 7vw, 7rem); align-items: end; padding-block: 1.5rem clamp(3rem, 7vw, 5.5rem); border-bottom: 1px solid var(--line); }
+    .resume-header h1 { max-width: 11ch; font-size: clamp(2.6rem, 7vw, 5rem); word-break: keep-all; }
+    .role { margin-top: 0.7rem; color: var(--accent); font-weight: 650; }
+    .resume-summary > p { font-size: 1.05rem; line-height: 1.8; word-break: keep-all; }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; margin-top: 1.1rem; color: var(--ink-muted); font-size: 0.77rem; }
+    .contact-row a { color: var(--ink); font-weight: 600; }
+    .resume-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(17rem, 0.7fr); gap: clamp(2.5rem, 7vw, 6.5rem); padding-top: clamp(3rem, 7vw, 5.5rem); }
+    .resume-main, .resume-aside { display: flex; flex-direction: column; gap: clamp(3.5rem, 7vw, 5.5rem); }
+    .resume-section > h2, .resume-aside section > h2 { margin-bottom: 1.8rem; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .entry { padding-block: 0 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--line); }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-heading { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem; margin-bottom: 0.8rem; }
+    .entry-heading h3 { margin-bottom: 0.25rem; font-size: 1.08rem; line-height: 1.45; letter-spacing: -0.02em; word-break: keep-all; }
+    .entry-heading p { font-size: 0.8rem; }
+    time { flex: none; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.7rem; }
+    .entry ul { padding-left: 1.1rem; }
+    .entry li, .entry > p { margin-bottom: 0.45rem; color: var(--ink-soft); font-size: 0.86rem; line-height: 1.75; word-break: keep-all; }
+    .entry.compact { padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .resume-aside { padding-left: clamp(1rem, 3vw, 2.2rem); border-left: 1px solid var(--line); }
+    .aside-item { margin-bottom: 1.5rem; }
+    .aside-item h3, .skill-group h3 { margin-bottom: 0.2rem; font-size: 0.92rem; letter-spacing: -0.01em; }
+    .aside-item p, .aside-item span, .skill-group p, .aside-copy { display: block; font-size: 0.78rem; word-break: keep-all; }
+    .aside-item strong { display: block; margin-top: 0.25rem; color: var(--accent); font-size: 0.76rem; }
+    .skill-group { margin-bottom: 1rem; }
+    .plain-list { list-style: none; }
+    .plain-list li { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.55rem; border-bottom: 1px solid var(--line); font-size: 0.76rem; }
+    .plain-list strong { color: var(--ink); }
+    .plain-list span { color: var(--ink-muted); text-align: right; }
+    @media (max-width: 820px) { .resume-header, .resume-layout { grid-template-columns: 1fr; } .resume-aside { padding-left: 0; border-left: 0; } }
+    @media (max-width: 560px) { .entry-heading { flex-direction: column; gap: 0.35rem; } .plain-list li { flex-direction: column; gap: 0.15rem; } .plain-list span { text-align: left; } }
   </style>
 </Layout>

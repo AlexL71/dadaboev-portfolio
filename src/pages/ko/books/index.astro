@@ -16,10 +16,11 @@ const sortedBooks = books.sort((a, b) => {
 });
 ---
 
-<Layout title="Books" description="Browse Abdurakhmon Dadaboev's book list, featuring curated literature, philosophy, and technical volumes.">
+<Layout title="독서" description="다다버예브 압두라흐먼이 읽은 문학, 철학, 심리학, 종교 분야의 책 목록입니다.">
   <div class="books-header">
-    <h1 class="page-title" style="margin-bottom: 0.5rem;">Books & Reading</h1>
-    <p class="subtitle">Books I read</p>
+    <p class="eyebrow">독서 기록</p>
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">읽은 책</h1>
+    <p class="subtitle">문학, 철학, 심리학, 종교를 중심으로 읽은 책을 기록합니다.</p>
   </div>
 
   <div class="books-grid">
@@ -29,14 +30,14 @@ const sortedBooks = books.sort((a, b) => {
           <div class="book-cover-wrapper">
             <Image 
               src={book.frontmatter.cover} 
-              alt={`Cover of ${book.frontmatter.title}`} 
+              alt={`${book.frontmatter.title} 표지`}
               width={200}
               height={290}
               class="book-cover"
             />
           </div>
           <h3 class="book-title">{book.frontmatter.title}</h3>
-          <p class="book-author">By {book.frontmatter.author}</p>
+          <p class="book-author">{book.frontmatter.author}</p>
           {book.frontmatter.description && <p class="book-description">{book.frontmatter.description}</p>}
         </div>
       </a>

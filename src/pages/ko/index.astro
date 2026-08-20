@@ -1,199 +1,153 @@
 ---
-// src/pages/index.astro
 import Layout from '../../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 ---
 
-<Layout title="Home" description="Welcome to Abdurakhmon Dadaboev's personal portfolio, resume host, and blog. Explore research, essays, and career roadmap.">
-  <div class="hero-container">
-    <div class="hero-text-content">
-      <div class="hero-badge">AI ENGINEER & DATA SCIENTIST</div>
-      <h1 class="hero-title">Disciplined AI & Agentic Engineering</h1>
-      <div class="hero-lead">
-        <p style="margin-bottom: 1rem;">
-          I am Abdurakhmon (Alex). Originally from Uzbekistan, currently a graduate researcher pursuing my Master's in Big Data Science at Korea University. My foundation in electronic systems engineering sparked a deep interest in how complex systems integrate, leading me to specialize in advanced artificial intelligence, computer vision, and disciplined agentic engineering.
-        </p>
-        <p style="margin-bottom: 0;">
-          My technical journey began with hardware-software integration and evolved into a passion for optimizing deep neural networks. In my current graduate research, I focus on semantic segmentation, knowledge distillation for modality reduction, and building recall-optimized ensembles for anomaly detection. Ultimately, I aim to architect robust, high-performance machine learning systems that efficiently navigate real-world data constraints.
-        </p>
-      </div>
-      
+<Layout
+  title="다다버예브 압두라흐먼"
+  description="도로 데이터, 검사 자동화, 오프라인 문서 인식을 위한 신뢰할 수 있는 컴퓨터 비전 시스템을 만드는 AI 비전 엔지니어입니다."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="availability"><span></span> AI 비전 · 데이터 시스템 · 현장 적용</p>
+      <h1>현장에서 작동하는 컴퓨터 비전.</h1>
+      <p class="hero-lead">
+        저는 다다버예브 압두라흐먼(Alex)입니다. 고려대학교 빅데이터사이언스 석사과정에서 AI 비전을 연구하며, 불완전한 실제 데이터를 도로 검사, 데이터 구축, 오프라인 문서 인식에 활용할 수 있는 시스템으로 만듭니다.
+      </p>
       <div class="hero-actions">
-        <a href="/about" class="btn">Explore My Journey</a>
-        <a href="/resume" class="btn btn-secondary">View Resume</a>
+        <a href="#selected-work" class="btn">주요 프로젝트 보기 <span aria-hidden="true">↘</span></a>
+        <a href="/ko/resume" class="btn btn-secondary">이력 보기</a>
       </div>
     </div>
-    
-    <div class="hero-image-wrapper">
-      <Image 
-        src="/images/portrait.png" 
-        width={500} 
-        height={500} 
-        alt="Abdurakhmon Dadaboev" 
-        class="hero-image"
+
+    <div class="portrait-panel">
+      <Image
+        src="/images/profile-2026.jpeg"
+        width={1110}
+        height={1250}
+        alt="흰 셔츠를 입은 다다버예브 압두라흐먼"
+        class="portrait"
         loading="eager"
       />
+      <div class="portrait-caption">
+        <div>
+          <strong>다다버예브 압두라흐먼</strong>
+          <span>Alex</span>
+        </div>
+        <span>대한민국 세종</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section-divider"></div>
+  <section class="proof-grid" aria-label="프로필 주요 정보">
+    <div><strong>4.46 / 4.5</strong><span>석사과정 학점</span></div>
+    <div><strong>TOPIK 6급</strong><span>한국어 능력</span></div>
+    <div><strong>4개 국어</strong><span>글로벌 협업</span></div>
+    <div><strong>2026년 8월</strong><span>석사 졸업예정</span></div>
+  </section>
 
-  <h2 style="margin-bottom: 2rem; border-bottom: 2px solid var(--accent-warm); padding-bottom: 0.5rem; display: block;">Explore Sections</h2>
-  <div class="grid-2">
-    <a href="/about" class="card nav-card">
-      <div class="nav-card-icon">🧭</div>
-      <div class="nav-card-title">About Me</div>
-      <p class="nav-card-desc">My background, skills, and an interactive career roadmap.</p>
-    </a>
-    
-    <a href="/resume" class="card nav-card">
-      <div class="nav-card-icon">📄</div>
-      <div class="nav-card-title">Resume</div>
-      <p class="nav-card-desc">My complete professional history, skills, publications, and achievements.</p>
-    </a>
-    
-    <a href="/research-and-projects" class="card nav-card">
-      <div class="nav-card-icon">🧪</div>
-      <div class="nav-card-title">Research & Projects</div>
-      <p class="nav-card-desc">Deep learning research, computer vision systems, autonomous robotics, and generative AI agents.</p>
-    </a>
+  <section id="selected-work" class="work-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">주요 프로젝트</p>
+        <h2>실제 제약조건에서 시작합니다.</h2>
+      </div>
+      <p>모델 정확도만큼 데이터 품질, 운영 환경, 사람의 검수 과정이 중요한 문제를 다룹니다.</p>
+    </div>
 
-    <a href="/essays" class="card nav-card">
-      <div class="nav-card-icon">✍️</div>
-      <div class="nav-card-title">Essays</div>
-      <p class="nav-card-desc">Writings on my core values, perspectives, and intellectual journey.</p>
-    </a>
+    <div class="grid-3 work-grid">
+      <a href="/ko/research-and-projects/north-american-road-data" class="card work-card featured">
+        <div class="work-top"><span>01</span><span class="badge">진행 중</span></div>
+        <h3>북미 도로 데이터 파이프라인</h3>
+        <p>Mapillary 수집, DINOv3 특징 벡터, FAISS 유사도 검색, 수동 검수 도구를 연결한 도로 이미지 구축 시스템입니다.</p>
+        <ul><li>Mapillary API</li><li>DINOv3</li><li>FAISS</li></ul>
+        <span class="work-link">프로젝트 읽기 <span aria-hidden="true">↗</span></span>
+      </a>
 
-    <a href="/books" class="card nav-card" style="grid-column: span 1;">
-      <div class="nav-card-icon">📚</div>
-      <div class="nav-card-title">Books & Reading</div>
-      <p class="nav-card-desc">Curated notes, summaries, and reviews on science, psychology, and philosophy.</p>
-    </a>
-  </div>
+      <a href="/ko/research-and-projects/road-damage-detection" class="card work-card">
+        <div class="work-top"><span>02</span><span class="badge badge-warm">성능 인증</span></div>
+        <h3>도로 손상 세그멘테이션</h3>
+        <p>가늘고 불규칙한 균열의 특성에 맞게 바운딩 박스를 폴리곤 마스크로 전환하고 다단계 비전 파이프라인을 개발했습니다.</p>
+        <ul><li>YOLO11</li><li>세그멘테이션</li><li>데이터 재설계</li></ul>
+        <span class="work-link">프로젝트 읽기 <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a href="/ko/research-and-projects/omr-htr-digitization" class="card work-card">
+        <div class="work-top"><span>03</span><span class="badge badge-warm">오프라인</span></div>
+        <h3>시험지 OCR 시스템</h3>
+        <p>PDF 정렬, OMR 기반 학생 연결, 답안 영역 추출, OCR, 결과 저장을 하나의 오프라인 흐름으로 설계했습니다.</p>
+        <ul><li>OpenCV</li><li>OMR + OCR</li><li>로컬 추론</li></ul>
+        <span class="work-link">프로젝트 읽기 <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="approach-copy">
+      <p class="eyebrow">문제를 푸는 방식</p>
+      <h2>좋은 모델은 학습 전에 시작됩니다.</h2>
+      <p>어떤 데이터가 있는지, 무엇이 실패할 수 있는지, 사용자가 무엇을 검수해야 하는지, 사용 가능한 자원이 무엇인지부터 확인합니다. 그다음 근거를 만들 수 있는 가장 단순하고 적합한 기술을 선택합니다.</p>
+      <a href="/ko/about" class="text-link">저의 경로 더 보기 <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="principles">
+      <li><span>01</span><div><strong>실제 문제 정의</strong><p>넓은 목표를 데이터 규칙, 실패 조건, 측정 가능한 판단 기준으로 바꿉니다.</p></div></li>
+      <li><span>02</span><div><strong>환경에 맞는 설계</strong><p>메모리, 속도, 오프라인 사용, API 제한, 사람의 작업 흐름을 함께 고려합니다.</p></div></li>
+      <li><span>03</span><div><strong>근거로 검증</strong><p>전체 규모로 확장하기 전에 작은 실험과 명확한 비교로 가능성을 확인합니다.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="contact-strip">
+    <div>
+      <p class="eyebrow">연락하기</p>
+      <h2>실제로 쓸 수 있는 것을 함께 만들어요.</h2>
+    </div>
+    <a href="mailto:dadaboev170998@gmail.com" class="btn">dadaboev170998@gmail.com <span aria-hidden="true">↗</span></a>
+  </section>
 
   <style>
-    .hero-container {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(2rem, 4vw, 4rem);
-      align-items: center;
-      padding: 4rem 0 3rem;
-    }
-    .hero-text-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .hero-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent-warm);
-      background-color: rgba(140, 98, 57, 0.06);
-      padding: 0.35rem 0.85rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.08em;
-    }
-    .hero-title {
-      font-size: clamp(2.25rem, 5vw, 3rem);
-      line-height: 1.15;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 60%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-lead {
-      font-size: 1.15rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 2.25rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .hero-image-wrapper {
-      width: 100%;
-      max-width: 400px;
-      justify-self: center;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border-color);
-      transition: var(--transition-smooth);
-      background-color: var(--bg-card);
-    }
-    .hero-image-wrapper:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(90, 96, 72, 0.08);
-      border-color: var(--border-hover);
-    }
-    .hero-image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
-    }
-    .section-divider {
-      height: 1px;
-      background-color: var(--border-color);
-      margin: 4rem 0 3rem;
-    }
-    .nav-card {
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    .nav-card::after {
-      content: '→';
-      position: absolute;
-      right: 1.5rem;
-      top: 1.5rem;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: var(--transition-smooth);
-    }
-    .nav-card:hover::after {
-      opacity: 1;
-      transform: translateX(0);
-      color: var(--accent-warm);
-    }
-    .nav-card-icon {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-    }
-    .nav-card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-    .nav-card-desc {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin-bottom: 0;
-      flex-grow: 1;
-    }
-      @media (max-width: 860px) {
-        .hero-container {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
-          padding: 2rem 0;
-        }
-        .hero-image-wrapper {
-          max-width: 340px;
-        }
-      }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: center; padding-block: clamp(1.5rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem); }
+    .availability { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 1.45rem; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.73rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .availability span { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: #2ba775; box-shadow: 0 0 0 5px rgba(43, 167, 117, 0.1); }
+    .hero h1 { max-width: 11ch; margin-bottom: 1.5rem; word-break: keep-all; }
+    .hero-lead { max-width: 44rem; font-size: clamp(1.04rem, 2vw, 1.2rem); line-height: 1.82; word-break: keep-all; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+    .portrait-panel { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); }
+    .portrait { width: 100%; aspect-ratio: 0.88; display: block; object-fit: cover; object-position: 50% 18%; }
+    .portrait-caption { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.15rem 1.1rem; font-size: 0.74rem; }
+    .portrait-caption div { display: flex; gap: 0.45rem; }
+    .portrait-caption strong { color: var(--ink); }
+    .portrait-caption span { color: var(--ink-muted); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: clamp(5rem, 10vw, 9rem); border-block: 1px solid var(--line); }
+    .proof-grid div { padding: 1.25rem; border-right: 1px solid var(--line); }
+    .proof-grid div:last-child { border-right: 0; }
+    .proof-grid strong, .proof-grid span { display: block; }
+    .proof-grid strong { margin-bottom: 0.2rem; color: var(--ink); font-size: 1rem; }
+    .proof-grid span { color: var(--ink-muted); font-size: 0.75rem; }
+    .work-section { scroll-margin-top: 6rem; margin-bottom: clamp(5rem, 10vw, 9rem); }
+    .work-card { min-height: 23rem; display: flex; flex-direction: column; }
+    .work-card.featured { background: var(--accent-soft); border-color: #c9e6d6; }
+    .work-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.4rem; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.72rem; }
+    .work-card h3 { max-width: 16ch; margin-bottom: 0.85rem; font-size: 1.35rem; word-break: keep-all; }
+    .work-card p { margin-bottom: 1.3rem; font-size: 0.9rem; word-break: keep-all; }
+    .work-card ul { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.7rem; list-style: none; }
+    .work-card li { padding: 0.25rem 0.55rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-soft); font-size: 0.68rem; }
+    .work-link { margin-top: auto; color: var(--ink); font-size: 0.8rem; font-weight: 700; }
+    .approach-section { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 7vw, 6.5rem); align-items: start; margin-bottom: clamp(5rem, 10vw, 9rem); padding: clamp(2rem, 5vw, 4.5rem); border-radius: var(--radius-lg); color: white; background: #111a15; }
+    .approach-section .eyebrow { color: #71d7ab; }
+    .approach-section h2 { max-width: 11ch; margin-bottom: 1.2rem; color: white; word-break: keep-all; }
+    .approach-section p { color: #aebbb3; word-break: keep-all; }
+    .text-link { display: inline-flex; gap: 0.5rem; margin-top: 1.4rem; color: white; font-size: 0.86rem; font-weight: 650; }
+    .principles { list-style: none; }
+    .principles li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .principles li:first-child { padding-top: 0; }
+    .principles li:last-child { border-bottom: 0; }
+    .principles > li > span { color: #71d7ab; font-family: var(--font-mono); font-size: 0.7rem; }
+    .principles strong { display: block; margin-bottom: 0.3rem; font-size: 0.96rem; }
+    .principles p { margin: 0; font-size: 0.82rem; }
+    .contact-strip { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+    .contact-strip .eyebrow { margin-bottom: 0.65rem; }
+    .contact-strip h2 { max-width: 17ch; font-size: clamp(1.8rem, 4vw, 3.2rem); word-break: keep-all; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .portrait-panel { max-width: 27rem; } .approach-section { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) { .proof-grid { grid-template-columns: repeat(2, 1fr); } .proof-grid div:nth-child(2) { border-right: 0; } .proof-grid div:nth-child(-n+2) { border-bottom: 1px solid var(--line); } .contact-strip { align-items: flex-start; flex-direction: column; } .contact-strip .btn { width: 100%; font-size: 0.76rem; } }
   </style>
 </Layout>

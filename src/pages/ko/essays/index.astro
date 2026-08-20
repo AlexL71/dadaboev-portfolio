@@ -9,10 +9,11 @@ const sortedEssays = essays.sort((a, b) => {
 });
 ---
 
-<Layout title="Essays" description="Read Abdurakhmon Dadaboev's technical and mathematical essays on optimization, model architecture, and deep learning.">
+<Layout title="에세이" description="다다버예브 압두라흐먼의 가치관, 관점, 독서와 삶에 대한 에세이입니다.">
   <div class="essays-header">
-    <h1 class="page-title" style="margin-bottom: 0.5rem;">Essays & Articles</h1>
-    <p class="subtitle">Mathematical explanations, research reviews, and insights into system architecture.</p>
+    <p class="eyebrow">글과 생각</p>
+    <h1 class="page-title" style="margin-bottom: 0.5rem;">에세이</h1>
+    <p class="subtitle">가치관, 관계, 책임, 문학을 통해 정리한 개인적인 생각입니다.</p>
   </div>
 
   <div class="essays-list">
@@ -29,7 +30,7 @@ const sortedEssays = essays.sort((a, b) => {
           </div>
           <h3 class="essay-title">{essay.frontmatter.title}</h3>
           <p class="essay-desc">{essay.frontmatter.description}</p>
-          <div class="read-more">Read Article <span class="arrow">→</span></div>
+          <div class="read-more">글 읽기 <span class="arrow">→</span></div>
         </article>
       </a>
     ))}

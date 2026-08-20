@@ -1,199 +1,207 @@
 ---
-// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 ---
 
-<Layout title="Home" description="Welcome to Abdurakhmon Dadaboev's personal portfolio, resume host, and blog. Explore research, essays, and career roadmap.">
-  <div class="hero-container">
-    <div class="hero-text-content">
-      <div class="hero-badge">AI ENGINEER & DATA SCIENTIST</div>
-      <h1 class="hero-title">Disciplined AI & Agentic Engineering</h1>
-      <div class="hero-lead">
-        <p style="margin-bottom: 1rem;">
-          I am Abdurakhmon (Alex). Originally from Uzbekistan, currently a graduate researcher pursuing my Master's in Big Data Science at Korea University. My foundation in electronic systems engineering sparked a deep interest in how complex systems integrate, leading me to specialize in advanced artificial intelligence, computer vision, and disciplined agentic engineering.
-        </p>
-        <p style="margin-bottom: 0;">
-          My technical journey began with hardware-software integration and evolved into a passion for optimizing deep neural networks. In my current graduate research, I focus on semantic segmentation, knowledge distillation for modality reduction, and building recall-optimized ensembles for anomaly detection. Ultimately, I aim to architect robust, high-performance machine learning systems that efficiently navigate real-world data constraints.
-        </p>
-      </div>
-      
+<Layout
+  title="Abdurakhmon Dadaboev"
+  description="AI vision engineer building reliable computer vision systems for road data, inspection, and offline document intelligence."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="availability"><span></span> AI vision · data systems · deployment</p>
+      <h1>Computer vision for the real world.</h1>
+      <p class="hero-lead">
+        I am Abdurakhmon Dadaboev, an AI vision engineer and Big Data Science master's candidate at Korea University. I turn imperfect data into practical systems for road inspection, data curation, and offline document intelligence.
+      </p>
       <div class="hero-actions">
-        <a href="/about" class="btn">Explore My Journey</a>
-        <a href="/resume" class="btn btn-secondary">View Resume</a>
+        <a href="#selected-work" class="btn">View selected work <span aria-hidden="true">↘</span></a>
+        <a href="/resume" class="btn btn-secondary">Read my resume</a>
       </div>
     </div>
-    
-    <div class="hero-image-wrapper">
-      <Image 
-        src="/images/portrait.png" 
-        width={500} 
-        height={500} 
-        alt="Abdurakhmon Dadaboev" 
-        class="hero-image"
+
+    <div class="portrait-panel">
+      <Image
+        src="/images/profile-2026.jpeg"
+        width={1110}
+        height={1250}
+        alt="Abdurakhmon Dadaboev wearing a white shirt"
+        class="portrait"
         loading="eager"
       />
+      <div class="portrait-caption">
+        <div>
+          <strong>Abdurakhmon Dadaboev</strong>
+          <span>Alex</span>
+        </div>
+        <span>Sejong, South Korea</span>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section-divider"></div>
+  <section class="proof-grid" aria-label="Profile highlights">
+    <div><strong>4.46 / 4.5</strong><span>M.S. GPA</span></div>
+    <div><strong>TOPIK 6</strong><span>Korean proficiency</span></div>
+    <div><strong>4 languages</strong><span>Global collaboration</span></div>
+    <div><strong>Aug 2026</strong><span>M.S. expected</span></div>
+  </section>
 
-  <h2 style="margin-bottom: 2rem; border-bottom: 2px solid var(--accent-warm); padding-bottom: 0.5rem; display: block;">Explore Sections</h2>
-  <div class="grid-2">
-    <a href="/about" class="card nav-card">
-      <div class="nav-card-icon">🧭</div>
-      <div class="nav-card-title">About Me</div>
-      <p class="nav-card-desc">My background, skills, and an interactive career roadmap.</p>
-    </a>
-    
-    <a href="/resume" class="card nav-card">
-      <div class="nav-card-icon">📄</div>
-      <div class="nav-card-title">Resume</div>
-      <p class="nav-card-desc">My complete professional history, skills, publications, and achievements.</p>
-    </a>
-    
-    <a href="/research-and-projects" class="card nav-card">
-      <div class="nav-card-icon">🧪</div>
-      <div class="nav-card-title">Research & Projects</div>
-      <p class="nav-card-desc">Deep learning research, computer vision systems, autonomous robotics, and generative AI agents.</p>
-    </a>
+  <section id="selected-work" class="work-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>Built around real constraints.</h2>
+      </div>
+      <p>Recent systems where data quality, deployment conditions, and human review matter as much as model accuracy.</p>
+    </div>
 
-    <a href="/essays" class="card nav-card">
-      <div class="nav-card-icon">✍️</div>
-      <div class="nav-card-title">Essays</div>
-      <p class="nav-card-desc">Writings on my core values, perspectives, and intellectual journey.</p>
-    </a>
+    <div class="grid-3 work-grid">
+      <a href="/research-and-projects/north-american-road-data" class="card work-card featured">
+        <div class="work-top"><span>01</span><span class="badge">Current</span></div>
+        <h3>North American road-data pipeline</h3>
+        <p>Mapillary collection, DINOv3 embeddings, FAISS similarity search, and a human review tool for scalable road-image curation.</p>
+        <ul><li>Mapillary API</li><li>DINOv3</li><li>FAISS</li></ul>
+        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+      </a>
 
-    <a href="/books" class="card nav-card" style="grid-column: span 1;">
-      <div class="nav-card-icon">📚</div>
-      <div class="nav-card-title">Books & Reading</div>
-      <p class="nav-card-desc">Curated notes, summaries, and reviews on science, psychology, and philosophy.</p>
-    </a>
-  </div>
+      <a href="/research-and-projects/road-damage-detection" class="card work-card">
+        <div class="work-top"><span>02</span><span class="badge badge-warm">Certified</span></div>
+        <h3>Road-damage segmentation</h3>
+        <p>Reframed irregular crack detection from bounding boxes to polygon masks and delivered a certified multi-stage vision pipeline.</p>
+        <ul><li>YOLO11</li><li>Segmentation</li><li>Data redesign</li></ul>
+        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <a href="/research-and-projects/omr-htr-digitization" class="card work-card">
+        <div class="work-top"><span>03</span><span class="badge badge-warm">Offline</span></div>
+        <h3>Exam OCR system</h3>
+        <p>An offline workflow for PDF alignment, OMR-based student matching, answer extraction, OCR, and structured result storage.</p>
+        <ul><li>OpenCV</li><li>OMR + OCR</li><li>Local inference</li></ul>
+        <span class="work-link">Read project <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="approach-copy">
+      <p class="eyebrow">How I work</p>
+      <h2>A useful model starts before training.</h2>
+      <p>I begin with the operating environment: what data exists, what can fail, what a user must review, and what resources are available. Then I choose the simplest technical path that can produce evidence.</p>
+      <a href="/about" class="text-link">More about my path <span aria-hidden="true">→</span></a>
+    </div>
+    <ol class="principles">
+      <li><span>01</span><div><strong>Define the real problem</strong><p>Translate a broad goal into data rules, failure cases, and a measurable decision.</p></div></li>
+      <li><span>02</span><div><strong>Build for the environment</strong><p>Account for memory, latency, offline use, API limits, and the human workflow.</p></div></li>
+      <li><span>03</span><div><strong>Validate with evidence</strong><p>Use small experiments and clear comparisons before scaling the system.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="contact-strip">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let’s build something useful.</h2>
+    </div>
+    <a href="mailto:dadaboev170998@gmail.com" class="btn">dadaboev170998@gmail.com <span aria-hidden="true">↗</span></a>
+  </section>
 
   <style>
-    .hero-container {
+    .hero {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(2rem, 4vw, 4rem);
+      grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+      gap: clamp(2rem, 6vw, 5.5rem);
       align-items: center;
-      padding: 4rem 0 3rem;
+      padding-block: clamp(1.5rem, 5vw, 4.5rem) clamp(4rem, 8vw, 7rem);
     }
-    .hero-text-content {
+    .availability {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .hero-badge {
-      display: inline-block;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.45rem;
+      color: var(--ink-soft);
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.73rem;
       font-weight: 600;
-      color: var(--accent-warm);
-      background-color: rgba(140, 98, 57, 0.06);
-      padding: 0.35rem 0.85rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
-    .hero-title {
-      font-size: clamp(2.25rem, 5vw, 3rem);
-      line-height: 1.15;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--text-primary) 60%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .availability span {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: #2ba775;
+      box-shadow: 0 0 0 5px rgba(43, 167, 117, 0.1);
     }
-    .hero-lead {
-      font-size: 1.15rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-      margin-bottom: 2.25rem;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .hero-image-wrapper {
-      width: 100%;
-      max-width: 400px;
-      justify-self: center;
-      border-radius: 20px;
+    .hero h1 { max-width: 10ch; margin-bottom: 1.5rem; }
+    .hero-lead { max-width: 44rem; font-size: clamp(1.04rem, 2vw, 1.23rem); line-height: 1.72; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+    .portrait-panel {
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border-color);
-      transition: var(--transition-smooth);
-      background-color: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow-md);
     }
-    .hero-image-wrapper:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 20px 40px rgba(90, 96, 72, 0.08);
-      border-color: var(--border-hover);
+    .portrait { width: 100%; aspect-ratio: 0.88; display: block; object-fit: cover; object-position: 50% 18%; }
+    .portrait-caption { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.15rem 1.1rem; font-size: 0.74rem; }
+    .portrait-caption div { display: flex; gap: 0.45rem; }
+    .portrait-caption strong { color: var(--ink); }
+    .portrait-caption span { color: var(--ink-muted); }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-bottom: clamp(5rem, 10vw, 9rem);
+      border-block: 1px solid var(--line);
     }
-    .hero-image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      display: block;
+    .proof-grid div { padding: 1.25rem; border-right: 1px solid var(--line); }
+    .proof-grid div:last-child { border-right: 0; }
+    .proof-grid strong, .proof-grid span { display: block; }
+    .proof-grid strong { margin-bottom: 0.2rem; color: var(--ink); font-size: 1rem; }
+    .proof-grid span { color: var(--ink-muted); font-size: 0.75rem; }
+    .work-section { scroll-margin-top: 6rem; margin-bottom: clamp(5rem, 10vw, 9rem); }
+    .work-card { min-height: 23rem; display: flex; flex-direction: column; }
+    .work-card.featured { background: var(--accent-soft); border-color: #c9e6d6; }
+    .work-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.4rem; color: var(--ink-muted); font-family: var(--font-mono); font-size: 0.72rem; }
+    .work-card h3 { max-width: 16ch; margin-bottom: 0.85rem; font-size: 1.35rem; }
+    .work-card p { margin-bottom: 1.3rem; font-size: 0.9rem; }
+    .work-card ul { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.7rem; list-style: none; }
+    .work-card li { padding: 0.25rem 0.55rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-soft); font-size: 0.68rem; }
+    .work-link { margin-top: auto; color: var(--ink); font-size: 0.8rem; font-weight: 700; }
+    .approach-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(2.5rem, 7vw, 6.5rem);
+      align-items: start;
+      margin-bottom: clamp(5rem, 10vw, 9rem);
+      padding: clamp(2rem, 5vw, 4.5rem);
+      border-radius: var(--radius-lg);
+      color: white;
+      background: #111a15;
     }
-    .section-divider {
-      height: 1px;
-      background-color: var(--border-color);
-      margin: 4rem 0 3rem;
+    .approach-section .eyebrow { color: #71d7ab; }
+    .approach-section h2 { max-width: 10ch; margin-bottom: 1.2rem; color: white; }
+    .approach-section p { color: #aebbb3; }
+    .text-link { display: inline-flex; gap: 0.5rem; margin-top: 1.4rem; color: white; font-size: 0.86rem; font-weight: 650; }
+    .principles { list-style: none; }
+    .principles li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+    .principles li:first-child { padding-top: 0; }
+    .principles li:last-child { border-bottom: 0; }
+    .principles > li > span { color: #71d7ab; font-family: var(--font-mono); font-size: 0.7rem; }
+    .principles strong { display: block; margin-bottom: 0.3rem; font-size: 0.96rem; }
+    .principles p { margin: 0; font-size: 0.82rem; }
+    .contact-strip { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+    .contact-strip .eyebrow { margin-bottom: 0.65rem; }
+    .contact-strip h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .portrait-panel { max-width: 27rem; }
+      .approach-section { grid-template-columns: 1fr; }
     }
-    .nav-card {
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
+    @media (max-width: 680px) {
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid div:nth-child(2) { border-right: 0; }
+      .proof-grid div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .contact-strip { align-items: flex-start; flex-direction: column; }
+      .contact-strip .btn { width: 100%; font-size: 0.76rem; }
     }
-    .nav-card::after {
-      content: '→';
-      position: absolute;
-      right: 1.5rem;
-      top: 1.5rem;
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: var(--transition-smooth);
-    }
-    .nav-card:hover::after {
-      opacity: 1;
-      transform: translateX(0);
-      color: var(--accent-warm);
-    }
-    .nav-card-icon {
-      font-size: 2.25rem;
-      margin-bottom: 1rem;
-    }
-    .nav-card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.5rem;
-    }
-    .nav-card-desc {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      margin-bottom: 0;
-      flex-grow: 1;
-    }
-      @media (max-width: 860px) {
-        .hero-container {
-          grid-template-columns: 1fr;
-          gap: 2.5rem;
-          padding: 2rem 0;
-        }
-        .hero-image-wrapper {
-          max-width: 340px;
-        }
-      }
   </style>
 </Layout>
