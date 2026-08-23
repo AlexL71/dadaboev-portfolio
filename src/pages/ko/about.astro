@@ -14,7 +14,7 @@ import Layout from '../../layouts/Layout.astro';
     <div>
       <p>우즈베키스탄에서 자라며 예술과 과학 모두에 관심을 가졌습니다. 문제를 시각적으로 이해하면서도 전체 시스템이 어떻게 작동하는지 알고 싶어 하는 지금의 작업 방식도 이 경험에서 시작되었습니다. 2017년 한국어를 배우기 위해 한국에 왔고, 이후 선문대학교에서 전자공학을 전공했습니다.</p>
       <p>대학에서 데이터과학과 AI에 관심을 갖게 되어 고려대학교 빅데이터사이언스 석사과정으로 공부를 이어갔습니다. 도로 데이터, 시맨틱 세그멘테이션, 유사 이미지 검색, 오프라인 OCR 프로젝트를 수행하며 실제로 쓸 수 있는 AI는 데이터와 사용 환경을 이해하는 데서 시작된다는 점을 배웠습니다.</p>
-      <p>약 2년 동안 우즈베키스탄 유학생 대표를 맡아 문화 행사를 기획하고 여러 국적의 학생들과 협력했습니다. 국가, 언어, 예술, 공학, 데이터과학을 오간 경험 덕분에 익숙하지 않은 분야를 배우고 서로 다른 관점의 사람들과 함께 문제를 푸는 데 익숙합니다.</p>
+      <p class="bio-after-image">약 2년 동안 우즈베키스탄 유학생 대표를 맡아 문화 행사를 기획하고 여러 국적의 학생들과 협력했습니다. 국가, 언어, 예술, 공학, 데이터과학을 오간 경험 덕분에 익숙하지 않은 분야를 배우고 서로 다른 관점의 사람들과 함께 문제를 푸는 데 익숙합니다.</p>
       <div class="bio-links"><a href="/ko/resume">이력 보기</a><a href="/ko/research-and-projects">프로젝트 보기</a></div>
     </div>
   </section>
@@ -52,6 +52,7 @@ import Layout from '../../layouts/Layout.astro';
     .bio { display: flow-root; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
     .bio img { width: clamp(14rem, 21vw, 18rem); height: auto; float: left; margin: 0 clamp(1.5rem, 3vw, 2.5rem) 1rem 0; border-radius: 10px; object-fit: cover; object-position: center top; }
     .bio p { margin-bottom: 0.8rem; font-size: 1.02rem; line-height: 1.82; }
+    .bio-after-image { clear: both; }
     .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
     .bio-links a { color: var(--accent); font-size: 0.94rem; font-weight: 600; }
     .about-section { padding-block: clamp(3.5rem, 8vw, 5rem); }
