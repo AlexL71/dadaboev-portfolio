@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
   </header>
 
   <section class="bio">
-    <img src="/images/portrait.png" width="846" height="987" alt="Abdurakhmon Dadaboev" />
+    <img src="/images/about-portrait-2026.jpg" width="1014" height="1280" alt="Abdurakhmon Dadaboev" />
     <div>
       <p>I grew up in Uzbekistan with an early interest in both art and science. That combination still shapes how I work today. I like to understand a problem visually, but I also want to know how the full system works. In 2017, I moved to South Korea to study Korean and later earned a degree in Electronic Engineering at Sun Moon University.</p>
       <p>During university, I became interested in data science and AI. I continued with a master’s degree in Big Data Science at Korea University, where I have worked on road data, semantic segmentation, image retrieval, and offline OCR. These projects taught me that useful AI starts with understanding the data and the environment in which a system will be used.</p>
@@ -48,8 +48,8 @@ import Layout from '../layouts/Layout.astro';
   <style>
     .page-header { max-width: 48rem; padding-bottom: 2rem; }
     .profile-line { margin-top: 0.65rem; color: var(--accent); font-size: 1.15rem; font-weight: 650; }
-    .bio { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 2.2rem; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
-    .bio img { width: 11rem; height: auto; display: block; border-radius: 10px; object-fit: cover; object-position: center top; }
+    .bio { display: flow-root; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .bio img { width: clamp(14rem, 21vw, 18rem); height: auto; float: left; margin: 0 clamp(1.5rem, 3vw, 2.5rem) 1rem 0; border-radius: 10px; object-fit: cover; object-position: center top; }
     .bio p { margin-bottom: 0.8rem; font-size: 1.02rem; line-height: 1.78; }
     .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
     .bio-links a { color: var(--accent); font-size: 0.94rem; font-weight: 600; }
@@ -65,6 +65,6 @@ import Layout from '../layouts/Layout.astro';
     .details > div { padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
     .details h2 { margin-bottom: 0.45rem; font-size: 1.2rem; }
     .details p { font-size: 0.97rem; }
-    @media (max-width: 700px) { .bio { grid-template-columns: 1fr; gap: 1rem; } .interest-grid, .details { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .bio img { width: min(100%, 20rem); float: none; margin: 0 0 1.25rem; } .interest-grid, .details { grid-template-columns: 1fr; } }
   </style>
 </Layout>

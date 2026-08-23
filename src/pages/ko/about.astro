@@ -10,7 +10,7 @@ import Layout from '../../layouts/Layout.astro';
   </header>
 
   <section class="bio">
-    <img src="/images/portrait.png" width="846" height="987" alt="다다버예브 압두라흐먼" />
+    <img src="/images/about-portrait-2026.jpg" width="1014" height="1280" alt="다다버예브 압두라흐먼" />
     <div>
       <p>우즈베키스탄에서 자라며 예술과 과학 모두에 관심을 가졌습니다. 문제를 시각적으로 이해하면서도 전체 시스템이 어떻게 작동하는지 알고 싶어 하는 지금의 작업 방식도 이 경험에서 시작되었습니다. 2017년 한국어를 배우기 위해 한국에 왔고, 이후 선문대학교에서 전자공학을 전공했습니다.</p>
       <p>대학에서 데이터과학과 AI에 관심을 갖게 되어 고려대학교 빅데이터사이언스 석사과정으로 공부를 이어갔습니다. 도로 데이터, 시맨틱 세그멘테이션, 유사 이미지 검색, 오프라인 OCR 프로젝트를 수행하며 실제로 쓸 수 있는 AI는 데이터와 사용 환경을 이해하는 데서 시작된다는 점을 배웠습니다.</p>
@@ -49,8 +49,8 @@ import Layout from '../../layouts/Layout.astro';
     .page-header { max-width: 48rem; padding-bottom: 2rem; }
     .profile-line { margin-top: 0.65rem; color: var(--accent); font-size: 1.15rem; font-weight: 650; word-break: keep-all; }
     .page-header h1, .bio p, .interest-grid p, .details p { word-break: keep-all; }
-    .bio { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 2.2rem; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
-    .bio img { width: 11rem; height: auto; display: block; border-radius: 10px; object-fit: cover; object-position: center top; }
+    .bio { display: flow-root; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .bio img { width: clamp(14rem, 21vw, 18rem); height: auto; float: left; margin: 0 clamp(1.5rem, 3vw, 2.5rem) 1rem 0; border-radius: 10px; object-fit: cover; object-position: center top; }
     .bio p { margin-bottom: 0.8rem; font-size: 1.02rem; line-height: 1.82; }
     .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
     .bio-links a { color: var(--accent); font-size: 0.94rem; font-weight: 600; }
@@ -66,6 +66,6 @@ import Layout from '../../layouts/Layout.astro';
     .details > div { padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
     .details h2 { margin-bottom: 0.45rem; font-size: 1.2rem; }
     .details p { font-size: 0.97rem; }
-    @media (max-width: 700px) { .bio { grid-template-columns: 1fr; gap: 1rem; } .interest-grid, .details { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .bio img { width: min(100%, 20rem); float: none; margin: 0 0 1.25rem; } .interest-grid, .details { grid-template-columns: 1fr; } }
   </style>
 </Layout>
