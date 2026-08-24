@@ -13,6 +13,12 @@ High-fidelity urban vegetation segmentation is critical for urban planning, but 
 
 This case study presents a **cross-modal response-based knowledge distillation (KD) pipeline**. We train a 7-channel multi-modal U-Net **Teacher** (RGB + NIR + LiDAR) and distill its dense spatial insights into a lightweight 3-channel **Student** U-Net (RGB-only). 
 
+## 출판 논문
+
+이 연구는 **Seohoon Jin**과 공동 저술한 [**“Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction”**](https://doi.org/10.1109/AEECA65693.2025.00147)로 출판되었습니다. 논문은 중국 다롄에서 2025년 8월 22일부터 24일까지 열린 **2025 International Conference on Advances in Electrical Engineering and Computer Applications (AEECA)**에 게재되었으며, 2026년 1월 19일 IEEE Xplore에 등록되었습니다.
+
+[IEEE Xplore에서 논문 보기](https://ieeexplore.ieee.org/document/11327683)
+
 ---
 
 ## Dataset & Modality Specifications

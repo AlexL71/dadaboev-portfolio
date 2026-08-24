@@ -13,6 +13,27 @@ Traditional object detection architectures are optimized for "Things" (rigid for
 
 This case study presents a data-centric, recall-optimized ensemble pipeline designed to resolve the Amorphous Bottleneck. Starting with a single Mask R-CNN baseline (ResNet-50-FPN), we train and audit **nineteen augmentation specialists**, fusing their outputs with **Weighted Boxes Fusion (WBF)** and selecting the optimal **6-model team** via a **Greedy Forward Selection (GFS)** algorithm.
 
+## Conference Presentation and Publication Status
+
+I presented this work as **“The Amorphous Bottleneck: A Recall Optimized Ensemble for Anomaly Detection”** at **CVGAI 2026**. The presentation explained why standard object detectors struggle with low contrast, irregular road defects and introduced a data-centric pipeline built around nineteen augmentation specialists, Greedy Forward Selection, and Weighted Boxes Fusion. The final ensemble increased operational recall by **7.7 percentage points** and also exposed valid physical defects that were missing from the original annotations.
+
+The full paper is currently in the publication process for the **SPIE Conference Proceedings** (ISSN 0277-786X), with indexing planned in EI Compendex and Scopus. [Read the original conference post on LinkedIn](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
+
+<div class="project-gallery">
+  <figure class="project-figure project-figure-wide">
+    <img src="/images/amorphous-bottleneck-overview.jpg" width="800" height="397" alt="Diagram of the three part Amorphous Bottleneck failure cascade" loading="lazy" />
+    <figcaption>The Amorphous Bottleneck combines failures in pattern recognition, label consistency, and evaluation.</figcaption>
+  </figure>
+  <figure class="project-figure">
+    <img src="/images/amorphous-bottleneck-cvgai-speaker.jpg" width="480" height="319" alt="Abdurakhmon Dadaboev presenting at CVGAI 2026" loading="lazy" />
+    <figcaption>Presenting the paper at CVGAI 2026.</figcaption>
+  </figure>
+  <figure class="project-figure">
+    <img src="/images/amorphous-bottleneck-cvgai-audience.jpg" width="480" height="320" alt="CVGAI 2026 audience during the Amorphous Bottleneck presentation" loading="lazy" />
+    <figcaption>Explaining the Things versus Stuff paradigm to the conference audience.</figcaption>
+  </figure>
+</div>
+
 ---
 
 ## The Core Mathematical Framework

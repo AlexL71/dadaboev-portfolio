@@ -13,6 +13,27 @@ Traditional object detection architectures are optimized for "Things" (rigid for
 
 This case study presents a data-centric, recall-optimized ensemble pipeline designed to resolve the Amorphous Bottleneck. Starting with a single Mask R-CNN baseline (ResNet-50-FPN), we train and audit **nineteen augmentation specialists**, fusing their outputs with **Weighted Boxes Fusion (WBF)** and selecting the optimal **6-model team** via a **Greedy Forward Selection (GFS)** algorithm.
 
+## 학회 발표 및 논문 출판 현황
+
+이 연구는 **“The Amorphous Bottleneck: A Recall Optimized Ensemble for Anomaly Detection”**라는 제목으로 **CVGAI 2026**에서 발표했습니다. 발표에서는 일반적인 객체 탐지 모델이 대비가 낮고 형태가 불규칙한 도로 결함을 잘 찾지 못하는 이유를 설명하고, 19개의 데이터 증강 특화 모델과 Greedy Forward Selection, Weighted Boxes Fusion을 결합한 데이터 중심 파이프라인을 소개했습니다. 최종 앙상블은 운영 기준 재현율을 **7.7 퍼센트포인트** 높였으며, 기존 라벨에서 누락된 실제 결함도 찾아냈습니다.
+
+전체 논문은 현재 **SPIE Conference Proceedings**(ISSN 0277-786X) 출판 절차가 진행 중이며, EI Compendex와 Scopus 등재가 예정되어 있습니다. [LinkedIn에서 학회 발표 게시물 보기](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
+
+<div class="project-gallery">
+  <figure class="project-figure project-figure-wide">
+    <img src="/images/amorphous-bottleneck-overview.jpg" width="800" height="397" alt="Amorphous Bottleneck의 세 가지 연쇄 실패를 설명하는 도식" loading="lazy" />
+    <figcaption>Amorphous Bottleneck은 패턴 인식, 라벨 일관성, 평가 단계의 실패가 결합된 문제입니다.</figcaption>
+  </figure>
+  <figure class="project-figure">
+    <img src="/images/amorphous-bottleneck-cvgai-speaker.jpg" width="480" height="319" alt="CVGAI 2026에서 발표하는 다다버예브 압두라흐먼" loading="lazy" />
+    <figcaption>CVGAI 2026에서 연구 논문을 발표하는 모습입니다.</figcaption>
+  </figure>
+  <figure class="project-figure">
+    <img src="/images/amorphous-bottleneck-cvgai-audience.jpg" width="480" height="320" alt="CVGAI 2026 청중에게 Amorphous Bottleneck 연구를 설명하는 모습" loading="lazy" />
+    <figcaption>학회 청중에게 Things와 Stuff의 차이를 설명하는 장면입니다.</figcaption>
+  </figure>
+</div>
+
 ---
 
 ## The Core Mathematical Framework
