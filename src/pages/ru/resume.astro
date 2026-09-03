@@ -1,5 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import EducationTitle from '../../components/EducationTitle.astro';
+import InstitutionLink from '../../components/InstitutionLink.astro';
 ---
 
 <Layout
@@ -93,11 +95,11 @@ import Layout from '../../layouts/Layout.astro';
     <aside class="resume-aside">
       <section>
         <h2>Образование</h2>
-        <div class="aside-item"><h3>Магистр Big Data Science</h3><p><a class="institution-link" href="https://bigdatascience.korea.ac.kr/" target="_blank" rel="noopener noreferrer">Университет Корё, Седжон</a></p><span>2024 — август 2026</span><strong>Средний балл 4,46 / 4,5</strong></div>
-        <div class="aside-item"><h3>Бакалавр электронной инженерии</h3><p><a class="institution-link" href="https://electric.sunmoon.ac.kr/" target="_blank" rel="noopener noreferrer">Университет Сонмун</a></p><span>2019 — 2023</span><strong>Средний балл 4,18 / 4,5</strong></div>
-        <div class="aside-item"><h3>Курс корейского языка</h3><p><a class="institution-link" href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp" target="_blank" rel="noopener noreferrer">Институт корейского языка Университета Сонмун</a></p><span>Сентябрь 2017 — декабрь 2018</span><strong>Высший уровень (7-я ступень) · TOPIK 6</strong></div>
-        <div class="aside-item"><h3>Техническое обслуживание и наладка автоматизированных систем</h3><p><a class="institution-link" href="https://institutions.ziyonet.uz/object/show/20815" target="_blank" rel="noopener noreferrer">Андижанский профессиональный колледж транспорта и сервиса</a></p><span>Сентябрь 2013 — июнь 2016</span><strong>Средний балл 5,0 / 5,0 · Красный диплом</strong></div>
-        <div class="aside-item"><h3>Изобразительное искусство</h3><p><a class="institution-link" href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" target="_blank" rel="noopener noreferrer">Андижанская специализированная школа-интернат искусств</a></p><span>Сентябрь 2008 — май 2013</span></div>
+        <div class="aside-item"><h3><EducationTitle institution="korea-university">Магистр Big Data Science</EducationTitle></h3><p><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ru">Университет Корё, Седжон</InstitutionLink></p><span>2024 — август 2026</span><strong>Средний балл 4,46 / 4,5</strong></div>
+        <div class="aside-item"><h3><EducationTitle institution="sun-moon-university">Бакалавр электронной инженерии</EducationTitle></h3><p><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ru">Университет Сонмун</InstitutionLink></p><span>2019 — 2023</span><strong>Средний балл 4,18 / 4,5</strong></div>
+        <div class="aside-item"><h3><EducationTitle institution="sun-moon-language-institute">Курс корейского языка</EducationTitle></h3><p><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp" lang="ru">Институт корейского языка Университета Сонмун</InstitutionLink></p><span>Сентябрь 2017 — декабрь 2018</span><strong>Высший уровень (7-я ступень) · TOPIK 6</strong></div>
+        <div class="aside-item"><h3><EducationTitle>Техническое обслуживание и наладка автоматизированных систем</EducationTitle></h3><p><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815" lang="ru">Андижанский профессиональный колледж транспорта и сервиса</InstitutionLink></p><span>Сентябрь 2013 — июнь 2016</span><strong>Средний балл 5,0 / 5,0 · Красный диплом</strong></div>
+        <div class="aside-item"><h3><EducationTitle>Изобразительное искусство</EducationTitle></h3><p><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" lang="ru">Андижанская специализированная школа-интернат искусств</InstitutionLink></p><span>Сентябрь 2008 — май 2013</span></div>
       </section>
 
       <section>

@@ -1,0 +1,60 @@
+---
+const labels = {
+  en: 'Open website',
+  ko: '웹사이트 열기',
+  ru: 'Открыть сайт',
+} as const;
+
+interface Props {
+  href: string;
+  lang?: keyof typeof labels;
+}
+
+const { href, lang = 'en' } = Astro.props;
+---
+
+<slot /><a
+    class="institution-reference__link"
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={labels[lang]}
+    title={labels[lang]}
+>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+  </svg>
+</a>
+
+<style>
+  .institution-reference__link {
+    display: inline-flex;
+    width: 1.35em;
+    height: 1.35em;
+    margin-inline-start: 0.28rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.2rem;
+    color: var(--accent);
+    opacity: 0.78;
+    vertical-align: -0.2em;
+    transition: color 150ms ease, opacity 150ms ease, background-color 150ms ease;
+  }
+
+  .institution-reference__link:hover {
+    color: var(--accent-strong);
+    opacity: 1;
+  }
+
+  .institution-reference__link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .institution-reference__link svg {
+    width: 0.86em;
+    height: 0.86em;
+  }
+</style>

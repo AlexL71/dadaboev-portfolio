@@ -1,0 +1,98 @@
+---
+const institutions = {
+  'korea-university': {
+    src: '/images/icons/고려대학교 세종.jpg',
+    fit: 'cover',
+  },
+  'sun-moon-university': {
+    src: '/images/icons/선문대학교.jpg',
+    fit: 'contain',
+  },
+  'sun-moon-language-institute': {
+    src: '/images/icons/선문대 언어교육원.png',
+    fit: 'contain',
+  },
+} as const;
+
+interface Props {
+  institution?: keyof typeof institutions;
+}
+
+const { institution } = Astro.props;
+const logo = institution ? institutions[institution] : undefined;
+---
+
+<span class:list={['education-title', { 'education-title--with-logo': logo }]}>
+  {logo && (
+    <span
+      class:list={[
+        'education-title__logo-frame',
+        {
+          'education-title__logo-frame--korea': institution === 'korea-university',
+          'education-title__logo-frame--language': institution === 'sun-moon-language-institute',
+        },
+      ]}
+      aria-hidden="true"
+    >
+      <img
+        class:list={['education-title__logo', { 'education-title__logo--cover': logo.fit === 'cover' }]}
+        src={logo.src}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    </span>
+  )}
+  <span class="education-title__text"><slot /></span>
+</span>
+
+<style>
+  .education-title {
+    display: inline-flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  .education-title--with-logo {
+    flex-direction: column;
+    gap: 0.32em;
+  }
+
+  .education-title__logo-frame {
+    display: flex;
+    width: 9.792em;
+    height: 2.754em;
+    margin-top: 0.02em;
+    overflow: hidden;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.12rem;
+    background: #fff;
+  }
+
+  .education-title__logo-frame--korea {
+    width: 11.2608em;
+    height: 3.1671em;
+  }
+
+  .education-title__logo-frame--language {
+    width: 11.7504em;
+    height: 3.3048em;
+  }
+
+  .education-title__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .education-title__logo--cover {
+    object-fit: cover;
+  }
+
+  .education-title__text {
+    min-width: 0;
+  }
+</style>

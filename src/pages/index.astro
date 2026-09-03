@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import EducationTitle from '../components/EducationTitle.astro';
+import InstitutionLink from '../components/InstitutionLink.astro';
 ---
 
 <Layout
@@ -95,11 +97,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="details-panel">
       <p class="eyebrow">Education</p>
       <h2>Academic background</h2>
-      <div class="detail-item"><strong>M.S. Big Data Science</strong><span><a class="institution-link" href="https://bigdatascience.korea.ac.kr/" target="_blank" rel="noopener noreferrer">Korea University, Sejong</a> · 2024 to 2026</span><span>GPA 4.46 / 4.5</span></div>
-      <div class="detail-item"><strong>B.S. Electronic Engineering</strong><span><a class="institution-link" href="https://electric.sunmoon.ac.kr/" target="_blank" rel="noopener noreferrer">Sun Moon University</a> · 2019 to 2023</span><span>GPA 4.18 / 4.5</span></div>
-      <div class="detail-item"><strong>Korean Language Program</strong><span><a class="institution-link" href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp" target="_blank" rel="noopener noreferrer">Sun Moon University Korean Language Institute</a> · Sep 2017 to Dec 2018</span><span>Completed the highest-level class (Level 7) · TOPIK Level 6</span></div>
-      <div class="detail-item"><strong>Automated Systems Maintenance and Commissioning</strong><span><a class="institution-link" href="https://institutions.ziyonet.uz/object/show/20815" target="_blank" rel="noopener noreferrer">Andijan College of Transport and Services</a> · Sep 2013 to Jun 2016</span><span>GPA 5.0 / 5.0 · Graduated with honors (red diploma)</span></div>
-      <div class="detail-item"><strong>Fine Arts</strong><span><a class="institution-link" href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" target="_blank" rel="noopener noreferrer">Andijan Specialized Boarding School of Arts</a> · Sep 2008 to May 2013</span></div>
+      <div class="detail-item"><strong><EducationTitle institution="korea-university">M.S. Big Data Science</EducationTitle></strong><span><InstitutionLink href="https://bigdatascience.korea.ac.kr/">Korea University, Sejong</InstitutionLink> · 2024 to 2026</span><span>GPA 4.46 / 4.5</span></div>
+      <div class="detail-item"><strong><EducationTitle institution="sun-moon-university">B.S. Electronic Engineering</EducationTitle></strong><span><InstitutionLink href="https://electric.sunmoon.ac.kr/">Sun Moon University</InstitutionLink> · 2019 to 2023</span><span>GPA 4.18 / 4.5</span></div>
+      <div class="detail-item"><strong><EducationTitle institution="sun-moon-language-institute">Korean Language Program</EducationTitle></strong><span><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp">Sun Moon University Korean Language Institute</InstitutionLink> · Sep 2017 to Dec 2018</span><span>Completed the highest-level class (Level 7) · TOPIK Level 6</span></div>
+      <div class="detail-item"><strong><EducationTitle>Automated Systems Maintenance and Commissioning</EducationTitle></strong><span><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815">Andijan College of Transport and Services</InstitutionLink> · Sep 2013 to Jun 2016</span><span>GPA 5.0 / 5.0 · Graduated with honors (red diploma)</span></div>
+      <div class="detail-item"><strong><EducationTitle>Fine Arts</EducationTitle></strong><span><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni">Andijan Specialized Boarding School of Arts</InstitutionLink> · Sep 2008 to May 2013</span></div>
     </div>
     <div class="details-panel">
       <p class="eyebrow">Skills</p>
