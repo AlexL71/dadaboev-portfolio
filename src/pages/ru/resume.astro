@@ -12,10 +12,10 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     <div>
       <p class="eyebrow">Резюме · обновлено в сентябре 2026</p>
       <h1>Абдурахмон Дадабоев</h1>
-      <p class="role">Инженер по компьютерному зрению · Специалист по данным</p>
+      <p class="role">Инженер по компьютерному зрению · Специалист по анализу данных</p>
     </div>
     <div class="resume-summary">
-      <p>Инженер по компьютерному зрению со степенью бакалавра электронной инженерии и магистра Big Data Science. Имею опыт создания систем обработки дорожных изображений, сегментации, поиска похожих изображений, офлайн OCR и технического сотрудничества на нескольких языках.</p>
+      <p>Инженер по компьютерному зрению со степенями бакалавра по электронной инженерии и магистра по направлению Big Data Science. Имею опыт создания систем обработки дорожных изображений, сегментации, поиска похожих изображений, офлайн-OCR и технической работы в многоязычных командах.</p>
       <div class="contact-row">
         <a href="mailto:dadaboev170998@gmail.com">dadaboev170998@gmail.com</a>
         <span>Седжон, Республика Корея</span>
@@ -29,7 +29,7 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <h2>Опыт</h2>
 
         <article class="entry">
-          <div class="entry-heading"><div><h3>Стажёр исследователь по компьютерному зрению</h3><p>Youngchang Labs</p></div><time>Июль 2026</time></div>
+          <div class="entry-heading"><div><h3>Стажёр-исследователь в области компьютерного зрения</h3><p>Youngchang Labs</p></div><time>Июль 2026</time></div>
           <ul>
             <li>Создавал и анализировал наборы дорожных изображений и участвовал в разработке моделей компьютерного зрения.</li>
             <li>Разработал процесс сбора дорожных изображений Северной Америки через Mapillary.</li>
@@ -39,18 +39,18 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <article class="entry">
           <div class="entry-heading"><div><h3>Дорожные данные Северной Америки и автоматическая разметка</h3><p>Команда испытаний шасси Genesis, Hyundai Motor · Vegas · Университет Корё</p></div><time>Июль 2026 — настоящее время</time></div>
           <ul>
-            <li>Спроектировал сбор через API Mapillary с условиями по региону, времени съёмки и разрешению.</li>
-            <li>Применил признаки DINOv3 и поиск FAISS для отбора и организации визуально похожих дорожных изображений.</li>
-            <li>Разработал инструмент проверки, который сохраняет участие человека в процессе подготовки данных.</li>
+            <li>Спроектировал пайплайн сбора данных через Mapillary API с фильтрами по региону, времени съёмки и разрешению.</li>
+            <li>Применил эмбеддинги DINOv3 и поиск сходства в FAISS для отбора и организации визуально похожих дорожных изображений.</li>
+            <li>Разработал инструмент, сохраняющий этап ручной проверки в процессе подготовки данных.</li>
           </ul>
         </article>
 
         <article class="entry">
-          <div class="entry-heading"><div><h3>Разработчик офлайн системы OCR экзаменов</h3><p>Big Data Mining Lab · Университет Корё</p></div><time>Февраль 2026 — настоящее время</time></div>
+          <div class="entry-heading"><div><h3>Разработчик офлайн-системы OCR для экзаменационных работ</h3><p>Big Data Mining Lab · Университет Корё</p></div><time>Февраль 2026 — настоящее время</time></div>
           <ul>
-            <li>Спроектировал архитектуру и основные функции для офлайн оцифровки экзаменационных работ.</li>
+            <li>Спроектировал архитектуру и основные функции для офлайн-оцифровки экзаменационных работ.</li>
             <li>Объединил выравнивание PDF, сопоставление студентов по OMR, извлечение областей ответов, OCR и хранение результатов.</li>
-            <li>Учитывал локальный запуск, использование памяти и рабочий процесс пользователя вместе с качеством распознавания.</li>
+            <li>При оптимизации качества распознавания учитывал локальный запуск, ограничения памяти и сценарий работы пользователя.</li>
           </ul>
         </article>
 
@@ -77,17 +77,17 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
 
         <article class="entry compact">
           <div class="entry-heading"><div><h3>Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction</h3><p>AEECA 2025 · Далянь, Китай</p></div><time>Август 2025</time></div>
-          <p>Перенёс знания многомодальной учительской модели RGB, NIR и LiDAR в студенческую модель только с RGB, чтобы снизить требования к датчикам.</p>
+          <p>Перенёс знания мультимодальной модели-учителя с RGB, NIR и LiDAR в RGB-модель-ученик, чтобы снизить требования к датчикам.</p>
         </article>
 
         <article class="entry compact">
           <div class="entry-heading"><div><h3>Учебная система для изображений AI Hub</h3><p>Eco-Up Innovation Fusion University · проект R2320813</p></div><time>Сентябрь 2024 — январь 2025</time></div>
-          <p>Проанализировал шесть направлений данных AI Hub и создал общую Python систему для изучения, подготовки и моделирования изображений.</p>
+          <p>Проанализировал шесть направлений данных AI Hub и создал унифицированный пайплайн на Python для анализа наборов изображений, их подготовки и обучения моделей.</p>
         </article>
 
         <article class="entry compact">
           <div class="entry-heading"><div><h3>Проекты встраиваемых систем</h3><p>Университет Сонмун</p></div><time>2021 — 2022</time></div>
-          <p>Создал шестиногого робота на Arduino и управляемую компьютерным зрением пусковую установку на Raspberry Pi, объединив датчики, управление моторами, схемотехнику и OpenCV.</p>
+          <p>Создал гексапода на Arduino и управляемую компьютерным зрением пусковую установку на Raspberry Pi, объединив датчики, управление моторами, схемотехнику и OpenCV.</p>
         </article>
       </section>
     </div>
@@ -95,8 +95,8 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     <aside class="resume-aside">
       <section>
         <h2>Образование</h2>
-        <div class="aside-item"><h3><EducationTitle institution="korea-university">Магистр Big Data Science</EducationTitle></h3><p><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ru">Университет Корё, Седжон</InstitutionLink></p><span>2024 — август 2026</span><strong>Средний балл 4,46 / 4,5</strong></div>
-        <div class="aside-item"><h3><EducationTitle institution="sun-moon-university">Бакалавр электронной инженерии</EducationTitle></h3><p><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ru">Университет Сонмун</InstitutionLink></p><span>2019 — 2023</span><strong>Средний балл 4,18 / 4,5</strong></div>
+        <div class="aside-item"><h3><EducationTitle institution="korea-university">Магистр по направлению Big Data Science</EducationTitle></h3><p><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ru">Университет Корё, Седжон</InstitutionLink></p><span>2024 — август 2026</span><strong>Средний балл 4,46 / 4,5</strong></div>
+        <div class="aside-item"><h3><EducationTitle institution="sun-moon-university">Бакалавр по специальности «Электронная инженерия»</EducationTitle></h3><p><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ru">Университет Сонмун</InstitutionLink></p><span>2019 — 2023</span><strong>Средний балл 4,18 / 4,5</strong></div>
         <div class="aside-item"><h3><EducationTitle institution="sun-moon-language-institute">Курс корейского языка</EducationTitle></h3><p><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp" lang="ru">Институт корейского языка Университета Сонмун</InstitutionLink></p><span>Сентябрь 2017 — декабрь 2018</span><strong>Высший уровень (7-я ступень) · TOPIK 6</strong></div>
         <div class="aside-item"><h3><EducationTitle>Техническое обслуживание и наладка автоматизированных систем</EducationTitle></h3><p><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815" lang="ru">Андижанский профессиональный колледж транспорта и сервиса</InstitutionLink></p><span>Сентябрь 2013 — июнь 2016</span><strong>Средний балл 5,0 / 5,0 · Красный диплом</strong></div>
         <div class="aside-item"><h3><EducationTitle>Изобразительное искусство</EducationTitle></h3><p><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" lang="ru">Андижанская специализированная школа-интернат искусств</InstitutionLink></p><span>Сентябрь 2008 — май 2013</span></div>
@@ -106,7 +106,7 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <h2>Технические направления</h2>
         <div class="skill-group"><h3>Компьютерное зрение</h3><p>Сегментация, классификация, поиск, дистилляция знаний, OCR, OMR</p></div>
         <div class="skill-group"><h3>Инструменты</h3><p>Python, PyTorch, OpenCV, Ultralytics YOLO, DINOv3, FAISS, SQLite, Git, Jupyter</p></div>
-        <div class="skill-group"><h3>Системы</h3><p>Подготовка данных, API процессы, офлайн инференс, оценка, инструменты ручной проверки</p></div>
+        <div class="skill-group"><h3>Системы</h3><p>Подготовка данных, API-пайплайны, офлайн-инференс, оценка, инструменты ручной проверки</p></div>
       </section>
 
       <section>
@@ -130,7 +130,7 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
 
       <section>
         <h2>Лидерский опыт</h2>
-        <p class="aside-copy">Руководил ассоциацией узбекских студентов Университета Сонмун, помогал иностранным студентам, создал FAQ бота для KakaoTalk и работал переводчиком для университетских делегаций.</p>
+        <p class="aside-copy">Руководил ассоциацией узбекских студентов Университета Сонмун, помогал иностранным студентам, создал FAQ-бота для KakaoTalk и работал переводчиком для университетских делегаций.</p>
       </section>
     </aside>
   </div>

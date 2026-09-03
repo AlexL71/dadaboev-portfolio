@@ -1,60 +1,67 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Local LLM Assistant: Private Offline Chat"
-description: "A private, offline AI assistant running on a mobile phone, powered by a local DeepSeek-7B model hosted on a PC via FastAPI and Ollama."
+title: "Local LLM Assistant: 로컬 오프라인 채팅"
+description: "PC의 Ollama에서 실행되는 DeepSeek-7B 모델을 FastAPI로 모바일 앱과 연결한 개인용 오프라인 AI 어시스턴트입니다."
 date: "2025-04-15"
-category: "AI & Mobile Integration"
-tags: ["Flutter", "FastAPI", "DeepSeek", "Ollama", "Mobile Development", "Python"]
+category: "AI·모바일 통합"
+tags: ["Flutter", "FastAPI", "DeepSeek", "Ollama", "모바일 개발", "Python"]
 ---
 
-## Overview
+## 프로젝트 개요
 
-Most modern AI assistants rely heavily on cloud APIs, which raises concerns about data privacy, connectivity dependencies, and API usage costs. To address these issues, **Local LLM Assistant** is a private, completely offline AI assistant ecosystem that lives on your mobile phone, powered by a local large language model running on your personal computer. 
+대부분의 AI 어시스턴트는 클라우드 API에 크게 의존하므로 데이터 프라이버시, 네트워크 연결, API 사용 비용을 고려해야 합니다. **Local LLM Assistant**는 개인용 컴퓨터에서 실행되는 로컬 대규모 언어 모델을 모바일 앱과 연결한 개인용 오프라인 AI 어시스턴트입니다.
 
-By keeping all computations within a local network (Wi-Fi or hotspot), the system guarantees zero data leaks, zero cloud latency, and no usage boundaries.
+모든 연산을 로컬 네트워크(Wi-Fi 또는 핫스팟) 안에서 처리하므로 데이터를 클라우드로 전송하지 않고, 외부 API 지연이나 사용량 제한 없이 이용할 수 있습니다.
 
 ---
 
-## System Architecture
+## 시스템 아키텍처
 
 ```mermaid
 graph LR
-    A[Flutter Mobile App] -->|Local Wi-Fi / Hotspot| B[FastAPI Server on PC]
-    B -->|Local Request| C[Ollama Engine]
-    C -->|DeepSeek-7B Inference| B
-    B -->|JSON Response| A
+    A[Flutter 모바일 앱] -->|로컬 Wi-Fi 또는 핫스팟| B[PC의 FastAPI 서버]
+    B -->|로컬 요청| C[Ollama 엔진]
+    C -->|DeepSeek-7B 추론| B
+    B -->|JSON 응답| A
 ```
 
-The system is split into three main components:
-1. **Frontend Mobile Client**: A clean, responsive mobile chat interface built with **Flutter (Dart)** that runs on any Android or iOS device.
-2. **Backend API Gateway**: A high-performance **FastAPI (Python)** server running on a local PC, routing network requests and managing connection handshakes.
-3. **Local LLM Inference Engine**: A local instance of **Ollama** running the **DeepSeek-7B** model on the host PC's GPU.
+시스템은 세 가지 주요 구성 요소로 나뉩니다.
+
+1. **모바일 프런트엔드:** **Flutter(Dart)**로 개발한 반응형 모바일 채팅 인터페이스로, Android와 iOS 기기에서 실행됩니다.
+2. **백엔드 API 게이트웨이:** 로컬 PC에서 실행되는 **FastAPI(Python)** 서버로, 네트워크 요청을 라우팅하고 클라이언트 연결을 관리합니다.
+3. **로컬 LLM 추론 엔진:** 호스트 PC의 GPU에서 **DeepSeek-7B** 모델을 실행하는 **Ollama** 인스턴스입니다.
 
 ---
 
-## Technical Features
+## 주요 기술 기능
 
-### 1. Flutter Mobile Client
-- **Wi-Fi Handshake**: Automatically scans the local network subnet to locate the active FastAPI server IP, resolving connectivity without requiring manual user configuration.
-- **Fluid Chat UI**: Designed with clean message bubbles, typing indicators, and markdown rendering support for code and structured text formatting.
+### 1. Flutter 모바일 클라이언트
 
-### 2. FastAPI Request Routing
-- **Asynchronous Gateways**: Built with Python `asyncio` and `httpx` to handle concurrent connections from multiple mobile devices in the same local network.
-- **Clean API Spec**: Exposes structured JSON endpoints that format mobile chat history into Ollama-compatible payload dictionaries, maintaining context across conversation turns.
+- **서버 자동 검색:** 로컬 네트워크 서브넷을 자동으로 스캔해 실행 중인 FastAPI 서버의 IP를 찾으므로 사용자가 직접 연결 정보를 입력하지 않아도 됩니다.
+- **반응형 채팅 UI:** 메시지 버블, 입력 상태 표시, 코드 및 구조화된 텍스트를 위한 Markdown 렌더링 기능을 제공합니다.
 
-### 3. Local Inference Engine
-- Uses **Ollama** as the local deployment runner to orchestrate model quantization and hardware-accelerated inference.
-- Powered by the **DeepSeek-7B** model, optimizing response speeds and accuracy for offline text completion, summarization, and coding tasks.
+### 2. FastAPI 요청 라우팅
 
----
+- **비동기 게이트웨이:** Python `asyncio`와 `httpx`를 사용해 같은 로컬 네트워크에 연결된 여러 모바일 기기의 동시 요청을 처리합니다.
+- **명확한 API 명세:** 모바일 채팅 기록을 Ollama 호환 JSON 페이로드로 변환하는 엔드포인트를 제공하고, 대화 턴 사이의 컨텍스트를 유지합니다.
 
-## Key Benefits
-- **Absolute Privacy**: No user text, metadata, or document data ever leaves the local network, making it safe for confidential tasks.
-- **Zero Operating Cost**: Leverages local desktop hardware, bypassing commercial API subscription models.
-- **Offline Reliability**: Operates independently of internet service availability, requiring only a local router or hotspot connection.
+### 3. 로컬 추론 엔진
+
+- **Ollama**를 로컬 배포 런타임으로 사용해 모델 양자화와 하드웨어 가속 추론을 관리합니다.
+- **DeepSeek-7B** 모델을 사용해 오프라인 텍스트 생성, 요약, 코딩 작업에서 응답 속도와 정확도의 균형을 맞췄습니다.
 
 ---
 
-## GitHub Repository
-Explore the complete source code, deployment scripts, and Flutter project files on GitHub:
+## 주요 장점
+
+- **데이터 프라이버시:** 사용자 텍스트, 메타데이터, 문서가 로컬 네트워크 밖으로 전송되지 않아 기밀 작업에 사용할 수 있습니다.
+- **별도 API 사용료 없음:** 개인용 컴퓨터의 하드웨어를 활용하므로 상용 API 구독 비용이 들지 않습니다.
+- **오프라인 안정성:** 인터넷 연결 없이 로컬 라우터나 핫스팟만으로 작동합니다.
+
+---
+
+## GitHub 저장소
+
+전체 소스 코드, 배포 스크립트, Flutter 프로젝트 파일은 GitHub에서 확인할 수 있습니다.
+
 👉 [AlexL71/local-llm-chat](https://github.com/AlexL71/local-llm-chat)

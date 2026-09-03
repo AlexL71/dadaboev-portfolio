@@ -1,85 +1,87 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Certified Road Damage Segmentation & Severity Classification"
-description: "A certified multi-stage deep learning pipeline leveraging YOLO11l-seg, YOLO11m-cls, and custom morphological post-processing filters."
+title: "성능 인증을 받은 도로 손상 세그멘테이션 및 심각도 분류"
+description: "YOLO11l-seg, YOLO11m-cls, 사용자 정의 형태학적 후처리 필터를 결합한 성능을 검증받은 다단계 딥러닝 파이프라인입니다."
 date: "2025-12-17"
-category: "Model Architecture"
-tags: ["Computer Vision", "Instance Segmentation", "YOLO11", "Image Post-Processing", "Model Evaluation"]
+category: "모델 아키텍처"
+tags: ["컴퓨터 비전", "인스턴스 세그멘테이션", "YOLO11", "이미지 후처리", "모델 평가"]
 ---
 
-## Overview
+## 프로젝트 개요
 
-Automated monitoring of civil infrastructure requires highly robust computer vision systems. Pavement anomalies like alligator cracks and longitudinal cracks have irregular, non-rigid geometries that cannot be accurately represented by rectangular bounding boxes. Traditional detection systems face high rates of false positives and poor boundary precision.
+사회기반시설을 자동으로 모니터링하려면 다양한 환경에서 안정적으로 작동하는 컴퓨터 비전 시스템이 필요합니다. 거북등 균열이나 종방향 균열과 같은 포장도로 결함은 형태가 불규칙하고 비강체적이어서 직사각형 바운딩 박스로 정확하게 표현하기 어렵습니다. 기존 객체 탐지 방식은 오탐이 많고 경계 정밀도가 낮다는 문제가 있습니다.
 
-This case study presents the design, implementation, and empirical evaluation of the **Road Damage Segmentation AI Vision Model v1.0**, developed for TQS Korea Co., Ltd. The system was awarded official certification (Test Report No. **TWR-202512-A-0072**) by the third-party testing agency **AIWORKS Co., Ltd.**, meeting all stringent precision, recall, and segmentation quality criteria.
+이 프로젝트에서는 ㈜티큐에스코리아를 위해 개발한 **도로 손상 세그멘테이션 AI Vision Model v1.0**의 설계, 구현, 실험 평가 과정을 다룹니다. 이 시스템은 제3자 시험기관인 **㈜에이아이웍스**의 공식 시험성적서(**TWR-202512-A-0072**)를 취득했으며, 정밀도, 재현율, 세그멘테이션 품질에 관한 모든 기준을 충족했습니다.
 
 ---
 
-## Official AIWORKS Certification
+## AIWORKS 공식 성능 인증
 
-The model was subjected to a rigorous evaluation period between December 4 and December 17, 2025. Evaluating against official test sets, the model passed all certified threshold criteria:
+모델은 2025년 12월 4일부터 17일까지 공식 테스트 세트로 평가되었으며, 모든 인증 기준을 통과했습니다.
 
-| Evaluation Metric | Target Threshold | Certified Result | Status |
+| 평가지표 | 목표 기준 | 인증 결과 | 판정 |
 |---|---|---|---|
-| Detection Accuracy (mAP@50) | $\ge 0.85$ | 0.88 | PASS |
-| Segmentation Quality (mIoU) | $\ge 0.70$ | 0.79 | PASS |
-| Recall Rate | $\ge 0.90$ | 0.91 | PASS |
+| 탐지 정확도 (mAP@50) | $\ge 0.85$ | 0.88 | 통과 |
+| 세그멘테이션 품질 (mIoU) | $\ge 0.70$ | 0.79 | 통과 |
+| 재현율 | $\ge 0.90$ | 0.91 | 통과 |
 
 ---
 
-## Two-Stage Architecture & Pipeline
+## 다단계 아키텍처와 파이프라인
 
-Rather than relying on a single end-to-end network, the system separates pixel-level mask segmentation from severity classification. This decoupled design limits error propagation and ensures that classification heads only process regions of interest containing verified damage.
+하나의 엔드투엔드 네트워크에 모든 작업을 맡기는 대신 픽셀 단위 마스크 세그멘테이션과 심각도 분류를 분리했습니다. 이러한 분리형 구조는 단계 간 오류 전파를 줄이고, 분류 모델이 손상으로 확인된 관심 영역만 처리하도록 합니다.
 
 ```mermaid
 graph TD
-    A[Input Road Image: 1920x648] --> B[Stage 1: YOLO11l-seg]
-    B -->|Raw Masks & Detections: ac, lc, pc| C[Post-Processing: clean_mask]
-    C -->|Filtered Masks| D[Post-Processing: apply_detection_filter]
-    D -->|Refined Crops| E[Stage 2: YOLO11m-cls]
-    E -->|Severity Classification| F[Caution / Danger Output]
+    A[입력 도로 이미지: 1920x648] --> B[1단계: YOLO11l-seg]
+    B -->|원시 마스크와 탐지 결과: ac, lc, pc| C[후처리: clean_mask]
+    C -->|필터링된 마스크| D[후처리: apply_detection_filter]
+    D -->|정제된 크롭 이미지| E[3단계: YOLO11m-cls]
+    E -->|심각도 분류| F[Caution 또는 Danger 출력]
 ```
 
-### Stage 1: Instance Segmentation & Anomaly Localization
-The first stage takes cropped road images resized to $1920 \times 648$ (pre-processed to exclude non-road areas such as sky, sidewalks, and surrounding scenery). A **YOLO11l-seg** architecture is trained to predict instance masks for three primary defect classes:
-- **Alligator Crack (`ac`)**
-- **Longitudinal Crack (`lc`)**
-- **Repair Patch (`pc`)**
+### 1단계: 인스턴스 세그멘테이션과 결함 위치 추정
 
-### Stage 2: Post-Processing & Filtering
-To eliminate noisy detections and boundary tendrils common in low-contrast asphalt, the segmentation masks are processed via a two-stage filter:
+첫 단계에는 $1920 \times 648$ 크기로 조정한 도로 이미지를 입력합니다. 하늘, 보도, 주변 풍경처럼 도로가 아닌 영역은 전처리에서 제외합니다. **YOLO11l-seg** 모델은 다음 세 가지 주요 결함 클래스의 인스턴스 마스크를 예측하도록 학습했습니다.
 
-1. **Morphological Cleanup (`clean_mask`)**: 
-   We apply morphological opening (erosion followed by dilation) with a structured kernel to suppress small floating blobs and thin, disconnected tendrils, retaining only the largest connected component of the binary mask.
+- **거북등 균열(Alligator Crack, `ac`)**
+- **종방향 균열(Longitudinal Crack, `lc`)**
+- **보수 패치(Repair Patch, `pc`)**
 
-2. **Containment & Overlap Suppression (`apply_detection_filter`)**:
-   We implement a geometric rule-based filter using Intersection over Union (IoU) to resolve overlapping detections. For instance, if an alligator crack mask ($M_{ac}$) and a longitudinal crack mask ($M_{lc}$) overlap significantly, we suppress the weaker classification, preventing double-counting and boundary dilution.
+### 2단계: 후처리와 필터링
 
-### Stage 3: Severity Classification
-Once the refined masks are established, the bounding boxes of the detected `ac` and `lc` instances are cropped from the original image. These crops are fed to class-specific **YOLO11m-cls** classification networks to grade severity into **Caution** or **Danger**:
-- **Alligator Crack (`ac`) Severity**: Evaluated on 5,120 test instances (`ac_caution`: 3,293; `ac_danger`: 1,827). Achieved **0.879 Accuracy** and **0.866 F1-Score**.
-- **Longitudinal Crack (`lc`) Severity**: Evaluated on 3,048 test instances (`lc_caution`: 2,651; `lc_danger`: 397). Achieved **0.956 Accuracy** and **0.959 F1-Score**.
+저대비 아스팔트에서 자주 발생하는 노이즈성 탐지와 가느다란 마스크 돌출부를 제거하기 위해 세그멘테이션 마스크에 두 단계 필터를 적용했습니다.
+
+1. **형태학적 정제(`clean_mask`):** 구조 요소를 사용해 형태학적 열림 연산(침식 후 팽창)을 적용합니다. 작은 독립 영역과 가늘게 분리된 돌출부를 억제하고, 이진 마스크에서 가장 큰 연결 성분만 유지합니다.
+2. **포함 관계 및 중복 억제(`apply_detection_filter`):** Intersection over Union(IoU)을 사용하는 기하학적 규칙 기반 필터로 중첩 탐지를 정리합니다. 예를 들어 거북등 균열 마스크($M_{ac}$)와 종방향 균열 마스크($M_{lc}$)가 크게 겹치면 신뢰도가 낮은 탐지를 제거해 중복 집계와 마스크 경계가 불명확해지는 문제를 방지합니다.
+
+### 3단계: 심각도 분류
+
+정제된 마스크를 얻은 뒤, 검출된 `ac`와 `lc` 인스턴스의 바운딩 박스 영역을 원본 이미지에서 크롭합니다. 각 크롭 이미지를 클래스별 **YOLO11m-cls** 분류 모델에 입력해 심각도를 **Caution** 또는 **Danger**로 분류합니다.
+
+- **거북등 균열(`ac`) 심각도:** 테스트 인스턴스 5,120개(`ac_caution`: 3,293개, `ac_danger`: 1,827개)에서 **Accuracy 0.879**, **F1-Score 0.866**을 달성했습니다.
+- **종방향 균열(`lc`) 심각도:** 테스트 인스턴스 3,048개(`lc_caution`: 2,651개, `lc_danger`: 397개)에서 **Accuracy 0.956**, **F1-Score 0.959**를 달성했습니다.
 
 ---
 
-## Detailed Performance Analysis
+## 상세 성능 분석
 
-The overall model evaluation was completed across 2,083 validation instances. Below are the class-specific metrics from our empirical evaluation:
+전체 모델은 검증 인스턴스 2,083개로 평가했습니다. 클래스별 성능은 다음과 같습니다.
 
-| Target Class | Test Instances | mAP@50 | mIoU | Recall | Missed Rate |
+| 대상 클래스 | 테스트 인스턴스 | mAP@50 | mIoU | 재현율 | 미탐률 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Alligator Crack (`ac`)** | 1,022 | 0.912 | 0.801 | 0.950 | 4.99% |
-| **Longitudinal Crack (`lc`)** | 785 | 0.786 | 0.739 | 0.862 | 13.76% |
-| **Repair Patch (`pc`)** | 201 | 0.915 | 0.764 | 0.950 | 4.98% |
-| **Pothole (`ph`)** * | 75 | 0.887 | 0.726 | 0.906 | 9.33% |
-| **Weighted Average** | **2,083** | **0.864** | **0.772** | **0.915** | **8.45%** (176 instances) |
+| **거북등 균열(`ac`)** | 1,022 | 0.912 | 0.801 | 0.950 | 4.99% |
+| **종방향 균열(`lc`)** | 785 | 0.786 | 0.739 | 0.862 | 13.76% |
+| **보수 패치(`pc`)** | 201 | 0.915 | 0.764 | 0.950 | 4.98% |
+| **포트홀(`ph`)** * | 75 | 0.887 | 0.726 | 0.906 | 9.33% |
+| **가중 평균** | **2,083** | **0.864** | **0.772** | **0.915** | **8.45%** (176개) |
 
-*\* Note: Potholes (`ph`) are detected and segmented using a standalone optimized parallel network running concurrently with the main pipeline.*
+*참고: 포트홀(`ph`)은 메인 파이프라인과 동시에 실행되는 별도의 최적화된 병렬 네트워크로 탐지하고 세그멘테이션합니다.*
 
 ---
 
-## Key Engineering Takeaways
+## 주요 엔지니어링 결과
 
-1. **Decoupled Architecture**: Splitting the pipeline into segmentation followed by classification allowed the team to optimize each stage independently. The YOLO11m-cls severity classifiers benefited from cleaner, targeted crops, achieving high classification accuracy.
-2. **Morphological Noise Suppression**: Morphological opening filters proved highly effective at reducing false positive pixel rates by 14.2% on the validation set, eliminating thin tendrils that had no structural impact on damage assessment.
-3. **Robust Empirical Validation**: Meeting the AIWORKS certification criteria demonstrates that multi-stage deep learning pipelines, combined with rigorous post-processing heuristics, are viable for critical automated infrastructure inspections.
+1. **분리형 아키텍처:** 세그멘테이션과 분류를 분리해 각 단계를 독립적으로 최적화할 수 있었습니다. YOLO11m-cls 심각도 분류 모델은 정제된 관심 영역을 입력받아 높은 분류 정확도를 달성했습니다.
+2. **형태학적 노이즈 억제:** 형태학적 열림 필터는 손상 평가에 영향을 주지 않는 가느다란 돌출부를 제거했으며, 검증 세트에서 오탐 픽셀 비율을 14.2% 줄였습니다.
+3. **실증적 성능 검증:** AIWORKS 인증 기준을 충족함으로써 다단계 딥러닝 파이프라인과 엄격한 후처리 휴리스틱을 결합한 방식이 중요 사회기반시설 자동 점검에 적용 가능함을 확인했습니다.
