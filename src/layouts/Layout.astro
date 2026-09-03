@@ -19,32 +19,89 @@ const {
 
 const pathname = Astro.url.pathname;
 const isKorean = pathname === '/ko' || pathname.startsWith('/ko/');
-const locale = isKorean ? 'ko' : 'en';
-const defaultDescription = isKorean
-  ? '현장 데이터와 운영 조건을 고려해 신뢰할 수 있는 컴퓨터 비전 시스템을 만드는 다다버예브 압두라흐먼의 포트폴리오입니다.'
-  : 'Portfolio of Abdurakhmon Dadaboev, an AI vision engineer building reliable computer vision systems for real-world operations.';
-const pageTitle = explicitTitle || frontmatter?.title || 'Abdurakhmon Dadaboev';
-const description = explicitDescription || frontmatter?.description || defaultDescription;
-const documentTitle = pageTitle === 'Abdurakhmon Dadaboev'
-  ? pageTitle
-  : `${pageTitle} | Abdurakhmon Dadaboev`;
-const siteOrigin = Astro.site ?? Astro.url.origin;
-const canonicalUrl = new URL(pathname, siteOrigin);
-const englishPath = isKorean ? (pathname.replace(/^\/ko(?=\/|$)/, '') || '/') : pathname;
-const koreanPath = isKorean ? pathname : (pathname === '/' ? '/ko/' : `/ko${pathname}`);
-const navItems = isKorean
-  ? [
-      { href: '/ko/about', label: '소개' },
-      { href: '/ko/research-and-projects', label: '프로젝트' },
-      { href: '/ko/resume', label: '이력' },
-      { href: '/ko/books', label: '독서' },
-    ]
-  : [
+const isRussian = pathname === '/ru' || pathname.startsWith('/ru/');
+const locale = isKorean ? 'ko' : isRussian ? 'ru' : 'en';
+const localizedCopy = {
+  en: {
+    description: 'Portfolio of Abdurakhmon Dadaboev, an AI vision engineer building reliable computer vision systems for real-world operations.',
+    home: '/',
+    homeLabel: 'Go to home',
+    navLabel: 'Primary navigation',
+    languageLabel: 'Language',
+    note: 'Project note',
+    updated: 'Updated',
+    role: 'Computer vision researcher and engineer',
+    externalLinks: 'External links',
+    email: 'Email',
+    location: 'Sejong, South Korea',
+    nav: [
       { href: '/about', label: 'About' },
       { href: '/research-and-projects', label: 'Projects' },
       { href: '/resume', label: 'Resume' },
       { href: '/books', label: 'Reading' },
-    ];
+    ],
+  },
+  ko: {
+    description: '현장 데이터와 운영 조건을 고려해 신뢰할 수 있는 컴퓨터 비전 시스템을 만드는 다다버예브 압두라흐먼의 포트폴리오입니다.',
+    home: '/ko/',
+    homeLabel: '홈으로 이동',
+    navLabel: '주요 메뉴',
+    languageLabel: '언어 선택',
+    note: '프로젝트 노트',
+    updated: '업데이트',
+    role: '컴퓨터 비전 연구자 및 엔지니어',
+    externalLinks: '외부 링크',
+    email: '이메일',
+    location: '대한민국 세종',
+    nav: [
+      { href: '/ko/about', label: '소개' },
+      { href: '/ko/research-and-projects', label: '프로젝트' },
+      { href: '/ko/resume', label: '이력' },
+      { href: '/ko/books', label: '독서' },
+    ],
+  },
+  ru: {
+    description: 'Портфолио Абдурахмона Дадабоева, инженера по компьютерному зрению, который создаёт надёжные системы искусственного интеллекта для практических задач.',
+    home: '/ru/',
+    homeLabel: 'На главную страницу',
+    navLabel: 'Основная навигация',
+    languageLabel: 'Выбор языка',
+    note: 'Описание проекта',
+    updated: 'Обновлено',
+    role: 'Исследователь и инженер по компьютерному зрению',
+    externalLinks: 'Внешние ссылки',
+    email: 'Почта',
+    location: 'Седжон, Республика Корея',
+    nav: [
+      { href: '/ru/about', label: 'Обо мне' },
+      { href: '/ru/research-and-projects', label: 'Проекты' },
+      { href: '/ru/resume', label: 'Резюме' },
+      { href: '/ru/books', label: 'Книги' },
+    ],
+  },
+} as const;
+const copy = localizedCopy[locale];
+const defaultDescription = copy.description;
+const pageTitle = explicitTitle || frontmatter?.title || 'Abdurakhmon Dadaboev';
+const description = explicitDescription || frontmatter?.description || defaultDescription;
+const isHomeTitle = ['Abdurakhmon Dadaboev', '다다버예브 압두라흐먼', 'Абдурахмон Дадабоев'].includes(pageTitle);
+const documentTitle = isHomeTitle
+  ? pageTitle
+  : `${pageTitle} | Abdurakhmon Dadaboev`;
+const siteOrigin = Astro.site ?? Astro.url.origin;
+const canonicalUrl = new URL(pathname, siteOrigin);
+const basePath = pathname.replace(/^\/(?:ko|ru)(?=\/|$)/, '') || '/';
+const localePaths = {
+  en: basePath,
+  ko: basePath === '/' ? '/ko/' : `/ko${basePath}`,
+  ru: basePath === '/' ? '/ru/' : `/ru${basePath}`,
+};
+const languages = [
+  { code: 'en', label: 'EN', href: localePaths.en },
+  { code: 'ko', label: 'KR', href: localePaths.ko },
+  { code: 'ru', label: 'RU', href: localePaths.ru },
+] as const;
+const navItems = copy.nav;
 
 const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 ---
@@ -56,28 +113,16 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#ffffff" />
-    <script is:inline>
-      (() => {
-        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
-        try {
-          const savedTheme = localStorage.getItem('portfolio-theme');
-          document.documentElement.dataset.theme = savedTheme === 'dark' || savedTheme === 'light'
-            ? savedTheme
-            : systemTheme;
-        } catch {
-          document.documentElement.dataset.theme = systemTheme;
-        }
-      })();
-    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang="en" href={new URL(englishPath, siteOrigin)} />
-    <link rel="alternate" hreflang="ko" href={new URL(koreanPath, siteOrigin)} />
+    <link rel="alternate" hreflang="en" href={new URL(localePaths.en, siteOrigin)} />
+    <link rel="alternate" hreflang="ko" href={new URL(localePaths.ko, siteOrigin)} />
+    <link rel="alternate" hreflang="ru" href={new URL(localePaths.ru, siteOrigin)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(localePaths.en, siteOrigin)} />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={isKorean ? 'ko_KR' : 'en_US'} />
+    <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : locale === 'ru' ? 'ru_RU' : 'en_US'} />
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -105,11 +150,11 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
   <body>
     <header class="site-header">
       <div class="container nav-container">
-        <a href={isKorean ? '/ko/' : '/'} class="brand" aria-label={isKorean ? '홈으로 이동' : 'Go to home'}>
+        <a href={copy.home} class="brand" aria-label={copy.homeLabel}>
           <span class="brand-name">Abdurakhmon Dadaboev</span>
         </a>
 
-        <nav aria-label={isKorean ? '주요 메뉴' : 'Primary navigation'}>
+        <nav aria-label={copy.navLabel}>
           <ul>
             {navItems.map((item) => (
               <li><a href={item.href} class={isCurrent(item.href) ? 'active' : ''}>{item.label}</a></li>
@@ -118,24 +163,19 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
         </nav>
 
         <div class="header-actions">
-          <a
-            class="language-switch"
-            href={isKorean ? englishPath : koreanPath}
-            hreflang={isKorean ? 'en' : 'ko'}
-            aria-label={isKorean ? '영어 페이지로 전환' : 'Switch to Korean'}
-          >
-            {isKorean ? 'EN' : 'KR'}
-          </a>
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label={isKorean ? '야간 모드로 전환' : 'Switch to night mode'}
-            aria-pressed="false"
-          >
-            <span class="theme-day">{isKorean ? '낮' : 'Day'}</span>
-            <span aria-hidden="true">/</span>
-            <span class="theme-night">{isKorean ? '밤' : 'Night'}</span>
-          </button>
+          <div class="language-switcher" aria-label={copy.languageLabel}>
+            {languages.map((language) => (
+              <a
+                class:list={['language-switch', { active: locale === language.code }]}
+                href={language.href}
+                hreflang={language.code}
+                lang={language.code}
+                aria-current={locale === language.code ? 'page' : undefined}
+              >
+                {language.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </header>
@@ -144,10 +184,10 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
       {frontmatter ? (
         <article class="prose article-shell">
           <div class="article-heading">
-            <p class="eyebrow">{isKorean ? '프로젝트 노트' : 'Project note'}</p>
+            <p class="eyebrow">{copy.note}</p>
             <h1>{frontmatter.title}</h1>
             {frontmatter.date && (
-              <p class="article-date">{isKorean ? '업데이트' : 'Updated'} · {frontmatter.date}</p>
+              <p class="article-date">{copy.updated} · {frontmatter.date}</p>
             )}
           </div>
           <slot />
@@ -160,47 +200,17 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <footer class="site-footer">
       <div class="container footer-inner">
         <div>
-          <a href={isKorean ? '/ko/' : '/'} class="footer-name">Abdurakhmon Dadaboev</a>
-          <p>{isKorean ? '컴퓨터 비전 연구자 및 엔지니어' : 'Computer vision researcher and engineer'}</p>
+          <a href={copy.home} class="footer-name">Abdurakhmon Dadaboev</a>
+          <p>{copy.role}</p>
         </div>
-        <div class="footer-links" aria-label={isKorean ? '외부 링크' : 'External links'}>
-          <a href="mailto:dadaboev170998@gmail.com">Email</a>
+        <div class="footer-links" aria-label={copy.externalLinks}>
+          <a href="mailto:dadaboev170998@gmail.com">{copy.email}</a>
           <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://www.kaggle.com/alexl98" target="_blank" rel="noopener noreferrer">Kaggle</a>
         </div>
       </div>
-      <div class="container footer-bottom">© {new Date().getFullYear()} Abdurakhmon Dadaboev · {isKorean ? '대한민국 세종' : 'Sejong, South Korea'}</div>
+      <div class="container footer-bottom">© {new Date().getFullYear()} Abdurakhmon Dadaboev · {copy.location}</div>
     </footer>
-    <script is:inline>
-      (() => {
-        const root = document.documentElement;
-        const toggle = document.querySelector('.theme-toggle');
-        const themeColor = document.querySelector('meta[name="theme-color"]');
-        const labels = root.lang === 'ko'
-          ? { light: '야간 모드로 전환', dark: '주간 모드로 전환' }
-          : { light: 'Switch to night mode', dark: 'Switch to day mode' };
-
-        const applyTheme = (theme, remember = false) => {
-          root.dataset.theme = theme;
-          toggle?.setAttribute('aria-pressed', String(theme === 'dark'));
-          toggle?.setAttribute('aria-label', labels[theme]);
-          themeColor?.setAttribute('content', theme === 'dark' ? '#0f141c' : '#ffffff');
-
-          if (remember) {
-            try {
-              localStorage.setItem('portfolio-theme', theme);
-            } catch {
-              // The selected theme still applies when browser storage is unavailable.
-            }
-          }
-        };
-
-        applyTheme(root.dataset.theme === 'dark' ? 'dark' : 'light');
-        toggle?.addEventListener('click', () => {
-          applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark', true);
-        });
-      })();
-    </script>
   </body>
 </html>

@@ -1,0 +1,63 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
+const sortedProjects = projects.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+const translations: Record<string, { title: string; description: string; category: string }> = {
+  'north-american-road-data': { title: 'Дорожные данные Северной Америки и автоматическая разметка', description: 'Система сбора изображений Mapillary, извлечения признаков DINOv3, поиска FAISS и ручной проверки.', category: 'Обработка данных' },
+  'amorphous-bottleneck': { title: 'Ансамбль с оптимизацией полноты для аморфных аномалий', description: 'Исследование ансамбля для надёжного поиска низкоконтрастных аномалий неправильной формы.', category: 'Архитектура модели' },
+  'omr-htr-digitization': { title: 'Офлайн система OMR и OCR экзаменов', description: 'Единый офлайн процесс выравнивания, сопоставления студентов, извлечения ответов, OCR и сохранения результатов.', category: 'Прикладной ИИ' },
+  'road-damage-detection': { title: 'Сегментация и оценка повреждений дорог', description: 'Полигональная разметка неровных трещин, сегментация и классификация степени повреждения.', category: 'Компьютерное зрение' },
+  'text-mining-fundamentals': { title: 'Практический курс по анализу текста на Python', description: 'Проектные материалы по сбору текстов, словарному анализу, тематическому моделированию и LSTM.', category: 'Обработка текста' },
+  'semantic-segmentation-modality-reduction': { title: 'Лёгкая семантическая сегментация с дистилляцией знаний', description: 'Перенос знаний модели RGB, NIR и LiDAR в модель только с RGB для снижения требований к датчикам.', category: 'Компьютерное зрение' },
+  'daily-doer-agent': { title: 'Агент автоматизации DailyDoer для Telegram', description: 'Python агент, объединяющий расписание, электронную почту, новости и голосовые команды.', category: 'Разговорный ИИ' },
+  'local-llm-assistant': { title: 'Мобильный помощник с локальной языковой моделью', description: 'Персональный офлайн помощник, соединяющий локальную модель на компьютере с мобильным приложением.', category: 'Локальный ИИ' },
+  'autonomous-hexapod-robot': { title: 'Шестиногий робот с 18 степенями свободы', description: 'Робот с ультразвуковым обходом препятствий, управлением походкой, силовой схемой и напечатанными деталями.', category: 'Робототехника' },
+  'autonomous-ball-launcher': { title: 'Автоматическая пусковая установка с компьютерным зрением', description: 'Система с отслеживанием цвета OpenCV, сервоприводом и регулировкой мощности по расстоянию.', category: 'Встраиваемые системы' },
+};
+---
+
+<Layout title="Исследования и проекты" description="Проекты Абдурахмона Дадабоева в области компьютерного зрения, систем данных, прикладного машинного обучения и встраиваемой инженерии.">
+  <header class="projects-header">
+    <p class="eyebrow">Исследования и проекты</p>
+    <h1>Проекты</h1>
+    <p>Исследовательские и программные работы в области компьютерного зрения, систем данных, офлайн ИИ и встраиваемой инженерии.</p>
+  </header>
+
+  <div class="list-header"><span>{sortedProjects.length} проектов</span><span>Сначала новые</span></div>
+
+  <section class="project-list" aria-label="Проекты">
+    {sortedProjects.map((project) => {
+      const slug = project.url.split('/').filter(Boolean).at(-1) as string;
+      const projectCopy = translations[slug] || project.frontmatter;
+      return (
+        <a href={project.url} class="project-row">
+          <time>{project.frontmatter.date}</time>
+          <div>
+            <h2>{projectCopy.title}</h2>
+            <p>{projectCopy.description}</p>
+            <ul>{project.frontmatter.tags?.slice(0, 4).map((tag: string) => <li>{tag}</li>)}</ul>
+          </div>
+          <span class="category">{projectCopy.category}</span>
+        </a>
+      );
+    })}
+  </section>
+
+  <style>
+    .projects-header { max-width: 48rem; padding-bottom: 2.2rem; }
+    .projects-header h1 { margin-bottom: 0.5rem; }
+    .projects-header > p:last-child { font-size: 1.05rem; }
+    .list-header { display: flex; justify-content: space-between; margin-bottom: 0.9rem; color: var(--ink-muted); font-size: 0.84rem; }
+    .project-list { display: grid; gap: 0.85rem; }
+    .project-row { display: grid; grid-template-columns: 8rem minmax(0, 1fr) 10rem; gap: 1.5rem; align-items: start; padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+    .project-row:hover h2 { color: var(--accent); }
+    .project-row time, .category { color: var(--ink-muted); font-size: 0.84rem; }
+    .category { text-align: right; }
+    .project-row h2 { margin-bottom: 0.3rem; font-size: 1.18rem; }
+    .project-row p { max-width: 42rem; font-size: 0.96rem; }
+    .project-row ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin-top: 0.45rem; list-style: none; }
+    .project-row li { color: var(--ink-muted); font-size: 0.8rem; }
+    @media (max-width: 680px) { .project-row { grid-template-columns: 1fr; gap: 0.3rem; } .category { grid-row: 1; text-align: left; } .project-row time { grid-row: 1; justify-self: end; } }
+  </style>
+</Layout>

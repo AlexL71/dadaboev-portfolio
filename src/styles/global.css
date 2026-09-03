@@ -38,27 +38,6 @@
   --transition-smooth: all var(--transition);
 }
 
-:root[data-theme='dark'] {
-  color-scheme: dark;
-  --bg: #0f141c;
-  --surface: #171e28;
-  --surface-soft: #202a36;
-  --ink: #eef3f8;
-  --ink-soft: #c5ced9;
-  --ink-muted: #919daf;
-  --accent: #72bfd3;
-  --accent-strong: #9ad3e1;
-  --accent-soft: #173746;
-  --line: #2d3948;
-  --line-strong: #455569;
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.24);
-  --header-bg: rgba(15, 20, 28, 0.96);
-  --button-on-accent: #0f141c;
-  --code-bg: #0b1017;
-  --code-ink: #edf4fa;
-  --selection: #285066;
-}
-
 *,
 *::before,
 *::after {
@@ -160,12 +139,27 @@ nav a.active { color: var(--accent); }
 nav a.active { font-weight: 700; }
 
 .language-switch {
-  padding: 0.35rem 0.7rem;
+  padding: 0.3rem 0.55rem;
   border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--ink-muted);
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.18rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.language-switch:hover,
+.language-switch.active {
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 .header-actions {
@@ -173,28 +167,6 @@ nav a.active { font-weight: 700; }
   align-items: center;
   gap: 0.5rem;
 }
-
-.theme-toggle {
-  min-height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.32rem 0.65rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink-muted);
-  background: var(--surface);
-  font: inherit;
-  font-size: 0.76rem;
-  font-weight: 650;
-  cursor: pointer;
-}
-
-.theme-toggle:hover { border-color: var(--line-strong); }
-.theme-day,
-.theme-night { color: var(--ink-muted); }
-:root:not([data-theme='dark']) .theme-day,
-:root[data-theme='dark'] .theme-night { color: var(--accent); }
 
 .eyebrow {
   margin-bottom: 0.7rem;
@@ -434,7 +406,7 @@ pre code { padding: 0; color: inherit; background: transparent; }
   main { padding-top: 1.5rem; }
   .nav-container { min-height: 3.8rem; }
   .header-actions { gap: 0.35rem; }
-  .theme-toggle { padding-inline: 0.5rem; }
+  .language-switch { padding-inline: 0.45rem; }
   nav ul { gap: 0.65rem; }
   nav a { white-space: nowrap; font-size: 0.8rem; }
   .grid-2 { grid-template-columns: 1fr; }
