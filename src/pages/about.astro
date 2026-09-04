@@ -8,16 +8,15 @@ import InstitutionLink from '../components/InstitutionLink.astro';
   <header class="page-header">
     <p class="eyebrow">About</p>
     <h1>About me</h1>
-    <p class="profile-line">AI Vision Engineer · Data Scientist</p>
+    <p class="profile-line">Computer Vision Engineer · Data-focused AI Researcher</p>
   </header>
 
   <section class="bio">
     <img src="/images/about-portrait-2026.jpg" width="1014" height="1280" alt="Abdurakhmon Dadaboev" />
     <div>
-      <p>I learn best by trying things myself and following a question until I understand it. My early education was in art, where I learned to express ideas through words and images and to pay close attention to shape, proportion, and detail. That habit of observation still influences how I approach technical problems today.</p>
-      <p>I later moved to South Korea on my own, initially unable to communicate comfortably in Korean. Learning the language and adapting to a new country taught me to ask questions, listen carefully, and connect with people before trying to solve a problem. Representing Uzbek students and helping with interpretation, student support, and cultural events also showed me how much good work depends on trust and clear communication.</p>
-      <p>My path into AI began through electronic engineering. I was particularly interested in sensors and embedded systems, and while building a hexapod robot, I enjoyed bringing several sensor inputs together into one working system. It made me curious about how machines perceive their surroundings and make decisions. That curiosity gradually led me from hardware toward statistics, data, and machine learning.</p>
-      <p class="bio-after-image">Since then, I have worked on road damage detection, offline exam paper OCR, image retrieval, and data collection pipelines. These projects taught me not to judge a system only by its headline metric. I look closely at whether the data reflects the real environment, where errors occur, and how people will review and use the result. My strongest quality is that I am comfortable entering unfamiliar areas: I test what I do not know, learn from the evidence, and keep working until the result is useful and dependable.</p>
+      <p>I started with art and technical automation before studying electronic engineering. Art trained me to notice shape and detail, while engineering taught me to understand how separate parts work together. Both still influence how I approach computer vision problems.</p>
+      <p>I moved to South Korea independently and learned Korean from the beginning. Studying, interpreting, and representing Uzbek students taught me to ask clear questions, listen carefully, and work with people from different backgrounds.</p>
+      <p>Today I work on road-image data, segmentation, image retrieval, and offline OCR. I begin by understanding the data and the people who will use the result, then build a process that can be tested and reviewed. I am comfortable entering unfamiliar areas, checking what I do not know, and continuing until the result is useful and dependable.</p>
       <div class="bio-links"><a href="/resume">View resume</a><a href="/research-and-projects">View projects</a></div>
     </div>
   </section>
@@ -34,15 +33,13 @@ import InstitutionLink from '../components/InstitutionLink.astro';
   <section class="about-section">
     <h2>Experience and education</h2>
     <div class="timeline">
-      <div class="timeline-item"><div class="timeline-meta">Jul 2026 to present</div><div><div class="timeline-title">North American Road Data and Automatic Labeling</div><div class="timeline-subtitle">Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University</div><div class="timeline-content"><p>Developing a Mapillary based collection pipeline, DINOv3 and FAISS retrieval workflow, and manual review tool for road image curation.</p></div></div></div>
+      <div class="timeline-item"><div class="timeline-meta">Jul 2026 to present</div><div><div class="timeline-title">North American Road Data and Automatic Labeling</div><div class="timeline-subtitle">Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University</div><div class="timeline-content"><p>Building a repeatable process to collect, find, and manually review useful road images.</p></div></div></div>
       <div class="timeline-item"><div class="timeline-meta">Jul 2026</div><div><div class="timeline-title">AI Vision Research Intern</div><div class="timeline-subtitle">Youngchang Labs</div><div class="timeline-content"><p>Worked on road image dataset construction, analysis, and computer vision model development.</p></div></div></div>
-      <div class="timeline-item"><div class="timeline-meta">Feb 2026 to present</div><div><div class="timeline-title">Offline Exam OCR System</div><div class="timeline-subtitle">Big Data Mining Lab · Korea University</div><div class="timeline-content"><p>Developing PDF alignment, OMR based student matching, answer extraction, OCR, and result storage.</p></div></div></div>
-      <div class="timeline-item"><div class="timeline-meta">Mar to Dec 2025</div><div><div class="timeline-title">Road Damage Detection Research</div><div class="timeline-subtitle">Crowdsourced Mobility Support · R2320973</div><div class="timeline-content"><p>Redesigned crack annotations from boxes to polygons and developed a tested road damage segmentation and severity pipeline.</p></div></div></div>
+      <div class="timeline-item"><div class="timeline-meta">Feb 2026 to present</div><div><div class="timeline-title">Offline Exam OCR System</div><div class="timeline-subtitle">Big Data Mining Lab · Korea University</div><div class="timeline-content"><p>Building one local system that matches students, reads answers, and stores results without sending data outside.</p></div></div></div>
+      <div class="timeline-item"><div class="timeline-meta">Mar to Dec 2025</div><div><div class="timeline-title">Road Damage Detection Research</div><div class="timeline-subtitle">Crowdsourced Mobility Support · R2320973</div><div class="timeline-content"><p>Improved how irregular cracks were labeled and built a system that passed independent performance testing.</p></div></div></div>
       <div class="timeline-item"><div class="timeline-meta">2024 to Aug 2026</div><div><div class="timeline-title"><EducationTitle institution="korea-university">M.S. Big Data Science</EducationTitle></div><div class="timeline-subtitle"><InstitutionLink href="https://bigdatascience.korea.ac.kr/">Korea University, Sejong</InstitutionLink> · GPA 4.46/4.5</div></div></div>
       <div class="timeline-item"><div class="timeline-meta">2019 to 2023</div><div><div class="timeline-title"><EducationTitle institution="sun-moon-university">B.S. Electronic Engineering</EducationTitle></div><div class="timeline-subtitle"><InstitutionLink href="https://electric.sunmoon.ac.kr/">Sun Moon University</InstitutionLink> · GPA 4.18/4.5</div></div></div>
       <div class="timeline-item"><div class="timeline-meta">Sep 2017 to Dec 2018</div><div><div class="timeline-title"><EducationTitle institution="sun-moon-language-institute">Korean Language Program</EducationTitle></div><div class="timeline-subtitle"><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp">Sun Moon University Korean Language Institute</InstitutionLink> · Completed the highest-level class (Level 7) · TOPIK Level 6</div></div></div>
-      <div class="timeline-item"><div class="timeline-meta">Sep 2013 to Jun 2016</div><div><div class="timeline-title"><EducationTitle>Automated Systems Maintenance and Commissioning</EducationTitle></div><div class="timeline-subtitle"><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815">Andijan College of Transport and Services</InstitutionLink> · GPA 5.0/5.0 · Graduated with honors (red diploma)</div><div class="timeline-content"><p>Studied industrial automation, electrical and mechanical systems, pneumatics, hydraulics, sensors, and control technology.</p></div></div></div>
-      <div class="timeline-item"><div class="timeline-meta">Sep 2008 to May 2013</div><div><div class="timeline-title"><EducationTitle>Fine Arts</EducationTitle></div><div class="timeline-subtitle"><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni">Andijan Specialized Boarding School of Arts</InstitutionLink></div><div class="timeline-content"><p>Completed five years of visual arts education in a residential school environment.</p></div></div></div>
     </div>
   </section>
 
@@ -54,10 +51,9 @@ import InstitutionLink from '../components/InstitutionLink.astro';
   <style>
     .page-header { max-width: 48rem; padding-bottom: 2rem; }
     .profile-line { margin-top: 0.65rem; color: var(--accent); font-size: 1.15rem; font-weight: 650; }
-    .bio { display: flow-root; padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
-    .bio img { width: clamp(14rem, 21vw, 18rem); height: auto; float: left; margin: 0 clamp(1.5rem, 3vw, 2.5rem) 1rem 0; border-radius: var(--radius-md); object-fit: cover; object-position: center top; }
+    .bio { display: grid; grid-template-columns: clamp(14rem, 21vw, 18rem) minmax(0, 1fr); align-items: start; gap: clamp(1.5rem, 3vw, 2.5rem); padding: clamp(1.4rem, 4vw, 2.2rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .bio img { display: block; width: 100%; height: auto; margin: 0; border-radius: var(--radius-md); }
     .bio p { margin-bottom: 0.8rem; font-size: 1.02rem; line-height: 1.78; }
-    .bio-after-image { clear: both; }
     .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
     .bio-links a { color: var(--accent); font-size: 0.94rem; font-weight: 600; }
     .about-section { padding-block: clamp(3.5rem, 8vw, 5rem); }
@@ -72,6 +68,6 @@ import InstitutionLink from '../components/InstitutionLink.astro';
     .details > div { padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
     .details h2 { margin-bottom: 0.45rem; font-size: 1.2rem; }
     .details p { font-size: 0.97rem; }
-    @media (max-width: 760px) { .bio img { width: min(100%, 20rem); float: none; margin: 0 0 1.25rem; } .interest-grid, .details { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .bio { grid-template-columns: 1fr; } .bio img { width: min(100%, 20rem); } .interest-grid, .details { grid-template-columns: 1fr; } }
   </style>
 </Layout>

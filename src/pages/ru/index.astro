@@ -12,15 +12,9 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     <div class="intro-copy">
       <p class="eyebrow">Здравствуйте, я</p>
       <h1>Алекс</h1>
-      <p class="role">Исследователь и инженер по компьютерному зрению.</p>
+      <p class="role">Инженер по компьютерному зрению · Исследователь данных и ИИ</p>
       <p class="summary">
-        Я ценю надёжную и честную работу. Искусственный интеллект становится обычной частью исследований и промышленности, а многие этапы уже можно автоматизировать. Но человек должен участвовать там, где особенно важно профессиональное суждение: при выборе полезной задачи, проверке результата и принятии ответственности за его применение.
-      </p>
-      <p class="summary">
-        Во многих проектах главным ограничением становятся данные. Большие модели и сложные архитектуры получают много внимания, но практические системы зависят от точной, хорошо организованной и подходящей информации. Вычислительные ресурсы и токены можно купить, а полезный контекст нужно создавать. Именно поэтому я продолжаю изучать сбор, подготовку, поиск, разметку и оценку данных.
-      </p>
-      <p class="summary">
-        Для меня также важны командная работа и ясное общение. Я работал с людьми из разных компаний, стран и областей. Единой формулы хорошей команды нет, но внимательное отношение к людям действительно помогает: важно слушать, понимать потребности коллег и открыто обсуждать небольшие проблемы до того, как они станут серьёзными.
+        Я создаю системы компьютерного зрения от подготовки данных до финальной проверки. Мои проекты связаны с дорожными изображениями, сегментацией, поиском похожих изображений и офлайн-OCR. Для меня важны надежные данные, честная оценка качества и возможность ручной проверки важных результатов.
       </p>
       <div class="profile-links" aria-label="Ссылки профиля">
         <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -33,16 +27,22 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
       <img src="/images/home-portrait.jpg" width="1280" height="1280" alt="Абдурахмон Дадабоев" loading="eager" />
       <figcaption>
         <strong>Абдурахмон Дадабоев</strong>
-        <span>Узбекистан · 27 лет</span>
-        <span>Бакалавр по специальности «Электронная инженерия»</span>
-        <span>Магистр по направлению Big Data Science, Университет Корё · август 2026</span>
+        <span>Седжон, Республика Корея</span>
+        <span>Магистр Big Data Science · Университет Корё</span>
+        <span>Бакалавр электронной инженерии</span>
       </figcaption>
     </figure>
   </section>
 
+  <section class="proof-section" aria-label="Основные достижения">
+    <a href="/ru/research-and-projects/road-damage-detection"><strong>91% обнаружено</strong><span>Полнота (recall) 0,91 в независимом отчёте об испытаниях</span></a>
+    <a href="/ru/research-and-projects/semantic-segmentation-modality-reduction"><strong>Публикация IEEE</strong><span>Эффективная сегментация только по RGB</span></a>
+    <a href="/ru/research-and-projects/north-american-road-data"><strong>Полный цикл работы с данными</strong><span>Сбор, поиск, разметка и ручная проверка</span></a>
+  </section>
+
   <section class="home-section" aria-labelledby="current-heading">
     <div class="section-title">
-      <div><p class="eyebrow">Сейчас</p><h2 id="current-heading">Над чем я работаю</h2></div>
+      <div><p class="eyebrow">Текущий фокус</p><h2 id="current-heading">Над чем я работаю</h2></div>
       <a href="/ru/resume">Весь опыт →</a>
     </div>
     <div class="current-grid">
@@ -56,11 +56,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <h3>Офлайн-распознавание экзаменационных работ (OCR)</h3>
         <p>Я объединяю выравнивание страниц, сопоставление студентов, извлечение ответов, OCR и сохранение результатов в одном офлайн-приложении.</p>
       </article>
-      <article>
-        <span>Июль 2026</span>
-        <h3>Стажировка в Youngchang Labs</h3>
-        <p>Я занимался сбором и анализом дорожных изображений и участвовал в разработке моделей компьютерного зрения.</p>
-      </article>
     </div>
   </section>
 
@@ -70,25 +65,25 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
       <a href="/ru/research-and-projects">Все проекты →</a>
     </div>
     <div class="project-grid">
-      <a href="/ru/research-and-projects/north-american-road-data">
-        <span>Обработка данных · 2026</span>
-        <h3>Дорожные данные Северной Америки</h3>
-        <p>Сбор через Mapillary, эмбеддинги DINOv3, поиск сходства в FAISS и ручная проверка.</p>
-      </a>
       <a href="/ru/research-and-projects/road-damage-detection">
-        <span>Компьютерное зрение · 2025</span>
+        <span>Независимая проверка · 2025</span>
         <h3>Сегментация повреждений дорог</h3>
-        <p>Сегментация трещин и выбоин по полигонам с классификацией степени повреждения.</p>
+        <p>Переработал разметку трещин и создал систему сегментации. Модель обнаружила 91% повреждений в тестовых данных, превысив целевой показатель полноты 90%.</p>
+      </a>
+      <a href="/ru/research-and-projects/semantic-segmentation-modality-reduction">
+        <span>Публикация IEEE · 2025</span>
+        <h3>Эффективная семантическая сегментация</h3>
+        <p>RGB-модель сократила разрыв в качестве с более дорогой мультисенсорной моделью на 62,8%.</p>
+      </a>
+      <a href="/ru/research-and-projects/north-american-road-data">
+        <span>Совместный проект · 2026</span>
+        <h3>Дорожные данные Северной Америки</h3>
+        <p>Спроектировал повторяемый процесс сбора, поиска и ручной проверки полезных дорожных сцен.</p>
       </a>
       <a href="/ru/research-and-projects/omr-htr-digitization">
         <span>Прикладной ИИ · 2026</span>
-        <h3>Офлайн-система OMR и OCR для экзаменационных работ</h3>
-        <p>Локальное приложение для сопоставления студентов, распознавания ответов и сохранения результатов.</p>
-      </a>
-      <a href="/ru/research-and-projects/semantic-segmentation-modality-reduction">
-        <span>Научная статья · 2025</span>
-        <h3>Эффективная семантическая сегментация</h3>
-        <p>Перенос знаний из модели RGB, NIR и LiDAR в модель, использующую только RGB.</p>
+        <h3>Офлайн-система OMR и OCR</h3>
+        <p>Объединил сопоставление студентов, распознавание ответов и хранение результатов в одной локальной системе.</p>
       </a>
     </div>
   </section>
@@ -100,8 +95,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
       <div class="detail-item"><strong><EducationTitle institution="korea-university">Магистр по направлению Big Data Science</EducationTitle></strong><span><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ru">Университет Корё, Седжон</InstitutionLink> · 2024–2026</span><span>Средний балл 4,46 / 4,5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-university">Бакалавр по специальности «Электронная инженерия»</EducationTitle></strong><span><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ru">Университет Сонмун</InstitutionLink> · 2019–2023</span><span>Средний балл 4,18 / 4,5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-language-institute">Курс корейского языка</EducationTitle></strong><span><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp" lang="ru">Институт корейского языка Университета Сонмун</InstitutionLink> · сентябрь 2017 — декабрь 2018</span><span>Окончил высший уровень (7-я ступень) · TOPIK 6</span></div>
-      <div class="detail-item"><strong><EducationTitle>Техническое обслуживание и наладка автоматизированных систем</EducationTitle></strong><span><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815" lang="ru">Андижанский профессиональный колледж транспорта и сервиса</InstitutionLink> · сентябрь 2013 — июнь 2016</span><span>Средний балл 5,0 / 5,0 · Красный диплом</span></div>
-      <div class="detail-item"><strong><EducationTitle>Изобразительное искусство</EducationTitle></strong><span><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" lang="ru">Андижанская специализированная школа-интернат искусств</InstitutionLink> · сентябрь 2008 — май 2013</span></div>
     </div>
     <div class="details-panel">
       <p class="eyebrow">Навыки</p>
@@ -126,6 +119,11 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     .portrait-block strong, .portrait-block span { display: block; }
     .portrait-block strong { color: var(--ink); font-size: 0.86rem; }
     .portrait-block span { margin-top: 0.15rem; color: var(--ink-muted); font-size: 0.82rem; }
+    .proof-section { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-bottom: clamp(3.5rem, 8vw, 5.5rem); }
+    .proof-section a { padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .proof-section strong, .proof-section span { display: block; }
+    .proof-section strong { margin-bottom: 0.3rem; color: var(--accent); font-size: 1.05rem; }
+    .proof-section span { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
     .home-section { padding-block: clamp(3.5rem, 8vw, 5.5rem); border-top: 1px solid var(--line); }
     .section-title { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.8rem; }
     .section-title .eyebrow { margin-bottom: 0.35rem; }
@@ -149,6 +147,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     .details-panel > p:not(.eyebrow) + p { margin-top: 1rem; }
     .details-panel p strong { color: var(--ink); }
     @media (max-width: 1100px) { .intro { grid-template-columns: minmax(0, 1fr) clamp(10rem, 23vw, 13rem); justify-content: stretch; gap: 2rem; } }
-    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .proof-section, .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
   </style>
 </Layout>

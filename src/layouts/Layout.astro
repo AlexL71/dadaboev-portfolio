@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { projectDetailsLabel, projectResultDocuments, projectSummaries, projectSummaryLabels } from '../data/projectSummaries';
 
 interface Props {
   title?: string;
@@ -32,13 +33,13 @@ const localizedCopy = {
     updated: 'Updated',
     role: 'Computer vision researcher and engineer',
     externalLinks: 'External links',
+    reading: 'Reading',
     email: 'Email',
     location: 'Sejong, South Korea',
     nav: [
       { href: '/about', label: 'About' },
       { href: '/research-and-projects', label: 'Projects' },
       { href: '/resume', label: 'Resume' },
-      { href: '/books', label: 'Reading' },
     ],
   },
   ko: {
@@ -51,13 +52,13 @@ const localizedCopy = {
     updated: '업데이트',
     role: '컴퓨터 비전 연구자 및 엔지니어',
     externalLinks: '외부 링크',
+    reading: '독서',
     email: '이메일',
     location: '대한민국 세종',
     nav: [
       { href: '/ko/about', label: '소개' },
       { href: '/ko/research-and-projects', label: '프로젝트' },
       { href: '/ko/resume', label: '이력' },
-      { href: '/ko/books', label: '독서' },
     ],
   },
   ru: {
@@ -70,13 +71,13 @@ const localizedCopy = {
     updated: 'Обновлено',
     role: 'Исследователь и инженер по компьютерному зрению',
     externalLinks: 'Внешние ссылки',
+    reading: 'Книги',
     email: 'Почта',
     location: 'Седжон, Республика Корея',
     nav: [
       { href: '/ru/about', label: 'Обо мне' },
       { href: '/ru/research-and-projects', label: 'Проекты' },
       { href: '/ru/resume', label: 'Резюме' },
-      { href: '/ru/books', label: 'Книги' },
     ],
   },
 } as const;
@@ -102,6 +103,13 @@ const languages = [
   { code: 'ru', label: 'RU', href: localePaths.ru },
 ] as const;
 const navItems = copy.nav;
+const readingPath = locale === 'ko' ? '/ko/books' : locale === 'ru' ? '/ru/books' : '/books';
+const isProjectDetail = /\/research-and-projects\/[^/]+\/?$/.test(pathname);
+const projectSlug = isProjectDetail ? pathname.split('/').filter(Boolean).at(-1) : undefined;
+const projectSummary = projectSlug ? projectSummaries[locale][projectSlug] : undefined;
+const projectResultDocument = projectSlug ? projectResultDocuments[projectSlug] : undefined;
+const summaryLabels = projectSummaryLabels[locale];
+const summaryKeys = ['challenge', 'role', 'result', 'status'] as const;
 
 const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
 ---
@@ -190,7 +198,32 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
               <p class="article-date">{copy.updated} · {frontmatter.date}</p>
             )}
           </div>
-          <slot />
+          {projectSummary ? (
+            <>
+              <section class="project-overview" aria-label={locale === 'ko' ? '프로젝트 요약' : locale === 'ru' ? 'Краткое описание проекта' : 'Project summary'}>
+                {summaryKeys.map((key) => (
+                  <div class:list={['project-overview-item', `project-overview-${key}`]}>
+                    <h2>{summaryLabels[key]}</h2>
+                    <p>{projectSummary[key]}</p>
+                    {key === 'result' && projectResultDocument && (
+                      <a class="project-evidence-link" href={projectResultDocument.href} target="_blank" rel="noopener noreferrer" type="application/pdf">
+                        {projectResultDocument.label[locale]}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                          <path d="M14 3h7v7M21 3l-9 9M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </section>
+              <details class="technical-details">
+                <summary>{projectDetailsLabel[locale]}</summary>
+                <div class="technical-content"><slot /></div>
+              </details>
+            </>
+          ) : (
+            <slot />
+          )}
         </article>
       ) : (
         <slot />
@@ -208,6 +241,7 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
           <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://www.kaggle.com/alexl98" target="_blank" rel="noopener noreferrer">Kaggle</a>
+          <a href={readingPath}>{copy.reading}</a>
         </div>
       </div>
       <div class="container footer-bottom">© {new Date().getFullYear()} Abdurakhmon Dadaboev · {copy.location}</div>

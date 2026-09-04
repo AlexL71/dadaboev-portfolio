@@ -6,6 +6,7 @@ import rehypeKatex from 'rehype-katex';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dadaboev-portfolio.vercel.app',
+  devToolbar: { enabled: false },
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],

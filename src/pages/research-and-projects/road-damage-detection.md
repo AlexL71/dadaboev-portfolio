@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Certified Road Damage Segmentation & Severity Classification"
-description: "A certified multi-stage deep learning pipeline leveraging YOLO11l-seg, YOLO11m-cls, and custom morphological post-processing filters."
+title: "Road Damage Segmentation & Severity Classification"
+description: "A road-damage model that detected 91% of damage in test data, supported by an independent test report."
 date: "2025-12-17"
 category: "Model Architecture"
 tags: ["Computer Vision", "Instance Segmentation", "YOLO11", "Image Post-Processing", "Model Evaluation"]
@@ -11,19 +11,21 @@ tags: ["Computer Vision", "Instance Segmentation", "YOLO11", "Image Post-Process
 
 Automated monitoring of civil infrastructure requires highly robust computer vision systems. Pavement anomalies like alligator cracks and longitudinal cracks have irregular, non-rigid geometries that cannot be accurately represented by rectangular bounding boxes. Traditional detection systems face high rates of false positives and poor boundary precision.
 
-This case study presents the design, implementation, and empirical evaluation of the **Road Damage Segmentation AI Vision Model v1.0**, developed for TQS Korea Co., Ltd. The system was awarded official certification (Test Report No. **TWR-202512-A-0072**) by the third-party testing agency **AIWORKS Co., Ltd.**, meeting all stringent precision, recall, and segmentation quality criteria.
+This case study presents the **Road Damage Segmentation AI Vision Model v1.0**, developed for TQS Korea Co., Ltd. The **AIWORKX** test report (**TWR-202512-A-0072**) records a detection rate of **91% (recall 0.91)** and shows that the model met all three performance targets.
 
 ---
 
-## Official AIWORKS Certification
+## AIWORKX Test Report
 
-The model was subjected to a rigorous evaluation period between December 4 and December 17, 2025. Evaluating against official test sets, the model passed all certified threshold criteria:
+Testing took place from December 4 to 17, 2025, using 604 test images and the criteria supplied by the client. The reported results were:
 
-| Evaluation Metric | Target Threshold | Certified Result | Status |
+| Evaluation Metric | Target Threshold | Reported Result | Status |
 |---|---|---|---|
-| Detection Accuracy (mAP@50) | $\ge 0.85$ | 0.88 | PASS |
+| Detection Rate (Recall) | $\ge 0.90$ | 0.91 | PASS |
+| Detection Performance (mAP@50) | $\ge 0.85$ | 0.88 | PASS |
 | Segmentation Quality (mIoU) | $\ge 0.70$ | 0.79 | PASS |
-| Recall Rate | $\ge 0.90$ | 0.91 | PASS |
+
+Recall is the proportion of actual damage that the model detected. These results apply to the supplied model and test data; the report states that they are outside the testing agency's KOLAS accreditation scope.
 
 ---
 
@@ -82,4 +84,4 @@ The overall model evaluation was completed across 2,083 validation instances. Be
 
 1. **Decoupled Architecture**: Splitting the pipeline into segmentation followed by classification allowed the team to optimize each stage independently. The YOLO11m-cls severity classifiers benefited from cleaner, targeted crops, achieving high classification accuracy.
 2. **Morphological Noise Suppression**: Morphological opening filters proved highly effective at reducing false positive pixel rates by 14.2% on the validation set, eliminating thin tendrils that had no structural impact on damage assessment.
-3. **Robust Empirical Validation**: Meeting the AIWORKS certification criteria demonstrates that multi-stage deep learning pipelines, combined with rigorous post-processing heuristics, are viable for critical automated infrastructure inspections.
+3. **Measured Performance**: The model met all three targets in the AIWORKX test report. These results provide evidence for the tested data and conditions, rather than a guarantee of performance on every road.

@@ -12,10 +12,10 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     <div>
       <p class="eyebrow">이력서 · 2026년 9월 업데이트</p>
       <h1>다다버예브 압두라흐먼</h1>
-      <p class="role">AI·컴퓨터 비전 엔지니어 · 데이터 사이언티스트</p>
+      <p class="role">컴퓨터 비전 엔지니어 · 데이터 중심 AI 연구자</p>
     </div>
     <div class="resume-summary">
-      <p>전자공학 학사와 빅데이터사이언스 석사학위를 갖춘 컴퓨터 비전 엔지니어입니다. 도로 이미지 데이터 파이프라인, 세그멘테이션, 유사 이미지 검색, 오프라인 OCR, 다국어 환경에서의 기술 협업 경험이 있습니다.</p>
+      <p>데이터 수집부터 모델 개발, 성능 평가, 수동 검수까지 연결하는 컴퓨터 비전 엔지니어입니다. 최근에는 외부 검증을 받은 도로 손상 분석, IEEE 출판 연구, 도로 이미지 데이터 파이프라인, 오프라인 OCR 시스템을 수행했습니다.</p>
       <div class="contact-row"><a href="mailto:dadaboev170998@gmail.com">dadaboev170998@gmail.com</a><span>대한민국 세종</span></div>
     </div>
   </section>
@@ -27,41 +27,39 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
 
         <article class="entry">
           <div class="entry-heading"><div><h3>컴퓨터 비전 연구 인턴</h3><p>㈜영창랩스</p></div><time>2026.07</time></div>
-          <ul><li>도로 이미지 데이터 구축과 분석, 컴퓨터 비전 모델 개발을 수행했습니다.</li><li>Mapillary 기반 북미 도로 이미지 수집 업무를 진행했습니다.</li></ul>
+          <ul><li>컴퓨터 비전 연구를 위한 도로 이미지 데이터를 구축하고 검수했습니다.</li><li>북미 도로 장면을 반복적으로 수집할 수 있는 Mapillary 기반 작업 흐름을 개발했습니다.</li></ul>
         </article>
 
         <article class="entry">
           <div class="entry-heading"><div><h3>북미 도로 데이터 구축 및 자동 라벨링</h3><p>현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교</p></div><time>2026.07 — 현재</time></div>
           <ul>
-            <li>지역, 촬영 시점, 해상도 조건을 반영한 Mapillary API 기반 데이터 수집 파이프라인을 설계했습니다.</li>
-            <li>DINOv3 임베딩과 FAISS 유사도 검색을 활용해 시각적으로 유사한 도로 이미지를 선별하고 정리했습니다.</li>
-            <li>데이터 구축 과정에서 사람이 직접 결과를 확인할 수 있는 검수 도구를 개발했습니다.</li>
+            <li>지역, 촬영 시점, 이미지 품질 조건을 반영한 반복 가능한 데이터 수집 과정을 설계했습니다.</li>
+            <li>유사 이미지 검색과 검수 도구를 연결해 필요한 도로 장면을 빠르게 찾고 사람이 직접 확인할 수 있게 했습니다.</li>
           </ul>
         </article>
 
         <article class="entry">
           <div class="entry-heading"><div><h3>오프라인 시험지 OCR 시스템 개발</h3><p>고려대학교 Big Data Mining Lab</p></div><time>2026.02 — 현재</time></div>
           <ul>
-            <li>오프라인 시험지 디지털화를 위한 시스템 구조와 핵심 기능을 설계했습니다.</li>
-            <li>PDF 문서 정렬 보정, OMR 기반 학생 정보 매칭, 답안 영역 추출, OCR, 결과 저장을 하나의 흐름으로 구현했습니다.</li>
-            <li>인식 성능뿐 아니라 로컬 실행, 메모리 사용량, 사용자 워크플로를 함께 고려했습니다.</li>
+            <li>문서 정렬, 학생 정보 매칭, 답안 인식, 결과 저장을 하나의 오프라인 과정으로 설계했습니다.</li>
+            <li>학생 데이터를 외부로 보내지 않으면서 사용자가 결과를 직접 확인하고 수정할 수 있게 했습니다.</li>
           </ul>
         </article>
 
         <article class="entry">
           <div class="entry-heading"><div><h3>컴퓨터 비전 연구원</h3><p>크라우드소싱 기반 모빌리티 지원 · 과제 R2320973</p></div><time>2025.03 — 2025.12</time></div>
           <ul>
-            <li>도로 균열과 포트홀 탐지, 심각도 분류를 위한 비전 연구를 담당했습니다.</li>
-            <li>가늘고 불규칙한 균열에서 바운딩 박스 방식의 한계를 확인하고 협력사와 폴리곤 라벨링 기준을 만들었습니다.</li>
-            <li>목표 성능을 달성하고 ㈜에이아이웍스 모델 시험성적서(TWR-202512-A-0072)를 취득했습니다.</li>
+            <li>컴퓨터 비전 연구를 맡아 가늘고 불규칙한 균열에 맞지 않던 바운딩 박스 라벨을 폴리곤 방식으로 바꿨습니다.</li>
+            <li>세그멘테이션과 심각도 분류 파이프라인을 개발했습니다.</li>
+            <li>시험 데이터의 도로 손상 91%를 검출해 검출 정확도(Recall) 0.91을 기록했습니다. ㈜에이아이웍스 시험성적서 TWR-202512-A-0072의 목표 0.90을 넘었습니다.</li>
           </ul>
         </article>
 
         <article class="entry">
           <div class="entry-heading"><div><h3>대학원 조교</h3><p>고려대학교 빅데이터사이언스 학부</p></div><time>2024.09 — 2025.12</time></div>
           <ul>
-            <li>텍스트 마이닝, 딥러닝 이론, 통계학, 다변량 분석 과목을 지원했습니다.</li>
-            <li>Python과 R 실습을 진행하고, 실습 저장소와 데이터셋 준비, 프로젝트 멘토링, 평가를 한국어와 영어로 수행했습니다.</li>
+            <li>텍스트 마이닝, 딥러닝, 통계학, 다변량 분석 과목을 지원했습니다.</li>
+            <li>실습 자료를 준비하고 학생 프로젝트를 지도했으며 한국어와 영어로 수업을 지원했습니다.</li>
           </ul>
         </article>
       </section>
@@ -70,7 +68,7 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <h2>논문 및 주요 프로젝트</h2>
         <article class="entry compact">
           <div class="entry-heading"><div><h3>Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction</h3><p>AEECA 2025 · 중국 다롄</p></div><time>2025.08</time></div>
-          <p>RGB·NIR·LiDAR 입력을 사용하는 멀티모달 교사 모델의 지식을 RGB 전용 학생 모델로 전달해 센서 요구사항을 줄이는 방법을 연구했습니다.</p>
+          <p>IEEE에 출판된 연구를 공동 집필했습니다. RGB 전용 모델이 mIoU 0.6002를 기록해 멀티센서 모델과의 성능 격차를 62.8% 줄였습니다.</p>
         </article>
         <article class="entry compact">
           <div class="entry-heading"><div><h3>AI Hub 이미지 데이터 교육 프레임워크</h3><p>에코업 혁신융합대학 · 과제 R2320813</p></div><time>2024.09 — 2025.01</time></div>
@@ -89,8 +87,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <div class="aside-item"><h3><EducationTitle institution="korea-university">빅데이터사이언스 석사</EducationTitle></h3><p><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ko">고려대학교 세종캠퍼스</InstitutionLink></p><span>2024 — 2026.08 졸업</span><strong>학점 4.46 / 4.5</strong></div>
         <div class="aside-item"><h3><EducationTitle institution="sun-moon-university">전자공학 학사</EducationTitle></h3><p><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ko">선문대학교</InstitutionLink></p><span>2019 — 2023</span><strong>학점 4.18 / 4.5</strong></div>
         <div class="aside-item"><h3><EducationTitle institution="sun-moon-language-institute">한국어 정규과정</EducationTitle></h3><p><InstitutionLink href="https://kli.sunmoon.ac.kr/new/web/page1-1.asp" lang="ko">선문대학교 한국어교육원</InstitutionLink></p><span>2017.09 — 2018.12</span><strong>최고급반(7단계) 수료 · TOPIK 6급</strong></div>
-        <div class="aside-item"><h3><EducationTitle>자동화 시스템 유지보수 및 시운전</EducationTitle></h3><p><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815" lang="ko">안디잔 교통·서비스 직업전문대학</InstitutionLink></p><span>2013.09 — 2016.06</span><strong>학점 5.0 / 5.0 · 우등 졸업(레드 디플로마)</strong></div>
-        <div class="aside-item"><h3><EducationTitle>미술 전공</EducationTitle></h3><p><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" lang="ko">안디잔 예술 특성화 기숙학교</InstitutionLink></p><span>2008.09 — 2013.05</span></div>
       </section>
 
       <section>

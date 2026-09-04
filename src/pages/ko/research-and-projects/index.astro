@@ -1,8 +1,13 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import { projectSummaries } from '../../../data/projectSummaries';
 
 const projects = Object.values(import.meta.glob('./*.md', { eager: true })) as any[];
 const sortedProjects = projects.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+const featuredSlugs = ['road-damage-detection', 'semantic-segmentation-modality-reduction', 'north-american-road-data', 'omr-htr-digitization'];
+const getSlug = (project: any) => project.url.split('/').filter(Boolean).at(-1) as string;
+const featuredProjects = featuredSlugs.map((slug) => sortedProjects.find((project) => getSlug(project) === slug)).filter(Boolean);
+const additionalProjects = sortedProjects.filter((project) => !featuredSlugs.includes(getSlug(project)));
 const translations: Record<string, { title: string; description: string; category: string }> = {
   'north-american-road-data': { title: '북미 도로 데이터 구축 및 자동 라벨링', description: 'Mapillary 수집, DINOv3 임베딩, FAISS 유사도 검색, 수동 검수 도구를 연결한 도로 이미지 구축 파이프라인입니다.', category: '데이터 파이프라인' },
   'amorphous-bottleneck': { title: 'Amorphous Bottleneck: 재현율 최적화 앙상블', description: '낮은 대비와 불규칙한 형태를 가진 이상 객체를 안정적으로 찾기 위한 데이터 중심 앙상블 연구입니다.', category: '모델 아키텍처' },
@@ -24,20 +29,32 @@ const translations: Record<string, { title: string; description: string; categor
     <p>컴퓨터 비전, 데이터 시스템, 오프라인 AI, 임베디드 엔지니어링 분야의 연구와 개발 작업입니다.</p>
   </header>
 
-  <div class="list-header"><span>프로젝트 {sortedProjects.length}개</span><span>최신순</span></div>
+  <div class="list-header"><span>프로젝트 {sortedProjects.length}개</span><span>AI·컴퓨터 비전 직무 중심</span></div>
 
-  <section class="project-list" aria-label="프로젝트">
-    {sortedProjects.map((project) => {
-      const slug = project.url.split('/').filter(Boolean).at(-1) as string;
+  <h2 class="group-title">주요 프로젝트</h2>
+  <section class="project-list" aria-label="주요 프로젝트">
+    {featuredProjects.map((project) => {
+      const slug = getSlug(project);
       const copy = translations[slug] || project.frontmatter;
       return (
-        <a href={project.url} class="project-row">
+        <a href={project.url} class="project-row featured">
           <time>{project.frontmatter.date}</time>
-          <div>
-            <h2>{copy.title}</h2>
-            <p>{copy.description}</p>
-            <ul>{project.frontmatter.tags?.slice(0, 4).map((tag: string) => <li>{tag}</li>)}</ul>
-          </div>
+          <div><h2>{copy.title}</h2><p>{projectSummaries.ko[slug]?.result}</p></div>
+          <span class="category">{copy.category}</span>
+        </a>
+      );
+    })}
+  </section>
+
+  <h2 class="group-title additional-title">추가 프로젝트</h2>
+  <section class="project-list" aria-label="추가 프로젝트">
+    {additionalProjects.map((project) => {
+      const slug = getSlug(project);
+      const copy = translations[slug] || project.frontmatter;
+      return (
+        <a href={project.url} class="project-row compact">
+          <time>{project.frontmatter.date}</time>
+          <div><h2>{copy.title}</h2><p>{copy.description}</p></div>
           <span class="category">{copy.category}</span>
         </a>
       );
@@ -49,8 +66,12 @@ const translations: Record<string, { title: string; description: string; categor
     .projects-header h1 { margin-bottom: 0.5rem; word-break: keep-all; }
     .projects-header > p:last-child { font-size: 1.05rem; word-break: keep-all; }
     .list-header { display: flex; justify-content: space-between; margin-bottom: 0.9rem; color: var(--ink-muted); font-size: 0.84rem; }
+    .group-title { margin: 1.6rem 0 0.9rem; font-size: 1.25rem; word-break: keep-all; }
+    .additional-title { margin-top: 3rem; }
     .project-list { display: grid; gap: 0.85rem; }
     .project-row { display: grid; grid-template-columns: 8rem minmax(0, 1fr) 10rem; gap: 1.5rem; align-items: start; padding: 1.4rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); }
+    .project-row.featured { box-shadow: var(--shadow-md); }
+    .project-row.compact { padding-block: 1.1rem; }
     .project-row:hover h2 { color: var(--accent); }
     .project-row time, .category { color: var(--ink-muted); font-size: 0.84rem; }
     .category { text-align: right; }

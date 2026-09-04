@@ -12,15 +12,9 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     <div class="intro-copy">
       <p class="eyebrow">안녕하세요</p>
       <h1>다다버예브 압두라흐먼입니다</h1>
-      <p class="role">컴퓨터 비전 연구자이자 엔지니어입니다.</p>
+      <p class="role">컴퓨터 비전 엔지니어 · 데이터 중심 AI 연구자</p>
       <p class="summary">
-        저는 신뢰할 수 있고 정직한 결과를 중요하게 생각합니다. AI는 연구와 산업의 일상적인 도구가 되었고 더 많은 과정이 자동화되고 있습니다. 그래도 중요한 판단에는 사람이 참여해야 합니다. 가치 있는 문제를 고르고, 결과를 직접 확인하며, 그 결과가 어떻게 사용되는지 책임지는 일은 사람의 몫이라고 생각합니다.
-      </p>
-      <p class="summary">
-        저는 많은 프로젝트에서 데이터가 가장 큰 병목이라고 느꼈습니다. 더 큰 모델과 복잡한 구조가 주목받지만, 실제 시스템의 성패는 정확하고 잘 정리된 관련 정보에 달려 있습니다. 컴퓨팅 자원과 토큰은 구매할 수 있지만, 모델에 제공할 정확하고 구조화된 컨텍스트는 직접 만들어야 합니다. 저는 빅데이터사이언스와 컴퓨터 비전을 공부하며 이 부분을 훈련했고, 데이터 수집, 정제, 검색, 라벨링, 평가를 통해 계속 탐구하고 있습니다.
-      </p>
-      <p class="summary">
-        저는 협업과 명확한 소통도 중요하게 생각합니다. 여러 회사와 국가, 전공, 성향을 가진 사람들과 함께 일해 왔습니다. 좋은 팀을 만드는 하나의 공식은 없지만, 상대에게 진심으로 집중하는 태도가 많은 문제를 해결한다는 것을 배웠습니다. 잘 듣고, 필요한 것을 이해하며, 작은 문제가 커지기 전에 솔직하게 이야기하려고 합니다.
+        데이터 구축부터 최종 평가까지 연결되는 컴퓨터 비전 시스템을 만듭니다. 도로 이미지 데이터, 세그멘테이션, 유사 이미지 검색, 오프라인 OCR 프로젝트를 수행했습니다. 신뢰할 수 있는 데이터와 정직한 평가, 사람이 중요한 결과를 직접 확인할 수 있는 도구를 중요하게 생각합니다.
       </p>
       <div class="profile-links" aria-label="프로필 링크">
         <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -38,9 +32,15 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     </figure>
   </section>
 
+  <section class="proof-section" aria-label="주요 성과">
+    <a href="/ko/research-and-projects/road-damage-detection"><strong>도로 손상 91% 검출</strong><span>외부 시험성적서 기준 검출 정확도(Recall) 0.91</span></a>
+    <a href="/ko/research-and-projects/semantic-segmentation-modality-reduction"><strong>IEEE 논문 출판</strong><span>RGB 전용 시맨틱 세그멘테이션 연구</span></a>
+    <a href="/ko/research-and-projects/north-american-road-data"><strong>엔드투엔드 데이터 구축</strong><span>수집, 검색, 라벨링, 수동 검수 연결</span></a>
+  </section>
+
   <section class="home-section" aria-labelledby="current-heading">
     <div class="section-title">
-      <div><p class="eyebrow">현재</p><h2 id="current-heading">진행 중인 작업</h2></div>
+      <div><p class="eyebrow">현재 집중 분야</p><h2 id="current-heading">진행 중인 작업</h2></div>
       <a href="/ko/resume">전체 경력 →</a>
     </div>
     <div class="current-grid">
@@ -54,11 +54,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
         <h3>오프라인 시험지 디지털화(OCR)</h3>
         <p>문서 정렬 보정, 학생 정보 매칭, 답안 추출, OCR, 결과 저장을 하나의 오프라인 프로그램으로 만들고 있습니다.</p>
       </article>
-      <article>
-        <span>2026년 7월</span>
-        <h3>㈜영창랩스 연구 인턴</h3>
-        <p>도로 이미지 데이터를 수집하고 분석했으며, 컴퓨터 비전 모델 개발 업무를 지원했습니다.</p>
-      </article>
     </div>
   </section>
 
@@ -68,25 +63,25 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
       <a href="/ko/research-and-projects">전체 프로젝트 →</a>
     </div>
     <div class="project-grid">
-      <a href="/ko/research-and-projects/north-american-road-data">
-        <span>데이터 파이프라인 · 2026</span>
-        <h3>북미 도로 데이터 파이프라인</h3>
-        <p>Mapillary 수집, DINOv3 임베딩, FAISS 유사도 검색, 사람이 직접 검수하는 과정을 연결했습니다.</p>
-      </a>
       <a href="/ko/research-and-projects/road-damage-detection">
-        <span>컴퓨터 비전 · 2025</span>
+        <span>외부 성능 검증 · 2025</span>
         <h3>도로 손상 세그멘테이션</h3>
-        <p>폴리곤 기반 균열·포트홀 세그멘테이션과 심각도 분류를 개발했습니다.</p>
+        <p>균열 라벨링 방식을 재설계하고 세그멘테이션 파이프라인을 개발했습니다. 시험 데이터의 도로 손상 91%를 검출해 재현율 목표 90%를 넘었습니다.</p>
+      </a>
+      <a href="/ko/research-and-projects/semantic-segmentation-modality-reduction">
+        <span>IEEE 논문 · 2025</span>
+        <h3>효율적인 시맨틱 세그멘테이션</h3>
+        <p>RGB 전용 모델로 고가의 멀티센서 모델과의 성능 격차를 62.8% 줄였습니다.</p>
+      </a>
+      <a href="/ko/research-and-projects/north-american-road-data">
+        <span>산학 협력 · 2026</span>
+        <h3>북미 도로 데이터 파이프라인</h3>
+        <p>필요한 도로 장면을 수집하고 검색한 뒤 사람이 직접 확인하는 반복 가능한 데이터 구축 과정을 설계했습니다.</p>
       </a>
       <a href="/ko/research-and-projects/omr-htr-digitization">
         <span>응용 AI · 2026</span>
         <h3>오프라인 시험지 OMR·OCR</h3>
-        <p>학생 정보 매칭, 답안 인식, 결과 저장을 위한 로컬 실행 프로그램입니다.</p>
-      </a>
-      <a href="/ko/research-and-projects/semantic-segmentation-modality-reduction">
-        <span>연구 논문 · 2025</span>
-        <h3>효율적인 시맨틱 세그멘테이션</h3>
-        <p>RGB·NIR·LiDAR 교사 모델의 지식을 RGB 전용 모델로 전달했습니다.</p>
+        <p>학생 정보 매칭, 답안 인식, 결과 저장을 외부 전송 없이 처리하는 하나의 로컬 프로그램으로 연결했습니다.</p>
       </a>
     </div>
   </section>
@@ -98,8 +93,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
       <div class="detail-item"><strong><EducationTitle institution="korea-university">빅데이터사이언스 석사</EducationTitle></strong><span><InstitutionLink href="https://bigdatascience.korea.ac.kr/" lang="ko">고려대학교 세종캠퍼스</InstitutionLink> · 2024년부터 2026년</span><span>학점 4.46 / 4.5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-university">전자공학 학사</EducationTitle></strong><span><InstitutionLink href="https://electric.sunmoon.ac.kr/" lang="ko">선문대학교</InstitutionLink> · 2019년부터 2023년</span><span>학점 4.18 / 4.5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-language-institute">한국어 정규과정</EducationTitle></strong><span><InstitutionLink href="https://kli.sunmoon.ac.kr/new/web/page1-1.asp" lang="ko">선문대학교 한국어교육원</InstitutionLink> · 2017.09부터 2018.12</span><span>최고급반(7단계) 수료 · TOPIK 6급</span></div>
-      <div class="detail-item"><strong><EducationTitle>자동화 시스템 유지보수 및 시운전</EducationTitle></strong><span><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815" lang="ko">안디잔 교통·서비스 직업전문대학</InstitutionLink> · 2013.09부터 2016.06</span><span>학점 5.0 / 5.0 · 우등 졸업(레드 디플로마)</span></div>
-      <div class="detail-item"><strong><EducationTitle>미술 전공</EducationTitle></strong><span><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni" lang="ko">안디잔 예술 특성화 기숙학교</InstitutionLink> · 2008.09부터 2013.05</span></div>
     </div>
     <div class="details-panel">
       <p class="eyebrow">기술</p>
@@ -124,6 +117,11 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     .portrait-block strong, .portrait-block span { display: block; }
     .portrait-block strong { color: var(--ink); font-size: 0.86rem; }
     .portrait-block span { margin-top: 0.15rem; color: var(--ink-muted); font-size: 0.82rem; }
+    .proof-section { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-bottom: clamp(3.5rem, 8vw, 5.5rem); }
+    .proof-section a { padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .proof-section strong, .proof-section span { display: block; }
+    .proof-section strong { margin-bottom: 0.3rem; color: var(--accent); font-size: 1.05rem; }
+    .proof-section span { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.65; word-break: keep-all; }
     .home-section { padding-block: clamp(3.5rem, 8vw, 5.5rem); border-top: 1px solid var(--line); }
     .section-title { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.8rem; }
     .section-title .eyebrow { margin-bottom: 0.35rem; }
@@ -147,6 +145,6 @@ import InstitutionLink from '../../components/InstitutionLink.astro';
     .details-panel > p:not(.eyebrow) + p { margin-top: 1rem; }
     .details-panel p strong { color: var(--ink); }
     @media (max-width: 1100px) { .intro { grid-template-columns: minmax(0, 1fr) clamp(10rem, 23vw, 13rem); justify-content: stretch; gap: 2rem; } }
-    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .proof-section, .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
   </style>
 </Layout>

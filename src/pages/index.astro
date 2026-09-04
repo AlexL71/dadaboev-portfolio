@@ -12,15 +12,9 @@ import InstitutionLink from '../components/InstitutionLink.astro';
     <div class="intro-copy">
       <p class="eyebrow">Hello, I’m</p>
       <h1>Alex</h1>
-      <p class="role">Computer vision researcher and engineer.</p>
+      <p class="role">Computer vision engineer · Data-focused AI researcher</p>
       <p class="summary">
-        I value work that is reliable and honest. AI is becoming a normal part of research and industry, and more of the process can now be automated. Even so, people should remain involved where judgment matters most: choosing a worthwhile problem, checking the result, and taking responsibility for how it is used.
-      </p>
-      <p class="summary">
-        I often find that data is the real bottleneck. Larger models and more complex architectures receive much of the attention, but practical systems depend on accurate, well organized, and relevant information. Compute and tokens can be purchased. Useful context has to be built. My training has prepared me for this part of AI, and I continue to explore it through data collection, curation, retrieval, labeling, and evaluation.
-      </p>
-      <p class="summary">
-        I also value teamwork and clear communication. I have worked with people from different companies, countries, fields, and personalities. There is no single formula for a good team, but I have learned that being genuinely present makes a real difference: listening carefully, understanding what others need, and speaking openly before small problems become large ones.
+        I build computer vision systems from the data stage to final evaluation. My work includes road-image datasets, segmentation, image retrieval, and offline OCR. I focus on dependable data, honest testing, and tools that let people review important results before they are used.
       </p>
       <div class="profile-links" aria-label="Profile links">
         <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -33,16 +27,22 @@ import InstitutionLink from '../components/InstitutionLink.astro';
       <img src="/images/home-portrait.jpg" width="1280" height="1280" alt="Abdurakhmon Dadaboev" loading="eager" />
       <figcaption>
         <strong>Abdurakhmon Dadaboev</strong>
-        <span>Uzbekistan · 27 years old</span>
-        <span>B.S. in Electronic Engineering</span>
-        <span>M.S. in Big Data Science, Korea University · August 2026</span>
+        <span>Based in Sejong, South Korea</span>
+        <span>M.S. Big Data Science · Korea University</span>
+        <span>B.S. Electronic Engineering</span>
       </figcaption>
     </figure>
   </section>
 
+  <section class="proof-section" aria-label="Selected achievements">
+    <a href="/research-and-projects/road-damage-detection"><strong>91% detected</strong><span>Road-damage recall 0.91 in an independent test report</span></a>
+    <a href="/research-and-projects/semantic-segmentation-modality-reduction"><strong>IEEE publication</strong><span>Efficient RGB-only semantic segmentation</span></a>
+    <a href="/research-and-projects/north-american-road-data"><strong>End-to-end data work</strong><span>Collection, retrieval, labeling, and human review</span></a>
+  </section>
+
   <section class="home-section" aria-labelledby="current-heading">
     <div class="section-title">
-      <div><p class="eyebrow">Now</p><h2 id="current-heading">What I’m working on</h2></div>
+      <div><p class="eyebrow">Current focus</p><h2 id="current-heading">Work in progress</h2></div>
       <a href="/resume">Full experience →</a>
     </div>
     <div class="current-grid">
@@ -56,11 +56,6 @@ import InstitutionLink from '../components/InstitutionLink.astro';
         <h3>Offline exam OCR</h3>
         <p>I’m connecting page alignment, student matching, answer extraction, OCR, and result storage in one offline application.</p>
       </article>
-      <article>
-        <span>July 2026</span>
-        <h3>Youngchang Labs internship</h3>
-        <p>I worked on road image data collection and analysis, and supported computer vision model development.</p>
-      </article>
     </div>
   </section>
 
@@ -70,25 +65,25 @@ import InstitutionLink from '../components/InstitutionLink.astro';
       <a href="/research-and-projects">All projects →</a>
     </div>
     <div class="project-grid">
-      <a href="/research-and-projects/north-american-road-data">
-        <span>Data pipeline · 2026</span>
-        <h3>North American road data pipeline</h3>
-        <p>Mapillary collection, DINOv3 features, FAISS retrieval, and human review.</p>
-      </a>
       <a href="/research-and-projects/road-damage-detection">
-        <span>Computer vision · 2025</span>
+        <span>Externally verified · 2025</span>
         <h3>Road damage segmentation</h3>
-        <p>Polygon based crack and pothole segmentation with severity classification.</p>
+        <p>Redesigned crack labeling and built the segmentation pipeline. The model detected 91% of road damage in the test set, exceeding the 90% recall target.</p>
+      </a>
+      <a href="/research-and-projects/semantic-segmentation-modality-reduction">
+        <span>IEEE publication · 2025</span>
+        <h3>Efficient semantic segmentation</h3>
+        <p>An RGB-only model closed 62.8% of the performance gap to a more expensive multi-sensor model.</p>
+      </a>
+      <a href="/research-and-projects/north-american-road-data">
+        <span>Industry collaboration · 2026</span>
+        <h3>North American road data pipeline</h3>
+        <p>Designed a repeatable workflow for collecting, finding, and manually reviewing useful road scenes.</p>
       </a>
       <a href="/research-and-projects/omr-htr-digitization">
         <span>Applied AI · 2026</span>
         <h3>Offline exam OMR and OCR</h3>
-        <p>A local application for matching students, reading answers, and saving results.</p>
-      </a>
-      <a href="/research-and-projects/semantic-segmentation-modality-reduction">
-        <span>Research paper · 2025</span>
-        <h3>Efficient semantic segmentation</h3>
-        <p>Knowledge distillation from RGB, NIR, and LiDAR to an RGB only model.</p>
+        <p>Built one local workflow for matching students, reading answers, and saving results without sending data outside.</p>
       </a>
     </div>
   </section>
@@ -100,8 +95,6 @@ import InstitutionLink from '../components/InstitutionLink.astro';
       <div class="detail-item"><strong><EducationTitle institution="korea-university">M.S. Big Data Science</EducationTitle></strong><span><InstitutionLink href="https://bigdatascience.korea.ac.kr/">Korea University, Sejong</InstitutionLink> · 2024 to 2026</span><span>GPA 4.46 / 4.5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-university">B.S. Electronic Engineering</EducationTitle></strong><span><InstitutionLink href="https://electric.sunmoon.ac.kr/">Sun Moon University</InstitutionLink> · 2019 to 2023</span><span>GPA 4.18 / 4.5</span></div>
       <div class="detail-item"><strong><EducationTitle institution="sun-moon-language-institute">Korean Language Program</EducationTitle></strong><span><InstitutionLink href="https://kli.sunmoon.ac.kr/new_en/web/page1-1.asp">Sun Moon University Korean Language Institute</InstitutionLink> · Sep 2017 to Dec 2018</span><span>Completed the highest-level class (Level 7) · TOPIK Level 6</span></div>
-      <div class="detail-item"><strong><EducationTitle>Automated Systems Maintenance and Commissioning</EducationTitle></strong><span><InstitutionLink href="https://institutions.ziyonet.uz/object/show/20815">Andijan College of Transport and Services</InstitutionLink> · Sep 2013 to Jun 2016</span><span>GPA 5.0 / 5.0 · Graduated with honors (red diploma)</span></div>
-      <div class="detail-item"><strong><EducationTitle>Fine Arts</EducationTitle></strong><span><InstitutionLink href="https://art-academy.uz/blog/news/ozbekiston-tasviriy-va-amaliy-sanatini-yanada-rivojlantirishda-andijon-maktabining-orni">Andijan Specialized Boarding School of Arts</InstitutionLink> · Sep 2008 to May 2013</span></div>
     </div>
     <div class="details-panel">
       <p class="eyebrow">Skills</p>
@@ -126,6 +119,11 @@ import InstitutionLink from '../components/InstitutionLink.astro';
     .portrait-block strong, .portrait-block span { display: block; }
     .portrait-block strong { color: var(--ink); font-size: 0.86rem; }
     .portrait-block span { margin-top: 0.15rem; color: var(--ink-muted); font-size: 0.82rem; }
+    .proof-section { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-bottom: clamp(3.5rem, 8vw, 5.5rem); }
+    .proof-section a { padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+    .proof-section strong, .proof-section span { display: block; }
+    .proof-section strong { margin-bottom: 0.3rem; color: var(--accent); font-size: 1.05rem; }
+    .proof-section span { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; }
     .home-section { padding-block: clamp(3.5rem, 8vw, 5.5rem); border-top: 1px solid var(--line); }
     .section-title { display: flex; justify-content: space-between; align-items: end; gap: 1.5rem; margin-bottom: 1.8rem; }
     .section-title .eyebrow { margin-bottom: 0.35rem; }
@@ -149,6 +147,6 @@ import InstitutionLink from '../components/InstitutionLink.astro';
     .details-panel > p:not(.eyebrow) + p { margin-top: 1rem; }
     .details-panel p strong { color: var(--ink); }
     @media (max-width: 1100px) { .intro { grid-template-columns: minmax(0, 1fr) clamp(10rem, 23vw, 13rem); justify-content: stretch; gap: 2rem; } }
-    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
+    @media (max-width: 680px) { .intro { grid-template-columns: 1fr; } .portrait-block { max-width: 12rem; } .proof-section, .project-grid, .details-grid { grid-template-columns: 1fr; } .section-title { align-items: flex-start; flex-direction: column; } }
   </style>
 </Layout>
