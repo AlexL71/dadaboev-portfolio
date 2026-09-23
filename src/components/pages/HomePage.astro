@@ -27,7 +27,6 @@ const nav = ui[locale];
     <figure class="portrait">
       <div class="portrait-frame">
         <img src="/images/home-portrait.jpg" width="1280" height="1280" alt={t.portraitAlt} loading="eager" fetchpriority="high" />
-        <span class="detection bbox" aria-hidden="true"><span class="detection-label">person 0.99</span></span>
       </div>
       <figcaption>
         {t.facts.map((fact) => <span>{fact}</span>)}
@@ -144,28 +143,6 @@ const nav = ui[locale];
       border-radius: var(--radius-lg);
       filter: saturate(0.92);
     }
-    .detection {
-      --tick: 18px;
-      --w: 2px;
-      position: absolute;
-      inset: 9% 12% 4% 12%;
-      pointer-events: none;
-    }
-    .detection-label {
-      position: absolute;
-      left: 0;
-      top: 0;
-      transform: translateY(-100%);
-      padding: 0.1rem 0.4rem;
-      background: var(--mark);
-      color: #fff;
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      line-height: 1.5;
-      white-space: nowrap;
-    }
-    :global(:root[data-theme='dark']) .detection-label { color: #0f1114; }
-    @media (prefers-color-scheme: dark) { :global(:root:not([data-theme='light'])) .detection-label { color: #0f1114; } }
     .portrait figcaption { display: grid; gap: 0.1rem; margin-top: 1rem; }
     .portrait figcaption span { color: var(--ink-muted); font-size: 0.82rem; }
     .portrait figcaption span:first-child { color: var(--ink); font-weight: 600; }
@@ -245,7 +222,6 @@ const nav = ui[locale];
       .hero { grid-template-columns: 1fr; }
       .portrait { order: -1; display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1rem; align-items: end; max-width: 26rem; }
       .portrait figcaption { margin-top: 0; }
-      .detection { --tick: 12px; }
       .now-grid, .background-grid { grid-template-columns: 1fr; }
       .work-item { grid-template-columns: 1fr; gap: 0.6rem; }
       .work-arrow { display: none; }

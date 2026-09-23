@@ -44,7 +44,7 @@ To change text on the home, about, or resume pages, edit `src/i18n/site.ts`. Don
 - **No CSS framework.** Everything is in `src/styles/global.css` plus scoped `<style>` blocks in components.
 - **Tokens:** colors are CSS variables on `:root`. Dark mode follows the OS by default and can be forced with the header toggle, which sets `data-theme="light|dark"` on `<html>` and saves it to `localStorage`.
 - **Type:** Inter (Latin, Cyrillic), Pretendard (Korean, loaded on `/ko/` only), JetBrains Mono for labels, dates, and metadata.
-- **Motif:** the `.bbox` utility draws detection-box corner ticks (used on the logo mark and the home portrait).
+- **Motif:** the `.bbox` utility draws detection-box corner ticks (used on the logo mark).
 - **Pipelines in project notes:** use `<ol class="flow"><li><strong>Step</strong>Description</li></ol>` instead of Mermaid. Mermaid is not rendered on this site.
 - **Math:** `remark-math` + `rehype-katex`. Inline `$...$`, block `$$...$$`. In Russian text, write decimal commas inside math as `0{,}5`.
 - **Korean markdown:** when bold text ends with `)`, `%`, or a closing quote, a Korean particle can't follow it directly (CommonMark won't close the bold). Move the parenthesis outside: `**필기 인식**(HTR)이`.
