@@ -1,19 +1,19 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "The Trapped God: Poseidon, Modern Ego, and Trusting God"
-description: "Analyzing Kafka's Poseidon, modern corporate ego, and the Islamic concept of trusting God (Tawakkul)."
+title: "갇힌 신: 포세이돈, 현대인의 자아, 그리고 신에 대한 신뢰"
+description: "카프카의 「포세이돈」, 현대 직장인의 자아, 그리고 이슬람의 ‘신에 대한 신뢰(타왁쿨)’에 대하여."
 date: "2026-05-25"
-tags: ["Philosophy", "Literature", "Faith", "Thoughts"]
+tags: ["철학", "문학", "신앙", "생각"]
 ---
 
-![The Trapped God Poseidon Modern Ego and Trusting God](/images/The%20Trapped%20God%20Poseidon%20Modern%20Ego%20and%20Trusting%20God.jpg)
+![갇힌 신: 포세이돈, 현대인의 자아, 그리고 신에 대한 신뢰](/images/The%20Trapped%20God%20Poseidon%20Modern%20Ego%20and%20Trusting%20God.jpg)
 
-Kafka’s "Poseidon" is not a mighty sea king, but a stressed office worker buried in paperwork. His ego traps him at his desk because he believes only he can do the math. This matches how modern workers think they cannot be replaced, and it directly opposes the Islamic idea of trusting God.
+카프카의 「포세이돈」에 나오는 포세이돈은 위풍당당한 바다의 왕이 아니라, 서류 더미에 파묻혀 스트레스에 시달리는 사무원이다. 그는 계산은 자기만 할 수 있다고 믿기 때문에, 그 자아가 그를 책상 앞에 묶어 둔다. 자기는 대체될 수 없다고 믿는 현대 직장인의 모습과 똑같고, 신을 신뢰하라는 이슬람의 가르침과는 정반대다.
 
-Today, we build our lives around boring, repetitive tasks. Like Poseidon, we want to feel important. We think our endless work holds our worlds together. The joke is that while people think we are powerful, we are just crunching numbers. This feeling of being "essential" is a lie. We give up our peace of mind for jobs that will eventually be taken by a new worker or new technology.
+오늘날 우리는 지루하고 반복적인 일을 중심으로 삶을 짓는다. 포세이돈처럼 우리도 중요한 사람이고 싶다. 끝없는 일이 내 세계를 지탱하고 있다고 믿는다. 우스운 건, 사람들은 우리가 대단한 힘을 가졌다고 생각하지만 실제로 우리는 숫자를 두드리고 있을 뿐이라는 점이다. ‘나 없으면 안 된다’는 느낌은 거짓말이다. 우리는 결국 새 직원이나 새 기술에 넘어갈 일을 위해 마음의 평화를 내준다.
 
-Poseidon has helpers but refuses to let them work, thinking the ocean depends entirely on him. This reflects our fears about providing for our families. We act like our constant stress keeps our homes running. We confuse hard work with total control, crushing ourselves under a weight we were never meant to carry alone.
+포세이돈에게는 조수들이 있지만, 그는 그들에게 일을 맡기지 않는다. 바다 전체가 자기에게 달려 있다고 생각하기 때문이다. 가족을 먹여 살리는 일에 대한 우리의 두려움도 이와 닮았다. 끊임없는 스트레스가 집안을 굴러가게 한다고 믿는다. 열심히 일하는 것과 모든 것을 통제하는 것을 혼동하고, 혼자 지도록 만들어지지 않은 무게에 스스로 짓눌린다.
 
-Islam removes this ego and worry. It teaches that Allah is *Ar-Razzaq* (The Provider). You must still work hard following the famous advice of Prophet Muhammad "tie your camel and trust in Allah", but the ultimate survival of your family is not on your shoulders. Believing you are the sole reason your family survives is Poseidon’s mistake. Trusting God frees you from that stress.
+이슬람은 이 자아와 걱정을 덜어 준다. 알라는 *아르-라자크*(부양하시는 분)라고 가르친다. 그렇다고 일을 게을리해도 된다는 뜻은 아니다. 예언자 무함마드가 남긴 유명한 말처럼 “낙타를 묶어 두고, 알라를 신뢰하라.” 하지만 가족이 살아남는 일이 궁극적으로 내 어깨에만 달려 있지는 않다. 내가 가족이 살아가는 유일한 이유라고 믿는 것, 그것이 포세이돈의 실수다. 신을 신뢰하면 그 스트레스에서 풀려난다.
 
-Poseidon waits for the end of the world just to finally look at his sea. We do the same, pushing off happiness for a retirement that may never come. Letting go of the need to control everything does not ruin our lives. Instead, it gives us the freedom to finally enjoy the world we spend so much time trying to manage.
+포세이돈은 세상이 끝날 때가 되어서야 겨우 자기 바다를 둘러볼 수 있기를 기다린다. 우리도 똑같이, 올지 안 올지 모르는 은퇴 뒤로 행복을 미룬다. 모든 것을 통제하려는 마음을 내려놓는다고 삶이 무너지지 않는다. 오히려 그렇게 애써 관리하려던 세상을 마침내 즐길 자유가 생긴다.

@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { essaysPage, formatMonth, type Locale } from '../../i18n/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = essaysPage[locale];
+
+const sources: Record<Locale, Record<string, any>> = {
+  en: import.meta.glob('../../pages/essays/*.md', { eager: true }),
+  ko: import.meta.glob('../../pages/ko/essays/*.md', { eager: true }),
+  ru: import.meta.glob('../../pages/ru/essays/*.md', { eager: true }),
+};
+
+const essays = (Object.values(sources[locale]) as any[]).sort(
+  (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
+);
+---
+
+<Layout title={t.title} description={t.description}>
+  <header class="essays-header">
+    <p class="eyebrow">{t.eyebrow}</p>
+    <h1>{t.heading}</h1>
+    <p>{t.intro}</p>
+  </header>
+
+  <div class="essays-list">
+    {essays.map((essay) => (
+      <a href={essay.url} class="essay">
+        <span class="mono essay-date">{formatMonth(essay.frontmatter.date, locale)}</span>
+        <div>
+          <h2>{essay.frontmatter.title}</h2>
+          <p>{essay.frontmatter.description}</p>
+          {essay.frontmatter.tags && (
+            <div class="essay-tags">{essay.frontmatter.tags.map((tag: string) => <span class="tag">{tag}</span>)}</div>
+          )}
+        </div>
+        <span class="essay-read">{t.read} →</span>
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .essays-header { max-width: 42rem; margin-bottom: clamp(2rem, 5vw, 3rem); }
+    .essays-header > p:last-child { margin-top: 1rem; font-size: 1.05rem; }
+    .essays-list { border-top: 1px solid var(--line); }
+    .essay {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) auto;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding-block: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .essay h2 { margin-bottom: 0.35rem; font-size: 1.25rem; transition: color var(--transition); }
+    .essay:hover h2 { color: var(--accent); }
+    .essay p { max-width: 40rem; font-size: 0.96rem; }
+    .essay-date { color: var(--ink-muted); }
+    .essay-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
+    .essay-read { color: var(--accent); font-size: 0.88rem; font-weight: 550; white-space: nowrap; }
+    @media (max-width: 680px) {
+      .essay { grid-template-columns: 1fr; gap: 0.3rem; }
+      .essay-read { display: none; }
+    }
+  </style>
+</Layout>

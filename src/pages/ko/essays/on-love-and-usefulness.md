@@ -1,21 +1,21 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "On Love and Usefulness"
-description: "Reflections on adult relationships, conditional exchanges, responsibility, and the concept of loving for God's sake."
+title: "사랑과 쓸모에 대하여"
+description: "어른의 관계, 조건이 붙은 주고받음, 책임, 그리고 신을 위해 사랑한다는 것에 대한 생각."
 date: "2026-05-25"
-tags: ["Philosophy", "Relationships", "Thoughts"]
+tags: ["철학", "관계", "생각"]
 ---
 
-From a young age, we learn that being useful is being good, and being good is being loved. This idea is not taught directly, yet it shapes how we live. We help, achieve, and adapt in order to belong. Over time, love begins to feel like something we earn rather than something we receive.
+우리는 어릴 때부터 쓸모 있는 것이 좋은 것이고, 좋은 사람이 사랑받는다고 배운다. 누가 대놓고 가르쳐 주지는 않지만, 이 생각은 우리가 사는 방식을 만든다. 어딘가에 속하려고 돕고, 성취하고, 맞춰 간다. 그러다 보면 사랑은 받는 것이 아니라 벌어야 하는 것처럼 느껴지기 시작한다.
 
-As adults, we may start to question this. If love depends on usefulness, is it still real? Most of the attention we receive comes with conditions. People value us because we offer time, effort, care, or stability. This is not surprising. We also care for others because they give something back. Adult love is often an exchange. This does not make it false. It makes it human.
+어른이 되면 이걸 의심하게 된다. 사랑이 쓸모에 달려 있다면, 그건 진짜 사랑일까? 우리가 받는 관심 대부분에는 조건이 붙어 있다. 사람들은 우리가 시간이나 노력, 돌봄, 안정감을 주기 때문에 우리를 소중히 여긴다. 놀랄 일은 아니다. 우리도 상대가 무언가를 돌려주기 때문에 그 사람을 아낀다. 어른의 사랑은 종종 주고받는 일이다. 그렇다고 가짜가 되는 건 아니다. 그저 인간적인 것이다.
 
-Family love feels different. It is less about desire and more about responsibility. Wanting family members to be safe, fed, and cared for feels enough to call it love. Still, even here, there are quiet expectations. We want to matter. We want to be seen and remembered. These wishes do not cancel love; they simply show that love exists between human beings, not ideals.
+가족의 사랑은 조금 다르다. 바라는 마음보다 책임에 가깝다. 가족이 안전하고, 배부르고, 보살핌을 받기를 바라는 것만으로도 사랑이라 부르기에 충분하다. 그래도 여기에조차 조용한 기대가 있다. 우리는 중요한 존재이고 싶고, 누군가 알아봐 주고 기억해 주길 바란다. 이런 바람이 사랑을 지우지는 않는다. 사랑이 이상 속이 아니라 사람과 사람 사이에 있다는 걸 보여 줄 뿐이다.
 
-Other relationships are more fragile. Friendships and romance depend more clearly on effort and presence. When usefulness fades, closeness often fades as well. This reality can feel heavy, but it is honest.
+다른 관계들은 더 연약하다. 우정과 연애는 훨씬 분명하게 노력과 함께함에 기대고 있다. 쓸모가 사라지면 가까움도 사라지는 경우가 많다. 무거운 현실이지만, 정직한 현실이다.
 
-Because of this, unconditional love feels powerful. Many imagine it in the love of a parent for a child - a love that asks for nothing. Even this love changes as the child grows. Expectations appear, and love takes a new shape.
+그래서 조건 없는 사랑은 강하게 다가온다. 많은 사람이 그것을 아이를 향한 부모의 사랑, 아무것도 요구하지 않는 사랑으로 떠올린다. 하지만 이 사랑도 아이가 자라면서 변한다. 기대가 생기고, 사랑은 새로운 모양을 갖는다.
 
-Love is not broken because it has conditions. It breaks when we pretend it does not. To love as an adult may mean seeing these limits clearly, choosing responsibility when desire fades, and accepting that love does not need to be perfect to be real.
+조건이 있다고 사랑이 망가지는 건 아니다. 조건이 없는 척할 때 망가진다. 어른으로서 사랑한다는 건 이런 한계를 똑바로 보고, 바라는 마음이 식어도 책임을 선택하고, 완벽하지 않아도 사랑은 진짜일 수 있다는 걸 받아들이는 일일지도 모른다.
 
-I did not speak about love for God until now. Yet this may be the only love that can change everything written above. To love someone for God’s sake is not to seek reward, recognition, or usefulness. It is to serve without feeding the ego. In that kind of love, the struggle to be valued disappears, because love is no longer about the self, but about meaning beyond it.
+지금까지 신을 향한 사랑에 대해서는 말하지 않았다. 그런데 어쩌면 위에 쓴 모든 것을 바꿀 수 있는 사랑은 이것 하나뿐인지도 모른다. 누군가를 신을 위해 사랑한다는 건 보상도, 인정도, 쓸모도 구하지 않는다는 뜻이다. 자아를 먹이지 않고 섬기는 것이다. 그런 사랑 안에서는 가치를 인정받으려는 몸부림이 사라진다. 사랑이 더 이상 나에 관한 것이 아니라, 나를 넘어선 의미에 관한 것이 되기 때문이다.

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { projectDetailsLabel, projectResultDocuments, projectSummaries, projectSummaryLabels } from '../data/projectSummaries';
+import { projectResultDocuments, projectSummaries } from '../data/projectSummaries';
+import { EMAIL, formatMonth, getLocale, links, localePath, ui } from '../i18n/site';
 
 interface Props {
   title?: string;
@@ -9,109 +10,54 @@ interface Props {
     title: string;
     description?: string;
     date?: string;
+    category?: string;
+    tags?: string[];
   };
 }
 
-const {
-  title: explicitTitle,
-  description: explicitDescription,
-  frontmatter,
-} = Astro.props;
+const { title: explicitTitle, description: explicitDescription, frontmatter } = Astro.props;
 
 const pathname = Astro.url.pathname;
-const isKorean = pathname === '/ko' || pathname.startsWith('/ko/');
-const isRussian = pathname === '/ru' || pathname.startsWith('/ru/');
-const locale = isKorean ? 'ko' : isRussian ? 'ru' : 'en';
-const localizedCopy = {
-  en: {
-    description: 'Portfolio of Abdurakhmon Dadaboev, an AI vision engineer building reliable computer vision systems for real-world operations.',
-    home: '/',
-    homeLabel: 'Go to home',
-    navLabel: 'Primary navigation',
-    languageLabel: 'Language',
-    note: 'Project note',
-    updated: 'Updated',
-    role: 'Computer vision researcher and engineer',
-    externalLinks: 'External links',
-    reading: 'Reading',
-    email: 'Email',
-    location: 'Sejong, South Korea',
-    nav: [
-      { href: '/about', label: 'About' },
-      { href: '/research-and-projects', label: 'Projects' },
-      { href: '/resume', label: 'Resume' },
-    ],
-  },
-  ko: {
-    description: '현장 데이터와 운영 조건을 고려해 신뢰할 수 있는 컴퓨터 비전 시스템을 만드는 다다버예브 압두라흐먼의 포트폴리오입니다.',
-    home: '/ko/',
-    homeLabel: '홈으로 이동',
-    navLabel: '주요 메뉴',
-    languageLabel: '언어 선택',
-    note: '프로젝트 노트',
-    updated: '업데이트',
-    role: '컴퓨터 비전 연구자 및 엔지니어',
-    externalLinks: '외부 링크',
-    reading: '독서',
-    email: '이메일',
-    location: '대한민국 세종',
-    nav: [
-      { href: '/ko/about', label: '소개' },
-      { href: '/ko/research-and-projects', label: '프로젝트' },
-      { href: '/ko/resume', label: '이력' },
-    ],
-  },
-  ru: {
-    description: 'Портфолио Абдурахмона Дадабоева, инженера по компьютерному зрению, который создаёт надёжные системы искусственного интеллекта для практических задач.',
-    home: '/ru/',
-    homeLabel: 'На главную страницу',
-    navLabel: 'Основная навигация',
-    languageLabel: 'Выбор языка',
-    note: 'Описание проекта',
-    updated: 'Обновлено',
-    role: 'Исследователь и инженер по компьютерному зрению',
-    externalLinks: 'Внешние ссылки',
-    reading: 'Книги',
-    email: 'Почта',
-    location: 'Седжон, Республика Корея',
-    nav: [
-      { href: '/ru/about', label: 'Обо мне' },
-      { href: '/ru/research-and-projects', label: 'Проекты' },
-      { href: '/ru/resume', label: 'Резюме' },
-    ],
-  },
-} as const;
-const copy = localizedCopy[locale];
-const defaultDescription = copy.description;
-const pageTitle = explicitTitle || frontmatter?.title || 'Abdurakhmon Dadaboev';
-const description = explicitDescription || frontmatter?.description || defaultDescription;
-const isHomeTitle = ['Abdurakhmon Dadaboev', '다다버예브 압두라흐먼', 'Абдурахмон Дадабоев'].includes(pageTitle);
-const documentTitle = isHomeTitle
-  ? pageTitle
-  : `${pageTitle} | Abdurakhmon Dadaboev`;
+const locale = getLocale(pathname);
+const copy = ui[locale];
+
+const siteName = 'Abdurakhmon Dadaboev';
+const pageTitle = explicitTitle || frontmatter?.title || siteName;
+const description = explicitDescription || frontmatter?.description || copy.siteDescription;
+const isHomeTitle = [siteName, '다다버예브 압두라흐먼', 'Абдурахмон Дадабоев'].includes(pageTitle);
+const documentTitle = isHomeTitle ? `${pageTitle} (Alex)` : `${pageTitle} · ${siteName}`;
+
 const siteOrigin = Astro.site ?? Astro.url.origin;
 const canonicalUrl = new URL(pathname, siteOrigin);
 const basePath = pathname.replace(/^\/(?:ko|ru)(?=\/|$)/, '') || '/';
 const localePaths = {
   en: basePath,
-  ko: basePath === '/' ? '/ko/' : `/ko${basePath}`,
-  ru: basePath === '/' ? '/ru/' : `/ru${basePath}`,
+  ko: localePath('ko', basePath),
+  ru: localePath('ru', basePath),
 };
 const languages = [
-  { code: 'en', label: 'EN', href: localePaths.en },
-  { code: 'ko', label: 'KR', href: localePaths.ko },
-  { code: 'ru', label: 'RU', href: localePaths.ru },
+  { code: 'en', label: 'EN' },
+  { code: 'ko', label: 'KO' },
+  { code: 'ru', label: 'RU' },
 ] as const;
-const navItems = copy.nav;
-const readingPath = locale === 'ko' ? '/ko/books' : locale === 'ru' ? '/ru/books' : '/books';
+
 const isProjectDetail = /\/research-and-projects\/[^/]+\/?$/.test(pathname);
-const projectSlug = isProjectDetail ? pathname.split('/').filter(Boolean).at(-1) : undefined;
-const projectSummary = projectSlug ? projectSummaries[locale][projectSlug] : undefined;
-const projectResultDocument = projectSlug ? projectResultDocuments[projectSlug] : undefined;
-const summaryLabels = projectSummaryLabels[locale];
+const isEssayDetail = /\/essays\/[^/]+\/?$/.test(pathname);
+const slug = pathname.split('/').filter(Boolean).at(-1);
+const projectSummary = isProjectDetail && slug ? projectSummaries[locale][slug] : undefined;
+const projectResultDocument = isProjectDetail && slug ? projectResultDocuments[slug] : undefined;
 const summaryKeys = ['challenge', 'role', 'result', 'status'] as const;
 
+const backLink = isProjectDetail
+  ? { href: localePath(locale, '/research-and-projects'), label: copy.backToProjects }
+  : isEssayDetail
+    ? { href: localePath(locale, '/essays'), label: copy.backToEssays }
+    : undefined;
+
+const articleMeta = [frontmatter?.category, formatMonth(frontmatter?.date, locale)].filter(Boolean).join(' · ');
+
 const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${path}/`);
+const year = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -120,7 +66,14 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={new URL(localePaths.en, siteOrigin)} />
@@ -129,25 +82,29 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     <link rel="alternate" hreflang="x-default" href={new URL(localePaths.en, siteOrigin)} />
     <title>{documentTitle}</title>
     <meta name="description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={isProjectDetail || isEssayDetail ? 'article' : 'website'} />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : locale === 'ru' ? 'ru_RU' : 'en_US'} />
     <meta property="og:title" content={documentTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={new URL('/images/home-portrait.jpg', siteOrigin)} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={documentTitle} />
     <meta name="twitter:description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
+    {locale === 'ko' && (
+      <link
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        rel="stylesheet"
+        crossorigin="anonymous"
+      />
+    )}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
@@ -156,59 +113,70 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
     />
   </head>
   <body>
+    <a class="skip-link" href="#content">{copy.skip}</a>
+
     <header class="site-header">
       <div class="container nav-container">
-        <a href={copy.home} class="brand" aria-label={copy.homeLabel}>
-          <span class="brand-name">Abdurakhmon Dadaboev</span>
+        <a href={localePath(locale)} class="brand" aria-label={`${siteName} · ${copy.homeLabel}`}>
+          <span class="brand-mark bbox" aria-hidden="true">AD</span>
+          <span class="brand-name">{siteName}</span>
         </a>
 
-        <nav aria-label={copy.navLabel}>
+        <nav class="site-nav" aria-label={copy.navLabel}>
           <ul>
-            {navItems.map((item) => (
-              <li><a href={item.href} class={isCurrent(item.href) ? 'active' : ''}>{item.label}</a></li>
+            {copy.nav.map((item) => (
+              <li><a href={item.href} class={isCurrent(item.href) ? 'active' : undefined} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
             ))}
           </ul>
         </nav>
 
         <div class="header-actions">
-          <div class="language-switcher" aria-label={copy.languageLabel}>
+          <div class="language-switcher" role="group" aria-label={copy.languageLabel}>
             {languages.map((language) => (
               <a
                 class:list={['language-switch', { active: locale === language.code }]}
-                href={language.href}
+                href={localePaths[language.code]}
                 hreflang={language.code}
                 lang={language.code}
-                aria-current={locale === language.code ? 'page' : undefined}
+                aria-current={locale === language.code ? 'true' : undefined}
               >
                 {language.label}
               </a>
             ))}
           </div>
+          <button class="theme-toggle" type="button" aria-label={copy.themeLabel} title={copy.themeLabel} data-theme-toggle>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+          </button>
         </div>
       </div>
     </header>
 
-    <main class="container">
+    <main id="content" class="container">
       {frontmatter ? (
         <article class="prose article-shell">
-          <div class="article-heading">
-            <p class="eyebrow">{copy.note}</p>
+          {backLink && <a class="back-link" href={backLink.href}><span aria-hidden="true">←</span> {backLink.label}</a>}
+          <header class="article-heading">
+            {articleMeta && <p class="eyebrow">{articleMeta}</p>}
             <h1>{frontmatter.title}</h1>
-            {frontmatter.date && (
-              <p class="article-date">{copy.updated} · {frontmatter.date}</p>
+            {frontmatter.description && <p class="article-lede">{frontmatter.description}</p>}
+            {frontmatter.tags && frontmatter.tags.length > 0 && (
+              <div class="article-meta">
+                {frontmatter.tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
             )}
-          </div>
+          </header>
           {projectSummary ? (
             <>
-              <section class="project-overview" aria-label={locale === 'ko' ? '프로젝트 요약' : locale === 'ru' ? 'Краткое описание проекта' : 'Project summary'}>
+              <section class="project-overview" aria-label={copy.summaryLabel}>
                 {summaryKeys.map((key) => (
                   <div class:list={['project-overview-item', `project-overview-${key}`]}>
-                    <h2>{summaryLabels[key]}</h2>
+                    <h2>{copy.summary[key]}</h2>
                     <p>{projectSummary[key]}</p>
                     {key === 'result' && projectResultDocument && (
                       <a class="project-evidence-link" href={projectResultDocument.href} target="_blank" rel="noopener noreferrer" type="application/pdf">
                         {projectResultDocument.label[locale]}
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                           <path d="M14 3h7v7M21 3l-9 9M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5" />
                         </svg>
                       </a>
@@ -217,7 +185,7 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
                 ))}
               </section>
               <details class="technical-details">
-                <summary>{projectDetailsLabel[locale]}</summary>
+                <summary>{copy.details}</summary>
                 <div class="technical-content"><slot /></div>
               </details>
             </>
@@ -232,19 +200,32 @@ const isCurrent = (path: string) => pathname === path || pathname.startsWith(`${
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div>
-          <a href={copy.home} class="footer-name">Abdurakhmon Dadaboev</a>
-          <p>{copy.role}</p>
+        <div class="footer-note">
+          <a href={localePath(locale)} class="footer-name">{siteName}</a>
+          <p>{copy.footerRole} {copy.footerCta}</p>
         </div>
-        <div class="footer-links" aria-label={copy.externalLinks}>
-          <a href="mailto:dadaboev170998@gmail.com">{copy.email}</a>
-          <a href="https://github.com/AlexL71" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/abdurakhmon-dadaboev/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.kaggle.com/alexl98" target="_blank" rel="noopener noreferrer">Kaggle</a>
-          <a href={readingPath}>{copy.reading}</a>
-        </div>
+        <nav class="footer-links" aria-label={copy.externalLinks}>
+          <a href={`mailto:${EMAIL}`}>{copy.email}</a>
+          <a href={links.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href={links.kaggle} target="_blank" rel="noopener noreferrer">Kaggle</a>
+          <a href={localePath(locale, '/books')}>{copy.reading}</a>
+        </nav>
       </div>
-      <div class="container footer-bottom">© {new Date().getFullYear()} Abdurakhmon Dadaboev · {copy.location}</div>
+      <div class="container footer-bottom mono">
+        <span>© {year} {siteName}</span>
+        <span>{copy.builtWith}</span>
+      </div>
     </footer>
+
+    <script is:inline>
+      document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const current = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    </script>
   </body>
 </html>

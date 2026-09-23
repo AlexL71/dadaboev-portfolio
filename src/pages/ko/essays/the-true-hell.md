@@ -1,19 +1,19 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "The True Hell"
-description: "Dostoevsky's view of hell as the inability to love, and the tragedy of isolating self-protection."
+title: "진짜 지옥"
+description: "지옥을 사랑할 수 없는 상태로 본 도스토옙스키의 생각, 그리고 자기를 지키려다 스스로를 가두는 비극에 대하여."
 date: "2026-05-25"
-tags: ["Philosophy", "Literature", "Self-Love", "Thoughts"]
+tags: ["철학", "문학", "자기 사랑", "생각"]
 ---
 
-![The True Hell](/images/The%20True%20Hell.png)
+![진짜 지옥](/images/The%20True%20Hell.png)
 
-What is hell? Is it a mythical place where bad people are punished forever, or is it a word we use when pain becomes too heavy to carry, whether in the body or in the soul?
+지옥이란 무엇일까? 나쁜 사람들이 영원히 벌을 받는 신화 속 장소일까, 아니면 몸이든 마음이든 고통이 너무 무거워 더는 짊어질 수 없을 때 우리가 붙이는 이름일까?
 
-Fyodor Dostoevsky described hell as the inability to love. This idea reaches deeper than fire or punishment. It does not mean that no one loves you. It means that you can no longer love anyone, starting with yourself.
+도스토옙스키는 지옥을 사랑할 수 없는 상태라고 했다. 이 생각은 불이나 형벌보다 더 깊은 곳을 건드린다. 아무도 나를 사랑하지 않는다는 뜻이 아니다. 내가 더 이상 누구도 사랑할 수 없다는 뜻이다. 나 자신부터.
 
-Such a heart becomes closed. It cannot give, forgive, or step outside its own ego. Life turns into defense, control, and fear. Meaning fades. Connection disappears. This is the true hell for a human being, not a place, but a state of existence.
+그런 마음은 닫혀 버린다. 주지도, 용서하지도, 자기 자아 밖으로 한 걸음 나가지도 못한다. 삶은 방어와 통제, 두려움이 된다. 의미는 흐려지고 관계는 사라진다. 이것이 인간에게 진짜 지옥이다. 장소가 아니라 존재의 상태.
 
-We often see people who hide this condition behind responsibility, hard work, or arrogance. They build strong walls and call them discipline or strength. It is painful to watch. These walls may protect them from betrayal and disappointment, but they also block love. What begins as self protection slowly becomes isolation.
+우리는 이런 상태를 책임감이나 성실함, 오만함 뒤에 숨기는 사람들을 자주 본다. 그들은 높은 벽을 쌓고 그것을 절제나 강함이라고 부른다. 보고 있으면 마음이 아프다. 그 벽은 배신과 실망으로부터 그들을 지켜 줄지 모르지만, 사랑도 함께 막는다. 자기를 지키려고 시작한 일이 천천히 고립이 된다.
 
-This is the tragedy. We are not angels, nor are we demons. We are human. Vulnerable, weak, and sometimes selfish. To deny this is to lose our humanity. The task is not to become perfect, but to remain open. To accept our limits, yet still choose kindness. To allow ourselves to be human, and to try, despite everything, to be the good one.
+이것이 비극이다. 우리는 천사도 아니고 악마도 아니다. 우리는 인간이다. 연약하고, 약하고, 때로는 이기적이다. 이것을 부정하면 인간다움을 잃는다. 우리가 할 일은 완벽해지는 것이 아니라 열려 있는 것이다. 한계를 받아들이면서도 여전히 친절을 선택하는 것. 스스로에게 인간일 수 있도록 허락하고, 그럼에도 불구하고 좋은 사람이 되려고 애쓰는 것.

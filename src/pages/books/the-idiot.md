@@ -4,5 +4,5 @@ title: "The Idiot"
 author: "Fyodor Dostoevsky"
 date: ""
 cover: "/book covers/The Idiot.jpg"
-description: "A portrayal of a saintly, Christ-like figure navigating a corrupt and passionate Russian society."
+description: "A kind, almost Christ-like prince comes to St. Petersburg and is pulled into its passions and greed."
 ---

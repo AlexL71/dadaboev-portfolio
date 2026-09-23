@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Coordinated Kinematics: 18-DOF Hexapod Robot"
-description: "An autonomous 18-DOF hexapod spider robot featuring coordinated tripod gait locomotion, ultrasonic obstacle avoidance, and Raspberry Pi target tracking."
+title: "An 18-DOF Hexapod Robot"
+description: "A six-legged walking robot with a tripod gait, ultrasonic obstacle avoidance, and a camera that lets it follow a green marker."
 date: "2022-03-20"
 category: "Robotics"
 tags: ["Embedded Systems", "Arduino", "PCA9685", "C++", "3D Printing"]
@@ -9,72 +9,55 @@ tags: ["Embedded Systems", "Arduino", "PCA9685", "C++", "3D Printing"]
 
 ## Overview
 
-Unlike wheeled systems, legged robots can navigate highly uneven terrain and step over obstacles. However, coordinating multiple limbs requires high-precision motor control, stable kinematics, and efficient power management. 
+Legged robots can handle rough ground and step over things that would stop a wheeled robot. The price is complexity: many joints have to move in sync, the robot has to stay balanced, and the power supply has to survive all the motors moving at once.
 
-This Capstone Design project presents the development of an **autonomous 18-Degree-of-Freedom (DOF) hexapod spider robot**. Built using custom 3D-printed chassis components, an Arduino Uno R3, and a dedicated PCA9685 PWM driver, the robot executes stable walking gaits, performs real-time obstacle avoidance, and integrates computer vision target tracking.
+For our capstone design project we built an **18-degree-of-freedom hexapod**. It has a 3D-printed body, an Arduino Uno R3 for control, and a PCA9685 PWM driver for the servos. It walks with a stable gait, avoids obstacles on its own, and uses a camera to follow a colored marker.
 
----
+## Hardware layout
 
-## System Architecture
+<ol class="flow">
+  <li><strong>Brain</strong>An Arduino Uno R3 generates the gait and reads the sensors.</li>
+  <li><strong>Muscles</strong>Over I²C, it drives a PCA9685 16-channel PWM board, which controls 18 SG90 micro servos (three per leg: shoulder, femur, tibia).</li>
+  <li><strong>Senses</strong>An HC-SR04 ultrasonic sensor handles obstacle avoidance, and a Raspberry Pi camera tracks a green marker so the robot can follow its owner.</li>
+  <li><strong>Power</strong>LM2596 buck converters step an 11.1 V LiPo battery down to 5 V for the servos.</li>
+  <li><strong>Face</strong>An 8×8 LED matrix with a MAX7219 driver shows simple expressions (happy, sad, scanning) depending on what the robot is doing.</li>
+</ol>
 
-```mermaid
-graph TD
-    A[Arduino Uno R3] -->|I2C Protocol| B[PCA9685 16-Ch PWM Driver]
-    B -->|Independent PWM Signals| C[18x SG90 Servo Motors]
-    D[HC-SR04 Ultrasonic Sensor] -->|Distance Feedback| A
-    E[Raspberry Pi Camera] -->|Green Target Tracking| A
-    F[LM2596 Buck Converters] -->|Step-down 11.1V to 5V| C
-    G[8x8 LED Matrix & MAX7219] -->|Visual Emotions| A
-```
+### Circuit
 
-The robot is engineered around a distributed hardware control layout:
-- **Kinematics Engine**: An Arduino Uno R3 handles gait generation and sensor polling, communicating with a PCA9685 I2C servo driver to control 18 SG90 micro servos (3 joints per leg: shoulder, femur, and tibia).
-- **Sensory Perception**: Uses an HC-SR04 ultrasonic sensor for autonomous navigation and obstacle avoidance. A companion Raspberry Pi camera module tracks a green color marker to follow the owner.
-- **Human-Robot Interface (HRI)**: An 8x8 LED matrix driven by a MAX7219 controller displays expressive pixel patterns (e.g., happy, sad, scanning) based on the robot's operational state.
+Power distribution, the PCA9685 connections to all 18 servos, and the Arduino interface:
 
-### Circuit Schematic
-Below is the circuit schematic showing the power distribution loops, the PCA9685 servo driver connections to the 18 servos, and the interface with the Arduino Uno:
+<div class="schematic"><img src="/images/spider_bot_circuit.png" alt="Hexapod robot circuit schematic" loading="lazy" /></div>
 
-![Hexapod Robot Circuit Schematic](/images/spider_bot_circuit.png)
+## Implementation notes
 
----
+### Walking with a tripod gait
 
-## Key Implementation Details
+With 18 joints, staying balanced is the whole game. We used a **tripod gait**: the legs are split into two sets of three (legs 1-3-5 and 2-4-6) that take turns.
 
-### 1. Tripod Gait Locomotion State Machine
-Coordinating 18 independent joints to walk requires active balance. We implemented a **tripod gait** kinematics scheme where the legs are divided into two alternating sets of three (Legs 1-3-5 and Legs 2-4-6).
-- **Swing and Stance Phase**: While one tripod set lifts and swings forward (swing phase), the other tripod set remains firmly on the ground, pushing the robot forward (stance phase). This configuration ensures the robot's center of mass always remains within the stable triangular support base.
-- **Memory Optimization**: Storing high-dimensional gait trajectory arrays on the Arduino Uno's limited SRAM (2 KB) caused stack overflows. We optimized the firmware by moving static gait angle tables into flash memory using the `PROGMEM` macro.
+- **Swing and stance:** while one set lifts and swings forward, the other stays planted and pushes the body along. The center of mass always sits inside the triangle formed by the three planted feet, so the robot never tips.
+- **Fitting it into 2 KB of RAM:** the gait angle tables didn't fit in the Uno's 2 KB of SRAM and caused stack overflows. Moving the static tables into flash memory with `PROGMEM` solved it.
 
-### 2. High-Current Power Circuit Design
-SG90 micro servos draw low average currents but experience severe current spikes (up to 800 mA each) during simultaneous startup or leg lifting. With 18 servos active, the total peak current requirement can exceed 10 A, which easily damages standard voltage regulators.
-- **Buck Regulation**: We designed a custom power distribution board utilizing high-current LM2596 DC-DC buck converters. It steps down an 11.1V LiPo battery supply to a regulated 5V, delivering up to 3A of continuous current per board segment to prevent voltage drops.
-- **Decoupling Capacitors**: Added high-capacity electrolytic capacitors across the servo power rails to buffer current spikes and prevent microcontroller resets.
+### Power for 18 servos
 
----
+An SG90 draws little current on average but spikes up to about 800 mA when it starts moving or lifts weight. With 18 of them, peak demand can go past 10 A, which is enough to cook an ordinary regulator.
 
-## Technical Challenges & Solutions
+- **Buck converters:** we built a power board around high-current LM2596 converters that step the 11.1 V LiPo down to a steady 5 V, with up to 3 A continuous per segment.
+- **Decoupling capacitors:** large electrolytic capacitors across the servo rails absorb the spikes and stop the controller from resetting.
 
-1. **Servo Driver Overheating**: Early tests using miniature buck converters resulted in thermal shutdown due to current overload from joint friction.
-   - *Solution*: Upgraded to heavy-duty LM2596 converters, distributed the load across separate power lines, and added heat sinks to the driver chips.
-2. **Leg Slippage on Smooth Surfaces**: The raw 3D-printed plastic leg tips had a low coefficient of friction, causing the robot to slip and drift during turns.
-   - *Solution*: Designed and fitted custom rubberized grip tips to the ends of the tibias, providing the friction necessary for precise movement.
-3. **PCA9685 Pin Burnout**: During wiring modifications, back-EMF from the servos caused reverse voltage spikes, blowing out the driver pins.
-   - *Solution*: Added P-channel MOSFET switches to the power inputs, providing over-current and reverse-polarity protection to the PCA9685 board.
+## Problems we hit
 
----
+1. **Overheating converters.** The small buck converters we started with shut down from overload whenever the joints met friction.
+   - *Fix:* heavier LM2596 converters, the load split across separate power lines, and heat sinks on the driver chips.
+2. **Slipping feet.** Bare 3D-printed leg tips had almost no grip, so the robot slid around during turns.
+   - *Fix:* rubber tips on the ends of the tibias.
+3. **A burned-out PCA9685.** While we were rewiring, back-EMF from the servos sent reverse voltage spikes into the driver and killed some of its pins.
+   - *Fix:* P-channel MOSFETs on the power inputs for over-current and reverse-polarity protection.
 
-## Demonstration Video
+## Demo video
 
-Below is the hardware test demonstration of the 18-DOF Hexapod robot walking, displaying emotions, and tracking green markers:
+The hexapod walking, showing expressions, and following a green marker:
 
-<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; margin: 2rem 0; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
-  <iframe 
-    src="https://www.youtube.com/embed/ncwSMs6z5Ug" 
-    title="18-DOF Hexapod Spider Robot Test Video" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-  ></iframe>
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/ncwSMs6z5Ug" title="18-DOF hexapod robot test" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>

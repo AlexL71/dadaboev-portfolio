@@ -1,8 +1,8 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Oq kema"
-author: "Chingiz Aitmatov"
+title: "하얀 배"
+author: "친기즈 아이트마토프"
 date: ""
 cover: "/book covers/Oq kema.jpg"
-description: "A poignant Central Asian allegory depicting a young boy's pure worldview amidst harsh realities."
+description: "세상을 순수하게 바라보는 어린 소년이 주변 어른들의 잔인함과 부딪히는 이야기입니다."
 ---

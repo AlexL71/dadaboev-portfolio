@@ -1,60 +1,50 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Local LLM Assistant: Private Offline Chat"
-description: "A private, offline AI assistant running on a mobile phone, powered by a local DeepSeek-7B model hosted on a PC via FastAPI and Ollama."
+title: "Local LLM Assistant: Private Chat on My Phone"
+description: "A Flutter app that talks to DeepSeek-7B running on my own PC through FastAPI and Ollama, so nothing leaves the local network."
 date: "2025-04-15"
-category: "AI & Mobile Integration"
-tags: ["Flutter", "FastAPI", "DeepSeek", "Ollama", "Mobile Development", "Python"]
+category: "AI & Mobile"
+tags: ["Flutter", "FastAPI", "DeepSeek", "Ollama", "Python"]
 ---
 
 ## Overview
 
-Most modern AI assistants rely heavily on cloud APIs, which raises concerns about data privacy, connectivity dependencies, and API usage costs. To address these issues, **Local LLM Assistant** is a private, completely offline AI assistant ecosystem that lives on your mobile phone, powered by a local large language model running on your personal computer. 
+Most AI assistants send everything you type to a cloud API. That raises questions about privacy, it stops working without internet, and the usage bills add up. I wanted to see how far I could get without any of that.
 
-By keeping all computations within a local network (Wi-Fi or hotspot), the system guarantees zero data leaks, zero cloud latency, and no usage boundaries.
+**Local LLM Assistant** is a chat app on my phone that talks to a language model running on my own computer. Everything stays on the local network (home Wi-Fi or a phone hotspot), so no data leaves it, there is no cloud round trip, and there's no usage limit.
 
----
+## How it fits together
 
-## System Architecture
+<ol class="flow">
+  <li><strong>Phone app</strong>A Flutter (Dart) chat app for Android or iOS.</li>
+  <li><strong>Local network</strong>The app talks to the PC over Wi-Fi or a hotspot.</li>
+  <li><strong>API server</strong>A FastAPI (Python) server on the PC receives the request and keeps track of the conversation.</li>
+  <li><strong>Model</strong>Ollama runs DeepSeek-7B on the PC's GPU and returns the answer as JSON.</li>
+</ol>
 
-```mermaid
-graph LR
-    A[Flutter Mobile App] -->|Local Wi-Fi / Hotspot| B[FastAPI Server on PC]
-    B -->|Local Request| C[Ollama Engine]
-    C -->|DeepSeek-7B Inference| B
-    B -->|JSON Response| A
-```
+## Details
 
-The system is split into three main components:
-1. **Frontend Mobile Client**: A clean, responsive mobile chat interface built with **Flutter (Dart)** that runs on any Android or iOS device.
-2. **Backend API Gateway**: A high-performance **FastAPI (Python)** server running on a local PC, routing network requests and managing connection handshakes.
-3. **Local LLM Inference Engine**: A local instance of **Ollama** running the **DeepSeek-7B** model on the host PC's GPU.
+### The Flutter app
 
----
+- **Finding the server:** the app scans the local subnet for the FastAPI server, so there's no IP address to type in.
+- **Chat UI:** message bubbles, a typing indicator, and Markdown rendering for code and formatted text.
 
-## Technical Features
+### The FastAPI server
 
-### 1. Flutter Mobile Client
-- **Wi-Fi Handshake**: Automatically scans the local network subnet to locate the active FastAPI server IP, resolving connectivity without requiring manual user configuration.
-- **Fluid Chat UI**: Designed with clean message bubbles, typing indicators, and markdown rendering support for code and structured text formatting.
+- **Async handling:** built on `asyncio` and `httpx`, so several devices on the same network can use it at once.
+- **Simple API:** JSON endpoints turn the phone's chat history into Ollama's request format, so the model keeps the context of the conversation.
 
-### 2. FastAPI Request Routing
-- **Asynchronous Gateways**: Built with Python `asyncio` and `httpx` to handle concurrent connections from multiple mobile devices in the same local network.
-- **Clean API Spec**: Exposes structured JSON endpoints that format mobile chat history into Ollama-compatible payload dictionaries, maintaining context across conversation turns.
+### The model
 
-### 3. Local Inference Engine
-- Uses **Ollama** as the local deployment runner to orchestrate model quantization and hardware-accelerated inference.
-- Powered by the **DeepSeek-7B** model, optimizing response speeds and accuracy for offline text completion, summarization, and coding tasks.
+- **Ollama** handles quantization and GPU-accelerated inference on the PC.
+- **DeepSeek-7B** gave a good balance of speed and quality for summaries, general questions, and coding help, all offline.
 
----
+## Why bother
 
-## Key Benefits
-- **Absolute Privacy**: No user text, metadata, or document data ever leaves the local network, making it safe for confidential tasks.
-- **Zero Operating Cost**: Leverages local desktop hardware, bypassing commercial API subscription models.
-- **Offline Reliability**: Operates independently of internet service availability, requiring only a local router or hotspot connection.
+- **Privacy:** no prompts, metadata, or documents leave the local network, so it's fine for confidential material.
+- **No running costs:** it runs on hardware I already own, with no API subscription.
+- **Works offline:** all it needs is a router or a hotspot, not an internet connection.
 
----
+## Source code
 
-## GitHub Repository
-Explore the complete source code, deployment scripts, and Flutter project files on GitHub:
-👉 [AlexL71/local-llm-chat](https://github.com/AlexL71/local-llm-chat)
+The Flutter project, server code, and setup scripts are on GitHub: [AlexL71/local-llm-chat](https://github.com/AlexL71/local-llm-chat)

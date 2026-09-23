@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projectSummaries } from '../../data/projectSummaries';
+import { featuredProjectSlugs, formatMonth, projectsPage, type Locale } from '../../i18n/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = projectsPage[locale];
+
+const sources: Record<Locale, Record<string, any>> = {
+  en: import.meta.glob('../../pages/research-and-projects/*.md', { eager: true }),
+  ko: import.meta.glob('../../pages/ko/research-and-projects/*.md', { eager: true }),
+  ru: import.meta.glob('../../pages/ru/research-and-projects/*.md', { eager: true }),
+};
+
+const getSlug = (project: any) => project.url.split('/').filter(Boolean).at(-1) as string;
+const projects = (Object.values(sources[locale]) as any[]).sort(
+  (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
+);
+const featured = featuredProjectSlugs
+  .map((slug) => projects.find((project) => getSlug(project) === slug))
+  .filter(Boolean);
+const others = projects.filter((project) => !featuredProjectSlugs.includes(getSlug(project)));
+---
+
+<Layout title={t.title} description={t.description}>
+  <header class="projects-header">
+    <p class="eyebrow">{t.eyebrow}</p>
+    <h1>{t.heading}</h1>
+    <p>{t.intro}</p>
+  </header>
+
+  <section class="project-group" aria-labelledby="featured-heading">
+    <div class="group-head">
+      <h2 id="featured-heading">{t.featured}</h2>
+      <span class="mono">{t.count(projects.length)}</span>
+    </div>
+    <div class="featured-grid">
+      {featured.map((project) => {
+        const slug = getSlug(project);
+        return (
+          <a href={project.url} class="card featured-card">
+            <span class="card-meta mono">{project.frontmatter.category} · {formatMonth(project.frontmatter.date, locale)}</span>
+            <h3>{project.frontmatter.title}</h3>
+            <p>{projectSummaries[locale][slug]?.result ?? project.frontmatter.description}</p>
+            {project.frontmatter.tags && (
+              <div class="card-tags">{project.frontmatter.tags.slice(0, 3).map((tag: string) => <span class="tag">{tag}</span>)}</div>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="project-group" aria-labelledby="other-heading">
+    <div class="group-head"><h2 id="other-heading">{t.more}</h2></div>
+    <div class="other-list">
+      {others.map((project) => (
+        <a href={project.url} class="other-row">
+          <span class="mono other-date">{formatMonth(project.frontmatter.date, locale)}</span>
+          <div>
+            <h3>{project.frontmatter.title}</h3>
+            <p>{project.frontmatter.description}</p>
+          </div>
+          <span class="mono other-cat">{project.frontmatter.category}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    .projects-header { max-width: 44rem; padding-bottom: clamp(2rem, 5vw, 3rem); }
+    .projects-header > p:last-child { margin-top: 1rem; font-size: 1.08rem; }
+
+    .project-group { padding-block: 2rem; border-top: 1px solid var(--line); }
+    .group-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
+    .group-head h2 { font-size: 1.2rem; }
+    .group-head span { color: var(--ink-muted); }
+
+    .featured-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .featured-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem; }
+    .featured-card:first-child { grid-column: 1 / -1; }
+    .card-meta { color: var(--ink-muted); }
+    .featured-card h3 { font-size: 1.2rem; transition: color var(--transition); }
+    .featured-card:hover h3 { color: var(--accent); }
+    .featured-card p { font-size: 0.95rem; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; padding-top: 0.6rem; }
+
+    .other-list { border-top: 1px solid var(--line); }
+    .other-row {
+      display: grid;
+      grid-template-columns: 7rem minmax(0, 1fr) 11rem;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding-block: 1.2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .other-row h3 { margin-bottom: 0.25rem; font-size: 1.05rem; transition: color var(--transition); }
+    .other-row:hover h3 { color: var(--accent); }
+    .other-row p { font-size: 0.92rem; }
+    .other-date, .other-cat { color: var(--ink-muted); }
+    .other-cat { text-align: right; }
+
+    @media (max-width: 760px) {
+      .featured-grid { grid-template-columns: 1fr; }
+      .other-row { grid-template-columns: 1fr; gap: 0.25rem; }
+      .other-cat { order: -1; text-align: left; }
+      .other-date { order: -2; }
+    }
+  </style>
+</Layout>

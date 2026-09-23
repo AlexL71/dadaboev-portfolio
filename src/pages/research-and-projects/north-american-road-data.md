@@ -1,29 +1,31 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "North American Road Data Curation & Auto-Labeling"
-description: "A Mapillary-based road-image pipeline using DINOv3 embeddings, FAISS similarity search, and human review for scalable data curation."
+title: "North American Road Data Curation and Auto-Labeling"
+description: "A Mapillary-based pipeline that uses DINOv3 embeddings, FAISS similarity search, and human review to build a road-image dataset."
 date: "2026-07-01"
-category: "Computer Vision Infrastructure"
-tags: ["Mapillary", "DINOv3", "FAISS", "Data Curation", "Computer Vision"]
+category: "Data Pipeline"
+tags: ["Mapillary", "DINOv3", "FAISS", "Data Curation"]
 ---
 
 ## Overview
 
-This ongoing project supports the construction of North American road-image data for terrain and chassis-related research. It is a collaboration involving the Hyundai Motor Genesis Chassis Test Team, Vegas, and Korea University's Big Data Mining Lab.
+This ongoing project builds a North American road-image dataset for research on terrain and vehicle chassis. It's a collaboration between the Hyundai Motor Genesis Chassis Test Team, Vegas, and the Big Data Mining Lab at Korea University.
 
-My role is to design the data pipeline and conduct the AI vision research. The central problem is not simply downloading images. The data must match geographic, capture-time, and resolution requirements while avoiding unnecessary duplicates and keeping human validation practical.
+I design the data pipeline and lead the vision side. The hard part isn't downloading images. It's making sure every image matches the required region, capture time, and resolution, avoiding a flood of near-duplicates, and keeping the human review step small enough that people can actually do it.
 
-## Pipeline design
+## Pipeline
 
-1. **Conditional collection:** Mapillary API requests are organized around region, capture time, and image-resolution conditions.
-2. **Visual representation:** DINOv3 converts road images into feature vectors, which are compact numerical representations of visual content.
-3. **Similarity search:** FAISS searches those vectors efficiently to surface visually similar images for screening and organization.
-4. **Human review:** A dedicated labeling and review tool lets a person verify selected images before they enter the dataset.
+<ol class="flow">
+  <li><strong>Filtered collection</strong>Requests to the Mapillary API are built around region, capture time, and minimum resolution.</li>
+  <li><strong>Embeddings</strong>DINOv3 turns each road image into a feature vector, a compact numeric summary of what the image shows.</li>
+  <li><strong>Similarity search</strong>FAISS searches those vectors quickly, grouping visually similar scenes and flagging near-duplicates.</li>
+  <li><strong>Human review</strong>A small labeling and review tool lets a person confirm each selected image before it goes into the dataset.</li>
+</ol>
 
-## Engineering focus
+## What I focus on
 
-The project treats data quality as a system-design problem. Important considerations include API constraints, duplicate and near-duplicate imagery, metadata consistency, and the amount of manual review required. This approach reduces avoidable processing and keeps decisions traceable.
+I treat data quality as a design problem, not a clean-up job at the end. That means thinking early about API limits, duplicate and near-duplicate images, inconsistent metadata, and how much manual review the process will need. Getting those right up front avoids wasted processing and makes every decision easy to trace later.
 
-## Current status
+## Status
 
-The pipeline and review workflow have been under active development since July 2026. This page describes the engineering approach without exposing partner data or confidential implementation details.
+The pipeline and review workflow have been in active development since July 2026. This page describes the approach only; partner data and confidential implementation details are left out.

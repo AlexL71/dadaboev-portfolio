@@ -4,5 +4,5 @@ title: "The Stranger"
 author: "Albert Camus"
 date: ""
 cover: "/book covers/The Stranger.jpg"
-description: "A classic absurdist novel following a detached protagonist who commits a senseless murder."
+description: "A detached man commits a pointless murder and is judged more for his indifference than for the crime."
 ---

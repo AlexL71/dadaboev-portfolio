@@ -1,8 +1,8 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "The Idiot"
-author: "Fyodor Dostoevsky"
+title: "백치"
+author: "표도르 도스토옙스키"
 date: ""
 cover: "/book covers/The Idiot.jpg"
-description: "A portrayal of a saintly, Christ-like figure navigating a corrupt and passionate Russian society."
+description: "그리스도처럼 선한 공작이 상트페테르부르크에 와서 그곳의 욕망과 탐욕에 휘말리는 이야기입니다."
 ---

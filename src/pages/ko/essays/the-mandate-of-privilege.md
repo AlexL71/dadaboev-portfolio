@@ -1,15 +1,15 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "The Mandate of Privilege"
-description: "Redefining gratitude from passive relief into an active mandate for service."
+title: "특권이 주는 책임"
+description: "감사를 수동적인 안도에서 남을 돕는 적극적인 책임으로 다시 정의해 보기."
 date: "2026-05-25"
-tags: ["Philosophy", "Ethics", "Thoughts"]
+tags: ["철학", "윤리", "생각"]
 ---
 
-![The Mandate of Privilege](/images/The%20Mandate%20of%20Privilege.jpg)
+![특권이 주는 책임](/images/The%20Mandate%20of%20Privilege.jpg)
 
-True gratitude is often mistaken for relief. When we witness suffering and think, "Thank God that isn’t me," we are engaging in passive gratitude. This sentiment is rooted in fear and separation; it treats safety as a lucky lottery win to be hoarded, effectively reducing the struggles of others to a backdrop for our own comfort.
+진짜 감사는 흔히 안도감과 헷갈린다. 누군가의 고통을 보며 “내가 아니라서 다행이다”라고 생각할 때, 우리는 수동적인 감사를 하고 있다. 이런 감정은 두려움과 거리 두기에서 나온다. 안전을 운 좋게 당첨된 복권처럼 여기며 움켜쥐고, 다른 사람의 고생을 내 편안함의 배경으로 만들어 버린다.
 
-Active gratitude reframes the narrative. It suggests that privilege is not a reward, but a utility. If we are spared from hardship, we possess a surplus of energy, resources, or stability that those in crisis lack.
+적극적인 감사는 이야기를 다르게 쓴다. 특권은 보상이 아니라 쓰임새라는 것이다. 우리가 어려움을 비켜 갔다면, 지금 위기에 처한 사람에게는 없는 여분의 힘과 자원, 안정이 우리에게 있다는 뜻이다.
 
-The shift from "I am lucky" to "I am responsible" changes the function of gratitude. It ceases to be a fleeting emotion and becomes a mandate for action. We are not empowered for the sake of ease; we are empowered for the sake of service. The "strength" derived from being spared is only meaningful when it is spent uplifting those who were not.
+“나는 운이 좋다”에서 “나에게는 책임이 있다”로 옮겨 가면 감사의 역할이 바뀐다. 잠깐 스치는 감정이 아니라 행동하라는 명령이 된다. 우리가 힘을 가진 건 편하게 살기 위해서가 아니라 섬기기 위해서다. 고난을 비켜 가며 얻은 ‘힘’은 그렇지 못한 사람들을 일으켜 세우는 데 쓰일 때에만 의미가 있다.

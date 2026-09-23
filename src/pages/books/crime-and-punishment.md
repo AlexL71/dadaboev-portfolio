@@ -4,5 +4,5 @@ title: "Crime and Punishment"
 author: "Fyodor Dostoevsky"
 date: ""
 cover: "/book covers/Crime and Punishment.jpg"
-description: "A psychological masterpiece exploring transgression, guilt, and redemption in St. Petersburg."
+description: "A poor student in St. Petersburg commits a murder and then has to live with it. A novel about guilt and redemption."
 ---

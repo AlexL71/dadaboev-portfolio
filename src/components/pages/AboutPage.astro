@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EducationList from '../EducationList.astro';
+import { about, localePath, type Locale } from '../../i18n/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = about[locale];
+---
+
+<Layout title={t.title} description={t.description}>
+  <section class="about-intro">
+    <div class="about-copy">
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.heading}</h1>
+      <div class="bio">
+        {t.bio.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="about-actions">
+        <a class="btn" href={localePath(locale, '/resume')}>{t.links.resume}</a>
+        <a class="btn btn-ghost" href={localePath(locale, '/research-and-projects')}>{t.links.projects}</a>
+      </div>
+    </div>
+    <img class="about-photo" src="/images/about-portrait-2026.jpg" width="1014" height="1280" alt={t.portraitAlt} />
+  </section>
+
+  <section class="section" aria-labelledby="interests-heading">
+    <div class="section-head"><h2 id="interests-heading"><span class="index">01</span>{t.interestsTitle}</h2></div>
+    <div class="interest-grid">
+      {t.interests.map((item) => (
+        <div class="card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="timeline-heading">
+    <div class="section-head"><h2 id="timeline-heading"><span class="index">02</span>{t.timelineTitle}</h2></div>
+    <ol class="timeline">
+      {t.timeline.map((item) => (
+        <li class="timeline-item">
+          <div class="timeline-meta">{item.when}</div>
+          <div>
+            <div class="timeline-title">{item.title}</div>
+            <div class="timeline-subtitle">{item.org}</div>
+            <p class="timeline-content">{item.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="section details-grid" aria-label={`${t.educationTitle}, ${t.languagesTitle}`}>
+    <div>
+      <h2 class="small-title"><span class="index">03</span>{t.educationTitle}</h2>
+      <EducationList locale={locale} />
+    </div>
+    <div class="side-notes">
+      <div>
+        <h2 class="small-title"><span class="index">04</span>{t.languagesTitle}</h2>
+        <p>{t.languages}</p>
+      </div>
+      <div>
+        <h2 class="small-title"><span class="index">05</span>{t.toolsTitle}</h2>
+        <p>{t.tools}</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .about-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(13rem, 19rem);
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: start;
+      padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+    .bio { max-width: 40rem; margin-top: 1.6rem; }
+    .bio p { margin-bottom: 1.1rem; font-size: 1.05rem; line-height: 1.75; }
+    .bio p:first-child { color: var(--ink); font-size: 1.15rem; }
+    .about-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+    .about-photo { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); position: sticky; top: 6rem; }
+
+    .interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .interest-grid h3 { margin-bottom: 0.4rem; }
+    .interest-grid p { font-size: 0.95rem; }
+
+    .details-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); }
+    .small-title { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 1rem; font-size: 1.25rem; }
+    .small-title .index { color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; }
+    .side-notes { display: grid; gap: 2rem; align-content: start; }
+    .side-notes p { padding-top: 1rem; border-top: 1px solid var(--line); }
+
+    @media (max-width: 860px) {
+      .interest-grid { grid-template-columns: 1fr; }
+      .details-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .about-intro { grid-template-columns: 1fr; }
+      .about-photo { order: -1; max-width: 13rem; position: static; }
+    }
+  </style>
+</Layout>

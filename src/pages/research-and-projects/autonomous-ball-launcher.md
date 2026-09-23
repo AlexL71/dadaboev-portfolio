@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Dodgeball: Autonomous Ball Launcher"
-description: "An autonomous target-tracking ball launcher utilizing OpenCV color filtering, servo positioning, and ultrasonic distance-based PWM motor tuning."
+title: "Dodgeball: An Autonomous Ball Launcher"
+description: "A Raspberry Pi launcher that tracks a red target with OpenCV, turns to face it, and sets its launch power from the measured distance."
 date: "2021-09-15"
 category: "Hardware Integration"
 tags: ["Computer Vision", "OpenCV", "Raspberry Pi", "Python", "PWM"]
@@ -9,72 +9,57 @@ tags: ["Computer Vision", "OpenCV", "Raspberry Pi", "Python", "PWM"]
 
 ## Overview
 
-Traditional ball launchers operate on manual alignment and fixed firing speeds, making them ineffective at adapting to moving targets. To solve this, we designed **Dodgeball**—an autonomous target-tracking and ball launching machine. Developed as a major core engineering project, the system combines real-time computer vision tracking, closed-loop servo control, and distance-adaptive motor speed regulation.
+A typical ball launcher is aimed by hand and fires at one fixed speed, so it's useless against a target that moves. For a core engineering course, our team built **Dodgeball**, a launcher that finds a target on its own, turns to face it, and adjusts how hard it throws based on how far away the target is. It combines real-time vision, closed-loop servo control, and distance-based motor speed control.
 
----
+## How it works
 
-## System Architecture
+The system runs two control loops side by side.
 
-```mermaid
-graph TD
-    A[Raspberry Pi Camera] --> B[OpenCV Image Processing]
-    B -->|Calculate Coordinate Offsets| C[Servo Control HS-311]
-    C -->|Align Launcher to Target| D[Target Centering]
-    E[HC-SR04 Ultrasonic Sensor] -->|Distance Measurement| F[PWM Speed Calculation]
-    F -->|Adjust Duty Cycle| G[L298N H-Bridge Driver]
-    G -->|Control DC Motors| H[Adjust Firing Force]
-```
+<ol class="flow">
+  <li><strong>Aim</strong>The Raspberry Pi camera finds the red target. Its horizontal offset from the center of the frame drives a high-torque servo (HS-311) that rotates the launcher platform.</li>
+  <li><strong>Measure</strong>An HC-SR04 ultrasonic sensor measures the distance to the target.</li>
+  <li><strong>Set power</strong>A mapping function turns that distance into a PWM duty cycle.</li>
+  <li><strong>Launch</strong>An L298N H-bridge drives the two DC motor wheels at that speed.</li>
+</ol>
 
-The system is constructed with a dual-loop control pipeline:
-1. **Target Tracking Loop**: The Raspberry Pi Camera tracks the coordinates of a red spherical target. The coordinate offset from the frame center controls a high-torque standard servo motor to rotate the launcher platform horizontally.
-2. **Firing Force Control Loop**: An ultrasonic sensor measures the physical distance to the target. A custom mapping function converts this distance into a specific pulse-width modulation (PWM) duty cycle, controlling the dual DC motor launcher wheels via an L298N H-bridge.
+### Circuit
 
-### Circuit Schematic
-Below is the circuit schematic detailing the connections between the Raspberry Pi, standard servo motor, L298N motor driver, and sensors:
+The schematic below shows how the Raspberry Pi, servo, L298N motor driver, and sensors are connected.
 
-<img src="/images/ball_launcher_circuit.png" alt="Ball Launcher Circuit Schematic" style="width: 80%; max-width: 600px; display: block; margin: 1.5rem auto; border-radius: 8px; border: 1px solid var(--border-color);" />
+<div class="schematic"><img src="/images/ball_launcher_circuit.png" alt="Ball launcher circuit schematic" loading="lazy" style="max-width: 600px;" /></div>
 
----
+## Implementation notes
 
-## Key Implementation Details
+### Finding the target reliably
 
-### 1. Robust OpenCV Target Isolation
-Early testing using RGB thresholding failed under varying room lighting, as reflections and shadow tones interfered with color classification. 
-To resolve this, we migrated the image processing pipeline to the **HSV (Hue, Saturation, Value) color space**. By isolating the Hue channel (representing pure color) and applying strict bounding ranges, the system dynamically filters background noise and extracts the precise centroid of the red target:
-- **Centroid Calculation**: Computes the contour moments to determine the $(x, y)$ coordinate of the target's center.
-- **Error Tuning**: Compares the target center against the camera frame center. If the offset exceeds a dead band of $\pm 30$ pixels, the system sends an incremental PWM command to the servo to rotate the platform and re-center the target.
+Our first version thresholded the image in RGB, and it fell apart as soon as the room lighting changed. Reflections and shadows kept shifting the colors.
 
-### 2. Segmented Linear Firing Interpolation
-DC motor startup thresholds and mechanical resistance cause non-linear relationships between voltage and firing range.
-To achieve reliable hits across the active launch range (50 cm to 210 cm), we designed a segmented linear mapping function. The Raspberry Pi reads the distance from the HC-SR04 sensor and interpolates the appropriate PWM duty cycle:
-- For distances under 50 cm: The DC motor remains at a low baseline duty cycle.
-- For distances between 50 cm and 210 cm: The system dynamically scales the duty cycle using the formula: $\text{Duty} = 10\% + (\text{Distance} - 50) \times 0.05\%$.
-- For distances exceeding 210 cm: The motors default to maximum output capacity.
+Switching to the **HSV color space** fixed this. Hue carries the "redness" separately from brightness, so a tight hue range picks out the target and ignores most of the background noise. From the resulting mask:
 
----
+- **Centroid:** contour moments give the $(x, y)$ center of the target.
+- **Dead band:** if the center is more than $\pm 30$ pixels from the middle of the frame, the servo takes a small step to re-center it. Inside that band it stays still, which prevents jitter.
 
-## Technical Challenges & Solutions
+### Setting launch power
 
-1. **Power Supply Instability**: Simultaneously driving the Raspberry Pi, dual launching DC motors, and standard positioning servos from a common battery pack caused voltage sags, resetting the microcontrollers. 
-   - *Solution*: Designed a decoupled power rail system utilizing a dedicated high-current 12V DC power adapter, with separate voltage regulators for the control logic and high-draw motors.
-2. **Platform Balancing**: Heavy camera mounts and motors placed off-center caused tracking platform tilt and servo stalling.
-   - *Solution*: Re-machined the structural components out of lightweight acrylic sheets and systematically arranged the weight distribution around the servo's primary rotational axis to minimize torque loads.
-3. **Servo Motor Delay Tuning**: Rapid, unbuffered adjustments to the servo position caused oscillation and blurred camera inputs.
-   - *Solution*: Introduced a brief temporal delay (smoothing window) in the control loop, allowing the servo motor to settle before capturing the next camera frame.
+Motor start-up thresholds and friction make the relationship between voltage and throwing distance far from linear. To hit targets reliably between 50 cm and 210 cm, we used a piecewise-linear mapping from the HC-SR04 reading to the PWM duty cycle:
 
----
+- **Under 50 cm:** the motors stay at a low base duty cycle.
+- **50–210 cm:** $\text{Duty} = 10\% + (\text{Distance} - 50) \times 0.05\%$.
+- **Over 210 cm:** the motors run at full output.
 
-## Demonstration Video
+## Problems we hit
 
-Below is the hardware test demonstration of the Dodgeball launcher tracking and firing at the target in real time:
+1. **Power dips.** Running the Raspberry Pi, both launch motors, and the servo from one battery pack caused voltage sags that reset the controller.
+   - *Fix:* a separate high-current 12 V supply, with independent regulators for the logic and for the motors.
+2. **A lopsided platform.** The camera mount and motors sat off-center, so the platform tilted and the servo stalled.
+   - *Fix:* we rebuilt the structure from lightweight acrylic and rearranged the weight around the servo's axis to cut the torque load.
+3. **Oscillation.** Correcting the servo on every frame made it overshoot and blurred the camera image.
+   - *Fix:* a short delay in the control loop, so the servo settles before the next frame is captured.
 
-<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; margin: 2rem 0; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
-  <iframe 
-    src="https://www.youtube.com/embed/RzG0mym6OIU" 
-    title="Dodgeball Autonomous Ball Launcher Test Video" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-  ></iframe>
+## Demo video
+
+The launcher tracking the target and firing in real time:
+
+<div class="video">
+  <iframe src="https://www.youtube.com/embed/RzG0mym6OIU" title="Dodgeball autonomous ball launcher test" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>

@@ -8,7 +8,7 @@ tags: ["Philosophy", "Faith", "Ethics", "Thoughts"]
 
 ## The Illusion of Malice and the Burden of Nature
 
-The vast majority of human-caused suffering does not stem from a pure desire to inflict pain. It occurs when one individual’s desire blindly intersects with another’s life. A wolf is not evil for killing a rabbit; it is merely fulfilling its design. Humans, similarly, are driven by a nature — complete with ego, greed, and survival instincts that was forged by God. If our core inclinations are hardwired by a Creator, labeling the resulting harm as pure "evil" ignores the reality of the human condition. It is a collision of desires, not a supernatural malice.
+The vast majority of human-caused suffering does not stem from a pure desire to inflict pain. It occurs when one individual’s desire blindly intersects with another’s life. A wolf is not evil for killing a rabbit; it is merely fulfilling its design. Humans, similarly, are driven by a nature, complete with ego, greed, and survival instincts, that was forged by God. If our core inclinations are hardwired by a Creator, labeling the resulting harm as pure "evil" ignores the reality of the human condition. It is a collision of desires, not a supernatural malice.
 
 ## The Divine Trap and the Morality of the Marketplace
 
@@ -20,7 +20,7 @@ When the transactional nature of divine reward is abandoned, a crushing paralysi
 
 ## The Limit of Empathy and the Necessity of Devotion
 
-Yet, there is a boundary to what logic and basic empathy can achieve. General tolerance for humanity prevents us from inflicting harm, but it does not possess the sheer velocity required for ultimate sacrifice. A person does not throw themselves into the line of fire out of a generalized compassion for the human race. True, self-annihilating sacrifice requires an overriding, irrational force. It demands the kind of consuming love whether directed upward toward God or outward toward a specific, deeply cherished soul that completely shatters the instinct for self-preservation. Empathy calculates; love overrides.
+Yet, there is a boundary to what logic and basic empathy can achieve. General tolerance for humanity prevents us from inflicting harm, but it does not possess the sheer velocity required for ultimate sacrifice. A person does not throw themselves into the line of fire out of a generalized compassion for the human race. True, self-annihilating sacrifice requires an overriding, irrational force. It demands a consuming kind of love, whether directed upward toward God or outward toward one deeply cherished person, that completely shatters the instinct for self-preservation. Empathy calculates; love overrides.
 
 ---
 

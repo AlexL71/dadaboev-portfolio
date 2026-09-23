@@ -1,0 +1,162 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EducationList from '../EducationList.astro';
+import { EMAIL, links, resume, type Locale } from '../../i18n/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = resume[locale];
+---
+
+<Layout title={t.title} description={t.description}>
+  <header class="resume-header">
+    <div>
+      <p class="eyebrow">{t.eyebrow}</p>
+      <h1>{t.name}</h1>
+      <p class="role">{t.role}</p>
+    </div>
+    <div class="resume-summary">
+      <p>{t.summary}</p>
+      <div class="contact-row mono">
+        <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+        <a href={links.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/abdurakhmon-dadaboev</a>
+        <a href={links.github} target="_blank" rel="noopener noreferrer">github.com/AlexL71</a>
+        <span>{t.location}</span>
+      </div>
+      <button class="btn btn-ghost print-btn no-print" type="button" data-print>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" /><path d="M6 14h12v7H6z" /></svg>
+        {t.print}
+      </button>
+    </div>
+  </header>
+
+  <div class="resume-layout">
+    <div class="resume-main">
+      <section class="resume-section">
+        <h2>{t.experienceTitle}</h2>
+        {t.experience.map((entry) => (
+          <article class="entry">
+            <div class="entry-heading">
+              <div><h3>{entry.title}</h3><p>{entry.org}</p></div>
+              <span class="entry-when mono">{entry.when}</span>
+            </div>
+            {entry.bullets && <ul>{entry.bullets.map((b) => <li>{b}</li>)}</ul>}
+            {entry.text && <p class="entry-text">{entry.text}</p>}
+          </article>
+        ))}
+      </section>
+
+      <section class="resume-section">
+        <h2>{t.researchTitle}</h2>
+        {t.research.map((entry) => (
+          <article class="entry">
+            <div class="entry-heading">
+              <div><h3>{entry.title}</h3><p>{entry.org}</p></div>
+              <span class="entry-when mono">{entry.when}</span>
+            </div>
+            {entry.text && <p class="entry-text">{entry.text}</p>}
+          </article>
+        ))}
+      </section>
+    </div>
+
+    <aside class="resume-aside">
+      <section>
+        <h2>{t.educationTitle}</h2>
+        <EducationList locale={locale} compact />
+      </section>
+
+      <section>
+        <h2>{t.skillsTitle}</h2>
+        {t.skills.map((group) => (
+          <div class="skill-group"><h3 class="mono">{group.title}</h3><p>{group.text}</p></div>
+        ))}
+      </section>
+
+      <section>
+        <h2>{t.languagesTitle}</h2>
+        <ul class="plain-list">
+          {t.languages.map((l) => <li><strong>{l.name}</strong><span>{l.level}</span></li>)}
+        </ul>
+      </section>
+
+      <section>
+        <h2>{t.awardsTitle}</h2>
+        <ul class="plain-list">
+          {t.awards.map((a) => <li><strong>{a.name}</strong><span>{a.year}</span></li>)}
+        </ul>
+      </section>
+
+      <section>
+        <h2>{t.leadershipTitle}</h2>
+        <p class="aside-copy">{t.leadership}</p>
+      </section>
+    </aside>
+  </div>
+
+  <script is:inline>
+    document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
+  </script>
+
+  <style>
+    .resume-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 1.1fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: end;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .resume-header h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); }
+    .role { margin-top: 0.5rem; color: var(--accent); font-weight: 550; }
+    .resume-summary > p { color: var(--ink); line-height: 1.7; }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; margin-top: 1rem; color: var(--ink-muted); }
+    .contact-row a { color: var(--ink-soft); }
+    .contact-row a:hover { color: var(--accent); }
+    .print-btn { margin-top: 1.2rem; }
+
+    .resume-layout { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(15rem, 0.8fr); gap: clamp(2rem, 5vw, 4rem); padding-top: 2.5rem; }
+    .resume-main { display: grid; gap: 2.5rem; align-content: start; }
+    .resume-aside { display: grid; gap: 2rem; align-content: start; }
+
+    .resume-section > h2, .resume-aside h2 {
+      margin-bottom: 0.5rem;
+      color: var(--ink-muted);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .entry { padding-block: 1.3rem; border-top: 1px solid var(--line); }
+    .entry-heading { display: flex; justify-content: space-between; align-items: start; gap: 1.5rem; margin-bottom: 0.6rem; }
+    .entry-heading h3 { font-size: 1.06rem; line-height: 1.35; letter-spacing: -0.01em; }
+    .entry-heading p { margin-top: 0.15rem; color: var(--ink-muted); font-size: 0.88rem; }
+    .entry-when { flex: none; padding-top: 0.2rem; color: var(--ink-muted); }
+    .entry ul { padding-left: 1.1rem; }
+    .entry li, .entry-text { margin-bottom: 0.35rem; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.65; }
+    .entry li::marker { color: var(--ink-muted); }
+
+    .skill-group { padding-block: 0.8rem; border-top: 1px solid var(--line); }
+    .skill-group h3 { margin-bottom: 0.2rem; color: var(--accent); font-size: 0.76rem; font-weight: 500; }
+    .skill-group p, .aside-copy { font-size: 0.9rem; }
+    .aside-copy { padding-top: 0.8rem; border-top: 1px solid var(--line); }
+    .plain-list { list-style: none; }
+    .plain-list li { display: grid; gap: 0.1rem; padding-block: 0.7rem; border-top: 1px solid var(--line); font-size: 0.88rem; }
+    .plain-list strong { color: var(--ink); font-weight: 600; }
+    .plain-list span { color: var(--ink-muted); }
+
+    @media (max-width: 860px) {
+      .resume-header, .resume-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .entry-heading { flex-direction: column; gap: 0.3rem; }
+    }
+    @media print {
+      .resume-header { grid-template-columns: 1fr 1.4fr; }
+      .resume-layout { grid-template-columns: 1.8fr 1fr; padding-top: 1.2rem; }
+      .entry { break-inside: avoid; padding-block: 0.8rem; }
+    }
+  </style>
+</Layout>

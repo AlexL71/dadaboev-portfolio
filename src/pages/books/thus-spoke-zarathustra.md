@@ -4,5 +4,5 @@ title: "Thus Spoke Zarathustra"
 author: "Friedrich Nietzsche"
 date: ""
 cover: "/book covers/Thus Spoke Zarathustra.jpg"
-description: "Nietzsche's philosophical masterpiece presenting the concepts of the Overman and Eternal Recurrence."
+description: "Nietzsche’s poetic book about the Übermensch and eternal recurrence."
 ---

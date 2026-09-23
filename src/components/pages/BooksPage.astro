@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { booksPage, type Locale } from '../../i18n/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = booksPage[locale];
+
+const sources: Record<Locale, Record<string, any>> = {
+  en: import.meta.glob('../../pages/books/*.md', { eager: true }),
+  ko: import.meta.glob('../../pages/ko/books/*.md', { eager: true }),
+  ru: import.meta.glob('../../pages/ru/books/*.md', { eager: true }),
+};
+
+// Newest first when a date is set, otherwise alphabetical.
+const books = (Object.values(sources[locale]) as any[]).sort((a, b) => {
+  const dateA = a.frontmatter.date ? new Date(a.frontmatter.date).getTime() : 0;
+  const dateB = b.frontmatter.date ? new Date(b.frontmatter.date).getTime() : 0;
+  if (dateA !== dateB) return dateB - dateA;
+  return (a.frontmatter.title || '').localeCompare(b.frontmatter.title || '', locale);
+});
+---
+
+<Layout title={t.title} description={t.description}>
+  <header class="books-header">
+    <p class="eyebrow">{t.eyebrow}</p>
+    <h1>{t.heading}</h1>
+    <p>{t.intro}</p>
+  </header>
+
+  <div class="books-grid">
+    {books.map((book) => (
+      <a
+        href={`https://www.google.com/search?q=${encodeURIComponent(`${book.frontmatter.title} ${book.frontmatter.author}`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="book"
+      >
+        <div class="book-cover">
+          <Image src={book.frontmatter.cover} alt={t.coverAlt(book.frontmatter.title)} width={200} height={300} />
+        </div>
+        <h2 class="book-title">{book.frontmatter.title}</h2>
+        <p class="book-author">{t.by(book.frontmatter.author)}</p>
+        {book.frontmatter.description && <p class="book-description">{book.frontmatter.description}</p>}
+      </a>
+    ))}
+  </div>
+
+  <style>
+    .books-header { max-width: 42rem; margin-bottom: clamp(2rem, 5vw, 3rem); }
+    .books-header > p:last-child { margin-top: 1rem; font-size: 1.05rem; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 2.2rem 1.5rem; }
+    .book { display: flex; flex-direction: column; }
+    .book-cover {
+      overflow: hidden;
+      aspect-ratio: 2 / 3;
+      margin-bottom: 0.85rem;
+      border: 1px solid var(--line);
+      border-radius: 4px 8px 8px 4px;
+      background: var(--surface-soft);
+      box-shadow: inset 3px 0 0 rgba(0, 0, 0, 0.08);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .book-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .book:hover .book-cover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .book-title { font-size: 0.98rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+    .book-author { margin-top: 0.2rem; color: var(--ink-muted); font-size: 0.84rem; }
+    .book-description {
+      display: -webkit-box;
+      overflow: hidden;
+      margin-top: 0.45rem;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.45;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+    @media (max-width: 480px) {
+      .books-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.8rem 1rem; }
+    }
+  </style>
+</Layout>

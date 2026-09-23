@@ -4,5 +4,5 @@ title: "The Plague"
 author: "Albert Camus"
 date: ""
 cover: "/book covers/The Plague.jpg"
-description: "An existential novel depicting the resilience, isolation, and solidarity of citizens during an epidemic."
+description: "An epidemic seals off a town, and ordinary people have to decide how to act when there is no way out."
 ---

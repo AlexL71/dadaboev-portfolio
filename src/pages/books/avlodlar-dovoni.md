@@ -4,5 +4,5 @@ title: "Avlodlar dovoni"
 author: "Pirimqul Qodirov"
 date: ""
 cover: "/book covers/Avlodlar dovoni.jpg"
-description: "A historical novel exploring the dynasty, trials, and legacy of Babur's descendants."
+description: "A historical novel about Babur’s descendants and the trials and legacy of their dynasty."
 ---

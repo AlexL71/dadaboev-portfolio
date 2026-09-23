@@ -1,87 +1,83 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Road Damage Segmentation & Severity Classification"
-description: "A road-damage model that detected 91% of damage in test data, supported by an independent test report."
+title: "Road Damage Segmentation and Severity Classification"
+description: "A road-damage model that found 91% of damage in the test data, confirmed by an independent test report."
 date: "2025-12-17"
-category: "Model Architecture"
-tags: ["Computer Vision", "Instance Segmentation", "YOLO11", "Image Post-Processing", "Model Evaluation"]
+category: "Computer Vision"
+tags: ["Instance Segmentation", "YOLO11", "Post-Processing", "Model Evaluation"]
 ---
 
 ## Overview
 
-Automated monitoring of civil infrastructure requires highly robust computer vision systems. Pavement anomalies like alligator cracks and longitudinal cracks have irregular, non-rigid geometries that cannot be accurately represented by rectangular bounding boxes. Traditional detection systems face high rates of false positives and poor boundary precision.
+Automatic road inspection needs vision models that hold up outside the lab. Alligator cracks and longitudinal cracks are thin, irregular, and don't have a fixed shape, so a rectangular bounding box can't describe them well. Box-based detectors end up with a lot of false positives and fuzzy boundaries.
 
-This case study presents the **Road Damage Segmentation AI Vision Model v1.0**, developed for TQS Korea Co., Ltd. The **AIWORKX** test report (**TWR-202512-A-0072**) records a detection rate of **91% (recall 0.91)** and shows that the model met all three performance targets.
+This project is the **Road Damage Segmentation AI Vision Model v1.0**, built for TQS Korea Co., Ltd. In test report **TWR-202512-A-0072**, **AIWORKX** measured a detection rate of **91% (recall 0.91)** and confirmed that the model met all three performance targets.
 
----
+## The AIWORKX test report
 
-## AIWORKX Test Report
+Testing ran from December 4 to 17, 2025, on 604 test images, using criteria supplied by the client. The reported results:
 
-Testing took place from December 4 to 17, 2025, using 604 test images and the criteria supplied by the client. The reported results were:
-
-| Evaluation Metric | Target Threshold | Reported Result | Status |
+| Metric | Target | Result | Status |
 |---|---|---|---|
-| Detection Rate (Recall) | $\ge 0.90$ | 0.91 | PASS |
-| Detection Performance (mAP@50) | $\ge 0.85$ | 0.88 | PASS |
-| Segmentation Quality (mIoU) | $\ge 0.70$ | 0.79 | PASS |
+| Detection rate (recall) | $\ge 0.90$ | 0.91 | Pass |
+| Detection performance (mAP@50) | $\ge 0.85$ | 0.88 | Pass |
+| Segmentation quality (mIoU) | $\ge 0.70$ | 0.79 | Pass |
 
-Recall is the proportion of actual damage that the model detected. These results apply to the supplied model and test data; the report states that they are outside the testing agency's KOLAS accreditation scope.
+Recall is the share of real damage the model found. These results apply to the model and test data that were submitted. The report also notes that they fall outside the testing agency's KOLAS accreditation scope.
 
----
+## Architecture
 
-## Two-Stage Architecture & Pipeline
+Instead of one network doing everything, the system first segments damage at the pixel level and then judges severity as a separate step. Keeping the two apart limits how far errors spread, and the classifier only ever sees regions that actually contain damage.
 
-Rather than relying on a single end-to-end network, the system separates pixel-level mask segmentation from severity classification. This decoupled design limits error propagation and ensures that classification heads only process regions of interest containing verified damage.
+<ol class="flow">
+  <li><strong>Input</strong>A road image cropped and resized to 1920 × 648.</li>
+  <li><strong>Segmentation</strong>YOLO11l-seg predicts masks for alligator cracks (<code>ac</code>), longitudinal cracks (<code>lc</code>), and repair patches (<code>pc</code>).</li>
+  <li><strong>Mask cleanup</strong><code>clean_mask</code> removes specks and thin, disconnected tendrils.</li>
+  <li><strong>Overlap filter</strong><code>apply_detection_filter</code> resolves overlapping detections.</li>
+  <li><strong>Severity</strong>YOLO11m-cls classifies each crack crop as Caution or Danger.</li>
+</ol>
 
-```mermaid
-graph TD
-    A[Input Road Image: 1920x648] --> B[Stage 1: YOLO11l-seg]
-    B -->|Raw Masks & Detections: ac, lc, pc| C[Post-Processing: clean_mask]
-    C -->|Filtered Masks| D[Post-Processing: apply_detection_filter]
-    D -->|Refined Crops| E[Stage 2: YOLO11m-cls]
-    E -->|Severity Classification| F[Caution / Danger Output]
-```
+### Step 1: Segmentation
 
-### Stage 1: Instance Segmentation & Anomaly Localization
-The first stage takes cropped road images resized to $1920 \times 648$ (pre-processed to exclude non-road areas such as sky, sidewalks, and surrounding scenery). A **YOLO11l-seg** architecture is trained to predict instance masks for three primary defect classes:
-- **Alligator Crack (`ac`)**
-- **Longitudinal Crack (`lc`)**
-- **Repair Patch (`pc`)**
+The input images are cropped to $1920 \times 648$ so that sky, sidewalks, and other non-road areas are left out. A **YOLO11l-seg** model is trained to predict instance masks for three classes:
 
-### Stage 2: Post-Processing & Filtering
-To eliminate noisy detections and boundary tendrils common in low-contrast asphalt, the segmentation masks are processed via a two-stage filter:
+- **Alligator crack (`ac`)**
+- **Longitudinal crack (`lc`)**
+- **Repair patch (`pc`)**
 
-1. **Morphological Cleanup (`clean_mask`)**: 
-   We apply morphological opening (erosion followed by dilation) with a structured kernel to suppress small floating blobs and thin, disconnected tendrils, retaining only the largest connected component of the binary mask.
+### Step 2: Post-processing
 
-2. **Containment & Overlap Suppression (`apply_detection_filter`)**:
-   We implement a geometric rule-based filter using Intersection over Union (IoU) to resolve overlapping detections. For instance, if an alligator crack mask ($M_{ac}$) and a longitudinal crack mask ($M_{lc}$) overlap significantly, we suppress the weaker classification, preventing double-counting and boundary dilution.
+Low-contrast asphalt produces noisy masks with little stray blobs and thin tendrils along the edges. Two filters clean them up:
 
-### Stage 3: Severity Classification
-Once the refined masks are established, the bounding boxes of the detected `ac` and `lc` instances are cropped from the original image. These crops are fed to class-specific **YOLO11m-cls** classification networks to grade severity into **Caution** or **Danger**:
-- **Alligator Crack (`ac`) Severity**: Evaluated on 5,120 test instances (`ac_caution`: 3,293; `ac_danger`: 1,827). Achieved **0.879 Accuracy** and **0.866 F1-Score**.
-- **Longitudinal Crack (`lc`) Severity**: Evaluated on 3,048 test instances (`lc_caution`: 2,651; `lc_danger`: 397). Achieved **0.956 Accuracy** and **0.959 F1-Score**.
+1. **Morphological cleanup (`clean_mask`):** an opening (erosion followed by dilation) removes small floating blobs and thin disconnected strands, and only the largest connected component of each mask is kept.
 
----
+2. **Overlap suppression (`apply_detection_filter`):** a rule-based filter uses IoU to settle overlapping detections. For example, if an alligator-crack mask ($M_{ac}$) and a longitudinal-crack mask ($M_{lc}$) overlap heavily, the weaker prediction is dropped so the same damage isn't counted twice.
 
-## Detailed Performance Analysis
+### Step 3: Severity
 
-The overall model evaluation was completed across 2,083 validation instances. Below are the class-specific metrics from our empirical evaluation:
+The cleaned `ac` and `lc` detections are cropped from the original image and passed to class-specific **YOLO11m-cls** classifiers, which label each one **Caution** or **Danger**:
 
-| Target Class | Test Instances | mAP@50 | mIoU | Recall | Missed Rate |
+- **Alligator cracks:** 5,120 test instances (3,293 caution, 1,827 danger). **Accuracy 0.879**, **F1 0.866**.
+- **Longitudinal cracks:** 3,048 test instances (2,651 caution, 397 danger). **Accuracy 0.956**, **F1 0.959**.
+
+## Per-class results
+
+Our own evaluation on 2,083 validation instances, broken down by class:
+
+| Class | Instances | mAP@50 | mIoU | Recall | Miss rate |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Alligator Crack (`ac`)** | 1,022 | 0.912 | 0.801 | 0.950 | 4.99% |
-| **Longitudinal Crack (`lc`)** | 785 | 0.786 | 0.739 | 0.862 | 13.76% |
-| **Repair Patch (`pc`)** | 201 | 0.915 | 0.764 | 0.950 | 4.98% |
+| **Alligator crack (`ac`)** | 1,022 | 0.912 | 0.801 | 0.950 | 4.99% |
+| **Longitudinal crack (`lc`)** | 785 | 0.786 | 0.739 | 0.862 | 13.76% |
+| **Repair patch (`pc`)** | 201 | 0.915 | 0.764 | 0.950 | 4.98% |
 | **Pothole (`ph`)** * | 75 | 0.887 | 0.726 | 0.906 | 9.33% |
-| **Weighted Average** | **2,083** | **0.864** | **0.772** | **0.915** | **8.45%** (176 instances) |
+| **Weighted average** | **2,083** | **0.864** | **0.772** | **0.915** | **8.45%** (176 instances) |
 
-*\* Note: Potholes (`ph`) are detected and segmented using a standalone optimized parallel network running concurrently with the main pipeline.*
+*\* Potholes (`ph`) are handled by a separate network that runs alongside the main pipeline.*
 
----
+Longitudinal cracks are clearly the hardest class, with the lowest recall and the highest miss rate of the four.
 
-## Key Engineering Takeaways
+## What I took away
 
-1. **Decoupled Architecture**: Splitting the pipeline into segmentation followed by classification allowed the team to optimize each stage independently. The YOLO11m-cls severity classifiers benefited from cleaner, targeted crops, achieving high classification accuracy.
-2. **Morphological Noise Suppression**: Morphological opening filters proved highly effective at reducing false positive pixel rates by 14.2% on the validation set, eliminating thin tendrils that had no structural impact on damage assessment.
-3. **Measured Performance**: The model met all three targets in the AIWORKX test report. These results provide evidence for the tested data and conditions, rather than a guarantee of performance on every road.
+1. **Splitting the pipeline paid off.** With segmentation and classification separated, each could be tuned on its own, and the severity classifiers got clean, focused crops to work with.
+2. **Simple morphology goes a long way.** The opening filter cut false-positive pixels by 14.2% on the validation set, mostly by removing thin strands that had nothing to do with the actual damage.
+3. **Be precise about what was tested.** The model met all three targets in the AIWORKX report. That is solid evidence for the data and conditions that were tested, not a promise about every road.

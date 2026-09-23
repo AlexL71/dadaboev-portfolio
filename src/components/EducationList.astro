@@ -1,0 +1,31 @@
+---
+import EducationTitle from './EducationTitle.astro';
+import InstitutionLink from './InstitutionLink.astro';
+import { education, type Locale } from '../i18n/site';
+
+interface Props { locale: Locale; compact?: boolean }
+const { locale, compact = false } = Astro.props;
+---
+
+<ul class:list={['education-list', { compact }]}>
+  {education[locale].map((item) => (
+    <li>
+      <strong class="education-degree"><EducationTitle institution={item.institution}>{item.degree}</EducationTitle></strong>
+      <span class="education-school"><InstitutionLink href={item.href} lang={locale}>{item.school}</InstitutionLink></span>
+      <span class="education-meta mono">{item.period}</span>
+      <span class="education-note">{item.note}</span>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .education-list { display: grid; list-style: none; }
+  .education-list li { display: grid; gap: 0.15rem; padding-block: 1rem; border-top: 1px solid var(--line); }
+  .education-degree { color: var(--ink); font-size: 1rem; font-weight: 600; }
+  .education-school { color: var(--ink-soft); font-size: 0.92rem; }
+  .education-meta { margin-top: 0.25rem; color: var(--ink-muted); }
+  .education-note { color: var(--ink-muted); font-size: 0.86rem; }
+  .compact li { padding-block: 0.8rem; }
+  .compact .education-degree { font-size: 0.95rem; }
+  .compact .education-school, .compact .education-note { font-size: 0.84rem; }
+</style>

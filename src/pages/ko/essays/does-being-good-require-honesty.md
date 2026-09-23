@@ -1,21 +1,21 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Does being good require honesty?"
-description: "An inquiry into the nature of moral acts, selfless goodness, and the expectations of the ego."
+title: "선하려면 정직해야 할까?"
+description: "도덕적 행동의 본질, 대가를 바라지 않는 선함, 그리고 여전히 보상을 기다리는 자아에 대한 생각."
 date: "2026-05-25"
-tags: ["Philosophy", "Ethics", "Thoughts"]
+tags: ["철학", "윤리", "생각"]
 ---
 
-One of the things I dislike most is anything that sounds moralistic. I’m definitely not one of those people, and as a sinful individual, I’m clearly not qualified to preach anyway 😉. Still, one annoying question keeps crawling up from my unconscious: is being good an honest act at all?
+나는 도덕적으로 들리는 말을 정말 싫어한다. 나는 절대 그런 사람이 아니고, 죄 많은 인간으로서 누구를 가르칠 자격도 없다 😉. 그런데도 무의식 어딘가에서 성가신 질문 하나가 자꾸 기어 올라온다. 선하게 산다는 건 정말 정직한 행동일까?
 
-The idea of “good” is far less obvious than we like to pretend. The most popular definition is simple enough - "goodness reduces human suffering". That suffering might be yours, or the people around you, or, at higher levels, entire societies or even humanity itself. Sounds noble. Sounds clean.
+‘선’이라는 개념은 우리가 생각하는 것보다 훨씬 모호하다. 가장 흔한 정의는 간단하다. 선은 인간의 고통을 줄이는 것이다. 그 고통은 내 것일 수도 있고, 주변 사람들의 것일 수도 있고, 더 넓게는 한 사회나 인류 전체의 것일 수도 있다. 고귀하게 들린다. 깔끔하게 들린다.
 
-But honest goodness is where things start to smell strange.
+그런데 ‘정직한 선’을 따지기 시작하면 뭔가 이상한 냄새가 난다.
 
-Religious people do good because God told them to, or because heaven is waiting at the end of the road. Agnostics do good because they are “spiritual,” which usually means that being good makes their existence feel lighter and their conscience quieter. Fair enough. But none of this fully convinces me that the goodness itself is honest. Most good actions seem to come from an ego that still expects payment: heaven, inner peace, moral superiority, or perhaps the ugliest reward of all "genuine gratitude". Look at us. What remarkably "good people" we are 😅.
+신앙인은 신이 그렇게 하라고 했기 때문에, 혹은 길 끝에 천국이 기다리고 있기 때문에 선을 행한다. 불가지론자는 자신이 ‘영적’이기 때문에 선을 행한다고 말하는데, 대개 선하게 살면 삶이 가벼워지고 양심이 조용해진다는 뜻이다. 그럴 수 있다. 하지만 그 어느 것도 선 자체가 정직하다고 나를 설득하지 못한다. 대부분의 선행은 여전히 대가를 기대하는 자아에서 나오는 것 같다. 천국, 마음의 평화, 도덕적 우월감, 어쩌면 가장 추한 보상인 ‘진심 어린 감사’까지. 우리를 좀 보라. 얼마나 대단히 ‘좋은 사람들’인가 😅.
 
-The only kind of goodness that ever truly affected me is goodness done without an audience and without a receipt - goodness for its own sake. It resembles unconditional love, like a mother loving her child not because it feels meaningful, or fulfilling, or morally impressive, but simply because she does.
+내 마음을 정말 움직인 선은 딱 한 종류뿐이었다. 보는 사람도 없고 영수증도 없는 선, 선 그 자체를 위한 선. 그것은 조건 없는 사랑을 닮았다. 엄마가 아이를 사랑하는 건 그게 의미 있어서도, 뿌듯해서도, 도덕적으로 훌륭해 보여서도 아니다. 그냥 사랑하기 때문이다.
 
-A Sufi once said something deeply unsettling: I do not seek heaven, nor do I fear hell. I love God, and that alone is the reason for my actions - even for my every breath. To most of us, this sounds mysterious, excessive, or plainly irrational. And maybe it is. But not everything can be reduced to clean explanations, clever language, or mathematical certainty, which is discussed by Al Ghazali in a perfectly convincing way.
+어느 수피는 몹시 불편한 말을 남겼다. 나는 천국을 구하지도, 지옥을 두려워하지도 않는다. 나는 신을 사랑하며, 그것만이 내가 하는 모든 일, 내 숨 한 번 한 번의 이유다. 우리 대부분에게 이 말은 신비롭거나, 지나치거나, 그냥 비이성적으로 들린다. 실제로 그럴지도 모른다. 하지만 모든 것을 깔끔한 설명이나 영리한 말, 수학적 확실성으로 환원할 수는 없다. 알 가잘리가 아주 설득력 있게 보여 준 것처럼.
 
-Some truths only exist as lived experiences. They refuse to sit neatly inside logic - much like belief in ghosts 🤭, which makes no sense at all… until it does.
+어떤 진실은 직접 겪어야만 존재한다. 논리 안에 얌전히 들어앉기를 거부한다. 귀신을 믿는 것처럼 🤭. 전혀 말이 안 된다. 직접 겪기 전까지는.

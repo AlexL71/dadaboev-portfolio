@@ -4,5 +4,5 @@ title: "Demons"
 author: "Fyodor Dostoevsky"
 date: ""
 cover: "/book covers/Demons.jpg"
-description: "A dark political satire depicting the chaotic rise of nihilism and radicalism in Russia."
+description: "A dark, often funny novel about a small circle of radicals and the nihilism spreading through Russian society."
 ---

@@ -1,33 +1,30 @@
 ---
 layout: ../../layouts/Layout.astro
 title: "Demian: The Search for the Authentic Self"
-description: "A reflective journey into Emil Sinclair's path of self-realization, personal will, and the synthesis of good and evil."
+description: "On Emil Sinclair’s path to himself: personal will, the dark and light worlds, and why Hesse leaves the reader room to think."
 date: "2026-05-25"
+tags: ["Literature", "Hesse", "Thoughts"]
 ---
 
-<div style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap; margin-bottom: 2rem; margin-top: 1rem;">
-  <div style="flex: 1 1 200px; max-width: 240px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
-    <img src="/images/demian.jpg" alt="Demian Cover" style="width: 100%; height: auto; display: block;" />
-  </div>
-  <div style="flex: 2 1 300px;">
-    <p style="font-size: 1.15rem; font-style: italic; color: var(--text-secondary); line-height: 1.6; margin-top: 0; border-left: 4px solid var(--accent-warm); padding-left: 1rem;">
-      "I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?"
-    </p>
-  </div>
-</div>
+<figure class="essay-cover">
+  <img src="/images/demian.jpg" alt="Cover of Demian by Hermann Hesse" />
+  <blockquote><p>“I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?”</p></blockquote>
+</figure>
 
-## Hesse's Gift, "Demian"
+## Hesse’s gift
 
-"Demian" is Hesse's novel and autobiography. From the very first sentence of "Demian," the uniqueness of the book is felt. The author has perfectly summarized the entire life of the protagonist, Emil Sinclair, in a few sentences.
+*Demian* is part novel, part spiritual autobiography, and you can feel how unusual it is from the very first lines. In two sentences, Hesse sums up the whole life of his narrator, Emil Sinclair:
 
-"I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?"
+> “I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?”
 
-In these few sentences, the problem that everyone faces as a human being, "living a life according to one's own will," is clearly expressed. However, if living according to one's will is a problem, finding that will, namely one's essence, is another problem. Hesse broadly analyzes these two problems through the life of the protagonist Emil Sinclair in "Demian". Furthermore, Hesse honestly deals with the intimate and painful problems of humans, such as sexuality and religion, which many authors dislike or fear. "Demian" is not a dark and heavy book about continuous depression, anxiety, or misfortune. For a while, the protagonist Sinclair resides in the world of evil and goes through a very difficult life, but thanks to beings like Beatrice, Frau Eva, Demian, and Pistorius, he enjoys true happiness and eventually grasps and finds his essence.
+That short passage names a problem every person runs into: how to live by your own will. But before you can follow your will, you have to find it, which means figuring out who you actually are. Hesse works through both problems in Sinclair’s life. He also writes honestly about sexuality, religion, and other private, painful subjects that many authors prefer to avoid or are afraid to touch.
 
-While reading the book, there is a letter Demian left for Sinclair.
+Still, *Demian* is not a gloomy book about endless anxiety and misfortune. Sinclair spends a long time in the “dark world” and goes through real hardship, but thanks to people like Beatrice, Frau Eva, Demian, and Pistorius, he finds genuine happiness and, in the end, reaches his own essence.
 
-"The bird fights its way out of the egg. The egg is the world. Who would be born must first destroy a world. The bird flies to God. That God's name is Abraxas."
+One passage that stayed with me is the note Demian sends to Sinclair:
 
-The book "Demian" has many, many things to offer to current society, but the most advantageous is the ideology of Demian and Pistorius. We must break the world where evil and good continuously war, and the current society must fly towards a world where the two worlds harmonize. Especially in the present, covered with discrimination due to religion, politics, etc., and war, the help of this ideology will be quite large. We must not choose the world of good to despise or hate the world of evil, nor reside in the world of evil to lose our humanity or live a meaningless life. Instead, we must choose the world where good and evil coexist, as presented by Demian and Pistorius.
+> “The bird fights its way out of the egg. The egg is the world. Who would be born must first destroy a world. The bird flies to God. That God’s name is Abraxas.”
 
-There are quite a few difficult parts in the book, but if you concentrate well and read while analyzing them one by one, it can be fully understood. And we must not forget the biggest advantage of the book. Hesse does not only assert his own stance to the reader. The reader also has the right to think. This book might completely change someone's life, but it had a great influence on the author (me). The gift Hesse left for us was the opportunity to find ourselves and know who we are. By being an opportunity to meet the true self, "Demian" becomes Hesse's gift.
+The book has a lot to offer today, but for me the most valuable part is the way Demian and Pistorius see the world. We need to break out of a world where good and evil are permanently at war, and move toward one where both are acknowledged and held together. At a time so full of hostility over religion and politics, and so full of war, I think this idea is badly needed. We shouldn’t choose the “good” world only to despise and hate everyone we put in the “evil” one. Nor should we sink into the dark world and lose our humanity and our sense of meaning. Instead, we can choose the world Demian and Pistorius point toward, where good and evil exist side by side.
+
+Some parts of the book are difficult, but if you read slowly and work through them one at a time, they open up. And the book’s greatest strength is easy to miss: Hesse doesn’t simply push his own view onto the reader. He leaves you room to think for yourself. This book may not change everyone’s life, but it had a big influence on mine. Hesse’s gift is the chance to look for ourselves and find out who we are. Because it gives us a chance to meet our true self, *Demian* really is a gift.

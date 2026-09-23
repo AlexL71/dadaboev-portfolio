@@ -1,66 +1,55 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "DailyDoer Agent: Conversational Telegram Bot"
-description: "A Python-based Telegram bot powered by Google Gemini, automating daily schedules, email dispatching, news scraping, and voice command processing."
+title: "DailyDoer: A Telegram Assistant"
+description: "A Python Telegram bot built on Gemini that schedules events, sends email, summarizes news, and understands voice messages."
 date: "2025-06-15"
 category: "Conversational AI"
-tags: ["Gemini API", "Telegram Bot", "Google APIs", "Python", "Web Scraping", "NLP"]
+tags: ["Gemini API", "Telegram Bot", "Google APIs", "Python", "Web Scraping"]
 ---
 
 ## Overview
 
-Managing calendars, drafting emails, and keeping up with daily news feeds across separate tabs can be time-consuming. **DailyDoer Agent** is a conversational Telegram assistant designed to unify these tasks into a single chat window. 
+I was tired of jumping between a calendar, an inbox, and a dozen news tabs every morning. **DailyDoer** is a Telegram bot that pulls those jobs into one chat.
 
-By leveraging the Google Gemini API, the bot processes natural language (both text and voice messages) to execute actions such as scheduling events, sending emails, transcribing audio, and summarizing web articles.
+You write or say what you want in plain language, and the bot uses the Google Gemini API to work out what you mean. It can then add a calendar event, send an email, transcribe a voice note, or summarize an article.
 
----
+## How a request flows
 
-## System Architecture
+<ol class="flow">
+  <li><strong>Message</strong>You send a text or voice message to the bot on Telegram.</li>
+  <li><strong>Transcription</strong>Voice messages go through Google Cloud Speech-to-Text first.</li>
+  <li><strong>Understanding</strong>Gemini reads the text and returns the intent plus the details it needs: who, when, what.</li>
+  <li><strong>Action</strong>The Python core calls the Gmail API, the Google Calendar API, or the news scraper.</li>
+  <li><strong>Reply</strong>The bot confirms what it did in the same chat.</li>
+</ol>
 
-```mermaid
-graph TD
-    A[Telegram User] -->|Text / Voice Message| B[Telegram Bot API]
-    B --> C[DailyDoer Python Core]
-    C -->|Voice Audio File| D[Google Speech-to-Text API]
-    D -->|Transcribed Text| E[Gemini API: Natural Language Parser]
-    C -->|Parsed Text Command| E
-    E -->|Intent & Action Parameters| C
-    C -->|Gmail API| F[Send Email]
-    C -->|Google Calendar API| G[Schedule Event]
-    C -->|BeautifulSoup4 & newspaper3k| H[Scrape & Summarize News]
-    F & G & H -->|Confirmation Message| B
-    B -->|Response| A
-```
+## Features
 
----
+### Understanding plain language
 
-## Core Features & Integrations
+The bot uses **Gemini (`gemini-1.5-flash-latest`)** as a zero-shot intent classifier. A message like *“Set up a sync with the team tomorrow at 2 PM”* becomes a structured API call with the date, time, attendees, and description filled in.
 
-### 1. Natural Language Intent Parsing
-- Powered by **Google Gemini (`gemini-1.5-flash-latest`)**, the bot functions as a zero-shot intent classifier. It translates casual natural language (e.g., *"Schedule a sync meeting with the team tomorrow at 2 PM"*) into structured API calls containing target email addresses, dates, and event descriptions.
+### Voice commands
 
-### 2. Voice Command Transcription
-- Integrates the **Google Cloud Speech-to-Text API** via `google-cloud-speech` to transcribe voice notes in real time. The transcribed commands are routed directly into the NLU engine, enabling hands-free system interaction.
+Voice notes are transcribed with the **Google Cloud Speech-to-Text API** (`google-cloud-speech`) and then handled exactly like typed messages, so you can use the bot hands-free.
 
-### 3. Google Workspace Automation
-- **Calendar Management**: Interacts with the **Google Calendar API** to list events, identify schedule conflicts, and write new events with specific start and end times.
-- **Email Integration**: Utilizes the **Gmail API** to draft and dispatch emails through authenticated Gmail accounts using secure OAuth2 authorization flows (`credentials.json`, `token.json`).
+### Calendar and email
 
-### 4. News Scraper & Summarizer
-- Pulls and digests text from user-provided URLs using **`newspaper3k`** and **`httpx`**.
-- Features an automated homepage scraper powered by **BeautifulSoup4** that extracts articles from pre-configured news homepages, summarizes the content using Gemini, and delivers a concise daily digest to the user.
+- **Calendar:** lists events, spots conflicts, and creates new events with start and end times through the **Google Calendar API**.
+- **Email:** drafts and sends mail through the **Gmail API** using OAuth2 (`credentials.json`, `token.json`).
 
----
+### News digest
 
-## Technical Challenges & Solutions
+- Pulls the text of any article link with **`newspaper3k`** and **`httpx`**.
+- A **BeautifulSoup4** scraper collects headlines from a few preset news homepages. Gemini summarizes them, and the bot sends a short daily digest.
 
-1. **Fragile Web Scraping**: Static HTML structures on news sites change frequently, causing BeautifulSoup4 CSS selector failures.
-   - *Solution*: Leveraged the robust heuristics of `newspaper3k` for main text extraction, leaving BeautifulSoup4 solely responsible for lightweight link gathering from homepage structures.
-2. **Secure Token Lifecycle**: Managing Gmail and Google Calendar access tokens without constant manual re-authentication.
-   - *Solution*: Implemented a local file token repository (`token.json`) that manages automated token refresh loops, requesting user re-authentication only when tokens expire or are revoked.
+## Problems I hit
 
----
+1. **Scrapers kept breaking.** News sites change their HTML often, so CSS selectors in BeautifulSoup4 kept failing.
+   - *Fix:* I let `newspaper3k`, which is much better at finding the main text, handle article extraction, and kept BeautifulSoup4 only for collecting links from homepages.
+2. **Re-authenticating all the time.** Gmail and Calendar tokens expire, and logging in again every time got old quickly.
+   - *Fix:* tokens are stored locally in `token.json` and refreshed automatically. The bot asks you to sign in again only when a token is revoked or can't be refreshed.
 
-## GitHub Repository
-Check out the complete installation instructions, credential setup guides, and Python source code on GitHub:
-👉 [AlexL71/Daily-Doer---Agent](https://github.com/AlexL71/Daily-Doer---Agent)
+## Source code
+
+Setup instructions, credential guide, and the full Python source are on GitHub: [AlexL71/Daily-Doer---Agent](https://github.com/AlexL71/Daily-Doer---Agent)

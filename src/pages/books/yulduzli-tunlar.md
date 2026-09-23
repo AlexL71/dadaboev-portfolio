@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Yulduzli tunlar"
+title: "Yulduzli tunlar (Starry Nights)"
 author: "Pirimqul Qodirov"
 date: ""
 cover: "/book covers/Yulduzli tunlar.jpg"
-description: "A sweeping historical novel tracing the life, poetry, and empire of Zahiriddin Muhammad Babur."
+description: "A novel about the life, poetry, and empire of Zahiriddin Muhammad Babur."
 ---

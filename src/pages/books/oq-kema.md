@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/Layout.astro
-title: "Oq kema"
+title: "Oq kema (The White Ship)"
 author: "Chingiz Aitmatov"
 date: ""
 cover: "/book covers/Oq kema.jpg"
-description: "A poignant Central Asian allegory depicting a young boy's pure worldview amidst harsh realities."
+description: "A young boy’s pure view of the world runs into the cruelty of the adults around him."
 ---

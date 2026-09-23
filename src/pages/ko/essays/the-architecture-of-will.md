@@ -1,31 +1,31 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "The Architecture of Will: Between the Transaction of Faith and the Irrationality of Love"
-description: "Examining human suffering, the transaction of religious rewards/punishments, and the self-justifying nature of compassion."
+title: "의지의 구조: 신앙의 거래와 사랑의 비이성 사이에서"
+description: "인간의 고통, 천국과 지옥이라는 보상과 처벌의 거래, 그리고 그 자체로 이유가 되는 연민에 대하여."
 date: "2026-05-25"
-tags: ["Philosophy", "Faith", "Ethics", "Thoughts"]
+tags: ["철학", "신앙", "윤리", "생각"]
 ---
 
-## The Illusion of Malice and the Burden of Nature
+## 악의라는 착각, 본성이라는 짐
 
-The vast majority of human-caused suffering does not stem from a pure desire to inflict pain. It occurs when one individual’s desire blindly intersects with another’s life. A wolf is not evil for killing a rabbit; it is merely fulfilling its design. Humans, similarly, are driven by a nature — complete with ego, greed, and survival instincts that was forged by God. If our core inclinations are hardwired by a Creator, labeling the resulting harm as pure "evil" ignores the reality of the human condition. It is a collision of desires, not a supernatural malice.
+인간이 일으키는 고통의 대부분은 순수하게 누군가를 괴롭히고 싶은 마음에서 나오지 않는다. 한 사람의 욕망이 다른 사람의 삶과 눈먼 채로 부딪힐 때 생긴다. 토끼를 잡아먹는 늑대는 악하지 않다. 생긴 대로 살 뿐이다. 인간도 마찬가지로 자아와 탐욕, 생존 본능을 갖춘, 신이 빚어 준 본성에 이끌린다. 우리의 가장 깊은 성향이 창조주에 의해 새겨진 것이라면, 그 결과로 생긴 해악을 순수한 ‘악’이라고 부르는 건 인간의 조건을 외면하는 일이다. 그것은 초자연적인 악의가 아니라 욕망끼리의 충돌이다.
 
-## The Divine Trap and the Morality of the Marketplace
+## 신이 놓은 덫, 시장의 도덕
 
-This reality transforms the traditional religious framework into an existential dilemma. God creates the capacity for both good and evil, permits us to harm one another, and establishes a system of infinite reward (Heaven) and ultimate punishment (Hell). Viewed clearly, this system feels less like a moral proving ground and more like a trap. When a believer avoids causing harm solely out of terror of Hell, or performs good solely to secure an eternal paradise for their ego, morality is reduced to a cosmic transaction. It is not true goodness; it is a calculated trade forced upon us by fear.
+이렇게 보면 전통적인 종교의 틀은 실존적인 딜레마가 된다. 신은 선과 악을 모두 할 수 있는 능력을 만들었고, 우리가 서로를 해치도록 허락했으며, 무한한 보상(천국)과 궁극의 처벌(지옥)이라는 체계를 세웠다. 담담하게 보면 이 체계는 도덕을 시험하는 장이라기보다 덫처럼 느껴진다. 신앙인이 오직 지옥이 두려워서 해를 끼치지 않고, 오직 자아를 위한 영원한 낙원을 얻으려고 선을 행한다면, 도덕은 우주적인 거래로 줄어든다. 그건 진짜 선이 아니다. 두려움이 강요한 계산된 거래다.
 
-## The Anchor of Compassion
+## 연민이라는 닻
 
-When the transactional nature of divine reward is abandoned, a crushing paralysis threatens the mind. If the universe's design is impossibly complex, how should one act? The answer emerges not from fear of divine retribution, but from the immediate reality of shared human suffering. Action becomes anchored in compassion. We choose to reduce the pain of others because we possess the capacity to feel it ourselves. This is a self-justifying good. It requires no celestial bribe; it is a quiet, deliberate refusal to multiply the world's misery.
+신의 보상이라는 거래를 내려놓으면, 마음을 짓누르는 마비가 찾아온다. 우주의 설계가 도무지 이해할 수 없을 만큼 복잡하다면, 나는 어떻게 행동해야 할까? 답은 신의 처벌에 대한 두려움이 아니라, 지금 여기서 함께 겪는 인간의 고통에서 나온다. 행동은 연민에 닻을 내린다. 우리가 다른 사람의 고통을 줄이려는 건 그 고통을 스스로 느낄 수 있기 때문이다. 이것은 그 자체로 이유가 되는 선이다. 하늘의 뇌물은 필요 없다. 세상의 비참함을 더 늘리지 않겠다는, 조용하고 의식적인 거절이다.
 
-## The Limit of Empathy and the Necessity of Devotion
+## 공감의 한계, 헌신의 필요
 
-Yet, there is a boundary to what logic and basic empathy can achieve. General tolerance for humanity prevents us from inflicting harm, but it does not possess the sheer velocity required for ultimate sacrifice. A person does not throw themselves into the line of fire out of a generalized compassion for the human race. True, self-annihilating sacrifice requires an overriding, irrational force. It demands the kind of consuming love whether directed upward toward God or outward toward a specific, deeply cherished soul that completely shatters the instinct for self-preservation. Empathy calculates; love overrides.
+그래도 논리와 기본적인 공감으로 할 수 있는 일에는 경계가 있다. 인류에 대한 일반적인 관용은 우리가 남을 해치지 않게 막아 주지만, 궁극의 희생을 할 만큼의 힘은 없다. 사람은 인류 전체에 대한 막연한 연민 때문에 총알 앞에 몸을 던지지 않는다. 자기를 완전히 내던지는 희생에는 모든 것을 압도하는 비이성적인 힘이 필요하다. 위로는 신을 향하든, 곁에 있는 단 한 사람을 향하든, 자기 보존 본능을 완전히 부숴 버리는 사랑이 필요하다. 공감은 계산하고, 사랑은 계산을 넘어선다.
 
 ---
 
-### Questions to Carry Forward
+### 앞으로 품고 갈 질문들
 
-1. If empathy is a conscious choice to minimize suffering, is it ultimately more moral than love, which is an involuntary and irrational force?
-2. Can a society survive solely on the calculated tolerance of empathy, or does human survival fundamentally depend on the irrational sacrifices born only of love?
-3. If true love requires the death of the ego, is the pursuit of Heaven, which preserves the ego eternally, actually an obstacle to achieving ultimate love?
+1. 공감이 고통을 줄이려는 의식적인 선택이라면, 의지와 상관없이 찾아오는 비이성적인 힘인 사랑보다 결국 더 도덕적인 걸까?
+2. 사회는 계산된 관용인 공감만으로 유지될 수 있을까, 아니면 인간의 생존은 사랑에서만 나오는 비이성적인 희생에 근본적으로 기대고 있을까?
+3. 진짜 사랑이 자아의 죽음을 요구한다면, 자아를 영원히 보존하는 천국을 추구하는 일은 오히려 궁극의 사랑에 이르는 길을 가로막는 걸까?

@@ -1,33 +1,30 @@
 ---
 layout: ../../../layouts/Layout.astro
-title: "Demian: The Search for the Authentic Self"
-description: "A reflective journey into Emil Sinclair's path of self-realization, personal will, and the synthesis of good and evil."
+title: "데미안: 진짜 나를 찾아서"
+description: "에밀 싱클레어가 자기 자신에게 이르는 길, 자신의 의지, 밝은 세계와 어두운 세계, 그리고 헤세가 독자에게 남겨 둔 생각의 자리에 대하여."
 date: "2026-05-25"
+tags: ["문학", "헤세", "생각"]
 ---
 
-<div style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap; margin-bottom: 2rem; margin-top: 1rem;">
-  <div style="flex: 1 1 200px; max-width: 240px; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
-    <img src="/images/demian.jpg" alt="Demian Cover" style="width: 100%; height: auto; display: block;" />
-  </div>
-  <div style="flex: 2 1 300px;">
-    <p style="font-size: 1.15rem; font-style: italic; color: var(--text-secondary); line-height: 1.6; margin-top: 0; border-left: 4px solid var(--accent-warm); padding-left: 1rem;">
-      "I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?"
-    </p>
-  </div>
-</div>
+<figure class="essay-cover">
+  <img src="/images/demian.jpg" alt="헤르만 헤세 『데미안』 표지" />
+  <blockquote><p>“나는 오직 내 속에서 저절로 솟아 나오려는 것, 바로 그것을 살아 보려고 했다. 그것이 왜 그토록 어려웠을까?”</p></blockquote>
+</figure>
 
-## Hesse's Gift, "Demian"
+## 헤세가 남긴 선물
 
-"Demian" is Hesse's novel and autobiography. From the very first sentence of "Demian," the uniqueness of the book is felt. The author has perfectly summarized the entire life of the protagonist, Emil Sinclair, in a few sentences.
+『데미안』은 소설이면서 헤세의 정신적 자서전이기도 하다. 이 책이 특별하다는 건 첫 문장부터 느껴진다. 헤세는 단 두 문장으로 주인공 에밀 싱클레어의 삶 전체를 요약한다.
 
-"I wanted only to try to live in obedience to the promptings which came from my true self. Why was that so very difficult?"
+> “나는 오직 내 속에서 저절로 솟아 나오려는 것, 바로 그것을 살아 보려고 했다. 그것이 왜 그토록 어려웠을까?”
 
-In these few sentences, the problem that everyone faces as a human being, "living a life according to one's own will," is clearly expressed. However, if living according to one's will is a problem, finding that will, namely one's essence, is another problem. Hesse broadly analyzes these two problems through the life of the protagonist Emil Sinclair in "Demian". Furthermore, Hesse honestly deals with the intimate and painful problems of humans, such as sexuality and religion, which many authors dislike or fear. "Demian" is not a dark and heavy book about continuous depression, anxiety, or misfortune. For a while, the protagonist Sinclair resides in the world of evil and goes through a very difficult life, but thanks to beings like Beatrice, Frau Eva, Demian, and Pistorius, he enjoys true happiness and eventually grasps and finds his essence.
+이 짧은 구절에는 누구나 한 번은 부딪히는 문제가 담겨 있다. 내 의지대로 사는 것. 그런데 의지대로 살려면 먼저 그 의지를 찾아야 한다. 즉, 내가 정말 누구인지 알아야 한다. 헤세는 싱클레어의 삶을 통해 이 두 문제를 모두 파고든다. 또 많은 작가가 피하거나 두려워하는 성(性)과 종교 같은 은밀하고 아픈 주제도 솔직하게 다룬다.
 
-While reading the book, there is a letter Demian left for Sinclair.
+그렇다고 『데미안』이 끝없는 불안과 불행만 이어지는 어두운 책은 아니다. 싱클레어는 오랫동안 ‘어두운 세계’에 머물며 힘든 시간을 보내지만, 베아트리체, 에바 부인, 데미안, 피스토리우스 같은 사람들 덕분에 진짜 행복을 알게 되고, 마침내 자기 자신에게 다다른다.
 
-"The bird fights its way out of the egg. The egg is the world. Who would be born must first destroy a world. The bird flies to God. That God's name is Abraxas."
+내 마음에 오래 남은 구절은 데미안이 싱클레어에게 보낸 쪽지다.
 
-The book "Demian" has many, many things to offer to current society, but the most advantageous is the ideology of Demian and Pistorius. We must break the world where evil and good continuously war, and the current society must fly towards a world where the two worlds harmonize. Especially in the present, covered with discrimination due to religion, politics, etc., and war, the help of this ideology will be quite large. We must not choose the world of good to despise or hate the world of evil, nor reside in the world of evil to lose our humanity or live a meaningless life. Instead, we must choose the world where good and evil coexist, as presented by Demian and Pistorius.
+> “새는 알에서 나오려고 투쟁한다. 알은 세계다. 태어나려는 자는 하나의 세계를 깨뜨려야 한다. 새는 신에게로 날아간다. 그 신의 이름은 아브락사스다.”
 
-There are quite a few difficult parts in the book, but if you concentrate well and read while analyzing them one by one, it can be fully understood. And we must not forget the biggest advantage of the book. Hesse does not only assert his own stance to the reader. The reader also has the right to think. This book might completely change someone's life, but it had a great influence on the author (me). The gift Hesse left for us was the opportunity to find ourselves and know who we are. By being an opportunity to meet the true self, "Demian" becomes Hesse's gift.
+이 책이 지금 우리에게 줄 수 있는 것은 많지만, 내게 가장 소중한 것은 데미안과 피스토리우스가 세상을 보는 방식이다. 선과 악이 끝없이 싸우는 세계를 깨고 나와, 둘을 모두 인정하고 함께 품는 세계로 가야 한다는 것. 종교와 정치 때문에 서로를 미워하고 전쟁이 끊이지 않는 지금, 이 생각이 정말 필요하다고 느낀다. ‘선한’ 세계를 골라 놓고 ‘악한’ 쪽에 둔 사람들을 멸시하고 미워해서도 안 되고, 어두운 세계에 빠져 인간다움과 삶의 의미를 잃어서도 안 된다. 그 대신 데미안과 피스토리우스가 가리키는 세계, 선과 악이 나란히 존재하는 세계를 선택할 수 있다.
+
+어려운 대목도 적지 않지만, 천천히 하나씩 곱씹으며 읽으면 결국 열린다. 그리고 이 책의 가장 큰 장점을 잊지 말아야 한다. 헤세는 자기 생각을 독자에게 밀어붙이지 않는다. 독자가 스스로 생각할 자리를 남겨 둔다. 이 책이 모든 사람의 삶을 바꾸지는 않겠지만, 내게는 큰 영향을 주었다. 헤세가 남긴 선물은 나 자신을 찾고 내가 누구인지 알아 갈 기회다. 진짜 나를 만날 기회를 준다는 점에서 『데미안』은 정말 선물이다.
