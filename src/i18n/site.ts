@@ -459,6 +459,44 @@ export const resume: Record<Locale, {
     ],
     leadershipTitle: 'Leadership',
     leadership: 'Led the Uzbek Student Association at Sun Moon University: helped international students settle in, built a KakaoTalk FAQ bot, and interpreted for visiting university delegations.',
+    coverLetter: {
+      label: 'Personal statement',
+      title: 'I look at the user before the model',
+      sections: [
+        {
+          tag: 'Background',
+          heading: 'Seeing the same thing differently',
+          paragraphs: [
+            'When people disagree, I first try to understand why the other person sees it that way, before deciding who is right. The habit started with drawing.',
+            'I spent five years at the national art school in Uzbekistan. In every class, more than twenty students drew the same object, and no two drawings came out the same. I cared less about who drew best than about why everyone drew it differently. That was when I first understood that people can look at the same thing and see different things.',
+            'In Korea I ran into those differences every day. I came here alone, barely able to speak Korean, and reached TOPIK level 6 within a year. At university I represented Uzbek students on the international student council and handled interpreting and counseling between the school and its foreign students. The school and the students often worried about different parts of the same problem, so translating word for word didn’t solve anything. Things moved only after I explained to each side why the other saw it the way it did.',
+          ],
+        },
+        {
+          tag: 'Strength',
+          heading: 'Understand the other side’s criteria, then persuade with data',
+          paragraphs: [
+            'On one project I didn’t simply follow the labeling method the client asked for. I persuaded them to change it, and mAP rose by 17 points. It was a road damage detection model I developed during my master’s with the Korea Institute for Advancement of Technology (KIAT) and the startup TQS. The client first wanted a specific labeling method. Given their schedule and budget, it was a reasonable choice, but it wasn’t enough to reach the target performance.',
+            'Instead of pushing back right away, I first worked out why schedule and cost mattered so much to them. Keeping those constraints in place, I laid out the pros and cons of both methods and showed the numbers and real detection results side by side, from experiments run under the same conditions. The client switched to the new method, and the final model’s mAP was 17 points higher than with the original one, above the target. Since then, before starting a new project, I first check what the people receiving the results will judge them by.',
+          ],
+        },
+        {
+          tag: 'Skills',
+          heading: 'AI that doesn’t stop at research',
+          paragraphs: [
+            'After studying electronic engineering, I worked on computer vision and dataset projects during my master’s in Big Data Science. I didn’t stop at raising model scores. I focused on connecting data and features into something people can actually use.',
+            'In the ExamOCR project, I structured exam sheets and applicant documents and connected analysis, question generation, and data management into one workflow. Because the documents are sensitive, the whole process runs locally, with no external server. In a project for Hyundai Motor Company, I classified a large set of road images and built a training dataset with image embeddings and FAISS search.',
+          ],
+        },
+        {
+          tag: 'Goals',
+          heading: 'Technology that gives people their time back',
+          paragraphs: [
+            'In my next role, I’ll start by finding out where the team spends the most time and where errors come up most often. I want to prove the effect with numbers on a small task first, then widen the scope until AI becomes a normal part of the work. I speak Korean, English, Russian, and Uzbek, so I can also close communication gaps when working with overseas sites and partners.',
+          ],
+        },
+      ],
+    },
   },
   ko: {
     title: '이력서',
@@ -623,6 +661,44 @@ export const resume: Record<Locale, {
     ],
     leadershipTitle: 'Общественная работа',
     leadership: 'Возглавлял Ассоциацию узбекских студентов Университета Сонмун: помогал иностранным студентам освоиться, сделал FAQ-бота в KakaoTalk и переводил для делегаций, приезжавших в университет.',
+    coverLetter: {
+      label: 'О себе',
+      title: 'Сначала человек, потом модель',
+      sections: [
+        {
+          tag: 'Становление',
+          heading: 'Видеть одно и то же по-разному',
+          paragraphs: [
+            'Когда мнения расходятся, я сначала стараюсь понять, почему собеседник видит ситуацию именно так, и только потом думаю, кто прав. Эта привычка появилась ещё в детстве, на уроках рисования.',
+            'Пять лет я учился в государственной художественной школе в Узбекистане. На каждом уроке больше двадцати учеников рисовали один и тот же предмет, и ни один рисунок не повторял другой. Меня интересовало не то, кто нарисовал лучше, а то, почему все рисуют по-разному. Тогда я впервые понял, что люди могут смотреть на одно и то же и видеть разное.',
+            'В Корее я сталкивался с этими различиями каждый день. Я приехал учиться один, почти не говоря по-корейски, и за год сдал TOPIK на 6-й уровень. В университете я представлял узбекских студентов в совете иностранных студентов и занимался переводом и консультированием между университетом и иностранными студентами. Университет и студенты часто беспокоились о разных сторонах одной и той же проблемы, поэтому дословный перевод ничего не решал. Разговор сдвигался с места, только когда я объяснял каждой стороне, почему другая думает именно так.',
+          ],
+        },
+        {
+          tag: 'Сильная сторона',
+          heading: 'Понять критерии другой стороны и убедить данными',
+          paragraphs: [
+            'В одном проекте я не стал просто следовать методу разметки, который предложил заказчик: я убедил его сменить подход, и mAP вырос на 17 п. п. Это была модель обнаружения дорожных повреждений, которую я разрабатывал в магистратуре вместе с Корейским институтом развития технологий (KIAT) и стартапом TQS. Сначала заказчик хотел определённый способ разметки. С учётом сроков и бюджета это был разумный выбор, но для целевого качества его не хватало.',
+            'Вместо того чтобы сразу возражать, я сначала разобрался, почему сроки и стоимость так важны для заказчика. Исходя из этих условий, я сравнил плюсы и минусы обоих методов и показал рядом цифры и реальные результаты детекции из экспериментов в одинаковых условиях. Заказчик согласился на новый метод, и mAP итоговой модели оказался на 17 п. п. выше, чем при исходном подходе, и превысил целевое значение. С тех пор, начиная новую задачу, я сначала выясняю, по каким критериям будут оценивать результат те, кто его получит.',
+          ],
+        },
+        {
+          tag: 'Навыки',
+          heading: 'ИИ, который не заканчивается на исследовании',
+          paragraphs: [
+            'После электронной инженерии я занимался задачами компьютерного зрения и подготовки данных в магистратуре по Big Data Science. Я не ограничивался ростом метрик модели, а старался связать данные и функции так, чтобы ими действительно могли пользоваться люди.',
+            'В проекте ExamOCR я структурировал экзаменационные бланки и документы кандидатов и объединил анализ, генерацию вопросов и управление данными в один процесс. Документы конфиденциальные, поэтому весь процесс работает локально, без внешних серверов. В проекте для Hyundai Motor Company я классифицировал большой массив дорожных снимков и собрал обучающий датасет с помощью эмбеддингов изображений и поиска FAISS.',
+          ],
+        },
+        {
+          tag: 'Планы',
+          heading: 'Технологии, которые экономят время',
+          paragraphs: [
+            'На новом месте я начну с того, что выясню, на какие задачи команда тратит больше всего времени и где чаще всего возникают ошибки. Сначала хочу подтвердить эффект цифрами на небольшой задаче, а затем расширять масштаб, чтобы ИИ стал обычной частью работы. Я говорю на корейском, английском, русском и узбекском, поэтому могу сократить разрывы в коммуникации и при работе с зарубежными площадками и партнёрами.',
+          ],
+        },
+      ],
+    },
   },
 };
 
