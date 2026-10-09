@@ -9,9 +9,9 @@ tags: ["Mapillary", "DINOv3", "FAISS", "Data Curation"]
 
 ## Overview
 
-This ongoing project builds a North American road-image dataset for research on terrain and vehicle chassis. It's a collaboration between the Hyundai Motor Genesis Chassis Test Team, Vegas, and the Big Data Mining Lab at Korea University.
+This project built a North American road-image dataset for research on terrain and vehicle chassis. It was a collaboration between the Hyundai Motor Genesis Chassis Test Team, Vegas, and the Big Data Mining Lab at Korea University.
 
-I design the data pipeline and lead the vision side. The hard part isn't downloading images. It's making sure every image matches the required region, capture time, and resolution, avoiding a flood of near-duplicates, and keeping the human review step small enough that people can actually do it.
+I designed the data pipeline and led the vision side. The hard part wasn't downloading images. It was making sure every image matches the required region, capture time, and resolution, avoiding a flood of near-duplicates, and keeping the human review step small enough that people can actually do it.
 
 ## Pipeline
 
@@ -28,4 +28,4 @@ I treat data quality as a design problem, not a clean-up job at the end. That me
 
 ## Status
 
-The pipeline and review workflow have been in active development since July 2026. This page describes the approach only; partner data and confidential implementation details are left out.
+I built the pipeline and review workflow between July and October 2026, and the project is now finished. This page describes the approach only; partner data and confidential implementation details are left out.

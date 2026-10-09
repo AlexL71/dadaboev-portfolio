@@ -94,6 +94,21 @@ const t = resume[locale];
     </aside>
   </div>
 
+  {t.coverLetter && (
+    <section class="cover-letter" aria-labelledby="cover-letter-title">
+      <p class="cover-label mono">{t.coverLetter.label}</p>
+      <h2 id="cover-letter-title" class="cover-title">{t.coverLetter.title}</h2>
+      <div class="cover-body">
+        {t.coverLetter.sections.map((section) => (
+          <article class="cover-section">
+            <h3><span class="cover-tag mono">{section.tag}</span>{section.heading}</h3>
+            {section.paragraphs.map((p) => <p>{p}</p>)}
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
   <script is:inline>
     document.querySelector('[data-print]')?.addEventListener('click', () => window.print());
   </script>
@@ -147,6 +162,21 @@ const t = resume[locale];
     .plain-list strong { color: var(--ink); font-weight: 600; }
     .plain-list span { color: var(--ink-muted); }
 
+    .cover-letter { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+    .cover-label {
+      color: var(--ink-muted);
+      font-size: 0.74rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .cover-title { margin-top: 0.4rem; font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -0.01em; }
+    .cover-body { display: grid; gap: 0.4rem; max-width: 46rem; margin-top: 1.4rem; }
+    .cover-section { padding-block: 1.3rem; border-top: 1px solid var(--line); }
+    .cover-section h3 { display: grid; gap: 0.25rem; margin-bottom: 0.7rem; font-size: 1.06rem; line-height: 1.4; }
+    .cover-tag { color: var(--accent); font-size: 0.76rem; font-weight: 500; }
+    .cover-section p { margin-bottom: 0.7rem; color: var(--ink-soft); font-size: 0.97rem; line-height: 1.8; }
+    .cover-section p:last-child { margin-bottom: 0; }
+
     @media (max-width: 860px) {
       .resume-header, .resume-layout { grid-template-columns: 1fr; }
     }
@@ -157,6 +187,9 @@ const t = resume[locale];
       .resume-header { grid-template-columns: 1fr 1.4fr; }
       .resume-layout { grid-template-columns: 1.8fr 1fr; padding-top: 1.2rem; }
       .entry { break-inside: avoid; padding-block: 0.8rem; }
+      .cover-letter { break-before: page; margin-top: 0; padding-top: 0; border-top: 0; }
+      .cover-body { max-width: none; }
+      .cover-section { break-inside: avoid; padding-block: 0.8rem; }
     }
   </style>
 </Layout>

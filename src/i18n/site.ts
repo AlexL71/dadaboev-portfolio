@@ -173,7 +173,6 @@ export const home = {
     nowTitle: 'What I’m working on',
     nowLink: 'Full experience',
     now: [
-      { when: 'Since Jul 2026', title: 'North American road data', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University', text: 'I pull road imagery from Mapillary, filter it by region, capture date, and resolution, and use DINOv3 with FAISS to find similar scenes. A small review tool leaves the final call on each image to a person.', href: '/research-and-projects/north-american-road-data' },
       { when: 'Since Feb 2026', title: 'Offline exam OCR', org: 'Big Data Mining Lab · Korea University', text: 'One desktop app that straightens scanned exam sheets, matches them to students, reads the marks and handwriting, and stores the results. None of the data leaves the machine.', href: '/research-and-projects/omr-htr-digitization' },
     ],
     workTitle: 'Selected work',
@@ -215,7 +214,6 @@ export const home = {
     nowTitle: '지금 하고 있는 일',
     nowLink: '전체 경력',
     now: [
-      { when: '2026.07 –', title: '북미 도로 데이터 구축', org: '현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교', text: 'Mapillary에서 도로 이미지를 모아 지역, 촬영 시기, 해상도 조건으로 거르고 DINOv3와 FAISS로 비슷한 장면을 찾습니다. 이미지를 데이터셋에 넣을지는 검수 도구에서 사람이 한 장씩 최종 판단합니다.', href: '/ko/research-and-projects/north-american-road-data' },
       { when: '2026.02 –', title: '오프라인 시험지 OCR', org: '고려대학교 Big Data Mining Lab', text: '스캔한 시험지를 반듯하게 펴고, 학생 정보와 맞추고, 마킹과 손글씨를 읽어 결과를 저장하는 데스크톱 프로그램입니다. 데이터는 PC 밖으로 나가지 않습니다.', href: '/ko/research-and-projects/omr-htr-digitization' },
     ],
     workTitle: '대표 프로젝트',
@@ -257,7 +255,6 @@ export const home = {
     nowTitle: 'Чем я занят сейчас',
     nowLink: 'Весь опыт',
     now: [
-      { when: 'с июля 2026', title: 'Дорожные данные Северной Америки', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Университет Корё', text: 'Собираю дорожные снимки из Mapillary, фильтрую их по региону, дате съёмки и разрешению, а похожие сцены ищу с помощью DINOv3 и FAISS. Окончательное решение по каждому снимку принимает человек в небольшом инструменте проверки.', href: '/ru/research-and-projects/north-american-road-data' },
       { when: 'с февраля 2026', title: 'Офлайн-OCR для экзаменов', org: 'Big Data Mining Lab · Университет Корё', text: 'Настольное приложение, которое выравнивает отсканированные бланки, сопоставляет их со студентами, распознаёт отметки и рукописный текст и сохраняет результаты. Данные не покидают компьютер.', href: '/ru/research-and-projects/omr-htr-digitization' },
     ],
     workTitle: 'Избранные работы',
@@ -304,7 +301,7 @@ export const about = {
     ],
     timelineTitle: 'Experience',
     timeline: [
-      { when: 'Jul 2026 – now', title: 'North American road data and auto-labeling', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University', text: 'Building a repeatable way to collect road images, find the useful ones, and have a person review them.' },
+      { when: 'Jul – Oct 2026', title: 'North American road data and auto-labeling', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University', text: 'Built a repeatable way to collect road images, find the useful ones, and have a person review them.' },
       { when: 'Jul 2026', title: 'AI Vision Research Intern', org: 'Youngchang Labs', text: 'Built and analysed road-image datasets and worked on computer vision models.' },
       { when: 'Feb 2026 – now', title: 'Offline exam OCR system', org: 'Big Data Mining Lab · Korea University', text: 'One local app that matches students, reads their answers, and stores the results without sending data anywhere.' },
       { when: 'Mar – Dec 2025', title: 'Road damage detection research', org: 'Crowdsourcing-based mobility support project (R2320973)', text: 'Reworked how irregular cracks were labeled and built a system that passed independent performance testing.' },
@@ -336,7 +333,7 @@ export const about = {
     ],
     timelineTitle: '경력',
     timeline: [
-      { when: '2026.07 – 현재', title: '북미 도로 데이터 구축 및 자동 라벨링', org: '현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교', text: '도로 이미지를 모으고, 쓸 만한 이미지를 골라내고, 사람이 검수하는 과정을 반복 가능한 형태로 만들고 있습니다.' },
+      { when: '2026.07 – 2026.10', title: '북미 도로 데이터 구축 및 자동 라벨링', org: '현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교', text: '도로 이미지를 모으고, 쓸 만한 이미지를 골라내고, 사람이 검수하는 과정을 반복 가능한 형태로 만들었습니다.' },
       { when: '2026.07', title: 'AI 비전 연구 인턴', org: '㈜영창랩스', text: '도로 이미지 데이터셋을 구축·분석하고 컴퓨터 비전 모델 개발에 참여했습니다.' },
       { when: '2026.02 – 현재', title: '오프라인 시험지 OCR 시스템', org: '고려대학교 Big Data Mining Lab', text: '학생 정보 매칭, 답안 인식, 결과 저장을 외부 전송 없이 처리하는 로컬 프로그램을 만들고 있습니다.' },
       { when: '2025.03 – 2025.12', title: '도로 손상 탐지 연구', org: '크라우드소싱 기반 모빌리티 지원 과제 (R2320973)', text: '불규칙한 균열의 라벨링 방식을 바꾸고, 외부 성능 시험을 통과한 시스템을 개발했습니다.' },
@@ -368,7 +365,7 @@ export const about = {
     ],
     timelineTitle: 'Опыт',
     timeline: [
-      { when: 'июль 2026 – сейчас', title: 'Дорожные данные Северной Америки и автоматическая разметка', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Университет Корё', text: 'Строю повторяемый процесс: собрать дорожные снимки, отобрать полезные и отдать их на проверку человеку.' },
+      { when: 'июль – окт. 2026', title: 'Дорожные данные Северной Америки и автоматическая разметка', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Университет Корё', text: 'Построил повторяемый процесс: собрать дорожные снимки, отобрать полезные и отдать их на проверку человеку.' },
       { when: 'июль 2026', title: 'Стажёр-исследователь по компьютерному зрению', org: 'Youngchang Labs', text: 'Собирал и анализировал наборы дорожных изображений, работал над моделями компьютерного зрения.' },
       { when: 'февр. 2026 – сейчас', title: 'Офлайн-OCR для экзаменов', org: 'Big Data Mining Lab · Университет Корё', text: 'Локальное приложение, которое сопоставляет студентов, распознаёт ответы и сохраняет результаты, никуда не отправляя данные.' },
       { when: 'март – дек. 2025', title: 'Исследование дорожных повреждений', org: 'Проект поддержки мобильности на основе краудсорсинга (R2320973)', text: 'Переделал разметку трещин неправильной формы и построил систему, прошедшую независимые испытания.' },
@@ -386,6 +383,7 @@ export const about = {
    Resume
 ------------------------------------------------------------------- */
 type ResumeEntry = { title: string; org: string; when: string; bullets?: string[]; text?: string };
+type CoverLetter = { label: string; title: string; sections: { tag: string; heading: string; paragraphs: string[] }[] };
 
 export const resume: Record<Locale, {
   title: string; description: string; eyebrow: string; name: string; role: string; summary: string;
@@ -397,11 +395,12 @@ export const resume: Record<Locale, {
   languagesTitle: string; languages: { name: string; level: string }[];
   awardsTitle: string; awards: { name: string; year: string }[];
   leadershipTitle: string; leadership: string;
+  coverLetter?: CoverLetter;
 }> = {
   en: {
     title: 'Resume',
     description: 'Resume of Abdurakhmon (Alex) Dadaboev, computer vision engineer with experience in road-data pipelines, segmentation, OCR, and applied machine learning.',
-    eyebrow: 'Resume · updated September 2026',
+    eyebrow: 'Resume · updated October 2026',
     name: 'Abdurakhmon Dadaboev',
     role: 'Computer vision engineer',
     summary: 'I work across the whole vision pipeline: data collection, model development, evaluation, and human review. Recent work includes an independently tested road-damage model, an IEEE paper on knowledge distillation, a road-image data pipeline built with industry partners, and an offline OCR system.',
@@ -413,7 +412,7 @@ export const resume: Record<Locale, {
         'Built and reviewed road-image datasets for computer vision research.',
         'Delivered a reusable Mapillary workflow for collecting North American road scenes.',
       ] },
-      { title: 'North American Road Data & Auto-Labeling', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University', when: 'Jul 2026 – present', bullets: [
+      { title: 'North American Road Data & Auto-Labeling', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Korea University', when: 'Jul – Oct 2026', bullets: [
         'Designed a repeatable collection process driven by location, capture date, and image-quality requirements.',
         'Connected DINOv3 + FAISS similarity search to a review tool, so reviewers can find useful road scenes quickly and confirm each one.',
       ] },
@@ -464,10 +463,10 @@ export const resume: Record<Locale, {
   ko: {
     title: '이력서',
     description: '도로 데이터 파이프라인, 세그멘테이션, OCR, 응용 머신러닝 경험을 가진 컴퓨터 비전 엔지니어 다다버예브 압두라흐먼의 이력서입니다.',
-    eyebrow: '이력서 · 2026년 9월 기준',
+    eyebrow: '이력서 · 2026년 10월 기준',
     name: '다다버예브 압두라흐먼',
     role: '컴퓨터 비전 엔지니어',
-    summary: '데이터 수집, 모델 개발, 성능 평가, 사람의 검수까지 비전 파이프라인 전 과정을 다룹니다. 최근에는 외부 시험을 통과한 도로 손상 모델, 지식 증류에 관한 IEEE 논문, 기업과 함께 구축 중인 도로 이미지 데이터 파이프라인, 오프라인 OCR 시스템을 작업했습니다.',
+    summary: '데이터 수집, 모델 개발, 성능 평가, 사람의 검수까지 비전 파이프라인 전 과정을 다룹니다. 최근에는 외부 시험을 통과한 도로 손상 모델, 지식 증류에 관한 IEEE 논문, 기업과 함께 구축한 도로 이미지 데이터 파이프라인, 오프라인 OCR 시스템을 작업했습니다.',
     location: '대한민국 세종',
     print: '인쇄 또는 PDF로 저장',
     experienceTitle: '경력',
@@ -476,7 +475,7 @@ export const resume: Record<Locale, {
         '컴퓨터 비전 연구에 쓸 도로 이미지 데이터셋을 구축하고 검수했습니다.',
         '북미 도로 장면을 반복해서 수집할 수 있는 Mapillary 기반 작업 흐름을 만들어 전달했습니다.',
       ] },
-      { title: '북미 도로 데이터 구축 및 자동 라벨링', org: '현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교', when: '2026.07 – 현재', bullets: [
+      { title: '북미 도로 데이터 구축 및 자동 라벨링', org: '현대자동차 제네시스샤시시험팀 · ㈜베가스 · 고려대학교', when: '2026.07 – 2026.10', bullets: [
         '지역, 촬영 시기, 이미지 품질 조건에 따라 움직이는 반복 가능한 수집 과정을 설계했습니다.',
         'DINOv3·FAISS 유사 이미지 검색을 검수 도구와 연결해, 필요한 도로 장면을 빠르게 찾고 한 장씩 확인할 수 있게 했습니다.',
       ] },
@@ -523,11 +522,49 @@ export const resume: Record<Locale, {
     ],
     leadershipTitle: '리더십',
     leadership: '선문대학교 우즈베키스탄 학생회를 이끌었습니다. 유학생들의 적응을 돕고, 카카오톡 FAQ 봇을 만들고, 대학을 찾은 방문단의 통역을 맡았습니다.',
+    coverLetter: {
+      label: '자기소개서',
+      title: '모델보다 쓰는 사람을 먼저 봅니다',
+      sections: [
+        {
+          tag: '성장과정',
+          heading: '같은 것을 다르게 보는 눈',
+          paragraphs: [
+            '의견이 갈릴 때 누가 맞는지보다 상대가 왜 그렇게 보는지를 먼저 파악합니다. 이 습관은 어린 시절 그림에서 시작됐습니다.',
+            '우즈베키스탄 국립예술학교에서 5년을 보냈습니다. 수업마다 스무 명이 넘는 학생이 같은 사물을 그렸지만, 똑같은 그림은 한 장도 나오지 않았습니다. 누가 더 잘 그렸는지보다 왜 모두 다르게 그리는지가 더 궁금했고, 같은 것을 보고도 사람마다 다르게 본다는 것을 그때 처음 알았습니다.',
+            '한국에서는 이런 차이를 매일 마주했습니다. 한국어를 거의 못 하는 상태로 혼자 유학을 와 1년 만에 TOPIK 6급을 받았고, 대학에서는 총유학생회 우즈베키스탄 학생 대표로 학교와 유학생 사이의 통역과 상담을 맡았습니다. 같은 문제라도 학교와 학생이 걱정하는 지점이 달라, 말을 그대로 옮기는 것만으로는 일이 풀리지 않았습니다. 양쪽이 왜 그렇게 생각하는지 서로에게 먼저 설명해야 대화가 이어졌습니다.',
+          ],
+        },
+        {
+          tag: '강점',
+          heading: '상대의 기준을 이해하고 데이터로 설득합니다',
+          paragraphs: [
+            '고객사가 원한 방식을 그대로 따르는 대신, 설득을 거쳐 탐지 성능을 17%p 높인 경험이 있습니다. 석사과정에서 한국산업기술진흥원, 스타트업 TQS와 도로 손상 탐지 모델을 개발할 때였습니다. 고객사는 처음에 특정 라벨링 방식을 원했습니다. 일정과 비용을 생각하면 합리적인 선택이었지만, 목표 성능을 내기에는 부족했습니다.',
+            '바로 반대하지 않고 고객사가 일정과 비용을 왜 그만큼 중요하게 보는지부터 파악했습니다. 그 조건을 전제로 두 방식의 장단점을 정리하고, 같은 조건에서 실험한 수치와 실제 탐지 결과 이미지를 나란히 보여드렸습니다. 고객사는 새 방식을 받아들였고, 최종 모델의 mAP는 기존 방식보다 17%p 높아 목표치도 넘었습니다. 이후 새 과제를 시작할 때는 모델보다 결과를 받아 볼 사람이 무엇을 기준으로 판단하는지를 먼저 확인합니다.',
+          ],
+        },
+        {
+          tag: '역량',
+          heading: '연구에서 끝나지 않는 AI',
+          paragraphs: [
+            '전자공학을 전공한 뒤 빅데이터사이언스 석사과정에서 컴퓨터 비전과 데이터 구축 과제를 수행했습니다. 모델 성능을 높이는 데서 그치지 않고, 사람이 실제로 쓸 수 있는 형태로 데이터와 기능을 연결하는 데 집중했습니다.',
+            'ExamOCR 프로젝트에서는 시험지와 지원자 서류를 구조화하고, 분석·질문 생성·데이터 관리를 하나의 흐름으로 연결했습니다. 민감한 문서를 다루기 때문에 외부 서버 없이 로컬 환경에서 모든 과정이 돌아가도록 구성했습니다. 현대자동차 과제에서는 대규모 도로 이미지를 분류하고, 이미지 임베딩과 FAISS 검색으로 학습 데이터를 구축했습니다.',
+          ],
+        },
+        {
+          tag: '입사 후 포부',
+          heading: '현업의 시간을 줄이는 기술',
+          paragraphs: [
+            '입사 후에는 현업이 어떤 일에 시간을 가장 많이 쓰고, 어디서 오류가 자주 생기는지부터 파악하겠습니다. 작은 과제에서 효과를 숫자로 확인한 뒤 범위를 넓혀, AI가 실제 업무에 자리 잡도록 만들고 싶습니다. 한국어, 영어, 러시아어, 우즈베크어를 쓸 수 있어 해외 현장이나 협력사와 함께하는 일에서도 소통의 공백을 줄이겠습니다.',
+          ],
+        },
+      ],
+    },
   },
   ru: {
     title: 'Резюме',
     description: 'Резюме Абдурахмона (Алекса) Дадабоева, инженера по компьютерному зрению: дорожные данные, сегментация, OCR и прикладное машинное обучение.',
-    eyebrow: 'Резюме · сентябрь 2026',
+    eyebrow: 'Резюме · октябрь 2026',
     name: 'Абдурахмон Дадабоев',
     role: 'Инженер по компьютерному зрению',
     summary: 'Работаю со всем циклом задачи компьютерного зрения: сбор данных, разработка модели, оценка и ручная проверка. Из последнего: модель для дорожных повреждений, прошедшая независимые испытания, статья в IEEE о дистилляции знаний, пайплайн дорожных данных вместе с индустриальными партнёрами и офлайн-система OCR.',
@@ -539,7 +576,7 @@ export const resume: Record<Locale, {
         'Собирал и проверял наборы дорожных изображений для исследований в области компьютерного зрения.',
         'Подготовил повторно используемый процесс сбора дорожных сцен Северной Америки из Mapillary.',
       ] },
-      { title: 'Дорожные данные Северной Америки и автоматическая разметка', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Университет Корё', when: 'июль 2026 – сейчас', bullets: [
+      { title: 'Дорожные данные Северной Америки и автоматическая разметка', org: 'Hyundai Motor Genesis Chassis Test Team · Vegas · Университет Корё', when: 'июль – окт. 2026', bullets: [
         'Спроектировал повторяемый процесс сбора с учётом региона, даты съёмки и требований к качеству изображений.',
         'Связал поиск похожих изображений на DINOv3 и FAISS с инструментом проверки, чтобы нужные сцены быстро находились и подтверждались вручную.',
       ] },

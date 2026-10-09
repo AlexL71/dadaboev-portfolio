@@ -22,9 +22,9 @@ export const projectSummaries: Record<Locale, Record<string, ProjectSummary>> = 
   en: {
     'north-american-road-data': {
       challenge: 'Build a useful road-image dataset out of a huge public source, keeping only images that match the region, date, and quality requirements, without drowning in near-duplicates.',
-      role: 'I design the collection pipeline, the similarity search, and the human review step.',
+      role: 'I designed the collection pipeline, the similarity search, and the human review step.',
       result: 'One repeatable pipeline now runs from Mapillary collection through DINOv3 and FAISS retrieval to a final manual check.',
-      status: 'In progress, with industry and university partners.',
+      status: 'Finished (Jul – Oct 2026) with industry and university partners.',
     },
     'amorphous-bottleneck': {
       challenge: 'Find faint, irregular defects that standard object detectors routinely miss.',
@@ -84,9 +84,9 @@ export const projectSummaries: Record<Locale, Record<string, ProjectSummary>> = 
   ko: {
     'north-american-road-data': {
       challenge: '방대한 공개 데이터에서 지역, 촬영 시기, 품질 조건에 맞는 도로 이미지만 골라, 비슷한 사진이 잔뜩 쌓이지 않게 쓸 만한 데이터셋을 만드는 것.',
-      role: '데이터 수집 파이프라인, 유사 이미지 검색, 사람의 검수 단계를 설계하고 있습니다.',
+      role: '데이터 수집 파이프라인, 유사 이미지 검색, 사람의 검수 단계를 설계했습니다.',
       result: 'Mapillary 수집부터 DINOv3·FAISS 검색, 최종 수동 검수까지 한 번에 이어지는 반복 가능한 파이프라인을 만들었습니다.',
-      status: '기업·대학과 함께 진행 중입니다.',
+      status: '기업·대학과 함께 진행해 2026년 10월에 마쳤습니다.',
     },
     'amorphous-bottleneck': {
       challenge: '일반적인 객체 탐지 모델이 자주 놓치는, 흐릿하고 형태가 불규칙한 결함을 찾는 것.',
@@ -146,9 +146,9 @@ export const projectSummaries: Record<Locale, Record<string, ProjectSummary>> = 
   ru: {
     'north-american-road-data': {
       challenge: 'Собрать полезный набор дорожных изображений из огромного открытого источника: оставить только снимки нужного региона, даты и качества и не утонуть в почти одинаковых кадрах.',
-      role: 'Проектирую сбор данных, поиск похожих изображений и этап ручной проверки.',
-      result: 'Работает единый повторяемый процесс: сбор из Mapillary, поиск через DINOv3 и FAISS и финальная ручная проверка.',
-      status: 'В работе, совместно с индустриальными и университетскими партнёрами.',
+      role: 'Спроектировал сбор данных, поиск похожих изображений и этап ручной проверки.',
+      result: 'Построен единый повторяемый процесс: сбор из Mapillary, поиск через DINOv3 и FAISS и финальная ручная проверка.',
+      status: 'Завершён в октябре 2026 года вместе с индустриальными и университетскими партнёрами.',
     },
     'amorphous-bottleneck': {
       challenge: 'Находить слабые дефекты неправильной формы, которые обычные детекторы регулярно пропускают.',
