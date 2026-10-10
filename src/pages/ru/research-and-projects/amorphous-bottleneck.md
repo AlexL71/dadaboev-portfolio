@@ -17,7 +17,7 @@ tags: ["Компьютерное зрение", "Ансамбли", "Data-centri
 
 Я представил работу **«The Amorphous Bottleneck: A Recall Optimized Ensemble for Anomaly Detection»** на конференции **CVGAI 2026**. В докладе я рассказал, почему стандартные детекторы плохо справляются со слабыми дорожными дефектами неправильной формы, и показал весь пайплайн. Итоговый ансамбль поднял рабочую полноту на **7,7 п. п.** и заодно нашёл настоящие дефекты, которых не было в исходной разметке.
 
-Полная статья готовится к публикации в **SPIE Conference Proceedings** (ISSN 0277-786X) с индексированием в EI Compendex и Scopus. Есть и [короткий пост о конференции в LinkedIn](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
+Полная статья опубликована в **Proceedings of SPIE**, т. 14357: [читать в SPIE Digital Library](https://doi.org/10.1117/12.3127858) (DOI: 10.1117/12.3127858). Есть и [короткий пост о конференции в LinkedIn](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
 
 <div class="project-gallery">
   <figure class="project-figure project-figure-wide">

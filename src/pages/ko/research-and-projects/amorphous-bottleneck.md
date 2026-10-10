@@ -17,7 +17,7 @@ tags: ["컴퓨터 비전", "앙상블 학습", "데이터 중심 AI", "WBF"]
 
 이 연구는 **CVGAI 2026**에서 “**The Amorphous Bottleneck: A Recall Optimized Ensemble for Anomaly Detection**”이라는 제목으로 발표했습니다. 일반적인 탐지 모델이 흐릿하고 불규칙한 도로 결함에 약한 이유와 파이프라인 구성을 설명했습니다. 최종 앙상블은 운영 재현율을 **7.7%p** 높였고, 원래 라벨에서 빠져 있던 실제 결함도 찾아냈습니다.
 
-전체 논문은 **SPIE Conference Proceedings**(ISSN 0277-786X) 출판 절차를 밟고 있으며, EI Compendex와 Scopus 등재가 예정되어 있습니다. [LinkedIn에 올린 학회 후기](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz)도 있습니다.
+전체 논문은 **Proceedings of SPIE** 14357권에 게재되었습니다. [SPIE Digital Library에서 논문 보기](https://doi.org/10.1117/12.3127858) (DOI: 10.1117/12.3127858). [LinkedIn에 올린 학회 후기](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz)도 있습니다.
 
 <div class="project-gallery">
   <figure class="project-figure project-figure-wide">

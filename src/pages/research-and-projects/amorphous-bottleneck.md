@@ -17,7 +17,7 @@ This project attacks it from the data side. Starting from a single Mask R-CNN ba
 
 I presented the work as **“The Amorphous Bottleneck: A Recall Optimized Ensemble for Anomaly Detection”** at **CVGAI 2026**. The talk covered why standard detectors struggle with faint, irregular road defects and walked through the pipeline. The final ensemble raised operational recall by **7.7 percentage points**, and it also surfaced real defects that were missing from the original annotations.
 
-The full paper is going through publication in the **SPIE Conference Proceedings** (ISSN 0277-786X), with indexing planned in EI Compendex and Scopus. There is also a [short post about the conference on LinkedIn](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
+The full paper is now published in the **Proceedings of SPIE**, Vol. 14357: [read it in the SPIE Digital Library](https://doi.org/10.1117/12.3127858) (DOI: 10.1117/12.3127858). There is also a [short post about the conference on LinkedIn](https://www.linkedin.com/posts/abdurakhmon-dadaboev_computervision-anomalydetection-machinelearning-activity-7477337404710756353-5TZz).
 
 <div class="project-gallery">
   <figure class="project-figure project-figure-wide">

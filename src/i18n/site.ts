@@ -382,7 +382,7 @@ export const about = {
 /* ------------------------------------------------------------------
    Resume
 ------------------------------------------------------------------- */
-type ResumeEntry = { title: string; org: string; when: string; bullets?: string[]; text?: string };
+type ResumeEntry = { title: string; org: string; when: string; bullets?: string[]; text?: string; href?: string };
 type CoverLetter = { label: string; title: string; sections: { tag: string; heading: string; paragraphs: string[] }[] };
 
 export const resume: Record<Locale, {
@@ -432,7 +432,7 @@ export const resume: Record<Locale, {
     ],
     researchTitle: 'Research & selected work',
     research: [
-      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · SPIE Proceedings (in press)', when: '2026', text: 'Presented an ensemble for faint, irregular road defects. It raised operational recall by 7.7 points on 591 held-out images, recovering 27 missed defects for every one it lost.' },
+      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · Proceedings of SPIE, Vol. 14357', when: '2026', href: 'https://doi.org/10.1117/12.3127858', text: 'Presented an ensemble for faint, irregular road defects. It raised operational recall by 7.7 points on 591 held-out images, recovering 27 missed defects for every one it lost.' },
       { title: 'Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction', org: 'AEECA 2025 · Dalian, China · IEEE Xplore', when: 'Aug 2025', text: 'Co-authored paper. Our RGB-only student reached 0.6002 mIoU and closed 62.8% of the gap to the multi-sensor teacher.' },
       { title: 'AI Hub Image Data Education Framework', org: 'Eco-Up Innovation Fusion University · Project R2320813', when: 'Sep 2024 – Jan 2025', text: 'Reviewed the data specs for six AI Hub domains and built one Python framework for exploring, preprocessing, and modeling image data.' },
       { title: 'Embedded systems projects', org: 'Sun Moon University', when: '2021 – 2022', text: 'Built an Arduino hexapod robot and a Raspberry Pi ball launcher that aims with OpenCV, combining sensors, motor control, and circuit design.' },
@@ -533,7 +533,7 @@ export const resume: Record<Locale, {
     ],
     researchTitle: '논문 및 주요 프로젝트',
     research: [
-      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · SPIE 프로시딩 게재 예정', when: '2026', text: '흐릿하고 불규칙한 도로 결함을 찾는 앙상블을 발표했습니다. 홀드아웃 이미지 591장에서 운영 재현율을 7.7%p 높였고, 새로 놓친 결함 1건당 27건을 새로 찾아냈습니다.' },
+      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · Proceedings of SPIE 14357권', when: '2026', href: 'https://doi.org/10.1117/12.3127858', text: '흐릿하고 불규칙한 도로 결함을 찾는 앙상블을 발표했습니다. 홀드아웃 이미지 591장에서 운영 재현율을 7.7%p 높였고, 새로 놓친 결함 1건당 27건을 새로 찾아냈습니다.' },
       { title: 'Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction', org: 'AEECA 2025 · 중국 다롄 · IEEE Xplore', when: '2025.08', text: '공동 저자로 참여했습니다. RGB 전용 학생 모델이 mIoU 0.6002를 기록해 멀티센서 교사 모델과의 격차를 62.8% 줄였습니다.' },
       { title: 'AI Hub 이미지 데이터 교육 프레임워크', org: '에코업 혁신융합대학 · 과제 R2320813', when: '2024.09 – 2025.01', text: 'AI Hub 6개 분야의 데이터 사양을 검토하고, 이미지 데이터 탐색·전처리·모델링을 한 번에 다루는 Python 프레임워크를 만들었습니다.' },
       { title: '임베디드 시스템 프로젝트', org: '선문대학교', when: '2021 – 2022', text: 'Arduino 헥사포드 로봇과, OpenCV로 조준하는 Raspberry Pi 공 발사기를 만들었습니다. 센서, 모터 제어, 회로 설계를 함께 다뤘습니다.' },
@@ -634,7 +634,7 @@ export const resume: Record<Locale, {
     ],
     researchTitle: 'Исследования и избранные проекты',
     research: [
-      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · SPIE Proceedings (в печати)', when: '2026', text: 'Доклад об ансамбле для слабых дорожных дефектов неправильной формы. На 591 отложенном изображении рабочая полнота выросла на 7,7 п. п.: на каждый новый пропуск ансамбль находил 27 ранее пропущенных дефектов.' },
+      { title: 'The Amorphous Bottleneck: A Recall-Optimized Ensemble for Anomaly Detection', org: 'CVGAI 2026 · Proceedings of SPIE, т. 14357', when: '2026', href: 'https://doi.org/10.1117/12.3127858', text: 'Доклад об ансамбле для слабых дорожных дефектов неправильной формы. На 591 отложенном изображении рабочая полнота выросла на 7,7 п. п.: на каждый новый пропуск ансамбль находил 27 ранее пропущенных дефектов.' },
       { title: 'Efficient Semantic Segmentation: Leveraging Knowledge Distillation for Modality Reduction', org: 'AEECA 2025 · Далянь, Китай · IEEE Xplore', when: 'авг. 2025', text: 'Соавтор статьи. Наша RGB-модель-ученик достигла mIoU 0,6002 и закрыла 62,8% разрыва с мультисенсорной моделью-учителем.' },
       { title: 'Учебный фреймворк для данных AI Hub', org: 'Eco-Up Innovation Fusion University · проект R2320813', when: 'сент. 2024 – янв. 2025', text: 'Разобрал спецификации данных шести направлений AI Hub и написал единый Python-фреймворк для исследования, предобработки и моделирования изображений.' },
       { title: 'Проекты по встраиваемым системам', org: 'Университет Сонмун', when: '2021 – 2022', text: 'Собрал шагающего робота-гексапода на Arduino и пусковую установку для мячей на Raspberry Pi, которая целится с помощью OpenCV. Датчики, управление моторами и схемотехника.' },
